@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Rekonstruktionskarte – Analysemodus</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+<style>
+body{margin:0;font-family:serif;background:#f5f2ea}
+header{padding:10px;text-align:center;background:#7a0019;color:white}
+#map{height:85vh}
+.legend{
+background:white;
+padding:10px;
+border-radius:10px;
+box-shadow:0 0 15px rgba(0,0,0,.2);
+line-height:1.4em;
+}
+</style>
+</head>
+<body>
+
+<header><h1>Historische Rekonstruktionskarte – Analysemodus</h1></header>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+
+const YEARS=["1569","1608","1683","1700","1749","1872"];
+
+const map=L.map("map").setView([49.62,9.66],13);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+
+let borderCoords;
+
+
+// Grenze laden
+fetch("Gemarkungsgrenze Tauberbischofsheim.geojson")
+.then(r=>r.json())
+.then(g=>{
+
+L.geoJSON(g,{
+style:{color:"red",weight:3}
+}).addTo(map);
+
+borderCoords=g.features[0].geometry.coordinates;
+
+});
+
+
+// Distanzpunkt entlang Linie
+function pointAlongLine(coords,dist){
+
+let total=0;
+
+for(let i=1;i<coords.length;i++){
+
+let [x1,y1]=coords[i-1];
+let [x2,y2]=coords[i];
+
+let seg=Math.hypot(x2-x1,y2-y1);
+
+if(total+seg>=dist){
+let t=(dist-total)/seg;
+return [y1+(y2-y1)*t,x1+(x2-x1)*t];
+}
+
+total+=seg;
+}
+
+return null;
+}
+
+
+// Distanz lesen
+function getDist(row){
+
+for(let y of YEARS){
+
+let obj=row[y];
+if(!obj) continue;
+
+for(let k in obj)
+if(k.toLowerCase().includes("meter"))
+return {d:Number(obj[k]),year:y};
+
+}
+
+return null;
+}
+
+
+// Daten laden
+fetch("data.json")
+.then(r=>r.json())
+.then(data=>{
+
+let reconLayer=L.layerGroup().addTo(map);
+
+// reale Steine
+data.forEach(r=>{
+if(!r.gps || !r.gps.includes(",")) return;
+
+let [lat,lon]=r.gps.split(",").map(Number);
+
+L.circleMarker([lat,lon],{
+radius:5,
+color:"#2e8b57",
+fillOpacity:.9
+}).addTo(map).bindPopup("Stein "+r.id+"<br>real");
+});
+
+
+// rekonstruierte Steine
+data.forEach((r,i)=>{
+
+if(r.gps) return;
+
+let prev=data[i-1];
+let distObj=getDist(r);
+
+if(!distObj) return;
+
+let pt=pointAlongLine(borderCoords,distObj.d/100000);
+if(!pt) return;
+
+
+// Unsicherheitsstufe
+let level="C";
+let color="#cc0000";
+
+if(prev?.gps && distObj) { level="A"; color="#1a7f37";}
+else if(distObj) { level="B"; color="#e0b000"; }
+
+
+// Punkt
+L.circleMarker([pt[1],pt[0]],{
+radius:6,
+color:color,
+fillOpacity:.9
+}).addTo(reconLayer)
+.bindPopup(`
+<b>Stein ${r.id}</b><br>
+Rekonstruiert<br>
+Distanz: ${distObj.d} m<br>
+Quelle: ${distObj.year}<br>
+Unsicherheit: ${level}
+`);
+
+
+// Unsicherheitsradius
+L.circle([pt[1],pt[0]],{
+radius:distObj.d,
+color:color,
+opacity:.2,
+fillOpacity:.05
+}).addTo(reconLayer);
+
+});
+
+});
+
+
+// Legende
+const legend=L.control({position:"bottomright"});
+legend.onAdd=function(){
+const div=L.DomUtil.create("div","legend");
+
+div.innerHTML=`
+<b>Unsicherheitsstufen</b><br>
+<span style="color:#1a7f37">●</span> hoch sicher<br>
+<span style="color:#e0b000">●</span> mittel<br>
+<span style="color:#cc0000">●</span> geschätzt<br>
+`;
+return div;
+};
+legend.addTo(map);
+
+</script>
+
+</body>
+</html>
