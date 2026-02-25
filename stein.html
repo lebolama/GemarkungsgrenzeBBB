@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Grenzstein-Dossier</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .section-title{margin:0 0 10px 0;color:#6b0000}
+  .meta-line{margin:4px 0}
+  .hr{border:0;border-top:1px solid #e5e0d6;margin:16px 0}
+  .kv{display:grid;grid-template-columns:280px 1fr;gap:8px 14px;align-items:start}
+  .k{font-weight:bold}
+  .v{white-space:pre-wrap}
+  .small{font-size:14px;color:#555}
+  details summary{cursor:pointer;font-weight:bold;color:#6b0000}
+  .badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#f4f1ea;color:#6b0000;font-size:12px;margin-left:8px}
+  .note{background:#fbfaf6;border-left:4px solid #6b0000;padding:10px 12px;border-radius:8px;white-space:pre-wrap}
+  .chip{display:inline-block;padding:3px 10px;border-radius:999px;background:#f4f1ea;color:#6b0000;font-size:12px;margin-right:6px;margin-bottom:6px}
+  .ok{color:#0b6b2f;font-weight:bold}
+  .toc a{display:inline-block;margin:4px 8px 4px 0}
+  .profile{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:14px;
+  }
+  @media (max-width:800px){
+    .profile{grid-template-columns:1fr}
+    .kv{grid-template-columns:1fr}
+  }
+  .profile-box{
+    background:#fbfaf6;
+    border:1px solid #eee6da;
+    border-radius:10px;
+    padding:12px;
+  }
+  .profile-box h3{margin:0 0 10px 0;color:#6b0000}
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid #eadfce;
+    background:#fff;
+    margin:4px 6px 0 0;
+    font-size:13px;
+  }
+  .dot{
+    width:10px;height:10px;border-radius:999px;background:#6b0000;display:inline-block;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Grenzstein-Dossier</h1>
+</header>
+
+<div class="container" id="content"></div>
+
+<script>
+const id = new URLSearchParams(location.search).get("id");
+
+function esc(s){
+  return String(s)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;");
+}
+function isEmpty(v){
+  if(v === null || v === undefined) return true;
+  const s = String(v).trim();
+  return s === "" || s.toLowerCase() === "nan";
+}
+function isUrl(s){
+  if(!s) return false;
+  const t = String(s).trim();
+  return t.startsWith("http://") || t.startsWith("https://");
+}
+function formatX(value){
+  if(isEmpty(value)) return "";
+  const s = String(value).trim();
+  const sl = s.toLowerCase();
+  if(sl === "x") return "<span class='ok'>✓</span>";
+  const m = sl.match(/(\d+)\s*x/);
+  if(m) return `<span class='ok'>${m[1]}× ✓</span>`;
+  return esc(s);
+}
+function formatB(value){
+  if(isEmpty(value)) return "";
+  const s = String(value).trim();
+  const sl = s.toLowerCase();
+  if(sl === "x") return "<span class='ok'>B: 1</span>";
+  const m = sl.match(/(\d+)/);
+  if(m) return `<span class='ok'>B: ${m[1]}</span>`;
+  return esc(s);
+}
+function isLikelySonstiges(label){ return /sonstiges/i.test(label); }
+function isLikelyFotos(label){ return /foto/i.test(label); }
+function isLikelyGPS(label){ return /\bgps\b/i.test(label); }
+function isLikelyWappen(label){ return /wappen|wappenschild/i.test(label); }
+function isLikelyRad(label){ return /\brad\b/i.test(label) || /mainzer/i.test(label); }
+function isLikelyKreuz(label){ return /kreuz/i.test(label); }
+function isLikelyB(label){
+  const l=label.trim().toLowerCase();
+  return l==="b" || l==="bischofsheim";
+}
+function niceLabel(label){
+  const l = String(label).trim();
+  return l
+    .replaceAll("groß/klein","Größe/Form")
+    .replaceAll("gross/klein","Größe/Form")
+    .replaceAll("Ruthen zum vorherigen (Fränkische Werkrute 3,65m)","Ruthen zum vorherigen (3,65 m)")
+    .replaceAll("Kreuz oben","Kreuz (Oberseite)")
+    .replaceAll("sonstiges","Sonstiges");
+}
+function groupTitle(groupKey){
+  const g = String(groupKey);
+  if(/\b2021\b/.test(g)) return "Grenzbegehung von Hendrik Beierstettel im Jahr 2021";
+  if(/\b1887\b/.test(g) || /\b1893\b/.test(g)) return "Grenzberichtigungen in den Jahren 1887 bis 1893";
+  if(/\b1784\b/.test(g) || /großrinderfeld/i.test(g)) return "Großrinderfelder Grenzgang im Jahr 1784";
+  if(/\b1569\b/.test(g) && /\b1580\b/.test(g)) return "Grenzgang im Jahr 1569 (Wiederholung 1580)";
+  if(/\b1569\b/.test(g)) return "Grenzgang im Jahr 1569";
+  if(/\b1608\b/.test(g)) return "Grenzgang im Jahr 1608";
+  if(/\b1683\b/.test(g)) return "Grenzgang im Jahr 1683";
+  if(/\b1700\b/.test(g)) return "Grenzgang im Jahr 1700";
+  if(/\b1749\b/.test(g)) return "Grenzgang im Jahr 1749";
+  if(/\b1872\b/.test(g)) return "Grenzgang im Jahr 1872";
+  return g;
+}
+function slug(s){
+  return String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");
+}
+function osmLinkFromText(s){
+  if(isEmpty(s)) return "";
+  const m = String(s).match(/(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)/);
+  if(!m) return "";
+  const lat = parseFloat(m[1]), lon = parseFloat(m[2]);
+  if(isNaN(lat)||isNaN(lon)) return "";
+  const url = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=18/${lat}/${lon}`;
+  return `<a href="${esc(url)}" target="_blank" rel="noopener">Karte öffnen (OSM)</a> <span class="small">(${lat}, ${lon})</span>`;
+}
+
+function summarizeSymbols(derived){
+  const sy = derived?.symbols_by_year || {};
+  let w=false,r=false,k=false,b=false;
+  for(const y in sy){
+    const o=sy[y];
+    if((o.wappen_count||0)>0) w=true;
+    if((o.rad_count||0)>0) r=true;
+    if((o.kreuz_count||0)>0) k=true;
+    if((o.b_count||0)>0) b=true;
+  }
+  return {w,r,k,b};
+}
+
+fetch("data.json").then(r=>r.json()).then(data=>{
+  const row = data.find(r => String(Object.values(r)[0]) === String(id));
+  if(!row){
+    content.innerHTML = `<div class="card"><b>Kein Datensatz gefunden.</b><br>Unbekannte ID: ${esc(id)}</div>`;
+    return;
+  }
+
+  const stoneId = row.ID ?? Object.values(row)[0];
+  const border  = row.Grenze ?? Object.values(row)[1];
+  const derived = row._derived || null;
+
+  // Gruppenbildung
+  const groups = new Map();
+  function addToGroup(g, label, value){
+    if(!groups.has(g)) groups.set(g, []);
+    groups.get(g).push({label, value});
+  }
+  for(const [k,v] of Object.entries(row)){
+    if(k === "ID" || k === "Grenze") continue;
+    if(k === "_gps_parsed" || k === "_derived") continue;
+    const key = String(k);
+    if(key.includes(" — ")){
+      const [g, lab] = key.split(" — ", 2);
+      addToGroup(g, lab, v);
+    }else{
+      addToGroup("Allgemein", key, v);
+    }
+  }
+
+  const preferredOrder=["2021","1569","1608","1683","1700","1749","1872","1887","1784"];
+  const groupKeys = Array.from(groups.keys());
+  groupKeys.sort((a,b)=>{
+    const sa=String(a), sb=String(b);
+    const ra = preferredOrder.findIndex(p => sa.includes(p));
+    const rb = preferredOrder.findIndex(p => sb.includes(p));
+    if(ra !== -1 || rb !== -1){
+      if(ra === -1) return 1;
+      if(rb === -1) return -1;
+      return ra - rb;
+    }
+    return sa.localeCompare(sb, "de");
+  });
+
+  // Sprungmarken vorbereiten
+  const tocItems = [];
+  for(const g of groupKeys){
+    const items = (groups.get(g)||[]).filter(it=>!isEmpty(it.value));
+    if(items.length===0) continue;
+    const title = groupTitle(g);
+    const anchor = "sec-" + slug(g);
+    tocItems.push({title, anchor});
+  }
+
+  // Steckbrief Daten: 2021-GPS/Fotos, Erst/Letzt, Setzjahr, Symbolbadges
+  const sym = summarizeSymbols(derived);
+  const photosUrl = derived?.survey2021?.photos_url || "";
+  const gpsNorm = derived?.survey2021?.gps_normalized || "";
+  const gpsRaw = derived?.survey2021?.gps_raw || "";
+
+  const gpsBlock = osmLinkFromText(gpsNorm) || osmLinkFromText(gpsRaw) || (isEmpty(gpsRaw) ? "—" : esc(gpsRaw));
+
+  let html = `
+    <div class="card">
+      <h2 class="section-title">Bischofsheimer Gemarkungsgrenzstein ID-Nr. ${esc(stoneId)}</h2>
+      <div class="meta-line"><span class="chip">Grenze</span> ${esc(border || "—")}</div>
+      <div class="small">Permalink: <a href="${esc(location.href)}">${esc(location.href)}</a></div>
+    </div>
+
+    <div class="card">
+      <div class="profile">
+        <div class="profile-box">
+          <h3>Steckbrief</h3>
+          <div class="kv">
+            <div class="k">Erstnennung</div><div class="v">${esc(derived?.first_documented_year || "—")}</div>
+            <div class="k">Letztnennung</div><div class="v">${esc(derived?.last_documented_year || "—")}</div>
+            <div class="k">Frühestes mögliches Setzjahr</div><div class="v">${esc(derived?.earliest_possible_setting_year || "—")}</div>
+            <div class="k">Dreimärker</div><div class="v">${derived?.is_dreimaerker ? "ja" : "nein"}</div>
+            <div class="k">GPS (2021)</div><div class="v">${gpsBlock}</div>
+            <div class="k">Fotos (2021)</div>
+            <div class="v">${
+              isUrl(photosUrl)
+                ? `<a href="${esc(photosUrl)}" target="_blank" rel="noopener">Google-Fotoalbum öffnen</a>`
+                : "—"
+            }</div>
+          </div>
+        </div>
+
+        <div class="profile-box">
+          <h3>Symbolik (gesamt)</h3>
+          <div>
+            <span class="pill"><span class="dot"></span> Wappen: ${sym.w ? "<span class='ok'>✓</span>" : "—"}</span>
+            <span class="pill"><span class="dot"></span> Mainzer Rad: ${sym.r ? "<span class='ok'>✓</span>" : "—"}</span>
+            <span class="pill"><span class="dot"></span> Kreuz: ${sym.k ? "<span class='ok'>✓</span>" : "—"}</span>
+            <span class="pill"><span class="dot"></span> B: ${sym.b ? "<span class='ok'>✓</span>" : "—"}</span>
+          </div>
+          <div class="hr"></div>
+          <div class="small">
+            <b>Hinweis:</b> „gesamt“ bedeutet: Merkmal ist in mindestens einem Grenzgang dokumentiert.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card toc">
+      <h3 class="section-title">Sprungmarken</h3>
+      ${
+        tocItems.length
+          ? tocItems.map(t=>`<a href="#${esc(t.anchor)}">${esc(t.title)}</a>`).join("")
+          : "<span class='small'>Keine Abschnittsdaten vorhanden.</span>"
+      }
+    </div>
+  `;
+
+  // Abschnitte ausgeben
+  for(const g of groupKeys){
+    const items = (groups.get(g)||[]).filter(it=>!isEmpty(it.value));
+    if(items.length===0) continue;
+
+    const title = groupTitle(g);
+    const anchor = "sec-" + slug(g);
+
+    html += `<div class="card" id="${esc(anchor)}">`;
+    html += `<h3 class="section-title">${esc(title)}</h3>`;
+    html += `<div class="kv">`;
+
+    items.forEach(({label,value})=>{
+      const lab = niceLabel(label);
+
+      if(isLikelySonstiges(lab)){
+        html += `<div class="k">${esc(lab)}</div><div class="v"><div class="note">${esc(value)}</div></div>`;
+        return;
+      }
+
+      if(isLikelyFotos(lab) && isUrl(value)){
+        html += `<div class="k">${esc(lab)}</div><div class="v"><a href="${esc(value)}" target="_blank" rel="noopener">Google-Fotoalbum öffnen</a></div>`;
+        return;
+      }
+
+      if(isLikelyGPS(lab)){
+        const osm = osmLinkFromText(value);
+        html += `<div class="k">${esc(lab)}</div><div class="v">${osm || esc(value)}</div>`;
+        return;
+      }
+
+      if(isLikelyWappen(lab) || isLikelyRad(lab) || isLikelyKreuz(lab)){
+        const fx = formatX(value);
+        html += `<div class="k">${esc(lab)}</div><div class="v">${fx || "—"}</div>`;
+        return;
+      }
+
+      if(isLikelyB(lab)){
+        const fb = formatB(value);
+        html += `<div class="k">${esc(lab)}</div><div class="v">${fb || "—"}</div>`;
+        return;
+      }
+
+      if(isUrl(value)){
+        html += `<div class="k">${esc(lab)}</div><div class="v"><a href="${esc(value)}" target="_blank" rel="noopener">${esc(value)}</a></div>`;
+        return;
+      }
+
+      html += `<div class="k">${esc(lab)}</div><div class="v">${esc(value)}</div>`;
+    });
+
+    html += `</div></div>`;
+    html += `<div class="hr"></div>`;
+  }
+
+  // Abgeleitete Felder (voll) einklappbar
+  if(derived){
+    html += `
+      <div class="card">
+        <details>
+          <summary>Abgeleitete Forschungsfelder (vollständig) <span class="badge">automatisch berechnet</span></summary>
+          <div class="hr"></div>
+          <pre style="white-space:pre-wrap;margin:0">${esc(JSON.stringify(derived,null,2))}</pre>
+          <div class="hr"></div>
+          <div class="small"><b>Hinweis:</b> Diese Felder sind abgeleitet und ändern keine Rohdaten.</div>
+        </details>
+      </div>
+    `;
+  }
+
+  // Notizen
+  html += `
+    <div class="card">
+      <h3 class="section-title">Forschungsnotizen</h3>
+
+      <b>Beschreibung / Beobachtung</b><br>
+      <textarea id="note_obs" style="width:100%;height:80px"></textarea><br><br>
+
+      <b>Deutung / Hypothesen</b><br>
+      <textarea id="note_interp" style="width:100%;height:80px"></textarea><br><br>
+
+      <b>Literatur / Quellen</b><br>
+      <textarea id="note_lit" style="width:100%;height:60px"></textarea><br><br>
+
+      <b>To-do</b><br>
+      <textarea id="note_todo" style="width:100%;height:60px"></textarea><br><br>
+
+      <div class="small">Zuletzt geändert: <span id="updated">–</span></div><br>
+
+      <button onclick="exportNotes()">Export Notizen</button>
+      <button onclick="clearNotes()">Löschen</button>
+    </div>
+  `;
+
+  content.innerHTML = html;
+
+  // Notes persistence
+  const KEY = "stein_notes_" + stoneId;
+  function load(){
+    let n={};
+    try{ n = JSON.parse(localStorage.getItem(KEY)||"{}"); }catch(e){}
+    note_obs.value=n.obs||"";
+    note_interp.value=n.interp||"";
+    note_lit.value=n.lit||"";
+    note_todo.value=n.todo||"";
+    updated.textContent=n.updated||"–";
+  }
+  function save(){
+    const n={
+      obs:note_obs.value,
+      interp:note_interp.value,
+      lit:note_lit.value,
+      todo:note_todo.value,
+      updated:new Date().toLocaleString()
+    };
+    localStorage.setItem(KEY,JSON.stringify(n));
+    updated.textContent=n.updated;
+  }
+  ["note_obs","note_interp","note_lit","note_todo"].forEach(fid=>{
+    document.getElementById(fid).addEventListener("input",save);
+  });
+  window.exportNotes=function(){
+    const n=localStorage.getItem(KEY) || "{}";
+    const blob=new Blob([n],{type:"application/json"});
+    const a=document.createElement("a");
+    a.href=URL.createObjectURL(blob);
+    a.download="Notizen_Stein_"+stoneId+".json";
+    a.click();
+  };
+  window.clearNotes=function(){
+    if(confirm("Notizen löschen?")){
+      localStorage.removeItem(KEY);
+      load();
+    }
+  };
+  load();
+});
+</script>
+
+</body>
+</html>
