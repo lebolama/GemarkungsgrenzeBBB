@@ -2,146 +2,121 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Digitale Edition Grenzsteine</title>
-
-<link rel="stylesheet" href="assets/style.css">
-
-<style>
-
-.hero{
-text-align:center;
-margin:10px auto 25px auto;
-}
-
-.hero img{
-max-width:900px;
-width:100%;
-height:auto;
-border-radius:14px;
-box-shadow:0 6px 20px rgba(0,0,0,0.2);
-}
-
-header{
-text-align:center;
-margin-bottom:10px;
-}
-
-header h1{
-font-size:clamp(20px,4vw,32px);
-margin-bottom:8px;
-}
-
-.version{
-font-size:14px;
-color:#666;
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:15px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-margin-top:15px;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:16px;
-box-shadow:0 5px 18px rgba(0,0,0,0.08);
-transition:.2s;
-}
-
-.card:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-}
-
-.card h2{
-margin-top:0;
-color:#7a0019;
-}
-
-.nav a{
-display:block;
-padding:6px 0;
-text-decoration:none;
-color:#333;
-}
-
-.nav a:hover{
-color:#7a0019;
-}
-
-footer{
-text-align:center;
-margin-top:35px;
-font-size:13px;
-color:#777;
-}
-
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Die Grenzsteine der Gemarkung Tauberbischofsheim</title>
+<meta name="description" content="Die historischen Grenzsteine rund um Tauberbischofsheim: 394 Steinpositionen aus neun Grenzbeschreibungen von 1569 bis 1893, im Gelände nachgesucht 2021, mit Karte, Fotos und Rekonstruktion verschwundener Steine.">
+<link rel="stylesheet" href="assets/grenze.css">
+<script src="assets/menue.js" defer></script>
 </head>
 <body>
-
-
-<header>
-<h1>Digitale Edition der Grenzsteine der Gemarkung Tauberbischofsheim</h1>
-<div class="version">Version 1.5 (2026) — Hendrik Beierstettel</div>
+<!-- KOPF -->
+<header class="kopf">
+  <div class="kopf-innen">
+    <a class="marke" href="index.html">Grenzsteine Tauberbischofsheim</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
+    <nav id="hauptmenue" aria-label="Hauptmenü">
+    <ul>
+      <li><a href="index.html" aria-current="page">Start</a></li>
+      <li><a href="standorte.html">Karte</a></li>
+      <li><a href="reconstruction_xl.html">Verschwundene Steine</a></li>
+      <li><a href="recherche.html">Steine suchen</a></li>
+      <li><a href="grenzgaenge.html">Die Grenzgänge</a></li>
+      <li><a href="chronik.html">Geschichte</a></li>
+      <li><a href="quellen.html">Quellen und Methode</a></li>
+      <li><a href="begriffe.html">Begriffe</a></li>
+      <li><a href="projekt.html">Über das Projekt</a></li>
+    </ul>
+    </nav>
+  </div>
 </header>
+<!-- /KOPF -->
 
+<main>
+<div class="aufmacher">
+<div class="text">
+<h1>Die Grenzsteine der Gemarkung Tauberbischofsheim</h1>
 
-<div class="hero">
-<img src="titelbild.png" alt="Titelbild Grenzstein-Edition">
+<p class="einleitung">Rund 30 Kilometer lang ist die Grenze, die Tauberbischofsheim von seinen
+Nachbarorten trennt. Über Jahrhunderte war sie mit Steinen markiert. Wo sie standen, wie sie
+aussahen und welche Zeichen sie trugen, hielten die Grenzgänger in Protokollen fest – das älteste
+stammt von 1569, das jüngste von 1893.</p>
+
+<p>Diese Website führt die neun erhaltenen Grenzbeschreibungen Stein für Stein zusammen und
+vergleicht sie mit dem, was 2021 im Gelände noch zu finden war. Für jeden Stein lässt sich
+verfolgen, wann er zum ersten Mal erwähnt wird, wie er beschrieben wurde und ob er heute noch
+steht.</p>
+</div>
+<figure class="titelfoto">
+  <img src="bilder/grenzstein-mainzer-rad.jpg" width="900" height="1200" alt="Moosbewachsener Grenzstein aus Sandstein im Wald. Auf der Vorderseite ein Wappenschild mit dem sechsspeichigen Mainzer Rad.">
+  <figcaption>Grenzstein mit dem Mainzer Rad im Wappenschild. Foto: Hendrik Beierstettel</figcaption>
+</figure>
 </div>
 
+<ul class="zahlen" aria-label="Der Bestand in Zahlen">
+  <li><b>394</b><span>Steinpositionen aus den Quellen</span></li>
+  <li><b>143</b><span>davon 2021 wiedergefunden</span></li>
+  <li><b>126</b><span>stehen noch am ursprünglichen Platz</span></li>
+  <li><b>14</b><span>Dreimärker, an denen drei Gemarkungen zusammentreffen</span></li>
+</ul>
 
-<div class="container">
-
-<div class="grid">
-
-<div class="card">
-<h2>Projekt</h2>
-Digitale Edition der historischen Gemarkungsgrenzsteine basierend auf Grenzgangprotokollen (1569–1872) und einer Feldbegehung 2021.
+<h2>Wo Sie anfangen können</h2>
+<div class="einstiege">
+  <a class="einstieg" href="standorte.html">
+    <strong>Karte der Grenzsteine</strong>
+    <span>Alle Steine auf der Karte, mit den historischen Beschreibungen, Fotos von 2021,
+    alten Flurkarten und Flurnamen. Funktioniert auch unterwegs auf dem Handy.</span>
+  </a>
+  <a class="einstieg" href="reconstruction_xl.html">
+    <strong>Verschwundene Steine</strong>
+    <span>Wo standen die Steine, die heute fehlen? Die Karte berechnet ihre Standorte aus den
+    Abstandsangaben der alten Protokolle und zeigt, wie sicher jede Angabe ist.</span>
+  </a>
+  <a class="einstieg" href="recherche.html">
+    <strong>Steine suchen</strong>
+    <span>Einen bestimmten Stein finden oder Steine nach Merkmalen auswählen, etwa alle mit
+    Mainzer Rad an der Grenze zu Impfingen.</span>
+  </a>
 </div>
 
+<div class="text">
+<h2>Die Grenze und ihre Nachbarn</h2>
+<p>Die Gemarkung Tauberbischofsheim grenzt an Impfingen, Hochhausen, Dittigheim, Dittwar,
+Königheim, Dienstadt, Großrinderfeld, Grünsfeldhausen und Grünsfeld. Bis 1803 war
+Tauberbischofsheim eine kurmainzische Amtsstadt; mehrere Nachbarorte gehörten zum Hochstift
+Würzburg. Viele Steine tragen deshalb auf der Bischofsheimer Seite das Mainzer Rad und ein
+kleines „b“ für Bischofsheim, auf der Rückseite das Zeichen des Nachbarorts.</p>
 
-<div class="card nav">
-<h2>Navigation</h2>
+<h2>Die Quellen</h2>
+<p>Grundlage sind die Protokolle der Grenzgänge von 1569 (wiederholt 1580), 1608, 1683, 1700,
+1749 und 1872, die Großrinderfelder Grenzbegehung von 1784 und die Grenzberichtigungen von
+1887 bis 1893. Bei jedem Grenzgang wurde die Grenze abgeschritten; die Protokolle zählen die
+Steine, beschreiben ihre Zeichen und nennen ab 1608 auch die Abstände in Ruten. Wie die Angaben
+ausgewertet wurden, steht unter <a href="quellen.html">Quellen und Methode</a>.</p>
 
-<a href="suche.html">Recherche</a>
-<a href="suche_2.html">Experten-Recherche</a>
-<a href="karte.html">Karte</a>
-<a href="reconstruction_xl.html">Karte mit den noch vorhandenen oder berechneten Standorten der historischen Grenzsteine</a>
-<a href="standorte.html">selbige Karte der Gemarkungsgrenzsteine mit zusätzlicher Angabe der historischen Standortbeschreibungen</a>
-<a href="karteXL.html">Karte mit allen amtlich vermerkten Grenzpunkten</a>
-<a href="abstaende.html">Abstands-Statistik</a>
-<a href="distanzkarte.html">Distanzen</a>
-<a href="analysen.html">Analyse-Module</a>
-<a href="projekt.html">Projektbeschreibung</a>
-<a href="edition.html">Edition</a>
-<a href="quellen.html">Quellen</a>
-<a href="changelog.html">Changelog</a>
-<a href="download.html">Datensatz</a>
-<a href="impressum.html">Impressum</a>
-
+<h2>Weitere Seiten</h2>
+<ul>
+  <li><a href="grenzgaenge.html">Die Grenzgänge</a> – was jede Grenzbeschreibung enthält und wie sich der Bestand verändert hat</li>
+  <li><a href="chronik.html">Geschichte</a> – die Grenzgänge im Zusammenhang der Orts- und Landesgeschichte</li>
+  <li><a href="karteXL.html">Amtliche Grenzpunkte</a> – alle heute amtlich vermerkten Grenzpunkte der Gemarkung</li>
+  <li><a href="begriffe.html">Begriffe</a> – von Dreimärker bis Werkrute</li>
+  <li><a href="download.html">Daten</a> – der vollständige Datensatz zum Herunterladen</li>
+  <li><a href="projekt.html">Über das Projekt</a></li>
+</ul>
 </div>
+</main>
 
-</div>
-
-</div>
-
-
-<footer>
-Digitale Edition — wissenschaftliche Datenpublikation
+<!-- FUSS -->
+<footer class="fuss">
+  <div class="fuss-innen">
+    <span>© Hendrik Beierstettel, Tauberbischofsheim</span>
+    <ul>
+      <li><a href="karteXL.html">Amtliche Grenzpunkte</a></li>
+      <li><a href="download.html">Daten</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
 </footer>
-
+<!-- /FUSS -->
 </body>
 </html>

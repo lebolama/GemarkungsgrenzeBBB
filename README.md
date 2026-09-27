@@ -86,7 +86,7 @@ backups/               datierte Sicherungen (Dateien lokal, im Repo nur Manifest
 - [x] Schritt 1: Projektdokumentation anlegen (dieses Repo)
 - [x] Schritt 1b: Aktuellen Live-Stand der Website ins Repo holen (`site/`), Erst-Backup (27.09.2026)
 - [x] Schritt 2: Website Seite für Seite sichten, Vorschlagsliste (`docs/VORSCHLAEGE.md`) (27.09.2026)
-- [ ] Schritt 2b: Freigabe der Vorschlagsliste durch Hendrik
-- [ ] Schritt 3: Texte und Layout überarbeiten (ohne die drei geschützten Seiten)
-- [ ] Schritt 4: Upload mit Backup und Protokoll
+- [x] Schritt 2b: Freigabe der Vorschlagsliste durch Hendrik (27.09.2026)
+- [x] Schritt 3: Texte und Layout überarbeiten – online seit 27.09.2026; Restangaben Hendriks folgen
+- [x] Schritt 4: Upload mit Backup und Protokoll (27.09.2026, zwei Uploads)
 - [ ] Schritt 5: Bewerbungsunterlagen Landespreis erstellen und einreichen (Frist 31.10.2026)

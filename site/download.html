@@ -1,43 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Forschungsdaten</title>
-<link rel="stylesheet" href="assets/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daten – Grenzsteine Tauberbischofsheim</title>
+<meta name="description" content="Der vollständige Datensatz zu den Grenzsteinen der Gemarkung Tauberbischofsheim als Tabelle (CSV) und im JSON-Format, mit Feldbeschreibung und Lizenz CC BY 4.0.">
+<link rel="stylesheet" href="assets/grenze.css">
+<script src="assets/menue.js" defer></script>
 </head>
 <body>
+<!-- KOPF -->
+<header class="kopf">
+  <div class="kopf-innen">
+    <a class="marke" href="index.html">Grenzsteine Tauberbischofsheim</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
+    <nav id="hauptmenue" aria-label="Hauptmenü">
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="standorte.html">Karte</a></li>
+      <li><a href="reconstruction_xl.html">Verschwundene Steine</a></li>
+      <li><a href="recherche.html">Steine suchen</a></li>
+      <li><a href="grenzgaenge.html">Die Grenzgänge</a></li>
+      <li><a href="chronik.html">Geschichte</a></li>
+      <li><a href="quellen.html">Quellen und Methode</a></li>
+      <li><a href="begriffe.html">Begriffe</a></li>
+      <li><a href="projekt.html">Über das Projekt</a></li>
+    </ul>
+    </nav>
+  </div>
+</header>
+<!-- /KOPF -->
 
-<header><h1>Forschungsdaten</h1></header>
+<main>
+<div class="text">
+<h1>Daten</h1>
+<p class="einleitung">Alle Angaben dieser Website stammen aus einem einzigen Datensatz mit
+394 Steinpositionen. Sie können ihn herunterladen und für eigene Forschungen verwenden.</p>
 
-<div style="text-align:center;margin-top:10px">
-<a href="index.html">Start</a> |
-<a href="suche.html">Recherche</a> |
-<a href="vergleich.html">Vergleich</a> |
-<a href="karte.html">Karte</a>
+<h2>Herunterladen</h2>
+<ul>
+  <li><a href="grenzsteine-tauberbischofsheim.csv" download>Tabelle (CSV, 151 KB)</a> – öffnet
+  sich in Excel oder LibreOffice. Eine Zeile je Steinposition, eine Spalte je Angabe;
+  Trennzeichen Semikolon, Zeichensatz UTF-8.</li>
+  <li><a href="data.json" download>Datensatz mit berechneten Feldern (JSON, 2,4 MB)</a> – für
+  die Weiterverarbeitung mit Programmen. Enthält zusätzlich die Felder, aus denen die Website
+  Suche und Karten erzeugt.</li>
+</ul>
+
+<h2>Nutzungsbedingungen</h2>
+<p>Die Daten stehen unter der Lizenz
+<a href="https://creativecommons.org/licenses/by/4.0/deed.de">Creative Commons Namensnennung
+4.0 International (CC BY 4.0)</a>. Sie dürfen sie weiterverwenden, auch verändert und in
+eigenen Veröffentlichungen, wenn Sie die Quelle nennen:</p>
+<p><em>Hendrik Beierstettel: Die Grenzsteine der Gemarkung Tauberbischofsheim, Datensatz,
+https://beierstettel.de/Grenze/</em></p>
+<p>Die Fotos der Grenzsteine gehören nicht zum Datensatz. Für sie gilt: alle Rechte
+vorbehalten; eine Nutzung ist nur nach Anfrage möglich (siehe <a href="impressum.html">Impressum</a>).</p>
+
+<h2>Aufbau der Tabelle</h2>
+<p>Jede Zeile ist eine Steinposition, geordnet entlang der Grenze. Die Spalten sind nach
+Quellen gruppiert; der Spaltenname beginnt mit dem Jahr, zum Beispiel „1608 — Rad“.</p>
+<div class="tabelle-rahmen">
+<table>
+<thead><tr><th scope="col">Spalte</th><th scope="col">Bedeutung</th></tr></thead>
+<tbody>
+<tr><td>ID</td><td>Laufende Nummer dieser Website (1–394)</td></tr>
+<tr><td>Grenze</td><td>Nachbargemarkung; bei Dreimärkern beide Nachbarn, getrennt durch „/“</td></tr>
+<tr><td>2021 — Nr., Fotos, GPS</td><td>Nummer der Begehung 2021, Link zum Fotoalbum, Koordinaten</td></tr>
+<tr><td>… — Nr.</td><td>Nummer des Steins im jeweiligen Protokoll</td></tr>
+<tr><td>… — Jahr</td><td>Jahreszahl auf dem Stein laut Protokoll</td></tr>
+<tr><td>… — groß/klein, Farbe</td><td>Größe bzw. Form und Farbe laut Protokoll</td></tr>
+<tr><td>… — Wappen(schild), Rad, Kreuz oben</td><td>„x“ = Zeichen erwähnt</td></tr>
+<tr><td>… — b</td><td>Anzahl der eingehauenen „b“, oder die Angabe des Protokolls</td></tr>
+<tr><td>… — Rückseite</td><td>Zeichen auf der Seite zur Nachbargemarkung</td></tr>
+<tr><td>… — Ruthen zum vorherigen</td><td>Abstand zum vorigen Stein in Ruten, wie im Protokoll</td></tr>
+<tr><td>… — Meter zum vorherigen</td><td>derselbe Abstand in Metern (fränkische Werkrute 3,65 m, badische Rute 3,00 m)</td></tr>
+<tr><td>… — sonstiges</td><td>Lagebeschreibung und Bemerkungen, buchstabengetreu</td></tr>
+</tbody>
+</table>
 </div>
+<p>Ein leeres Feld heißt: Das Protokoll sagt dazu nichts. Ein „?“ steht für eine unleserliche
+oder unsichere Angabe. Die Großrinderfelder Grenzbegehung von 1784 läuft in umgekehrter
+Richtung; ihre Abstände gelten bis zum nächsten Stein.</p>
 
-<div class="container">
-
-<div class="card">
-<h2>Datensatz</h2>
-<a href="data.json">Gesamtdatensatz (JSON)</a>
+<h2>Datenstand</h2>
+<p>Stand der Daten: Februar 2026.
+Korrekturen und Ergänzungen nimmt Hendrik Beierstettel gern per E-Mail entgegen.</p>
 </div>
+</main>
 
-<div class="card">
-<h2>Formatbeschreibung</h2>
-Der Datensatz enthält alle dokumentierten Grenzsteine einschließlich sämtlicher historischer Angaben aus den Grenzgangprotokollen sowie moderner Felddaten.
-</div>
-
-<div class="card">
-<h2>Lizenz</h2>
-Freie wissenschaftliche Nutzung unter Angabe der Quelle.
-</div>
-
-<div class="card">
-<h2>Zitierempfehlung</h2>
-Beierstettel, Hendrik (Hg.): Digitale Edition der Grenzsteine Tauberbischofsheim, Datensatz, Version 1.0 (2026).
-</div>
-
-</div>
+<!-- FUSS -->
+<footer class="fuss">
+  <div class="fuss-innen">
+    <span>© Hendrik Beierstettel, Tauberbischofsheim</span>
+    <ul>
+      <li><a href="karteXL.html">Amtliche Grenzpunkte</a></li>
+      <li><a href="download.html">Daten</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+<!-- /FUSS -->
 </body>
 </html>

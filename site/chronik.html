@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Chronik & Grenzbegehungen – Tauberbischofsheim</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <title>Geschichte – Grenzsteine Tauberbischofsheim</title>
+  <meta name="description" content="Die Grenzgänge der Gemarkung Tauberbischofsheim im Zusammenhang der Orts- und Landesgeschichte, von der kurmainzischen Zeit bis heute.">
+  <link rel="stylesheet" href="assets/grenze.css">
+  <script src="assets/menue.js" defer></script>
   <style>
     :root{
       --bg:#faf7f2;
@@ -137,28 +139,38 @@
 </head>
 <body>
 
-<header>
-  <h1 style="margin:0">Chronik regionaler Ereignisse & Grenzbegehungen</h1>
+<!-- KOPF -->
+<header class="kopf">
+  <div class="kopf-innen">
+    <a class="marke" href="index.html">Grenzsteine Tauberbischofsheim</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
+    <nav id="hauptmenue" aria-label="Hauptmenü">
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="standorte.html">Karte</a></li>
+      <li><a href="reconstruction_xl.html">Verschwundene Steine</a></li>
+      <li><a href="recherche.html">Steine suchen</a></li>
+      <li><a href="grenzgaenge.html">Die Grenzgänge</a></li>
+      <li><a href="chronik.html" aria-current="page">Geschichte</a></li>
+      <li><a href="quellen.html">Quellen und Methode</a></li>
+      <li><a href="begriffe.html">Begriffe</a></li>
+      <li><a href="projekt.html">Über das Projekt</a></li>
+    </ul>
+    </nav>
+  </div>
 </header>
-
-<div style="text-align:center;margin-top:10px">
-<a href="index.html">Start</a> |
-<a href="suche.html">Recherche</a> |
-<a href="vergleich.html">Vergleich</a> |
-<a href="karte.html">Karte</a>
-</div>
+<!-- /KOPF -->
 
 <div class="container">
 
   <div class="intro">
-    <div style="font-weight:700">Ziel</div>
-    <div>
-      Diese Seite listet ausgewählte, regional relevante Ereignisse (Kurmainz / Hochstift Würzburg / Kriege / Krisen / Unwetter / Verwaltung)
-      und ordnet dazwischen die dokumentierten Grenzbegehungen der Gemarkung Tauberbischofsheim sowie die Begehung 2021 ein.
-    </div>
-    <small>
-      Hinweis: Die Chronik ist bewusst „kuratiert“ (keine Vollständigkeit), soll aber eine robuste Kontextschicht zur Grenzstein-Edition darstellen.
-    </small>
+    <h1 style="margin-top:0">Geschichte</h1>
+    <p>Die Grenzgänge fanden nicht im luftleeren Raum statt. Diese Zeittafel ordnet sie in die
+    Geschichte der Stadt und ihrer Nachbarn ein: die Zugehörigkeit zu Kurmainz bis 1803, die
+    würzburgischen Nachbarorte, Kriege, Notjahre und Naturereignisse. Sie ist eine Auswahl, keine
+    vollständige Stadtgeschichte.</p>
+    <p class="klein">Mit den Schaltern lassen sich einzelne Themen ein- und ausblenden; das
+    Suchfeld durchsucht alle Einträge.</p>
 
     <div class="legend" aria-label="Legende">
       <span class="chip"><span class="dot" style="background:var(--gang)"></span>Grenzbegehung / Grenzberichtigung</span>
@@ -185,13 +197,28 @@
   <div id="timeline" class="timeline" aria-label="Chronik"></div>
 
   <div class="intro" style="margin-top:18px">
-    <div style="font-weight:700">Quellenhinweis</div>
+    <div style="font-weight:700">Belege</div>
     <small>
-      Die Links in den Einträgen verweisen auf Nachschlagewerke/Institutionen (u. a. Stadt Tauberbischofsheim, Bistum Mainz, LEO-BW) und dienen der schnellen Verifikation einzelner Daten.
+      Die Links in den Einträgen führen zu den Nachschlagewerken, aus denen die Angaben stammen
+      (u. a. Stadt Tauberbischofsheim, Bistum Mainz, LEO-BW).
     </small>
   </div>
 
 </div>
+
+<!-- FUSS -->
+<footer class="fuss">
+  <div class="fuss-innen">
+    <span>© Hendrik Beierstettel, Tauberbischofsheim</span>
+    <ul>
+      <li><a href="karteXL.html">Amtliche Grenzpunkte</a></li>
+      <li><a href="download.html">Daten</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+<!-- /FUSS -->
 
 <script>
 /*
@@ -210,7 +237,7 @@ const entries = [
     sort: 1300,
     cat: "mainz",
     title: "Tauberbischofsheim als kurmainzische Amtsstadt (lange Zugehörigkeit bis 1803)",
-    desc: "Tauberbischofsheim war über Jahrhunderte kurmainzische Amtsstadt (und u.a. Sitz eines Centgerichts). Diese Zugehörigkeit bildet den zentralen Kontext für Grenzverwaltung und Symbolik (Mainzer Rad).",
+    desc: "Tauberbischofsheim war über Jahrhunderte kurmainzische Amtsstadt und Sitz eines Centgerichts. Daher trägt die Bischofsheimer Seite vieler Grenzsteine das Mainzer Rad.",
     links: [
       {label:"Stadt Tauberbischofsheim – Stadtgeschichte", url:"https://www.tauberbischofsheim.de/site/Tauberbischofsheim/node/1464539/stadtgeschichte.html"},
       {label:"Überblick (taubertal.de)", url:"https://taubertal.de/staedteinfo/tauberbischofsheim/-geschichte-von-tauberbischofsheim/"}
@@ -223,19 +250,19 @@ const entries = [
     sort: 1525,
     cat: "war",
     title: "Deutscher Bauernkrieg (Tauberfranken / regionaler Kontext)",
-    desc: "Bauernkrieg als überregionale Krise mit regionalen Auswirkungen in Tauberfranken. Für Grenzregime relevant (Konflikt, Besitzfragen, Herrschaftslegitimation).",
+    desc: "Der Bauernkrieg erfasste 1525 auch Tauberfranken.",
     links: [
       {label:"Bauernkriegslandschaft – Tauberbischofsheim", url:"https://bauernkriegslandschaft.de/Bauernkriegslandschaft/Tauberbischofsheim"}
     ]
   },
 
-  // --- Grenzgänge (deine Edition) ---
+  // --- Grenzgänge ---
   {
     year: "1569 (Wiederholung 1580)",
     sort: 1569,
     cat: "gang",
     title: "Grenzgang / Grenzbegehungsprotokoll Tauberbischofsheim",
-    desc: "Frühneuzeitliche Grenzbegehung: Nummerierung und Beschreibung von Grenzsteinen, teils mit Jahreszahlen, Symbolen (Wappen, Mainzer Rad, b, Kreuze) und Lagehinweisen im Freitext.",
+    desc: "Das älteste erhaltene Protokoll: 104 Steine mit Zeichen, Rückseite und kurzer Lagebeschreibung, noch ohne Abstände.",
     links: []
   },
   {
@@ -243,7 +270,7 @@ const entries = [
     sort: 1573,
     cat: "wue",
     title: "Beginn der Regierungszeit Julius Echter (Fürstbischof Würzburg 1573–1617)",
-    desc: "Julius Echter gilt als Verwaltungsreformer und prägende Figur der Gegenreformation im Hochstift Würzburg – relevant für angrenzende würzburgische Orte (z.B. Impfingen, Dittigheim bis 1803).",
+    desc: "Julius Echter von Mespelbrunn regiert das Hochstift Würzburg, zu dem Nachbarorte wie Impfingen und Dittigheim gehören.",
     links: [
       {label:"Julius Echter (Wikipedia)", url:"https://de.wikipedia.org/wiki/Julius_Echter_von_Mespelbrunn"},
       {label:"Liste der Bischöfe von Würzburg (Wikipedia)", url:"https://de.wikipedia.org/wiki/Liste_der_Bisch%C3%B6fe_von_W%C3%BCrzburg"}
@@ -254,7 +281,7 @@ const entries = [
     sort: 1608,
     cat: "gang",
     title: "Grenzgang Tauberbischofsheim (mit Ruthen-/Meter-Angaben)",
-    desc: "Grenzbegehung mit (für Forschung besonders wertvollen) Distanzangaben zwischen Steinen in fränkischer Ruthe (3,65 m) und Umrechnung in Meter.",
+    desc: "118 Steine, erstmals mit den Abständen zwischen den Steinen in Ruten (fränkische Werkrute, 3,65 m).",
     links: []
   },
   {
@@ -262,7 +289,7 @@ const entries = [
     sort: 1618,
     cat: "war",
     title: "Dreißigjähriger Krieg",
-    desc: "Großer Krieg im Alten Reich; für die Region Franken/Baden mit Besetzungen, Verwüstungen und Verwaltungsstörungen verbunden. Kann Grenzpflege/Markierung beeinflussen (Zerstörung, Umsetzungen, Nachsetzungen).",
+    desc: "Der Dreißigjährige Krieg bringt auch nach Franken Besetzungen und Verwüstungen.",
     links: [
       {label:"LEO-BW – Überblick Dreißigjähriger Krieg", url:"https://leo-bw.de/themenmodul/dreissigjaehriger-krieg/einfuhrung/uberblick"}
     ]
@@ -272,7 +299,7 @@ const entries = [
     sort: 1683,
     cat: "gang",
     title: "Grenzgang Tauberbischofsheim",
-    desc: "Spätere Überlieferungsstufe: teils abweichende Datierungen (Austausch/Überarbeitung von Steinen möglich).",
+    desc: "111 Steine, mit Abständen in Ruten.",
     links: []
   },
   {
@@ -280,7 +307,7 @@ const entries = [
     sort: 1700,
     cat: "gang",
     title: "Grenzgang Tauberbischofsheim",
-    desc: "Grenzbegehung um 1700: geeignet zur Untersuchung von Symbolwandel und Verwaltungsstandardisierung.",
+    desc: "114 Steine, mit Abständen in Ruten.",
     links: []
   },
 
@@ -290,7 +317,7 @@ const entries = [
     sort: 1770,
     cat: "crisis",
     title: "Hungerjahre 1770–1772 (europäische Krise, auch in Franken/Bayern dokumentiert)",
-    desc: "Witterungs- und Erntekrisen führten in vielen Regionen zu Teuerung und Hunger. Solche Krisen können indirekt Grenzpflege, Gemeindehaushalte und Steinsetzung beeinflussen.",
+    desc: "Missernten führen in vielen Regionen Mitteleuropas zu Teuerung und Hunger.",
     links: [
       {label:"bavarikon – Hungerjahre 1770–1772 (Kontext)", url:"https://www.bavarikon.de/object/bav:BSB-CMS-0000000000012276"}
     ]
@@ -302,7 +329,7 @@ const entries = [
     sort: 1784,
     cat: "gang",
     title: "Grenzgang Großrinderfeld (Streckenabschnitt zur Bischofsheimer Gemarkung)",
-    desc: "Eigenes Protokoll der Nachbargemarkung (andere Laufrichtung: Distanz zum nächsten Stein). Wertvoll für Vergleich von Wahrnehmung/Nummerierung und lokaler Praxis.",
+    desc: "Protokoll der Nachbargemeinde Großrinderfeld über sieben Steine an der gemeinsamen Grenze, in umgekehrter Laufrichtung.",
     links: []
   },
 
@@ -312,7 +339,7 @@ const entries = [
     sort: 1803,
     cat: "mainz",
     title: "Säkularisation / Ende kurmainzischer Zugehörigkeit (Reichsdeputationshauptschluss-Kontext)",
-    desc: "1803 endet die jahrhundertelange Zugehörigkeit zu Kurmainz (territorialer Systemwechsel). Für Symbolik (Mainzer Rad) und Grenzverwaltung ein zentraler Einschnitt.",
+    desc: "Mit der Säkularisation endet die Zugehörigkeit Tauberbischofsheims zu Kurmainz.",
     links: [
       {label:"Stadt Tauberbischofsheim – 1803/1806", url:"https://www.tauberbischofsheim.de/site/Tauberbischofsheim/node/1464539/stadtgeschichte.html"},
       {label:"Historisches Lexikon Bayerns – Mainz (1801/03)", url:"https://www.historisches-lexikon-bayerns.de/Lexikon/Mainz%2C_Erzbistum%3A_Sprengel_und_Verwaltung"}
@@ -323,7 +350,7 @@ const entries = [
     sort: 1806,
     cat: "modern",
     title: "Übergang zum Großherzogtum Baden (staatlicher Neuaufbau)",
-    desc: "Nach 1803/1806 erfolgt die Integration in neue staatliche Verwaltungsstrukturen. Grenzpflege kann dabei neu geregelt und standardisiert worden sein.",
+    desc: "Tauberbischofsheim kommt an das Großherzogtum Baden.",
     links: [
       {label:"Stadt Tauberbischofsheim – Stadtgeschichte", url:"https://www.tauberbischofsheim.de/site/Tauberbischofsheim/node/1464539/stadtgeschichte.html"}
     ]
@@ -335,7 +362,7 @@ const entries = [
     sort: 1816,
     cat: "crisis",
     title: "„Jahr ohne Sommer“ / Hungerkrise 1816–1817 (Kontext)",
-    desc: "Nach dem Tambora-Ausbruch kam es in Europa zu massiven Witterungsanomalien und Hunger. Auch in Süddeutschland ist der Krisenkontext gut belegt.",
+    desc: "Nach dem Ausbruch des Vulkans Tambora folgen in Europa ein verregneter Sommer, Missernten und Hunger, auch in Süddeutschland.",
     links: [
       {label:"Deutsches Historisches Museum – Jahr ohne Sommer", url:"https://www.dhm.de/blog/2016/12/05/das-jahr-ohne-sommer/"}
     ]
@@ -347,7 +374,7 @@ const entries = [
     sort: 1872,
     cat: "gang",
     title: "Grenzgang Tauberbischofsheim",
-    desc: "Spätes Protokoll im 19. Jahrhundert: oft relevanter Referenzpunkt für jüngere Steinsetzungen/Symbolstände.",
+    desc: "201 Steine, Abstände in der neuen badischen Rute (3,00 m).",
     links: []
   },
 
@@ -357,7 +384,7 @@ const entries = [
     sort: 1866,
     cat: "war",
     title: "Gefecht bei Tauberbischofsheim (Deutscher Krieg) – 24. Juli 1866",
-    desc: "Lokaler Kriegsschauplatz im Mainfeldzug. Für Ortsgeschichte und mögliche Schäden/Umsetzungen im Grenzraum relevant.",
+    desc: "Im Deutschen Krieg wird Tauberbischofsheim am 24. Juli 1866 Schauplatz eines Gefechts.",
     links: [
       {label:"Wikipedia – Gefecht bei Tauberbischofsheim", url:"https://de.wikipedia.org/wiki/Gefecht_bei_Tauberbischofsheim"},
       {label:"LEO-BW – Objekt/Quelle zum Gefecht", url:"https://www.leo-bw.de/detail-gis/-/Detail/details/DOKUMENT/labw_findmittel_06/labw-1-116233/Gefecht%2Bbei%2BTauberbischofsheim%2B1866%2Bunter%2BArtilleriebeschuss%2BKampf%2Bw%C3%BCrtt%2BTruppen%2Bgegen%2Bpreussische%2BEinheiten%2Bum%2Bdie%2BTaub"}
@@ -370,7 +397,7 @@ const entries = [
     sort: 1887,
     cat: "gang",
     title: "Grenzberichtigungen (Änderungen des Grenzverlaufs in Teilabschnitten)",
-    desc: "Grenzberichtigungen als eigener Quellenkomplex: relevant für kleinräumige Grenzverschiebungen, neue Nummerierungen und Freitextkommentare (Gültigkeit älterer Ordnungszahlen).",
+    desc: "Änderungen des Grenzverlaufs in einzelnen Abschnitten; die Protokolle nennen 351 Grenzpunkte.",
     links: []
   },
 
@@ -380,7 +407,7 @@ const entries = [
     sort: 1984,
     cat: "disaster",
     title: "Fronleichnamsflut im Main-Tauber-Kreis (u.a. Tauberbischofsheim/Boxberg)",
-    desc: "Starkregenereignis mit massiven Überschwemmungen am 21. Juni 1984. Für Denkmalbestand und Standortbedingungen (Erosion/Verlagerung) potenziell relevant.",
+    desc: "Starkregen und Überschwemmungen im Main-Tauber-Kreis am 21. Juni 1984.",
     links: [
       {label:"Wikipedia – Fronleichnamsflut 1984", url:"https://de.wikipedia.org/wiki/Fronleichnamsflut"}
     ]
@@ -392,7 +419,7 @@ const entries = [
     sort: 1971,
     cat: "modern",
     title: "Gemeindereform / Eingemeindungen (Umfeld Tauberbischofsheim)",
-    desc: "Kommunalreformphase: Veränderungen der Verwaltungszuständigkeiten – Grenzbezüge und Benennungen können sich im Sprachgebrauch/Archivkontext verschieben.",
+    desc: "Im Zuge der Gemeindereform werden Nachbarorte nach Tauberbischofsheim eingemeindet.",
     links: [
       {label:"Stadt Tauberbischofsheim – Stadtgeschichte", url:"https://www.tauberbischofsheim.de/site/Tauberbischofsheim/node/1464539/stadtgeschichte.html"}
     ]
@@ -404,7 +431,7 @@ const entries = [
     sort: 2021,
     cat: "gang",
     title: "Grenzbegehung Hendrik Beierstettel (2021)",
-    desc: "Moderne Begehung mit Fotoalben und GPS-Koordinaten (sofern ermittelbar). Für die Edition zentral als heutiger Befundstand (Erhalten/Verloren/Versetzt).",
+    desc: "Hendrik Beierstettel sucht die Grenze ab: 143 Steine wiedergefunden, fotografiert und per GPS eingemessen, 126 davon am ursprünglichen Platz.",
     links: []
   },
 
@@ -414,7 +441,7 @@ const entries = [
     sort: 1555.1,
     cat: "mainz",
     title: "Kurmainz: Daniel Brendel von Homburg (Erzbischof/Kurfürst 1555–1582)",
-    desc: "Konfessionalisierungszeit: Territoriale und kirchliche Verwaltung im Umbruch; symbolische Markierung (Mainzer Rad) als Herrschaftszeichen wichtig.",
+    desc: "Daniel Brendel von Homburg ist Erzbischof und Kurfürst von Mainz; in seine Regierungszeit fällt der Grenzgang von 1569.",
     links: [
       {label:"Bistum Mainz – Kurfürst-Erzbischöfe 1514–1647 (Übersicht)", url:"https://bistummainz.de/kunst-gebaeude-geschichte/kirchengeschichte/bischofsviten/viten-mainzer-erz-bischoefe/mainzer-kurfuerst_erzbisoefe-1514-bis-1647/".replace("kurfuerst_erzbisoefe","kurfuerst-erzbischoefe")}, // defensive
       {label:"Wikipedia – Daniel Brendel von Homburg", url:"https://de.wikipedia.org/wiki/Daniel_Brendel_von_Homburg"}
@@ -425,7 +452,7 @@ const entries = [
     sort: 1604.1,
     cat: "mainz",
     title: "Kurmainz: Johann Schweikhard von Kronberg (1604–1626)",
-    desc: "Phase vor und zu Beginn des Dreißigjährigen Krieges – administrative Verdichtung und Konfliktkontexte.",
+    desc: "Johann Schweikhard von Kronberg ist Erzbischof und Kurfürst von Mainz; in seine Regierungszeit fällt der Grenzgang von 1608.",
     links: [
       {label:"Bistum Mainz – Johann Schweikhard von Kronberg", url:"https://bistummainz.de/kunst-gebaeude-geschichte/kirchengeschichte/bischofsviten/viten-mainzer-erz-bischoefe/mainzer-kurfuerst-erzbischoefe-1514-bis-1647/80-16041626-johann-schweikard-von-kronberg/"}
     ]
@@ -435,7 +462,7 @@ const entries = [
     sort: 1647.1,
     cat: "mainz",
     title: "Kurmainz: Reihe der Kurfürst-Erzbischöfe bis zur Säkularisation",
-    desc: "Langphase nach dem Dreißigjährigen Krieg bis zur Säkularisation. Für die Zeit der Grenzgänge 1683/1700/1749 besonders passend als Kontextschicht.",
+    desc: "Die Mainzer Kurfürsten von 1647 bis zur Säkularisation; in diese Zeit fallen die Grenzgänge von 1683, 1700 und 1749.",
     links: [
       {label:"Bistum Mainz – Kurfürst-Erzbischöfe 1647–1802/03 (Übersicht)", url:"https://bistummainz.de/kunst-gebaeude-geschichte/kirchengeschichte/bischofsviten/viten-mainzer-erz-bischoefe/mainzer-kurfuerst-erzbischoefe-1647-bis-1802/"}
     ]
@@ -480,7 +507,7 @@ function render(){
       : "";
 
     const hint = e.cat === "gang"
-      ? `<div class="itemHint">Grenzbegehung/Editionseintrag: chronologisch einsortiert und farblich hervorgehoben.</div>`
+      ? `<div class="itemHint"><a href="grenzgaenge.html">Mehr zu den Grenzgängen</a></div>`
       : "";
 
     div.innerHTML = `

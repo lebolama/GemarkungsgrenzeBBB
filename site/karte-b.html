@@ -2,91 +2,13 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="assets/style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<style>#map{height:650px}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=standorte.html">
+<link rel="canonical" href="https://beierstettel.de/Grenze/standorte.html">
+<title>Weiterleitung: Karte der Grenzsteine</title>
 </head>
 <body>
-
-<header><h1>Kartenanalyse</h1></header>
-
-<div style="text-align:center;margin-top:10px">
-<a href="index.html">Start</a> |
-<a href="suche.html">Recherche</a> |
-<a href="vergleich.html">Vergleich</a> |
-<a href="karte.html">Karte</a>
-</div>
-
-<div id="map"></div>
-
-<script>
-const map=L.map("map").setView([49.62,9.66],13);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
-
-let markers=L.layerGroup().addTo(map);
-let raw=[];
-
-function gps(r){
-if(r._gps_parsed?.lat) return [r._gps_parsed.lat,r._gps_parsed.lon];
-return null;
-}
-
-function matchSymbol(r,type){
-let sy=r._derived?.symbols_by_year;
-if(!sy) return false;
-
-for(let y in sy){
-let o=sy[y];
-let b=o.b_count||0;
-
-if(type==="b_any" && b>0) return true;
-if(type==="b1" && b===1) return true;
-if(type==="b2" && b===2) return true;
-if(type==="b3" && b===3) return true;
-}
-return false;
-}
-
-function passes(r){
-if(b_any.checked && !matchSymbol(r,"b_any")) return false;
-if(b1.checked && !matchSymbol(r,"b1")) return false;
-if(b2.checked && !matchSymbol(r,"b2")) return false;
-if(b3.checked && !matchSymbol(r,"b3")) return false;
-return true;
-}
-
-function render(){
-markers.clearLayers();
-raw.forEach(r=>{
-let c=gps(r);
-if(!c || !passes(r)) return;
-
-L.circleMarker(c,{radius:7,color:"#b00"})
-.bindPopup("Stein "+r.ID)
-.addTo(markers);
-});
-}
-
-function ui(){
-return `
-<div style="position:absolute;top:10px;right:10px;background:white;padding:12px;border-radius:10px">
-<b>B-Filter</b><br>
-<label><input type="checkbox" id="b_any"> ≥1 b</label><br>
-<label><input type="checkbox" id="b1"> =1 b</label><br>
-<label><input type="checkbox" id="b2"> =2 b</label><br>
-<label><input type="checkbox" id="b3"> =3 b</label>
-</div>`;
-}
-
-document.body.insertAdjacentHTML("beforeend",ui());
-document.addEventListener("change",render);
-
-fetch("data.json").then(r=>r.json()).then(d=>{
-raw=d;
-render();
-});
-</script>
-
+<p>Diese Seite gibt es nicht mehr. Weiter zu <a href="standorte.html">Karte der Grenzsteine</a>.</p>
 </body>
 </html>

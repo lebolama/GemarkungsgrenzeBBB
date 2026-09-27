@@ -1,0 +1,139 @@
+/* Gemeinsame Gestaltung aller Seiten außer standorte.html, karteXL.html
+   und reconstruction_xl.html (die haben eigene Stile und bleiben unverändert). */
+
+:root{
+  --rot:#6b0000;
+  --rot-hell:#8b1a1a;
+  --papier:#f4f1ea;
+  --weiss:#fffdf8;
+  --text:#1f1b16;
+  --grau:#5c554c;
+  --linie:#d9d1c3;
+  --akzent:#f0e7d6;
+  --lesebreite:44rem;
+}
+
+*{box-sizing:border-box}
+
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--papier);
+  color:var(--text);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.0625rem;
+  line-height:1.6;
+}
+
+a{color:var(--rot-hell)}
+a:hover{color:var(--rot)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{
+  outline:3px solid #c98a00;outline-offset:2px;
+}
+
+/* ---------- Kopf ---------- */
+.kopf{background:var(--rot);color:#fff}
+.kopf-innen{
+  max-width:72rem;margin:0 auto;padding:.7rem 1rem;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1.5rem;
+}
+.kopf .marke{color:#fff;text-decoration:none;font-size:1.15rem;font-weight:bold;letter-spacing:.2px}
+.kopf nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.2rem 1.1rem}
+.kopf nav a{color:#fff;text-decoration:none;font-size:.97rem;padding:.2rem 0;border-bottom:2px solid transparent}
+.kopf nav a:hover,.kopf nav a[aria-current="page"]{border-bottom-color:#fff}
+.menue-knopf{display:none}
+
+@media (max-width:760px){
+  .menue-knopf{
+    display:block;background:none;border:1px solid rgba(255,255,255,.6);color:#fff;
+    font:inherit;font-size:.95rem;padding:.3rem .7rem;border-radius:4px;cursor:pointer;
+  }
+  .kopf nav{width:100%;display:none}
+  .kopf nav.offen{display:block}
+  .kopf nav ul{flex-direction:column;gap:0;padding:.3rem 0 .5rem}
+  .kopf nav a{display:block;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.2)}
+}
+
+/* ---------- Inhalt ---------- */
+main{max-width:72rem;margin:0 auto;padding:1.5rem 1rem 3rem}
+.text{max-width:var(--lesebreite)}
+
+h1{font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.2;color:var(--rot);margin:.6rem 0 1rem}
+h2{font-size:1.35rem;color:var(--rot);margin:2.2rem 0 .6rem}
+h3{font-size:1.1rem;margin:1.6rem 0 .4rem}
+p{margin:0 0 1rem}
+
+.einleitung{font-size:1.15rem;color:var(--text)}
+.klein{font-size:.9rem;color:var(--grau)}
+
+/* Hinweis- und Hilfekästen */
+.kasten{
+  background:var(--weiss);border:1px solid var(--linie);border-left:5px solid var(--rot);
+  padding:1rem 1.2rem;margin:1.2rem 0;border-radius:4px;
+}
+details.hilfe{
+  background:var(--weiss);border:1px solid var(--linie);border-radius:4px;
+  padding:.6rem 1rem;margin:1rem 0;
+}
+details.hilfe summary{cursor:pointer;font-weight:bold;color:var(--rot)}
+details.hilfe[open] summary{margin-bottom:.6rem}
+
+/* Einstiege auf der Startseite */
+.einstiege{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin:1.5rem 0 2rem}
+.einstieg{
+  display:block;background:var(--weiss);border:1px solid var(--linie);border-radius:6px;
+  padding:1.1rem 1.2rem;text-decoration:none;color:var(--text);
+}
+.einstieg:hover{border-color:var(--rot)}
+.einstieg strong{display:block;color:var(--rot);font-size:1.15rem;margin-bottom:.3rem}
+.einstieg span{font-size:.97rem;color:var(--grau)}
+
+/* Zahlen */
+.zahlen{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:.8rem;margin:1.2rem 0;padding:0;list-style:none}
+.zahlen li{background:var(--weiss);border:1px solid var(--linie);border-radius:6px;padding:.8rem 1rem}
+.zahlen b{display:block;font-size:1.6rem;color:var(--rot);line-height:1.2}
+.zahlen span{font-size:.92rem;color:var(--grau)}
+
+/* Tabellen */
+table{border-collapse:collapse;width:100%;margin:1rem 0;background:var(--weiss)}
+th,td{border:1px solid var(--linie);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:var(--akzent)}
+.tabelle-rahmen{overflow-x:auto}
+
+/* Formulare */
+input,select,button{font:inherit}
+input[type="text"],input[type="search"],select{
+  padding:.45rem .6rem;border:1px solid #bdb3a3;border-radius:4px;background:#fff;max-width:100%;
+}
+button,.knopf{
+  background:var(--rot);color:#fff;border:0;padding:.5rem 1rem;border-radius:4px;cursor:pointer;text-decoration:none;display:inline-block;
+}
+button:hover,.knopf:hover{background:var(--rot-hell);color:#fff}
+
+/* ---------- Fuß ---------- */
+.fuss{border-top:1px solid var(--linie);background:#ece6da;color:var(--grau);font-size:.92rem}
+.fuss-innen{max-width:72rem;margin:0 auto;padding:1.2rem 1rem;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;justify-content:space-between}
+.fuss a{color:var(--grau)}
+.fuss ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.3rem 1.2rem}
+
+@media print{
+  .kopf nav,.menue-knopf,.fuss ul{display:none!important}
+  .kopf{background:#fff;color:#000;border-bottom:1px solid #000}
+  .kopf .marke{color:#000}
+  body{background:#fff;font-size:11pt}
+  a{color:#000}
+}
+
+/* Startseite: Text und Titelfoto nebeneinander */
+.aufmacher{display:grid;grid-template-columns:minmax(0,1fr) minmax(12rem,20rem);gap:2rem;align-items:start}
+.titelfoto{margin:.8rem 0 0}
+.titelfoto img{width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 3px 12px rgba(0,0,0,.18)}
+.titelfoto figcaption{font-size:.88rem;color:var(--grau);margin-top:.4rem}
+@media (max-width:760px){
+  .aufmacher{grid-template-columns:1fr;gap:0}
+  .titelfoto{max-width:22rem}
+}
+
+/* Für ältere Seiten (Chronik), die .container als Inhaltsrahmen nutzen */
+.container{max-width:72rem;margin:0 auto;padding:1.5rem 1rem 3rem}

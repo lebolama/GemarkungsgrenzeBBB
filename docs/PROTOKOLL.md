@@ -1,5 +1,38 @@
 # Arbeitsprotokoll
 
+## 27.09.2026, 17:32 – Zweiter Upload: Abschnitt 1 und 2 online (auf Hendriks Wunsch vor Eingang der Restangaben)
+
+**Sicherung vorher:** `backups/2026-09-27_1732_server_ftp` (64 Dateien).
+
+**Vorbereitung:** Alle gelb markierten Lücken entfernt, damit nichts Halbfertiges
+sichtbar ist. Dabei vorläufig **weggelassen** und morgen nachzutragen:
+Archiv/Signatur je Quelle (Tabelle zeigt „wird ergänzt“), Literaturabschnitt,
+Herkunft/Lizenz DGK5 und Gemarkungskarte 1932, genaue LGL-Datensatzbezeichnung,
+GPS-Modell/Genauigkeit/Zeitraum, Abschnitte „Wie es anfing“ und „Wie es weitergeht“
+(projekt.html). **Vorsichtiger formuliert**, bis Hendrik bestätigt: Kreuz auf der
+Oberseite (nur „wird vermerkt“), Farbe (nur „hängt vom Gestein ab“), Bedeutung
+von drei „b“ und „GB“ (weggelassen). Datenstand: Februar 2026 (Datensatz),
+August 2026 (berechnete Standorte).
+
+**Hochgeladen (44 Dateien):** `assets/grenze.css`, `assets/menue.js`,
+`bilder/grenzstein-mainzer-rad.jpg`, `bilder/grenzstein-brehmbachtal-landesarchiv.jpg`,
+`grenzsteine-tauberbischofsheim.csv`; Seiten `index`, `recherche`, `grenzgaenge`,
+`begriffe`, `quellen`, `projekt`, `download`, `vergleich`, `stein`, `chronik`,
+`impressum`, `datenschutz`; 26 Weiterleitungen (die 21 wegfallenden Seiten plus die
+unverlinkten `karte2`, `karte_v2`, `reconstruction_`, `reconstruction_test`,
+`rekonstruktion`) und `Zeitachse.html` (Großschreibung, per `--als`).
+Nicht angefasst: die drei Kernseiten, `data.json`, GeoJSON, Flurnamen. Alte
+Dateien `titelbild.png`, `assets/style.css`, `assets/print.css`, `assets/mail.js`,
+`version.json` liegen noch auf dem Server, werden aber nicht mehr verwendet.
+
+**Prüfung:** 44/44 Dateien per SHA-256 identisch. Live im Browser: alle Seiten
+laden, keine kaputten Bilder, „Digitale Edition“ nirgends mehr; Weiterleitungen
+führen zum richtigen Ziel.
+
+**Lokale Expression-Web-Kopie** per PowerShell angeglichen (43 Dateien);
+`site/` aktualisiert.
+
+
 ## 27.09.2026 (Abend) – Abschnitt 2 lokal fertig (noch nicht hochgeladen)
 
 **Neu in `entwurf/`:** `recherche.html` (Suche mit Hilfetext, Beispiel-Links,

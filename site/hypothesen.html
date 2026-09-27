@@ -2,130 +2,13 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Hypothesen-Generator</title>
-<link rel="stylesheet" href="assets/style.css">
-<style>
-.box{background:#faf7f2;padding:16px;border-radius:10px;margin-top:15px}
-h2{margin-top:0;color:#6b0000}
-.stat{font-size:18px;font-weight:bold}
-button:disabled{opacity:.5}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=grenzgaenge.html">
+<link rel="canonical" href="https://beierstettel.de/Grenze/grenzgaenge.html">
+<title>Weiterleitung: Die Grenzgänge</title>
 </head>
 <body>
-
-<header><h1>Automatischer Hypothesen-Generator</h1></header>
-
-<div style="text-align:center;margin-top:10px">
-<a href="index.html">Start</a> |
-<a href="suche.html">Recherche</a> |
-<a href="vergleich.html">Vergleich</a> |
-<a href="karte.html">Karte</a>
-</div>
-
-<div class="container">
-<button id="btn" onclick="run()" disabled>Daten laden…</button>
-<div id="out"></div>
-</div>
-
-<script>
-const YEARS=["1569","1608","1683","1700","1749","1872","1887","2021"];
-
-let data=[];
-
-// Daten laden
-fetch("data.json")
-.then(r=>r.json())
-.then(j=>{
-data=j;
-btn.disabled=false;
-btn.textContent="Hypothesen berechnen";
-run(); // automatisch starten
-});
-
-// Hilfsfunktionen
-function count(year,fn){
-return data.filter(r=>r._derived?.presence_by_year?.[year] && fn(r)).length;
-}
-
-function pct(a,b){
-if(b===0) return 0;
-return Math.round(a/b*100);
-}
-
-function symCount(r,y,k){
-return r._derived?.symbols_by_year?.[y]?.[k]||0;
-}
-
-function run(){
-
-let txt="";
-
-// Zeitvergleiche
-for(let i=0;i<YEARS.length-1;i++){
-
-let y1=YEARS[i];
-let y2=YEARS[i+1];
-
-let total1=count(y1,()=>true);
-let total2=count(y2,()=>true);
-
-if(!total1 || !total2) continue;
-
-function change(label,k){
-
-let c1=count(y1,r=>symCount(r,y1,k)>0);
-let c2=count(y2,r=>symCount(r,y2,k)>0);
-
-let diff=pct(c2,total2)-pct(c1,total1);
-
-if(Math.abs(diff)<10) return "";
-
-return `<div class="box">
-<b>${label}</b><br>
-Zwischen ${y1} und ${y2} ${diff>0?"stieg":"sank"} der Anteil um
-<span class="stat">${Math.abs(diff)}%</span>.
-</div>`;
-}
-
-txt+=change("Mainzer Rad","rad_count");
-txt+=change("Wappen","wappen_count");
-txt+=change("Kreuz","kreuz_count");
-txt+=change("B-Symbolik","b_count");
-}
-
-// Dreimärker
-let tri=data.filter(r=>r._derived?.is_dreimaerker);
-let non=data.filter(r=>!r._derived?.is_dreimaerker);
-
-function ratio(list,k){
-let t=list.length;
-if(!t) return 0;
-
-let c=list.filter(r=>
-Object.values(r._derived.symbols_by_year||{})
-.some(o=>o[k]>0)
-).length;
-
-return pct(c,t);
-}
-
-let r1=ratio(tri,"wappen_count");
-let r2=ratio(non,"wappen_count");
-
-if(Math.abs(r1-r2)>15){
-txt+=`<div class="box">
-<b>Dreimärker-Hypothese</b><br>
-Dreimärker zeigen häufiger Wappen (${r1}%)
-als einfache Grenzsteine (${r2}%).
-</div>`;
-}
-
-if(!txt)
-txt="<div class='box'>Keine signifikanten Trends erkannt.</div>";
-
-out.innerHTML=txt;
-}
-</script>
-
+<p>Diese Seite gibt es nicht mehr. Weiter zu <a href="grenzgaenge.html">Die Grenzgänge</a>.</p>
 </body>
 </html>

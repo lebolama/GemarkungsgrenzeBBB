@@ -2,50 +2,99 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Impressum</title>
-<link rel="stylesheet" href="assets/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum – Grenzsteine Tauberbischofsheim</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="assets/grenze.css">
+<script src="assets/menue.js" defer></script>
 </head>
 <body>
+<!-- KOPF -->
+<header class="kopf">
+  <div class="kopf-innen">
+    <a class="marke" href="index.html">Grenzsteine Tauberbischofsheim</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
+    <nav id="hauptmenue" aria-label="Hauptmenü">
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="standorte.html">Karte</a></li>
+      <li><a href="reconstruction_xl.html">Verschwundene Steine</a></li>
+      <li><a href="recherche.html">Steine suchen</a></li>
+      <li><a href="grenzgaenge.html">Die Grenzgänge</a></li>
+      <li><a href="chronik.html">Geschichte</a></li>
+      <li><a href="quellen.html">Quellen und Methode</a></li>
+      <li><a href="begriffe.html">Begriffe</a></li>
+      <li><a href="projekt.html">Über das Projekt</a></li>
+    </ul>
+    </nav>
+  </div>
+</header>
+<!-- /KOPF -->
 
-<header><h1>Impressum</h1></header>
+<main>
+<div class="text">
+<h1>Impressum</h1>
 
-<div style="text-align:center;margin-top:10px">
-<a href="index.html">Start</a> |
-<a href="suche.html">Recherche</a> |
-<a href="vergleich.html">Vergleich</a> |
-<a href="karte.html">Karte</a>
-</div>
-<div class="container">
-
-<div class="card">
-<h2>Herausgeber</h2>
-Hendrik Beierstettel<br>
+<h2>Verantwortlich</h2>
+<p>Hendrik Beierstettel<br>
 Mörikeweg 6<br>
-97941 Tauberbischofsheim
-</div>
+97941 Tauberbischofsheim</p>
 
-<div class="card">
-<h2>Kontakt</h2>
+<p>E-Mail: <span id="mail">mail [at] beierstettel.de</span></p>
+
+<p>Verantwortlich für den Inhalt nach § 18 Abs. 2 Medienstaatsvertrag: Hendrik Beierstettel,
+Anschrift wie oben.</p>
+
+<p>Diese Website ist ein privates, nicht kommerzielles Forschungsprojekt. Sie enthält keine
+Werbung.</p>
+
+<h2>Nutzungsrechte</h2>
+<p><strong>Daten.</strong> Der Datensatz (<a href="download.html">Daten</a>) steht unter der Lizenz
+<a href="https://creativecommons.org/licenses/by/4.0/deed.de">Creative Commons Namensnennung 4.0
+International (CC BY 4.0)</a>. Sie dürfen ihn für eigene Forschungen und Veröffentlichungen
+weiterverwenden, auch verändert, wenn Sie die Quelle angeben:<br>
+<em>Hendrik Beierstettel: Die Grenzsteine der Gemarkung Tauberbischofsheim,
+https://beierstettel.de/Grenze/</em></p>
+
+<p><strong>Fotos.</strong> Alle Fotos sind urheberrechtlich geschützt, alle Rechte vorbehalten.
+Wenn Sie ein Foto verwenden möchten, fragen Sie bitte per E-Mail an.</p>
+
+<p><strong>Texte.</strong> Die Texte dieser Website sind urheberrechtlich geschützt, alle Rechte
+vorbehalten. Zitieren mit Quellenangabe ist erlaubt.</p>
+
+<p><strong>Karten und Kartengrundlagen.</strong> Hintergrundkarten © OpenStreetMap-Mitwirkende
+(<a href="https://www.openstreetmap.org/copyright">ODbL</a>). Für die Deutsche Grundkarte
+1:5 000 und die übrigen amtlichen Kartenwerke gelten die bei der jeweiligen Karte genannten
+Lizenzen.</p>
+
+<h2>Haftung für Links</h2>
+<p>Diese Website verweist auf Seiten anderer Anbieter. Für deren Inhalte sind allein diese
+Anbieter verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar.
+Sollten mir solche bekannt werden, entferne ich den Link.</p>
+
+<p class="klein"><a href="datenschutz.html">Zur Datenschutzerklärung</a></p>
+</div>
+</main>
+
+<!-- FUSS -->
+<footer class="fuss">
+  <div class="fuss-innen">
+    <span>© Hendrik Beierstettel, Tauberbischofsheim</span>
+    <ul>
+      <li><a href="karteXL.html">Amtliche Grenzpunkte</a></li>
+      <li><a href="download.html">Daten</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+<!-- /FUSS -->
 <script>
-document.write('<a href="mailto:'+"mail"+"@"+"beierstettel.de"+'">E-Mail</a>');
+// Adresse erst im Browser zusammensetzen, damit Adresssammler sie nicht finden.
+(function () {
+  var a = "mail", d = "beierstettel.de", el = document.getElementById("mail");
+  if (el) el.innerHTML = '<a href="mailto:' + a + "@" + d + '">' + a + "@" + d + "</a>";
+})();
 </script>
-</div>
-
-<div class="card">
-<h2>Projektcharakter</h2>
-Wissenschaftliche digitale Edition historischer Grenzsteine auf Grundlage archivalischer Quellen.
-</div>
-
-<div class="card">
-<h2>Haftungsausschluss</h2>
-Die Inhalte wurden nach bestem Wissen erstellt. Für Vollständigkeit und Richtigkeit wird keine Haftung übernommen.
-</div>
-
-<div class="card">
-<h2>Zitation</h2>
-Beierstettel, Hendrik (Hg.): Digitale Edition der Grenzsteine der Gemarkung Tauberbischofsheim (1569–1872), Version 1.0, 2026.
-</div>
-
-</div>
 </body>
 </html>

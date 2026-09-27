@@ -2,114 +2,144 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Historische Differenzanalyse</title>
-<link rel="stylesheet" href="assets/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zwei Grenzgänge vergleichen – Grenzsteine Tauberbischofsheim</title>
+<meta name="description" content="Zwei Grenzbeschreibungen der Gemarkung Tauberbischofsheim nebeneinanderlegen: welche Steine in beiden vorkommen, welche hinzukommen und welche nicht mehr genannt werden.">
+<link rel="stylesheet" href="assets/grenze.css">
+<script src="assets/menue.js" defer></script>
 <style>
-select{padding:6px;margin-right:10px}
-.box{background:#faf7f2;padding:15px;border-radius:10px;margin-top:15px}
-.big{font-size:20px;font-weight:bold;color:#6b0000}
+.wahl{display:flex;flex-wrap:wrap;gap:1rem;align-items:end;background:var(--weiss);border:1px solid var(--linie);border-radius:6px;padding:1rem 1.2rem;margin:1rem 0}
+.wahl label{display:block;font-weight:bold;margin-bottom:.25rem}
+.steinliste{line-height:1.9}
+.steinliste a{white-space:nowrap}
 </style>
 </head>
 <body>
+<!-- KOPF -->
+<header class="kopf">
+  <div class="kopf-innen">
+    <a class="marke" href="index.html">Grenzsteine Tauberbischofsheim</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
+    <nav id="hauptmenue" aria-label="Hauptmenü">
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="standorte.html">Karte</a></li>
+      <li><a href="reconstruction_xl.html">Verschwundene Steine</a></li>
+      <li><a href="recherche.html">Steine suchen</a></li>
+      <li><a href="grenzgaenge.html">Die Grenzgänge</a></li>
+      <li><a href="chronik.html">Geschichte</a></li>
+      <li><a href="quellen.html">Quellen und Methode</a></li>
+      <li><a href="begriffe.html">Begriffe</a></li>
+      <li><a href="projekt.html">Über das Projekt</a></li>
+    </ul>
+    </nav>
+  </div>
+</header>
+<!-- /KOPF -->
 
-<header><h1>Historische Differenzanalyse</h1></header>
-
-<div style="text-align:center;margin-top:10px">
-<a href="index.html">Start</a> |
-<a href="suche.html">Recherche</a> |
-<a href="vergleich.html">Vergleich</a> |
-<a href="karte.html">Karte</a>
+<main>
+<div class="text">
+<h1>Zwei Grenzgänge vergleichen</h1>
+<p class="einleitung">Wählen Sie zwei Grenzbeschreibungen aus. Die Seite zeigt, welche Steine
+in beiden vorkommen, welche nur in einer genannt werden und bei welchen sich die Beschreibung
+der Zeichen unterscheidet.</p>
+<details class="hilfe">
+<summary>Was der Vergleich zeigt – und was nicht</summary>
+<p>Verglichen wird, was in den Protokollen steht. Wird ein Stein in der späteren Quelle nicht
+mehr genannt, kann er verschwunden sein, ebenso gut kann der Schreiber ihn übergangen haben. Das
+Gleiche gilt für Zeichen: „nicht mehr erwähnt“ heißt nicht „nicht mehr vorhanden“. Den genauen
+Wortlaut beider Protokolle zeigt der Steckbrief des Steins.</p>
+</details>
 </div>
 
-<div class="container">
-<div class="card">
-Vergleiche Jahr
-<select id="a"></select> ↔ <select id="b"></select>
-<button onclick="run()">Analysieren</button>
-</div>
-<div id="out"></div>
-</div>
+<form class="wahl" onsubmit="return false">
+  <div><label for="a">Erste Quelle</label><select id="a"></select></div>
+  <div><label for="b">Zweite Quelle</label><select id="b"></select></div>
+</form>
+
+<div class="text" id="ergebnis" aria-live="polite"><p>Daten werden geladen …</p></div>
+</main>
+
+<!-- FUSS -->
+<footer class="fuss">
+  <div class="fuss-innen">
+    <span>© Hendrik Beierstettel, Tauberbischofsheim</span>
+    <ul>
+      <li><a href="karteXL.html">Amtliche Grenzpunkte</a></li>
+      <li><a href="download.html">Daten</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+<!-- /FUSS -->
 
 <script>
-const YEARS=["1569","1608","1683","1700","1749","1872","1887","2021"];
-YEARS.forEach(y=>{
-a.innerHTML+=`<option>${y}</option>`;
-b.innerHTML+=`<option>${y}</option>`;
-});
-b.selectedIndex=1;
+(function () {
+  "use strict";
+  var QUELLEN = [["1569", "1569/1580"], ["1608", "1608"], ["1683", "1683"], ["1700", "1700"], ["1749", "1749"],
+    ["1872", "1872"], ["1887", "1887–1893"], ["2021", "2021 (gefunden)"]];
+  var NAME = {}; QUELLEN.forEach(function (q) { NAME[q[0]] = q[1]; });
+  var ZEICHEN = [["rad_count", "Mainzer Rad"], ["wappen_count", "Wappen"], ["kreuz_count", "Kreuz"], ["b_count", "„b“"]];
+  var daten = [];
+  var $ = function (id) { return document.getElementById(id); };
 
-let data=[];
-fetch("data.json").then(r=>r.json()).then(j=>data=j);
+  QUELLEN.forEach(function (q) {
+    ["a", "b"].forEach(function (s) {
+      var o = document.createElement("option"); o.value = q[0]; o.textContent = q[1]; $(s).appendChild(o);
+    });
+  });
+  $("a").value = "1608"; $("b").value = "1749";
 
-function sym(r,y){return r._derived?.symbols_by_year?.[y]||{}}
-function has(r,y){return r._derived?.presence_by_year?.[y]}
+  function da(r, y) {
+    if (y === "2021") return !!(r._derived.status && r._derived.status.found_2021);
+    return !!r._derived.presence_by_year[y];
+  }
+  function links(liste) {
+    if (!liste.length) return "<p>keine</p>";
+    return "<p class=\"steinliste\">" + liste.map(function (r) {
+      return "<a href=\"stein.html?id=" + r.ID + "\">" + r.ID + "</a>";
+    }).join(", ") + "</p>";
+  }
 
-function run(){
+  function vergleichen() {
+    var a = $("a").value, b = $("b").value;
+    if (Number(a) > Number(b)) { var t = a; a = b; b = t; }
+    if (a === b) { $("ergebnis").innerHTML = "<p>Bitte zwei verschiedene Quellen wählen.</p>"; return; }
+    var beide = [], nurA = [], nurB = [];
+    daten.forEach(function (r) {
+      var x = da(r, a), y = da(r, b);
+      if (x && y) beide.push(r); else if (x) nurA.push(r); else if (y) nurB.push(r);
+    });
+    var html = "<h2>" + NAME[a] + " und " + NAME[b] + "</h2>" +
+      "<p><strong>" + (beide.length + nurA.length) + "</strong> Steine in " + NAME[a] + ", <strong>" +
+      (beide.length + nurB.length) + "</strong> in " + NAME[b] + ". <strong>" + beide.length +
+      "</strong> kommen in beiden vor.</p>" +
+      "<h3>Nur " + NAME[a] + " (" + nurA.length + ")</h3>" + links(nurA) +
+      "<h3>Nur " + NAME[b] + " (" + nurB.length + ")</h3>" + links(nurB);
 
-let y1=a.value;
-let y2=b.value;
+    if (b !== "2021") {
+      html += "<h3>Zeichen bei Steinen, die in beiden Quellen vorkommen</h3>";
+      ZEICHEN.forEach(function (z) {
+        var neu = [], weg = [];
+        beide.forEach(function (r) {
+          var sa = (r._derived.symbols_by_year[a] || {})[z[0]] > 0;
+          var sb = (r._derived.symbols_by_year[b] || {})[z[0]] > 0;
+          if (sb && !sa) neu.push(r); if (sa && !sb) weg.push(r);
+        });
+        html += "<p><strong>" + z[1] + ":</strong> bei " + neu.length + " Steinen erst " + NAME[b] +
+          " erwähnt, bei " + weg.length + " Steinen nur " + NAME[a] + ".</p>";
+      });
+    }
+    $("ergebnis").innerHTML = html;
+  }
 
-let stats={
-new:0,lost:0,same:0,
-wappenUp:0,wappenDown:0,
-radUp:0,radDown:0,
-kreuzUp:0,kreuzDown:0,
-bUp:0,bDown:0,
-b1:0,b2:0,b3:0
-};
-
-data.forEach(r=>{
-let h1=has(r,y1);
-let h2=has(r,y2);
-
-if(!h1 && h2) stats.new++;
-if(h1 && !h2) stats.lost++;
-if(h1 && h2) stats.same++;
-
-let s1=sym(r,y1);
-let s2=sym(r,y2);
-
-function cmp(k,up,down){
-if((s2[k]||0)>(s1[k]||0)) stats[up]++;
-if((s2[k]||0)<(s1[k]||0)) stats[down]++;
-}
-
-cmp("wappen_count","wappenUp","wappenDown");
-cmp("rad_count","radUp","radDown");
-cmp("kreuz_count","kreuzUp","kreuzDown");
-cmp("b_count","bUp","bDown");
-
-let b=s2.b_count||0;
-if(b===1)stats.b1++;
-if(b===2)stats.b2++;
-if(b===3)stats.b3++;
-});
-
-out.innerHTML=`
-<div class="box">
-<div class="big">Bestandsveränderung</div>
-Neu ${stats.new}<br>
-Verschwunden ${stats.lost}<br>
-Unverändert ${stats.same}
-</div>
-
-<div class="box">
-<div class="big">Symbolveränderung</div>
-Wappen ↑ ${stats.wappenUp} ↓ ${stats.wappenDown}<br>
-Rad ↑ ${stats.radUp} ↓ ${stats.radDown}<br>
-Kreuz ↑ ${stats.kreuzUp} ↓ ${stats.kreuzDown}<br>
-B ↑ ${stats.bUp} ↓ ${stats.bDown}
-</div>
-
-<div class="box">
-<div class="big">B-Differenzierung</div>
-=1b ${stats.b1}<br>
-=2b ${stats.b2}<br>
-=3b ${stats.b3}
-</div>
-`;
-}
+  fetch("data.json").then(function (r) { return r.json(); }).then(function (j) {
+    daten = j; vergleichen();
+  }).catch(function () { $("ergebnis").innerHTML = "<p>Die Daten konnten nicht geladen werden.</p>"; });
+  $("a").addEventListener("change", vergleichen);
+  $("b").addEventListener("change", vergleichen);
+})();
 </script>
-
 </body>
 </html>

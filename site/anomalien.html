@@ -2,112 +2,13 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Anomalieanalyse</title>
-<link rel="stylesheet" href="assets/style.css">
-<style>
-.box{background:#faf7f2;padding:16px;border-radius:10px;margin-top:15px}
-h2{color:#6b0000;margin-top:0}
-.cardA{padding:10px;border:1px solid #eee;border-radius:10px;margin:6px 0;background:white}
-.type{font-size:12px;color:#888}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=grenzgaenge.html">
+<link rel="canonical" href="https://beierstettel.de/Grenze/grenzgaenge.html">
+<title>Weiterleitung: Die Grenzgänge</title>
 </head>
 <body>
-
-<header><h1>Anomalieanalyse</h1></header>
-
-<div style="text-align:center;margin-top:10px">
-<a href="index.html">Start</a> |
-<a href="suche.html">Recherche</a> |
-<a href="vergleich.html">Vergleich</a> |
-<a href="karte.html">Karte</a>
-</div>
-
-<div class="container">
-
-<button onclick="run()">Analyse starten</button>
-
-<div id="out"></div>
-
-</div>
-
-<script>
-let data=[];
-fetch("data.json").then(r=>r.json()).then(j=>data=j);
-
-function maxSymbols(r){
-let m=0;
-let sy=r._derived?.symbols_by_year||{};
-for(let y in sy){
-let o=sy[y];
-m=Math.max(m,(o.wappen_count||0)+(o.rad_count||0)+(o.kreuz_count||0)+(o.b_count||0));
-}
-return m;
-}
-
-function firstYear(r){return r._derived?.first_documented_year||9999}
-function lastYear(r){return r._derived?.last_documented_year||0}
-
-function run(){
-
-let html="";
-
-let avgAge=data.reduce((a,r)=>a+(2021-firstYear(r)),0)/data.length;
-
-html+="<div class=box><h2>Erkannte Anomalien</h2>";
-
-data.forEach(r=>{
-
-let id=r.ID;
-let anomalies=[];
-
-// ungewöhnlich alt
-if(2021-firstYear(r) > avgAge*1.5)
-anomalies.push("außergewöhnlich alt");
-
-// viele Symbole
-if(maxSymbols(r)>=5)
-anomalies.push("sehr symbolreich");
-
-// spät auftauchend
-if(firstYear(r)>1800)
-anomalies.push("späte Erstnennung");
-
-// früh verschwunden
-if(lastYear(r)<1700)
-anomalies.push("früh verschwunden");
-
-// widersprüchliche Jahreszahlen
-let years=r._derived?.year_on_stone_values||[];
-if(new Set(years).size>2)
-anomalies.push("mehrfache Datierungen");
-
-// Dreimärker ohne Symbol
-if(r._derived?.is_dreimaerker && maxSymbols(r)==0)
-anomalies.push("Dreimärker ohne Symbolik");
-
-// B-Extremwert
-let maxB=0;
-let sy=r._derived?.symbols_by_year||{};
-for(let y in sy) maxB=Math.max(maxB,sy[y].b_count||0);
-if(maxB>=3) anomalies.push("extreme B-Markierung");
-
-// Anzeige
-if(anomalies.length){
-html+=`
-<div class="cardA">
-<b>Stein ${id}</b><br>
-${anomalies.join(" · ")}
-<div class="type">Erst: ${firstYear(r)} | Letzt: ${lastYear(r)}</div>
-</div>`;
-}
-
-});
-
-html+="</div>";
-
-out.innerHTML=html;
-}
-</script>
-
+<p>Diese Seite gibt es nicht mehr. Weiter zu <a href="grenzgaenge.html">Die Grenzgänge</a>.</p>
 </body>
 </html>

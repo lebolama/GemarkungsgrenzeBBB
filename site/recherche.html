@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steine suchen – Grenzsteine Tauberbischofsheim</title>
+<meta name="description" content="Grenzsteine der Gemarkung Tauberbischofsheim nach Nummer, Nachbarort, Grenzgang, Zeichen und Zustand 2021 suchen.">
+<link rel="stylesheet" href="assets/grenze.css">
+<script src="assets/menue.js" defer></script>
+<style>
+.filter{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem 1.5rem;
+  background:var(--weiss);border:1px solid var(--linie);border-radius:6px;padding:1rem 1.2rem;margin:1rem 0}
+.filter label.titel{display:block;font-weight:bold;margin-bottom:.25rem}
+.filter input[type="search"],.filter select{width:100%}
+.filter fieldset{border:0;margin:0;padding:0}
+.filter legend{font-weight:bold;margin-bottom:.25rem;padding:0}
+.filter .haken label{display:block;line-height:1.9}
+.leiste{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:center;margin:.5rem 0 1rem}
+.leiste .anzahl{font-weight:bold;font-size:1.1rem}
+button.leise{background:none;color:var(--rot-hell);border:1px solid var(--linie)}
+button.leise:hover{background:var(--akzent);color:var(--rot)}
+td.nr{white-space:nowrap}
+td.zeichen{font-size:.93rem}
+.status-a{color:#1d6b35}.status-b{color:#9a5a00}.status-c{color:var(--grau)}
+</style>
+</head>
+<body>
+<!-- KOPF -->
+<header class="kopf">
+  <div class="kopf-innen">
+    <a class="marke" href="index.html">Grenzsteine Tauberbischofsheim</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
+    <nav id="hauptmenue" aria-label="Hauptmenü">
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="standorte.html">Karte</a></li>
+      <li><a href="reconstruction_xl.html">Verschwundene Steine</a></li>
+      <li><a href="recherche.html" aria-current="page">Steine suchen</a></li>
+      <li><a href="grenzgaenge.html">Die Grenzgänge</a></li>
+      <li><a href="chronik.html">Geschichte</a></li>
+      <li><a href="quellen.html">Quellen und Methode</a></li>
+      <li><a href="begriffe.html">Begriffe</a></li>
+      <li><a href="projekt.html">Über das Projekt</a></li>
+    </ul>
+    </nav>
+  </div>
+</header>
+<!-- /KOPF -->
+
+<main>
+<div class="text">
+<h1>Steine suchen</h1>
+<p class="einleitung">Hier finden Sie einzelne Grenzsteine oder stellen eine Auswahl nach
+Merkmalen zusammen. Jeder Treffer führt zum Steckbrief des Steins mit allen Angaben aus den
+historischen Grenzbeschreibungen.</p>
+<p>Geben Sie eine Steinnummer oder ein Stichwort ein, oder wählen Sie unten einen Nachbarort,
+einen Grenzgang und die Zeichen, die der Stein tragen soll. Die Liste passt sich sofort an.</p>
+
+<details class="hilfe">
+<summary>So funktioniert die Suche – mit Beispielen</summary>
+<p><strong>Stichwort:</strong> durchsucht die Steinnummer, den Nachbarort und alle
+Beschreibungen in den Protokollen, zum Beispiel „Tauber“, „Wiese“ oder „Weg“. Historische
+Schreibweisen bleiben erhalten; suchen Sie deshalb lieber nach Wortteilen („wies“ findet
+„Wiese“ und „Wießen“).</p>
+<p><strong>Grenzgang:</strong> Wählen Sie ein Jahr, erscheinen nur Steine, die in diesem
+Protokoll vorkommen. Die Zeichen-Filter beziehen sich dann auf die Beschreibung in genau diesem
+Jahr. Ohne Jahr genügt es, wenn das Zeichen in irgendeinem Protokoll erwähnt ist.</p>
+<p><strong>Zeichen:</strong> Mehrere Haken bedeuten „und“: Der Stein muss alle gewählten Zeichen
+tragen. Was die Zeichen bedeuten, steht unter <a href="begriffe.html">Begriffe</a>.</p>
+<p><strong>Beispiele zum Anklicken:</strong></p>
+<ul>
+  <li><a href="?grenze=Impfingen&amp;jahr=1608&amp;rad=1">Steine an der Grenze zu Impfingen, die 1608 ein Mainzer Rad trugen</a></li>
+  <li><a href="?dreimaerker=1">alle Dreimärker</a></li>
+  <li><a href="?zustand=original&amp;jahreszahl=1">heute noch am ursprünglichen Platz und mit Jahreszahl</a></li>
+  <li><a href="?jahr=1569&amp;zustand=fehlt">1569 schon genannt, 2021 nicht mehr gefunden</a></li>
+</ul>
+</details>
+</div>
+
+<form class="filter" id="filter" onsubmit="return false" aria-label="Suchfilter">
+  <div>
+    <label class="titel" for="f-text">Nummer oder Stichwort</label>
+    <input type="search" id="f-text" placeholder="z. B. 47 oder Tauber" autocomplete="off">
+  </div>
+  <div>
+    <label class="titel" for="f-grenze">Grenze zu</label>
+    <select id="f-grenze"><option value="">allen Nachbarorten</option></select>
+  </div>
+  <div>
+    <label class="titel" for="f-jahr">Erwähnt im Grenzgang</label>
+    <select id="f-jahr">
+      <option value="">beliebig</option>
+      <option value="1569">1569 (wiederholt 1580)</option>
+      <option value="1608">1608</option>
+      <option value="1683">1683</option>
+      <option value="1700">1700</option>
+      <option value="1749">1749</option>
+      <option value="1784">1784 (Großrinderfelder Grenzbegehung)</option>
+      <option value="1872">1872</option>
+      <option value="1887">1887–1893 (Grenzberichtigungen)</option>
+    </select>
+  </div>
+  <div>
+    <label class="titel" for="f-zustand">Zustand 2021</label>
+    <select id="f-zustand">
+      <option value="">beliebig</option>
+      <option value="original">steht am ursprünglichen Platz</option>
+      <option value="versetzt">gefunden, aber versetzt oder Platz unklar</option>
+      <option value="fehlt">nicht gefunden</option>
+    </select>
+  </div>
+  <fieldset class="haken">
+    <legend>Zeichen auf dem Stein</legend>
+    <label><input type="checkbox" id="f-rad"> Mainzer Rad</label>
+    <label><input type="checkbox" id="f-wappen"> Wappen oder Wappenschild</label>
+    <label><input type="checkbox" id="f-kreuz"> Kreuz auf der Oberseite</label>
+    <label><input type="checkbox" id="f-b"> „b“ für Bischofsheim</label>
+    <label><input type="checkbox" id="f-jahreszahl"> eingehauene Jahreszahl</label>
+  </fieldset>
+  <fieldset class="haken">
+    <legend>Art</legend>
+    <label><input type="checkbox" id="f-dreimaerker"> nur Dreimärker</label>
+    <label><input type="checkbox" id="f-fotos"> nur Steine mit Fotos von 2021</label>
+  </fieldset>
+</form>
+
+<div class="leiste">
+  <span class="anzahl" id="anzahl" aria-live="polite">Daten werden geladen …</span>
+  <button type="button" class="leise" id="zuruecksetzen">Filter zurücksetzen</button>
+  <button type="button" class="leise" id="csv">Auswahl als Tabelle (CSV) herunterladen</button>
+  <a href="vergleich.html">Zwei Grenzgänge vergleichen</a>
+</div>
+
+<div class="tabelle-rahmen">
+<table>
+  <caption class="klein" style="text-align:left;caption-side:bottom;padding-top:.4rem">Die Nummer ist die laufende
+  Nummer dieser Website entlang der Grenze. Die Nummern der historischen Protokolle stehen im Steckbrief.</caption>
+  <thead><tr><th scope="col">Stein</th><th scope="col">Grenze zu</th><th scope="col">in den Quellen</th>
+  <th scope="col">Zeichen (irgendwann erwähnt)</th><th scope="col">2021</th></tr></thead>
+  <tbody id="treffer"></tbody>
+</table>
+</div>
+</main>
+
+<!-- FUSS -->
+<footer class="fuss">
+  <div class="fuss-innen">
+    <span>© Hendrik Beierstettel, Tauberbischofsheim</span>
+    <ul>
+      <li><a href="karteXL.html">Amtliche Grenzpunkte</a></li>
+      <li><a href="download.html">Daten</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+<!-- /FUSS -->
+
+<script>
+(function () {
+  "use strict";
+  var daten = [];
+  var $ = function (id) { return document.getElementById(id); };
+  var FELDER = ["text", "grenze", "jahr", "zustand", "rad", "wappen", "kreuz", "b", "jahreszahl", "dreimaerker", "fotos"];
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+  }
+
+  // Suchtext eines Steins: Nummer, Grenze und alle Textangaben der Protokolle
+  function suchtext(r) {
+    var teile = [r.ID, r.Grenze];
+    Object.keys(r).forEach(function (k) {
+      if (k.charAt(0) === "_" || k.indexOf("Fotos") >= 0 || k.indexOf("GPS") >= 0) return;
+      var v = r[k];
+      if (v !== "" && v !== null && v !== undefined) teile.push(v);
+    });
+    return teile.join(" ").toLowerCase();
+  }
+
+  function zeichen(r, jahr) {
+    var sy = (r._derived && r._derived.symbols_by_year) || {};
+    var z = { rad: false, wappen: false, kreuz: false, b: false };
+    Object.keys(sy).forEach(function (y) {
+      if (jahr && y !== jahr) return;
+      var s = sy[y];
+      if (s.rad_count > 0) z.rad = true;
+      if (s.wappen_count > 0) z.wappen = true;
+      if (s.kreuz_count > 0) z.kreuz = true;
+      if (s.b_count > 0) z.b = true;
+    });
+    return z;
+  }
+
+  function zustand(r) {
+    var s = (r._derived && r._derived.status) || {};
+    if (s.standing_original) return "original";
+    if (s.moved_or_unknown_location) return "versetzt";
+    if (s.missing_2021) return "fehlt";
+    return "";
+  }
+
+  var ZUSTAND_TEXT = {
+    original: '<span class="status-a">steht am Platz</span>',
+    versetzt: '<span class="status-b">versetzt / unklar</span>',
+    fehlt: '<span class="status-c">nicht gefunden</span>',
+    "": "–"
+  };
+
+  function wert(id) {
+    var el = $("f-" + id);
+    return el.type === "checkbox" ? el.checked : el.value.trim();
+  }
+
+  function filtern() {
+    var text = wert("text").toLowerCase();
+    var grenze = wert("grenze");
+    var jahr = wert("jahr");
+    var zst = wert("zustand");
+    var nurZahl = /^\d+$/.test(text);
+
+    return daten.filter(function (r) {
+      var d = r._derived || {};
+      if (text) {
+        if (nurZahl) { if (String(r.ID) !== text) return false; }
+        else if (r._suche.indexOf(text) < 0) return false;
+      }
+      if (grenze && r.Grenze.split(" / ").indexOf(grenze) < 0) return false;
+      if (jahr && !(d.presence_by_year && d.presence_by_year[jahr])) return false;
+      if (zst && zustand(r) !== zst) return false;
+      var z = zeichen(r, jahr);
+      if (wert("rad") && !z.rad) return false;
+      if (wert("wappen") && !z.wappen) return false;
+      if (wert("kreuz") && !z.kreuz) return false;
+      if (wert("b") && !z.b) return false;
+      if (wert("jahreszahl") && !((d.year_on_stone_values || []).length)) return false;
+      if (wert("dreimaerker") && !d.is_dreimaerker) return false;
+      if (wert("fotos") && !(d.survey2021 && d.survey2021.has_photos)) return false;
+      return true;
+    });
+  }
+
+  function zeichenText(r) {
+    var z = zeichen(r, "");
+    var t = [];
+    if (z.rad) t.push("Mainzer Rad");
+    if (z.wappen) t.push("Wappen");
+    if (z.kreuz) t.push("Kreuz");
+    if (z.b) t.push("b");
+    var j = (r._derived && r._derived.year_on_stone_values) || [];
+    if (j.length) t.push("Jahreszahl " + j.join(", "));
+    return t.length ? t.join(" · ") : "–";
+  }
+
+  function zeitraum(r) {
+    var d = r._derived || {};
+    var a = d.first_documented_year, b = d.last_documented_year;
+    if (!a) return "–";
+    return a === b ? String(a) : a + "–" + b;
+  }
+
+  function zeigen() {
+    var liste = filtern();
+    $("anzahl").textContent = liste.length === 1 ? "1 Stein" : liste.length + " Steine";
+    var html = liste.map(function (r) {
+      var dm = r._derived && r._derived.is_dreimaerker ? " <span class=\"klein\">(Dreimärker)</span>" : "";
+      return "<tr><td class=\"nr\"><a href=\"stein.html?id=" + encodeURIComponent(r.ID) + "\">Stein " + esc(r.ID) + "</a>" + dm + "</td>" +
+        "<td>" + esc(r.Grenze) + "</td><td>" + zeitraum(r) + "</td>" +
+        "<td class=\"zeichen\">" + esc(zeichenText(r)) + "</td><td>" + ZUSTAND_TEXT[zustand(r)] + "</td></tr>";
+    }).join("");
+    $("treffer").innerHTML = html || "<tr><td colspan=\"5\">Keine Steine gefunden. Lockern Sie die Filter oder setzen Sie sie zurück.</td></tr>";
+    adresseMerken();
+    return liste;
+  }
+
+  // Filter in der Adresszeile speichern, damit man eine Auswahl verlinken kann
+  function adresseMerken() {
+    var p = new URLSearchParams();
+    FELDER.forEach(function (f) {
+      var v = wert(f);
+      if (v === true) p.set(f, "1"); else if (v) p.set(f, v);
+    });
+    var q = p.toString();
+    history.replaceState(null, "", q ? "?" + q : location.pathname);
+  }
+
+  function adresseLesen() {
+    var p = new URLSearchParams(location.search);
+    FELDER.forEach(function (f) {
+      if (!p.has(f)) return;
+      var el = $("f-" + f);
+      if (el.type === "checkbox") el.checked = p.get(f) === "1"; else el.value = p.get(f);
+    });
+  }
+
+  function csv() {
+    var zeilen = [["Stein", "Grenze zu", "in den Quellen", "Zeichen", "Zustand 2021", "Link"]];
+    filtern().forEach(function (r) {
+      zeilen.push([r.ID, r.Grenze, zeitraum(r), zeichenText(r),
+        { original: "steht am Platz", versetzt: "versetzt/unklar", fehlt: "nicht gefunden", "": "" }[zustand(r)],
+        "https://beierstettel.de/Grenze/stein.html?id=" + r.ID]);
+    });
+    var text = "﻿" + zeilen.map(function (z) {
+      return z.map(function (v) { return '"' + String(v).replace(/"/g, '""') + '"'; }).join(";");
+    }).join("\r\n");
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([text], { type: "text/csv;charset=utf-8" }));
+    a.download = "grenzsteine-auswahl.csv";
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  }
+
+  fetch("data.json").then(function (r) { return r.json(); }).then(function (j) {
+    daten = j;
+    var orte = {};
+    daten.forEach(function (r) {
+      r._suche = suchtext(r);
+      String(r.Grenze).split(" / ").forEach(function (o) { orte[o] = true; });
+    });
+    Object.keys(orte).sort(function (a, b) { return a.localeCompare(b, "de"); }).forEach(function (o) {
+      var opt = document.createElement("option");
+      opt.value = o; opt.textContent = o;
+      $("f-grenze").appendChild(opt);
+    });
+    adresseLesen();
+    zeigen();
+  }).catch(function () {
+    $("anzahl").textContent = "Die Daten konnten nicht geladen werden. Bitte laden Sie die Seite neu.";
+  });
+
+  $("filter").addEventListener("input", zeigen);
+  $("filter").addEventListener("change", zeigen);
+  $("zuruecksetzen").addEventListener("click", function () { $("filter").reset(); zeigen(); });
+  $("csv").addEventListener("click", csv);
+})();
+</script>
+</body>
+</html>
