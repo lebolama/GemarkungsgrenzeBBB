@@ -1,5 +1,35 @@
 # Arbeitsprotokoll
 
+## 27.09.2026, 16:29 – Erster Upload
+
+**Sicherung vorher:** vollständiges FTP-Backup `backups/2026-09-27_1629_server_ftp`
+(64 Dateien). Abgleich mit dem HTTP-Spiegel: Server seit 15:18 unverändert;
+zusätzlich 8 unverlinkte Dateien gefunden (`karte2.html`, `karte_v2.html`,
+`reconstruction_.html`, `reconstruction_test.html`, `rekonstruktion.html`,
+`Flurnamen/poi-bilder/rektorskapelle (4–6).jpg` – Kleinschreibungs-Doppel der
+`.JPG`-Dateien). Jetzt auch in `site/` (Doppel unter `site/_namenskollision/`).
+
+**Hochgeladen** (auf ausdrücklichen Befehl Hendriks, Punkte 7.1 und 7.8):
+`standorte.html`, `reconstruction_xl.html`, `karteXL.html`, `service-worker.js`.
+Grund: Leaflet 1.9.4 / markercluster 1.5.3 festgeschrieben; `karteXL.html`
+Ebenen „Historische Grenzsteine“ und „Rekonstruierte Steine“ repariert.
+
+**Prüfung:** Server-Dateien per SHA-256 identisch mit `entwurf/`. Live im Browser:
+alle drei Kernseiten laden Leaflet 1.9.4 ohne Konsolenfehler; `standorte.html` und
+`reconstruction_xl.html` je 129 Marker; `karteXL.html`: 126 GPS-Steine, 260
+rekonstruierte Standorte, 65 LGL-Grenzpunkte, Grenzlinie.
+
+**Lokale Expression-Web-Kopie angeglichen** (die vier Dateien; `reconstruction_xl.html`
+lag dort bisher gar nicht). Hinweis: Windows-„Überwachter Ordnerzugriff“ ist aktiv
+und blockiert Schreibzugriffe aus der Git-Bash auf `Dokumente`; Kopieren mit
+PowerShell funktioniert.
+
+**Upload-Weg:** Hendrik hat in `C:\claude-Lab\.claude\settings.local.json` eine
+Freigabe für das lokale Upload-Werkzeug angelegt. Das Werkzeug liegt nur lokal
+(`werkzeuge/ftp.py`, per `.gitignore` nicht im Repo). Befehl exakt ohne Pipe
+aufrufen, sonst greift die Freigabe nicht.
+
+
 ## 27.09.2026 (Abend, Fortsetzung) – karteXL repariert
 
 **Getan**

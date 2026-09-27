@@ -10,6 +10,18 @@
   **Nie ins Repo.** Protokoll (FTP/FTPS/SFTP) beim ersten Upload aus den
   vorhandenen Unterlagen ermitteln und hier eintragen (ohne Passwort).
 
+## Werkzeug (Stand 27.09.2026)
+
+Upload und Sicherung laufen über ein lokales Werkzeug auf Hendriks PC
+(`werkzeuge/ftp.py`, nicht im Repo), FTPS auf Port 21, Zielordner
+`/httpdocs/Grenze`. Befehle: `liste`, `sichern`, `hochladen DATEI…`
+(geschützte Seiten nur mit `--geschuetzt-freigegeben`). Freigabe in
+`C:\claude-Lab\.claude\settings.local.json`; Befehl immer exakt so und ohne
+Pipe aufrufen: `PYTHONIOENCODING=utf-8 python werkzeuge/ftp.py …`
+
+Lokalen Expression-Web-Ordner mit **PowerShell** (`Copy-Item`) angleichen –
+der Windows-„Überwachte Ordnerzugriff“ blockiert die Git-Bash.
+
 ## Grundregeln
 
 1. **Vor jedem Upload** den aktuellen Serverstand des Ordners `Grenze/`

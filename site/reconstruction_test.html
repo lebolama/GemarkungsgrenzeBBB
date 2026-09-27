@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rekonstruktionskarte – der historischen Grenzsteine auf der Gemarkungsgrenze Tauberbischofsheim</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <title>Rekonstruktionskarte – Gemarkungsgrenze Tauberbischofsheim</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
     :root {
       --bg: #f5f2ea;
@@ -63,19 +63,12 @@
   </style>
 </head>
 <body>
-
-<header style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 20px;">
-  <h1 style="margin:0; flex:1;">
-    Interaktive Rekonstruktionskarte der historischen Grenzsteine auf der (Tauber-)Bischofsheimer Gemarkungsgrenze
-  </h1>
-  <a href="index.html" style="color:white; text-decoration:none; font-size:0.7em; white-space:nowrap;">
-    zurück zur Startseite
-  </a>
-</header>
-
+  <header>
+    <h1>Interaktive Rekonstruktionskarte der Tauberbischofsheimer Gemarkungsgrenze</h1>
+  </header>
   <div id="map"></div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     const YEAR_CONFIG = [
       { key: "1569", label: "Grenzgang 1569/1580", numberField: "1569 (1580) — Nr.", meterMode: "none" },
@@ -225,11 +218,6 @@
       return { color: "#b10026", label: "C (rekonstruiert aus Kette)" };
     }
 
-    function detailsLink(stoneId) {
-      if (stoneId === null || stoneId === undefined || stoneId === "") return "";
-      return `<a href="stein.html?id=${encodeURIComponent(stoneId)}">Details</a>`;
-    }
-
     Promise.all([
       fetch("Gemarkungsgrenze Tauberbischofsheim.geojson").then((r) => r.json()),
       fetch("data.json").then((r) => r.json())
@@ -266,8 +254,7 @@
           `<b>${label}</b>`,
           stone.row["Grenze"] ? `Grenze zu: ${stone.row["Grenze"]}` : "",
           stone.row["2021 — Fotos"] ? `<a href="${stone.row["2021 — Fotos"]}" target="_blank" rel="noopener">Fotoalbum 2021</a>` : "",
-          `GPS: ${stone.gps[0].toFixed(8)}, ${stone.gps[1].toFixed(8)}`,
-          detailsLink(stone.id)
+          `GPS: ${stone.gps[0].toFixed(8)}, ${stone.gps[1].toFixed(8)}`
         ]
           .filter(Boolean)
           .join("<br>");
@@ -339,8 +326,7 @@
             `Quelle: ${cfg.label}`,
             `Position: ${certainties[i] === "exact" ? "GPS 2021" : "rekonstruiert auf Grenze"}`,
             dToPrev !== null ? `Distanz zum vorherigen Stein laut Protokoll: ${dToPrev} m` : "Keine Distanzangabe verfügbar",
-            `Unsicherheitsklasse: ${c.label}`,
-            detailsLink(stones[i].id)
+            `Unsicherheitsklasse: ${c.label}`
           ].join("<br>");
 
           L.circleMarker(latlng, {
@@ -359,7 +345,9 @@
               color: c.color,
               weight: 1,
               opacity: 0.35,
-              fillOpacity: 0.06
+              fillOpacity: 0.06,
+              interactive: false,
+              bubblingMouseEvents: false
             }).addTo(layer);
           }
         }
@@ -370,6 +358,15 @@
       overlays["Steine 2021 (GPS)"] = base2021Layer;
       L.control.layers(null, overlays, { collapsed: false }).addTo(map);
 
+      const info = L.control({ position: "topright" });
+      info.onAdd = () => {
+        const div = L.DomUtil.create("div", "info-box");
+        div.innerHTML =
+          "<h3>Hinweis</h3>" +
+          "Die 2021er GPS-Steine sind dauerhaft eingeblendet. Historische Layer können einzeln oder gemeinsam zugeschaltet werden.";
+        return div;
+      };
+      info.addTo(map);
 
       const legend = L.control({ position: "bottomright" });
       legend.onAdd = () => {

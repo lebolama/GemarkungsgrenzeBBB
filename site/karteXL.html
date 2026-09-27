@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <title>Karte</title>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css"/>
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
 
 <style>
 body{margin:0;font-family:serif;background:#f5f2ea}
@@ -45,8 +45,8 @@ margin-right:6px;
 
 <div id="map"></div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
 <script>
 
@@ -87,20 +87,47 @@ iconSize:[14,14]
 // ===============================
 // Steine laden
 // ===============================
-fetch("data.json")
-.then(r=>r.json())
-.then(data=>{
+// Rekonstruierte Standorte: gleiche Auswahl wie in standorte.html
+// (Klasse B vor C, nicht übertragene Werte zuerst, dann jüngster Grenzgang)
+function besteRekonstruktion(pos,id){
+const kandidaten=Object.entries(pos?.years||{}).flatMap(([jahr,liste])=>{
+const p=liste?.[String(id)];
+if(!p || !Number.isFinite(p.lat) || !Number.isFinite(p.lon)) return [];
+if(p.certainty!=="B" && p.certainty!=="C") return [];
+return [{jahr,...p}];
+});
+kandidaten.sort((a,b)=>
+(a.certainty==="B"?0:1)-(b.certainty==="B"?0:1) ||
+Number(Boolean(a.transferred))-Number(Boolean(b.transferred)) ||
+Number(b.jahr)-Number(a.jahr));
+return kandidaten[0]||null;
+}
+
+Promise.all([
+fetch("data.json").then(r=>r.json()),
+fetch("standorte-positionen.json").then(r=>r.json()).catch(()=>null)
+])
+.then(([data,pos])=>{
 
 data.forEach(r=>{
 
-if(!r.gps || !r.gps.includes(",")) return;
+const link=`<br><a href="stein.html?id=${encodeURIComponent(r.ID)}">Details</a>`;
+const gps=r._gps_parsed;
 
-let [lat,lon]=r.gps.split(",").map(Number);
+if(gps && Number.isFinite(gps.lat) && Number.isFinite(gps.lon)){
+steineLayer.addLayer(
+L.marker([gps.lat,gps.lon],{icon:marker("#2e8b57")})
+.bindPopup(`<b>Grenzstein ${r.ID}</b><br>Grenze: ${r.Grenze||""}<br>GPS 2021${link}`)
+);
+return;
+}
 
-let m=L.marker([lat,lon],{icon:marker("#2e8b57")})
-.bindPopup(`<b>Grenzstein ${r.id}</b><br>${r.gemarkung||""}`);
-
-steineLayer.addLayer(m);
+const rek=besteRekonstruktion(pos,r.ID);
+if(!rek) return;
+rekonLayer.addLayer(
+L.marker([rek.lat,rek.lon],{icon:marker("#d9822b")})
+.bindPopup(`<b>Grenzstein ${r.ID}</b><br>Grenze: ${r.Grenze||""}<br>Rekonstruiert (Klasse ${rek.certainty}, Grenzgang ${rek.jahr})${link}`)
+);
 
 });
 

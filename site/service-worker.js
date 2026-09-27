@@ -11,10 +11,10 @@ const OFFLINE_ASSETS = [
   "./Flurnamen/pois.txt",
   "./Flurnamen/gemarkungskarte-1932.jpg",
   "./Flurnamen/dgk5-tauberbischofsheim.jpg",
-  "https://unpkg.com/leaflet/dist/leaflet.css",
-  "https://unpkg.com/leaflet/dist/leaflet.js",
-  "https://unpkg.com/leaflet/dist/images/layers.png",
-  "https://unpkg.com/leaflet/dist/images/layers-2x.png"
+  "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css",
+  "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+  "https://unpkg.com/leaflet@1.9.4/dist/images/layers.png",
+  "https://unpkg.com/leaflet@1.9.4/dist/images/layers-2x.png"
 ];
 
 self.addEventListener("install", (event) => {
