@@ -1,5 +1,21 @@
 # Arbeitsprotokoll
 
+## 27.09.2026 (Abend, Fortsetzung) – karteXL repariert
+
+**Getan**
+- **`karteXL.html` repariert (ausdrücklicher Befehl Hendriks, Server-Stand im
+  Erst-Backup gesichert):** Ebene „Historische Grenzsteine“ liest jetzt
+  `_gps_parsed`/`ID`/`Grenze` (126 Steine), Ebene „Rekonstruierte Steine“ wird
+  erstmals befüllt (260 Standorte aus `standorte-positionen.json`, gleiche
+  Auswahlregel wie `standorte.html`). Popups verlinken auf das Stein-Dossier.
+  Sonst nichts geändert (Überschrift „Kartenanalyse“ bleibt). Lokal getestet,
+  keine Konsolenfehler.
+
+**Blockiert**
+- Upload: Claude darf den gespeicherten Zugang nicht selbst verwenden
+  (Sicherheitssystem). Hendrik entscheidet, wie hochgeladen wird (Chat 27.09.).
+
+
 ## 27.09.2026 (Abend) – Abschnitt 1 der Umsetzung, lokal vorbereitet
 
 **Getan** (alles in `entwurf/`, noch **nichts hochgeladen**)
