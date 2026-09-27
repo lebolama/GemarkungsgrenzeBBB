@@ -34,8 +34,15 @@
   bei Erscheinen von Leaflet 2.0. Festschreiben nur auf Hendriks Befehl.
 - `assets/style.css` wird von keiner geschützten Seite eingebunden → frei änderbar.
 
+**Entscheidungen Hendriks** (s. `VORSCHLAEGE.md` oben): alles freigegeben,
+Leaflet-Festschreibung in den geschützten Seiten befohlen, Fotos bleiben bei
+Google Fotos, Daten CC BY 4.0 / Fotos und Texte alle Rechte vorbehalten,
+Frist 31.10.2026.
+
 **Offen / nächste Schritte**
-1. Hendrik gibt `VORSCHLAEGE.md` frei (Rückfragen dort am Ende).
+1. ⏰ **Erinnerung an Hendrik:** Quellenangaben (Archiv/Signatur je Grenzgang,
+   Literatur, Fundort Protokoll 1784) – bei jeder Sitzung nachfragen, bis
+   geliefert; spätestens 06.10.2026.
 2. Vor dem ersten Upload: Protokoll/Zugang aus den Unterlagen in `C:\claude-Lab`
    ermitteln (ohne Passwort ins Repo), FTP-Voll-Backup ziehen (schließt die
    Lücke unverlinkter Dateien).

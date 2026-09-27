@@ -2,8 +2,34 @@
 
 Stand: 27.09.2026. Grundlage ist die Sichtung aller 33 HTML-Seiten des Live-Stands
 (Quelltext in `site/`, dazu im Browser auf Desktop und in Handybreite geprüft).
-**An der Website ist noch nichts geändert.** Jeder Punkt hat eine Nummer, damit
-Hendrik einzeln freigeben, ablehnen oder ändern kann.
+Jeder Punkt hat eine Nummer, damit Hendrik einzeln freigeben, ablehnen oder
+ändern kann.
+
+## ✅ Entscheidungen Hendriks (27.09.2026)
+
+1. **Alle Punkte freigegeben**, einschließlich Wegfall der Analyse-Seiten (3.1).
+2. **Punkt 7.1 ausdrücklich befohlen:** Leaflet-Version in `standorte.html`,
+   `karteXL.html`, `reconstruction_xl.html` und `service-worker.js` auf 1.9.4
+   festschreiben (ebenso `leaflet.markercluster` in `karteXL.html`). Nur diese
+   Änderung, nur mit Backup vorher. Alles andere an den drei Seiten bleibt tabu.
+3. **Quellenangaben (4.3):** Hendrik liefert Archiv/Signatur je Grenzgang,
+   Literatur und Fundort des Großrinderfelder Protokolls 1784 – **Claude muss
+   ihn daran erinnern** (Ziel: bis 06.10.2026).
+4. **Fotos bleiben bei Google Fotos** (Speicherplatz). Punkt 7.3 entfällt;
+   stattdessen vor der Einreichung alle Fotolinks automatisch auf Erreichbarkeit
+   prüfen.
+5. **Nutzungsrechte (2.4):**
+   - *Daten* (`data.json`, CSV, Tabellen): Weiterverwendung erlaubt, auch für
+     Folgeforschung, **wenn Hendrik Beierstettel als Quelle genannt wird** →
+     entspricht der Standardlizenz **CC BY 4.0**.
+   - *Fotos*: **alle Rechte vorbehalten**; Nutzung nur nach persönlicher
+     Zustimmung (Anfrage per E-Mail).
+   - *Texte der Website*: ebenfalls alle Rechte vorbehalten (Zitieren nach
+     Zitatrecht bleibt ohnehin erlaubt).
+6. **Stein 1 und ähnliche Fälle:** Lesart bestätigt – ein Stein mit jüngerer
+   Jahreszahl ersetzt einen älteren Stein an derselben Stelle. Im Dossier und
+   auf „Begriffe“ allgemein erklären.
+7. **Frist 31.10.2026: ja.**
 
 Legende Priorität: **P1** vor der Einreichung unverzichtbar · **P2** deutlich
 besser für die Jury · **P3** wünschenswert, kann warten.
@@ -194,7 +220,7 @@ Nach `STILREGELN.md`. Die auffälligsten Stellen:
 |---|---|---|
 | 7.1 | **Alle drei geschützten Seiten** laden Leaflet ohne Versionsnummer von unpkg (`unpkg.com/leaflet/dist/leaflet.js`). Heute liefert das 1.9.4. Leaflet 2.0 ist als Vorabversion erschienen und ändert die Programmierschnittstelle. Sobald 2.0 als „latest“ erscheint, können **alle drei Kernseiten über Nacht ausfallen** – womöglich mitten in der Jurierung. Der Service-Worker von `standorte.html` speichert die unversionierte Adresse ebenfalls. | **Dringende Empfehlung, braucht Hendriks ausdrückliche Freigabe:** in den drei Seiten und im Service-Worker `leaflet` durch `leaflet@1.9.4` ersetzen (oder Leaflet auf den eigenen Server legen). Mini-Änderung, Backup vorher, danach alle Funktionen prüfen. Gleiches für `leaflet.markercluster` in `karteXL.html`. |
 | 7.2 | `chart.js` (jsDelivr) ebenfalls ohne Version. | Auf den überarbeiteten Seiten feste Version, besser selbst gehostet. |
-| 7.3 | Fotos nur als Google-Fotos-Freigabelinks. Solche Links können jederzeit ungültig werden; das Haus der Geschichte archiviert prämierte Arbeiten. | Je gefundenem Stein 1–2 verkleinerte Fotos (z. B. 1200 px, ~200 KB) auf den eigenen Server. Bei 143 Steinen etwa 30–60 MB. Speicherplatz auf dem freenet-Webspace prüfen. |
+| 7.3 | ~~Entfällt (Entscheidung 4).~~ Fotos nur als Google-Fotos-Freigabelinks. Solche Links können jederzeit ungültig werden; das Haus der Geschichte archiviert prämierte Arbeiten. | Je gefundenem Stein 1–2 verkleinerte Fotos (z. B. 1200 px, ~200 KB) auf den eigenen Server. Bei 143 Steinen etwa 30–60 MB. Speicherplatz auf dem freenet-Webspace prüfen. |
 | 7.4 | Beim allerersten Aufruf von `standorte.html` blieb die Karte einmal grau (Kacheln in Zoomstufe 20 angefordert, OSM liefert bis 19 → Fehler 400). Nach Neuladen einwandfrei, nicht sicher reproduzierbar. | Nur beobachten. Falls es wieder auftritt: `maxZoom: 19` in `standorte.html` – Änderung nur auf Befehl. |
 | 7.5 | Die DGK5-Karte (`Flurnamen/dgk5-tauberbischofsheim.jpg`) ist 40 MB groß und wird vom Service-Worker für die Offline-Nutzung komplett geladen. | Hinweis im Offline-Knopf auf die Datenmenge; später ggf. als Kachelsatz. Geschützte Seite → nur auf Befehl. |
 | 7.6 | `data.json` (2,5 MB) wird auf jeder Unterseite neu geladen. | Für die neue Recherche vertretbar; kein Handlungsbedarf vor der Einreichung. |
