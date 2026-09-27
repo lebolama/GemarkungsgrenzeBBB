@@ -46,10 +46,9 @@ Freigegeben (27.09.2026):
 - Zugriff auf die Website beierstettel.de/Grenze/ inkl. Upload
 - Lesen der MWK-Seiten zum Landespreis und der dort verlinkten Seiten
 - Schreibrechte in `F:\User\code` und `C:\claude-Lab`
-
 - Lokaler Testserver für `entwurf/` (`python -m http.server 8777 --bind 127.0.0.1`,
   Eintrag `grenze-entwurf` in `C:\claude-Lab\.claude\launch.json`): dauerhaft erlaubt (27.09.2026)
-- Lesen des Ordners `...\httpdocs\Grenzeotos` (Titelbild, Archivfoto)
+- Lesen des Ordners `...\httpdocs\Grenze\fotos` (Titelbild, Archivfoto)
 
 **Vorher fragen und begründen:** Zugriff auf weitere lokale Ordner, Starten
 oder Installieren sonstiger Software.
