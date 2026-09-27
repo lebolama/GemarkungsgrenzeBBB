@@ -30,6 +30,16 @@ Jeder Punkt hat eine Nummer, damit Hendrik einzeln freigeben, ablehnen oder
    Jahreszahl ersetzt einen älteren Stein an derselben Stelle. Im Dossier und
    auf „Begriffe“ allgemein erklären.
 7. **Frist 31.10.2026: ja.**
+8. **Lokaler Testserver** (`python -m http.server`, nur 127.0.0.1): **dauerhaft erlaubt.**
+9. **Titelbild:** Hendriks eigenes Foto `fotos/DSC08806.JPG` (verkleinert, ohne
+   EXIF/GPS als `bilder/grenzstein-mainzer-rad.jpg`).
+10. **Archivfoto** Landesarchiv BW, Staatsarchiv Wertheim, K-LRA 91 Nr. 253,
+    Bild 17 (Permalink http://www.landesarchiv-bw.de/plink/?f=7-168711-17;
+    laut Findbuch u. a. „Grenzstein von 1474 im Brehmbachtal zwischen Königheim
+    und Tauberbischofsheim“): darf verwendet werden, **wenn die Quelle klar
+    genannt ist.**
+11. **Upload:** Hendrik gibt Claude den Zugriff auf die Upload-Unterlagen in
+    `C:\claude-Lab` über eine Freigabe in den Claude-Code-Einstellungen (steht aus).
 
 Legende Priorität: **P1** vor der Einreichung unverzichtbar · **P2** deutlich
 besser für die Jury · **P3** wünschenswert, kann warten.
@@ -224,6 +234,7 @@ Nach `STILREGELN.md`. Die auffälligsten Stellen:
 | 7.4 | Beim allerersten Aufruf von `standorte.html` blieb die Karte einmal grau (Kacheln in Zoomstufe 20 angefordert, OSM liefert bis 19 → Fehler 400). Nach Neuladen einwandfrei, nicht sicher reproduzierbar. | Nur beobachten. Falls es wieder auftritt: `maxZoom: 19` in `standorte.html` – Änderung nur auf Befehl. |
 | 7.5 | Die DGK5-Karte (`Flurnamen/dgk5-tauberbischofsheim.jpg`) ist 40 MB groß und wird vom Service-Worker für die Offline-Nutzung komplett geladen. | Hinweis im Offline-Knopf auf die Datenmenge; später ggf. als Kachelsatz. Geschützte Seite → nur auf Befehl. |
 | 7.6 | `data.json` (2,5 MB) wird auf jeder Unterseite neu geladen. | Für die neue Recherche vertretbar; kein Handlungsbedarf vor der Einreichung. |
+| 7.8 | `karteXL.html` (geschützt): Die Ebenen „Historische Grenzsteine“ und „Rekonstruierte Steine“ bleiben beim Einschalten leer, auch live und schon vor jeder Änderung (geprüft 27.09.). Der Code liest `r.gps`/`r.id`, in `data.json` heißen die Felder `_gps_parsed`/`ID` – derselbe Fehler wie bei `distanzkarte.html`. Die LGL-Grenzpunkte (65) und die Grenzlinie funktionieren. Außerdem lautet die Überschrift „Kartenanalyse“, und die Navigation führt auf die wegfallenden Seiten (dort greifen die Weiterleitungen). | **Entscheidung Hendrik:** Fehler beheben (kleine Änderung, Backup vorher) oder die beiden leeren Ebenen ausblenden? Nur auf ausdrücklichen Befehl. |
 | 7.7 | Lokaler Expression-Web-Ordner weicht vom Server ab (z. B. neuere `reconstruction.html` lokal, `reconstruction_xl.html` fehlt lokal). | Nach jedem Upload den lokalen Ordner angleichen (DEPLOYMENT.md). Hendrik sollte bis dahin **nichts** mehr mit Expression Web hochladen. |
 
 ## 8. Für die Bewerbung (P1)

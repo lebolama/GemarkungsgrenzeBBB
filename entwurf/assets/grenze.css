@@ -124,3 +124,13 @@ button:hover,.knopf:hover{background:var(--rot-hell);color:#fff}
   body{background:#fff;font-size:11pt}
   a{color:#000}
 }
+
+/* Startseite: Text und Titelfoto nebeneinander */
+.aufmacher{display:grid;grid-template-columns:minmax(0,1fr) minmax(12rem,20rem);gap:2rem;align-items:start}
+.titelfoto{margin:.8rem 0 0}
+.titelfoto img{width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 3px 12px rgba(0,0,0,.18)}
+.titelfoto figcaption{font-size:.88rem;color:var(--grau);margin-top:.4rem}
+@media (max-width:760px){
+  .aufmacher{grid-template-columns:1fr;gap:0}
+  .titelfoto{max-width:22rem}
+}
