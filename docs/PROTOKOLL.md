@@ -21,6 +21,14 @@ mit dem Datensatz (126/19/248, 14 Dreimärker).
 **Gelb markierte Lücken** (`mark.offen`) warten auf Hendriks Angaben; vor dem
 Upload müssen sie gefüllt oder entfernt sein.
 
+**Antworten Hendriks (27.09., abends):** Zuordnung nur bei eindeutigem Abgleich von
+Eintragungen und Entfernungen als „sicher“ (in `quellen.html` eingearbeitet); GPS:
+Garmin-Handgerät, Details folgen. ⏰ **Morgen (28.09.) früh liefert Hendrik:** Quellenangaben
+(Archiv/Signatur, Literatur, Protokoll 1784) und die GPS-Details. Noch offen: Fragen 4–8
+(Karten-Lizenzen, Begriffe b/GB/Kreuz/Farbe/Werkrute, Projektanfang und -pläne,
+Jahreszahl 1224, Titelbild-Stein). Upload von Abschnitt 2 erst, wenn die gelben Lücken
+gefüllt sind.
+
 **Datenauffälligkeit:** frühester Jahreswert auf einem Stein 1224 –
 vermutlich Tippfehler (Hendrik prüfen).
 
