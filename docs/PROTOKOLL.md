@@ -1,5 +1,42 @@
 # Arbeitsprotokoll
 
+## 27.09.2026 (Abend) – Abschnitt 1 der Umsetzung, lokal vorbereitet
+
+**Getan** (alles in `entwurf/`, noch **nichts hochgeladen**)
+- `entwurf/` = Arbeitskopie des Live-Stands; `site/` bleibt unverändert als Spiegel.
+- **Punkt 7.1 (auf Hendriks Befehl):** Leaflet in `standorte.html`, `karteXL.html`,
+  `reconstruction_xl.html` und `service-worker.js` auf `leaflet@1.9.4`,
+  markercluster in `karteXL.html` auf `@1.5.3` festgeschrieben. Sonst **keine**
+  Änderung an diesen Dateien (per `diff` gegen `site/` geprüft). Der Service-Worker
+  lädt HTML „network first“, eine neue Cache-Version ist daher nicht nötig.
+- Neu: `assets/grenze.css` (gemeinsame Gestaltung, von keiner geschützten Seite
+  eingebunden), `assets/menue.js` (Handy-Menü), `werkzeuge/rahmen.py` (setzt
+  Kopf/Fuß zwischen `<!-- KOPF -->`-Marken, überspringt die geschützten Seiten).
+- Neu geschrieben: `index.html`, `impressum.html` (mit Nutzungsrechten nach
+  Hendriks Vorgabe), `datenschutz.html` (neu).
+- 21 Weiterleitungen für wegfallende Seiten (Liste s. `VORSCHLAEGE.md` Abschn. 3).
+- Entfernt aus `entwurf/`: `titelbild.png` (KI-Bild mit „Digitale Edition“,
+  falscher Zeitspanne 1569–1872 und verzerrtem Wappen), `assets/style.css`,
+  `assets/mail.js`, `assets/print.css`, `version.json` – auf dem Server bleiben sie
+  vorerst liegen, sie stören nicht.
+- Vorschau per eingebettetem CSS in `.vorschau/` geprüft (Desktop und Handy).
+
+**Blockiert**
+- Upload: Das Durchsuchen von `C:\claude-Lab` nach dem Upload-Zugang wurde vom
+  Sicherheitssystem als „Credential Exploration“ gesperrt. Hendrik muss
+  entscheiden, wie hochgeladen wird.
+- Lokaler Testserver (für Seiten, die `data.json` laden): braucht Hendriks
+  Zustimmung (CLAUDE.md §5).
+
+**Upload-Reihenfolge (Vorschlag)**
+1. Sofort möglich: die vier Leaflet-Dateien + `datenschutz.html` + `impressum.html`
+   + `assets/grenze.css` + `assets/menue.js`.
+2. Erst zusammen mit Abschnitt 2 (sonst tote Links): `index.html`, die
+   Weiterleitungen, `recherche.html`, `grenzgaenge.html`, `begriffe.html`,
+   neue `quellen.html`/`projekt.html`. Achtung: `Zeitachse.html` **und**
+   `zeitachse.html` auf dem Server durch dieselbe Weiterleitung ersetzen.
+
+
 ## 27.09.2026 (Nachmittag) – Spiegel, Landespreis, Vorschlagsliste (Claude Code auf Hendriks PC)
 
 **Getan**

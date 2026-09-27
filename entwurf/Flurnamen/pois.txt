@@ -1,0 +1,133 @@
+# POI-Grundzeile (unverändert): Kategorie "Name" Breitengrad, Längengrad
+# Eine Grundzeile allein genügt. Info und Foto sind freiwillig und können später folgen.
+# Zusatzinformationen stehen direkt darunter und beginnen mit mindestens einem Leerzeichen:
+#   Info: Ein Absatz mit Hintergrundinformationen.
+#   Info: Ein weiterer Absatz.
+#   Foto: dateiname.jpg | Bildunterschrift
+# Bilder kommen in den Ordner Flurnamen/poi-bilder. Erlaubt sind JPG, PNG und WebP.
+# Ausführliche Hilfe: POI-ZUSATZINFOS-ANLEITUNG.txt
+
+Richtplatz "Richtplatz (Centgericht)" 49.6209527, 9.6761495
+Richtplatz "Richtplatz" 49.6302830, 9.6403313
+Graben "Schwalbengraben" 49.6385519, 9.6366405
+Graben "Herrentischgraben" 49.6383295, 9.6291947
+Graben "Edelbergshohle (nördliche)" 49.6310474, 9.6835256
+Graben "Edelbergshohle (südliche)" 49.6291433, 9.6936965
+Graben "Weidengraben" 49.6373915, 9.7231311
+Graben "Fahrentalgraben" 49.6408377, 9.6718901
+Graben "Mangersgraben" 49.6017618, 9.6379656
+Graben "Leintal-Graben" 49.6466561, 9.6285403
+Graben "Kaisergraben (Mittberg)" 49.6163408, 9.6470475
+Graben "Loch-Hohle" 49.62664529845539, 9.716287429141016
+Graben "Wohlfarthshohle" 49.62364772519924, 9.720097532881733
+Graben "Beierstettelsklinge" 49.61872464422751, 9.719738794987647
+Graben "Jonnegraben" 49.61731778735319, 9.716786839068897
+Graben "Mattigraben" 49.61938295575907, 9.717220883158689
+Graben "Schinnersgraben" 49.6258005, 9.6369034
+Graben "Bischofsheimer Gründle" 49.6090449, 9.6234924
+Graben "Schweizersgrund" 49.6482122, 9.6213895
+Graben "Rödersteingraben" 49.6331286, 9.7241718
+Graben "Hottenloch" 49.6212168, 9.6465325
+Weg "Grünsfelder Weg" 49.6180646, 9.6841049
+Weg "Grünsfelder Pfad" 49.6308389, 9.7032022
+Weg "Paimarer Weg" 49.6409142, 9.7094250
+Weg "Henkle(he)nspfad" 49.6441448, 9.7029018
+Weg "Impfinger Pfad" 49.6405737, 9.6278107
+Weg "Alte Straße" 49.6406571, 9.6997690
+Weg "Hohe Straße" 49.6558981, 9.6976125
+Weg "Nachtschattenweg" 49.6201221, 9.6468920
+Weg "Hohlwegrest am Teufelsloch" 49.6557384, 9.6949464
+Weg "Schlössersbergweg" 49.6329827, 9.6861058
+Weg "Edelberg-Weinbergsweg" 49.6312767, 9.6841156
+Weg "Wartturmweg (Todesbahn)" 49.6322218, 9.6855587
+Weg "Schauber-Buckele" 49.6200943, 9.6566767
+Weg "Zick-Zack-Weg (Sprait)" 49.6208832, 9.6557003
+Weg "Zick-Zack-Weg (Brenner)" 49.6235417, 9.6766645
+Weg "Zick-Zack-Weg (Höhberg)" 49.6165771, 9.6604854
+Weg "Hohlweg im Kleinen Forst" 49.6443341, 9.7107929
+Weg "Bischofsheimer Pfad" 49.6307659, 9.7275031
+Weg "Dienstadter Weg" 49.6235417, 9.6479005
+Kreuz "Sühnekreuz im Forstgrund" 49.6423037, 9.6935463
+Kreuz "Sühnekreuz am Paimarer Weg" 49.6376521, 9.7116351
+Kreuz "Sühnekreuz am Hottenloch" 49.6223671, 9.6474552
+Kreuz "Gedenkkreuz am Dienstadter Weg" 49.6272634, 9.6388668
+Kreuz "Schwertkreuz am Teufelsloch" 49.6558113, 9.6962070
+Kreuz "Siebmacherkreuz (Klinglerin-Kruzifix)" 49.6357448, 9.6878171
+Kreuz "Arma-Christi-Kreuz" 49.6243792, 9.6689022
+Kreuz "Rincker-Kreuzigungsgruppe" 49.6239831, 9.6678776
+Kreuz "Butterhändlerkreuz (1491)" 49.6179986, 9.7005630
+Kreuz "Lang-Kruzifix" 49.6213663, 9.6654153
+Kreuz "Zubrod-Kruzifix" 49.6177588, 9.6470422
+Kreuz "Richtplatzkreuz" 49.6233558, 9.6495822
+Kreuz "Lerch-Kruzifix" 49.6254148, 9.6563226
+Kreuz "Missionskreuz" 49.6230900, 9.6625882
+Kreuz "Friedhofskreuz" 49.6251576, 9.6574759
+Kreuz "Leintal-Kruzifix" 49.6416228, 9.6366888
+Kreuz "Sühnekreuz Alte Straße" 49.6301197, 9.6780914
+Kreuz "Sühnekreuz an der Dienstadter Straße" 49.6290217, 9.6257079
+Kreuz "3 Sühnekreuze an der Lorenzikapelle" 49.6223602, 9.6736014
+Kapelle "Spraitkapelle (obere)" 49.6267040, 9.6442312
+Kapelle "Spraitkapelle (untere)" 49.6233888, 9.6496814
+Kapelle "Rektorskapelle" 49.6349770, 9.6814603
+   Info: 1892 wurde die Kapelle grundlegend renoviert, bevor sie dann im Zuge des Baus der Bonifatiuskirche (1964-1967) an ihrem usrprünglichen Standort gegenüber des Württembergdenkmals abgebaut werden musste und an ihren jetzigen Platz auf dem Hammberg zog.
+   Info: Inschrift an der vorderen rechten Säule: "Anno Christi 1626 Jahr Uff Maria Geburt gar Ist Jesu und Maria zu ehren Von Kaspar Liebler und Jakob Trefs wohnend beide Burger in dieser Stadt Bischofsheim dieses Werk gesetzt"
+   Info: Zu ihrem Namen kam die Rektorskapelle, weil noch bis zum Anfang des 19. Jahrhunderts der örtliche Schulrektor jeden Samstag mit einigen Schülern an der Kapelle eine Andacht abhielt.
+   Foto: rektorskapelle (1).JPG | Die Rektorskapelle
+   Foto: rektorskapelle (2).JPG | Die Rektorskapelle
+   Foto: rektorskapelle (3).JPG | Die Pieta in der Rektorskapelle
+   Foto: rektorskapelle (4).JPG | Die Rektorskapelle, ehem. unterer Brenner, heute auf dem Hammberg
+   Foto: rektorskapelle (5).JPG | Die Rektorskapelle, ehem. unterer Brenner, heute auf dem Hammberg
+   Foto: rektorskapelle (6).JPG | Die Pieta in der Rektorskapelle
+Kapelle "Lorenzikapelle" 49.6223254, 9.6736926
+Kapelle "Stammbergkapelle" 49.6179361, 9.6418172
+Kapelle "Peterskapelle" 49.6222385, 9.6590960
+Kapelle "Maria-Hilf-Kapelle" 49.6216582, 9.6598470
+Kapelle "Sebastianuskapelle" 49.6223810, 9.6615368
+Kapelle "Höhberg-Kapelle" 49.6131014, 9.6626741
+Denkmal "Württemberg-Denkmal (1866)" 49.6267040, 9.6713966
+Denkmal "1. WK-Kriegerdenkmal" 49.6231264, 9.6660295
+Denkmal "Völkerschlachtdenkmal" 49.6225235, 9.6737731
+Denkmal "Denkmal für die deportierten Juden" 49.6221464, 9.6590437
+Denkmal "Leuze-Gehring-Denkmal (1866)" 49.6532066, 9.6900487
+Denkmal "Reuß-Denkmal" 49.6410774, 9.6324241
+Bildstock "Ries-Kreuzschlepper" 49.6276331600445, 9.656753914167242
+Bildstock "Brenner-Kreuzschlepper (Rest)" 49.6314771993649, 9.680820605942397
+Bildstock "Wallfahrer-Bildstock" 49.6333788, 9.6836382
+Bildstock "Bildstock Forstbuckel" 49.6393613, 9.6960354
+Bildstock "Stefans-Pieta" 49.635985775441426, 9.663956403253259
+Bildstock "Kreuzigungsbildstock (1666)" 49.624905823779926, 9.667343701910436
+Bildstock "Leprosenbild" 49.6230587, 9.6708494
+Bildstock "Bildstock Alter und neuer Adam" 49.6229544, 9.6725500
+Bildstock "Wendelinsbild" 49.6231525, 9.6733117
+Bildstock "Brenner-Pieta" 49.63068173095736, 9.678935603987558
+Bildstock "Heilige Familie am Brenner" 49.628269547491065, 9.672871932905418
+Bildstock "Blockbild" 49.629331943784386, 9.671688207147755
+Bildstock "Mariensäule (Krankenhaus)" 49.628838251159756, 9.673680867442506
+Bildstock "Mariensäule (Heimberg)" 49.63044716353959, 9.671556424943372
+Bildstock "Reuß-Pieta" 49.621443619910565, 9.66451385095358
+Bildstock "Maria Einsiedeliensis" 49.62300881013523, 9.660903910186041
+Bildstock "Pieta 1669" 49.623499987803115, 9.657682910173142
+Bildstock "Retter der Stadt" 49.618615258617695, 9.654133074606696
+Bildstock "Zeitbös-Pieta" 49.61737913151862, 9.650454120187305
+Bildstock "Grablegungsbildstock" 49.618092362443996, 9.641981489142388
+Bildstock "Kreuzigungsbildstock (Stammberg)" 49.618054376078156, 9.642052238316621
+Bildstock "Appental-Feldkapelle" 49.61499827689823, 9.626523987137439
+Bildstock "Spöhr-Bild" 49.61522082279036, 9.649307872188432
+Bildstock "Hottenloch-Pieta" 49.6228938529453, 9.646580815722693
+Bildstock "Heilige Familie im Muckbachtal" 49.60534544314686, 9.645129529330779
+Bildstock "Metzger-Bildstock" 49.60240635687567, 9.638098932175014
+Bildstock "Marienkrönung (Dienstadter Weg)" 49.62505132694727, 9.642597135092158
+Bildstock "Blutbild im Leintal" 49.6426441, 9.6449460
+Bildstock "Dawerdle-Nothelfer" 49.61481552589519, 9.675390038902485
+Bildstock "Grenz-Bildstock" 49.629629322578644, 9.623787341657911
+Bildstock "Hupp-Pieta" 49.62891582008222, 9.68807924917835
+Figur "Nepomuk" 49.6223810, 9.6606356
+Figur "Pieta (Konvikt)" 49.6180959, 9.6530811
+Figur "Pieta (Stammberg)" 49.6177519, 9.6419513
+Figur "Pieta (Rektorskapelle)" 49.6349804, 9.6814549
+Turm "Edelberg-Wartturm" 49.63062545766355, 9.6881569152093
+Turm "Höhberg-Wartturm" 49.6131431, 9.6593910
+Turm "Wolfsturm" 49.63588642324556, 9.639710155130606
+Turm "Türmersturm" 49.62126605746666, 9.661680751148532
+Turm "Hexenturm" 49.62111600916519, 9.662343070998352
+Turm "Bismarckturm" 49.616363969657314, 9.660692800906618

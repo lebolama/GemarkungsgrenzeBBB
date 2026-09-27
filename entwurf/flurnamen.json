@@ -1,0 +1,2472 @@
+{
+  "metadata": {
+    "title": "Flur- & Gewannnamen der Gemarkung Tauberbischofsheim",
+    "created": "2026-08-02",
+    "crs": "WGS84 (EPSG:4326); zusätzliche Lage in ETRS89/UTM 32N (EPSG:25832)",
+    "positionReference": "Mittelpunkt der Beschriftung beziehungsweise repräsentativer ALKIS-Beschriftungspunkt",
+    "note": "Rasterkarten-Lagen sind visuell georeferenziert und daher Näherungswerte. Quellenangaben dokumentieren bestätigte Funde, nicht das sichere Fehlen auf anderen Karten.",
+    "sources": [
+      "ALKIS-Beschriftung des LGL Baden-Württemberg",
+      "Deutsche Grundkarte des LGL Baden-Württemberg",
+      "Gemarkungskarte Tauberbischofsheim von 1932",
+      "Korrekturkarten des Nutzers von 2026"
+    ],
+    "count": 151
+  },
+  "flurnamen": [
+    {
+      "id": "flurname-001",
+      "name": "(links der alten Straße)",
+      "lat": 49.63912255,
+      "lon": 9.69304873,
+      "easting": 550039.38,
+      "northing": 5498738.56,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [
+        "(links der alten",
+        "Straße)"
+      ],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 4
+    },
+    {
+      "id": "flurname-002",
+      "name": "(mittleren Steig)",
+      "lat": 49.61816652,
+      "lon": 9.68325495,
+      "easting": 549353.42,
+      "northing": 5496402.28,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-003",
+      "name": "(nördlich der mittleren Steig)",
+      "lat": 49.62119771,
+      "lon": 9.6843576,
+      "easting": 549430.0,
+      "northing": 5496740.0,
+      "sources": [
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Optischer Mittelpunkt der Beschriftung in einer georeferenzierten Rasterkarte",
+      "positionAccuracyMeters": 90,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-004",
+      "name": "(rechts der alten Straße)",
+      "lat": 49.63798901,
+      "lon": 9.69846753,
+      "easting": 550431.79,
+      "northing": 5498616.16,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-005",
+      "name": "(südlich der mittleren Steig)",
+      "lat": 49.6188261,
+      "lon": 9.68657777,
+      "easting": 549592.77,
+      "northing": 5496477.79,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [
+        "(südlich",
+        "der mittleren Steig)"
+      ],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 2
+    },
+    {
+      "id": "flurname-006",
+      "name": "(unter der Steig)",
+      "lat": 49.62644118,
+      "lon": 9.68641125,
+      "easting": 549573.01,
+      "northing": 5497324.3,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-007",
+      "name": "Altenau",
+      "lat": 49.64329087,
+      "lon": 9.64961141,
+      "easting": 546899.14,
+      "northing": 5499173.98,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-008",
+      "name": "Am Bild",
+      "lat": 49.62796821,
+      "lon": 9.65521104,
+      "easting": 547318.25,
+      "northing": 5497473.97,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-009",
+      "name": "Am Forst",
+      "lat": 49.64058235,
+      "lon": 9.70665169,
+      "easting": 551020.0,
+      "northing": 5498910.0,
+      "sources": [
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Optischer Mittelpunkt der Beschriftung in einer georeferenzierten Rasterkarte",
+      "positionAccuracyMeters": 80,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-010",
+      "name": "Am Geißrain",
+      "lat": 49.61824466,
+      "lon": 9.62621183,
+      "easting": 545232.99,
+      "northing": 5496375.1,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-011",
+      "name": "Am Herrentisch",
+      "lat": 49.63726423,
+      "lon": 9.62816071,
+      "easting": 545356.1,
+      "northing": 5498490.8,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-012",
+      "name": "Am Paimarer Weg",
+      "lat": 49.63808657,
+      "lon": 9.7150725,
+      "easting": 551630.61,
+      "northing": 5498638.28,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 3
+    },
+    {
+      "id": "flurname-013",
+      "name": "Appental",
+      "lat": 49.61440409,
+      "lon": 9.62911411,
+      "easting": 545446.2,
+      "northing": 5495949.87,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-014",
+      "name": "Arschkerbe",
+      "lat": 49.64611977,
+      "lon": 9.62628687,
+      "easting": 545212.6,
+      "northing": 5499474.2,
+      "sources": [
+        "Amtliche Forstkarte",
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-015",
+      "name": "Bachflur",
+      "lat": 49.60760633,
+      "lon": 9.64656912,
+      "easting": 546713.61,
+      "northing": 5495204.81,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 2,
+      "importance": "primary"
+    },
+    {
+      "id": "flurname-016",
+      "name": "Beim Ölberg",
+      "lat": 49.61702332,
+      "lon": 9.65057083,
+      "easting": 546993.67,
+      "northing": 5496254.25,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-017",
+      "name": "Biege",
+      "lat": 49.60929879,
+      "lon": 9.64577873,
+      "easting": 546654.89,
+      "northing": 5495392.48,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 2
+    },
+    {
+      "id": "flurname-018",
+      "name": "Bobst",
+      "lat": 49.64030561,
+      "lon": 9.64044228,
+      "easting": 546240.0,
+      "northing": 5498836.41,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-019",
+      "name": "Brachenleite",
+      "lat": 49.62090539,
+      "lon": 9.69833392,
+      "easting": 550439.78,
+      "northing": 5496716.78,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 2
+    },
+    {
+      "id": "flurname-020",
+      "name": "Buckel",
+      "lat": 49.63904177,
+      "lon": 9.64707377,
+      "easting": 546720.0,
+      "northing": 5498700.0,
+      "sources": [
+        "Deutsche Grundkarte"
+      ],
+      "variants": [
+        "Büchel"
+      ],
+      "positionMethod": "Optischer Mittelpunkt der Beschriftung in einer georeferenzierten Rasterkarte",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-021",
+      "name": "Buckel im Teich",
+      "lat": 49.63863892,
+      "lon": 9.64482833,
+      "easting": 546558.26,
+      "northing": 5498653.82,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-022",
+      "name": "Burgweg",
+      "lat": 49.62463915,
+      "lon": 9.67500432,
+      "easting": 548751.0,
+      "northing": 5497116.5,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-023",
+      "name": "Bödelein unter der Bahn",
+      "lat": 49.63056831,
+      "lon": 9.6566563,
+      "easting": 547420.1,
+      "northing": 5497763.95,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [
+        "Bödelein unter  der Bahn"
+      ],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-024",
+      "name": "Bösehof",
+      "lat": 49.64058913,
+      "lon": 9.71346628,
+      "easting": 551512.0,
+      "northing": 5498915.4,
+      "sources": [
+        "Deutsche Grundkarte",
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Zielposition auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-025",
+      "name": "Büchelberg",
+      "lat": 49.62226369,
+      "lon": 9.68501679,
+      "easting": 549476.53,
+      "northing": 5496858.95,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 4
+    },
+    {
+      "id": "flurname-026",
+      "name": "Dienstadter Flürlein",
+      "lat": 49.62794922,
+      "lon": 9.63423149,
+      "easting": 545803.17,
+      "northing": 5497458.87,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1,
+      "importance": "secondary"
+    },
+    {
+      "id": "flurname-027",
+      "name": "Dienstadter Höhe",
+      "lat": 49.63032569,
+      "lon": 9.63223034,
+      "easting": 545656.43,
+      "northing": 5497721.86,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-028",
+      "name": "Distrikt Edelberg",
+      "lat": 49.63343195,
+      "lon": 9.69157696,
+      "easting": 549938.93,
+      "northing": 5498104.93,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 2
+    },
+    {
+      "id": "flurname-029",
+      "name": "Distrikt Grünsfelder Tannen",
+      "lat": 49.62702592,
+      "lon": 9.71891211,
+      "easting": 551919.6,
+      "northing": 5497411.24,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-030",
+      "name": "Distrikt Hammberg",
+      "lat": 49.64199764,
+      "lon": 9.68737663,
+      "easting": 549626.92,
+      "northing": 5499054.45,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 2
+    },
+    {
+      "id": "flurname-031",
+      "name": "Distrikt Moosig",
+      "lat": 49.62978264,
+      "lon": 9.70570908,
+      "easting": 550963.21,
+      "northing": 5497708.69,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 3
+    },
+    {
+      "id": "flurname-032",
+      "name": "Distrikt Neuberg",
+      "lat": 49.6272427,
+      "lon": 9.69730873,
+      "easting": 550359.2,
+      "northing": 5497420.65,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-033",
+      "name": "Distrikt Tannenwald",
+      "lat": 49.64002414,
+      "lon": 9.6269877,
+      "easting": 545268.84,
+      "northing": 5498796.93,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 2
+    },
+    {
+      "id": "flurname-034",
+      "name": "Dittwarer Brückle",
+      "lat": 49.60536219,
+      "lon": 9.64340358,
+      "easting": 546487.04,
+      "northing": 5494953.36,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-035",
+      "name": "Dreieckiger Stein",
+      "lat": 49.6188536,
+      "lon": 9.7142369,
+      "easting": 551590.59,
+      "northing": 5496499.46,
+      "sources": [
+        "Koordinatenkorrektur 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Nach der vom Nutzer angegebenen Koordinate georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-036",
+      "name": "Edelberg",
+      "lat": 49.63383892,
+      "lon": 9.69132056,
+      "easting": 549920.0,
+      "northing": 5498150.0,
+      "sources": [
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Optischer Mittelpunkt der Beschriftung in einer georeferenzierten Rasterkarte",
+      "positionAccuracyMeters": 100,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-037",
+      "name": "Fahrental",
+      "lat": 49.64181116,
+      "lon": 9.67316447,
+      "easting": 548601.03,
+      "northing": 5499024.43,
+      "sources": [
+        "ALKIS",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-038",
+      "name": "Fahrentalgrund",
+      "lat": 49.64568839,
+      "lon": 9.67473154,
+      "easting": 548710.3,
+      "northing": 5499456.5,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center",
+      "outsideGemarkung": true
+    },
+    {
+      "id": "flurname-039",
+      "name": "Fahrentalsgrund",
+      "lat": 49.64400952,
+      "lon": 9.68113823,
+      "easting": 549174.5,
+      "northing": 5499274.02,
+      "sources": [
+        "ALKIS",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-040",
+      "name": "Fichtengrund",
+      "lat": 49.62574659,
+      "lon": 9.69132761,
+      "easting": 549928.78,
+      "northing": 5497250.33,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-041",
+      "name": "Forst",
+      "lat": 49.63993757,
+      "lon": 9.70200094,
+      "easting": 550684.89,
+      "northing": 5498835.17,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-042",
+      "name": "Forstbuckel",
+      "lat": 49.63884797,
+      "lon": 9.69502611,
+      "easting": 550182.43,
+      "northing": 5498709.35,
+      "sources": [
+        "ALKIS",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 3
+    },
+    {
+      "id": "flurname-043",
+      "name": "Forstgrund",
+      "lat": 49.64144104,
+      "lon": 9.6925774,
+      "easting": 550002.97,
+      "northing": 5498996.01,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-044",
+      "name": "Frauenhölzlein",
+      "lat": 49.60374585,
+      "lon": 9.63504585,
+      "easting": 545884.7,
+      "northing": 5494768.53,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-045",
+      "name": "Friedrichshöhe",
+      "lat": 49.61753927,
+      "lon": 9.67583103,
+      "easting": 548817.8,
+      "northing": 5496327.7,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-046",
+      "name": "Fronbrunnen",
+      "lat": 49.63950926,
+      "lon": 9.64960514,
+      "easting": 546902.32,
+      "northing": 5498753.55,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-047",
+      "name": "Fronbrunnenwiesen",
+      "lat": 49.64020271,
+      "lon": 9.65308238,
+      "easting": 547152.71,
+      "northing": 5498832.82,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-048",
+      "name": "Fronbrunnenäcker",
+      "lat": 49.64006173,
+      "lon": 9.65032413,
+      "easting": 546953.7,
+      "northing": 5498815.42,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-049",
+      "name": "Fuhrmannsloch",
+      "lat": 49.62041919,
+      "lon": 9.635364,
+      "easting": 545892.03,
+      "northing": 5496622.4,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-050",
+      "name": "Galgenleite",
+      "lat": 49.62180246,
+      "lon": 9.67942054,
+      "easting": 549072.8,
+      "northing": 5496804.0,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-051",
+      "name": "Groß Fahrental",
+      "lat": 49.64267784,
+      "lon": 9.67179643,
+      "easting": 548501.4,
+      "northing": 5499119.9,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center",
+      "outsideGemarkung": true
+    },
+    {
+      "id": "flurname-052",
+      "name": "Grundfeld",
+      "lat": 49.62665871,
+      "lon": 9.72230052,
+      "easting": 552164.7,
+      "northing": 5497372.76,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-053",
+      "name": "Guten Morgen",
+      "lat": 49.63265698,
+      "lon": 9.66755421,
+      "easting": 548205.02,
+      "northing": 5498003.09,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-054",
+      "name": "Gänsflürlein",
+      "lat": 49.61805863,
+      "lon": 9.65717597,
+      "easting": 547469.78,
+      "northing": 5496373.5,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1,
+      "importance": "secondary"
+    },
+    {
+      "id": "flurname-055",
+      "name": "Hadermannshelle",
+      "lat": 49.62345083,
+      "lon": 9.67662572,
+      "easting": 548869.29,
+      "northing": 5496985.44,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-056",
+      "name": "Hain",
+      "lat": 49.64501826,
+      "lon": 9.62856466,
+      "easting": 545378.06,
+      "northing": 5499353.11,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-057",
+      "name": "Hammberg",
+      "lat": 49.63809985,
+      "lon": 9.68570243,
+      "easting": 549510.0,
+      "northing": 5498620.0,
+      "sources": [
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Optischer Mittelpunkt der Beschriftung in einer georeferenzierten Rasterkarte",
+      "positionAccuracyMeters": 100,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-058",
+      "name": "Hammbergsspitze",
+      "lat": 49.63407623,
+      "lon": 9.68195108,
+      "easting": 549243.2,
+      "northing": 5498170.21,
+      "sources": [
+        "Koordinatenkorrektur 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Nach der vom Nutzer angegebenen Koordinate georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-059",
+      "name": "Hammbergsteig",
+      "lat": 49.63227127,
+      "lon": 9.68142175,
+      "easting": 549206.79,
+      "northing": 5497969.19,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [
+        "Hamm-",
+        "Hammsteig",
+        "steig"
+      ],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 2
+    },
+    {
+      "id": "flurname-060",
+      "name": "Heimbergsflur",
+      "lat": 49.63045961,
+      "lon": 9.67052055,
+      "easting": 548421.4,
+      "northing": 5497760.7,
+      "sources": [
+        "ALKIS",
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Zielposition auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center",
+      "importance": "primary"
+    },
+    {
+      "id": "flurname-061",
+      "name": "Heimbergsholz",
+      "lat": 49.6482112,
+      "lon": 9.69093257,
+      "easting": 549877.3,
+      "northing": 5499747.6,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center",
+      "outsideGemarkung": true
+    },
+    {
+      "id": "flurname-062",
+      "name": "Heimbergweinbergsfeld",
+      "lat": 49.63554795,
+      "lon": 9.67717693,
+      "easting": 548896.99,
+      "northing": 5498330.71,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-063",
+      "name": "Hintere Brehmenleite",
+      "lat": 49.61005614,
+      "lon": 9.63303715,
+      "easting": 545733.66,
+      "northing": 5495468.86,
+      "sources": [
+        "ALKIS",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-064",
+      "name": "Hinterer Heimberg",
+      "lat": 49.64015571,
+      "lon": 9.67643252,
+      "easting": 548838.63,
+      "northing": 5498842.5,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-065",
+      "name": "Hinteres Taubental",
+      "lat": 49.61739058,
+      "lon": 9.68536265,
+      "easting": 549506.45,
+      "northing": 5496317.4,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-066",
+      "name": "Hochhauser Grund",
+      "lat": 49.63770938,
+      "lon": 9.65578589,
+      "easting": 547350.32,
+      "northing": 5498557.32,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-067",
+      "name": "Holzflur",
+      "lat": 49.64293204,
+      "lon": 9.6172618,
+      "easting": 544563.98,
+      "northing": 5499114.41,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-068",
+      "name": "Hottenloch",
+      "lat": 49.62162464,
+      "lon": 9.64532066,
+      "easting": 546610.04,
+      "northing": 5496762.54,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-069",
+      "name": "Hottenlochsflürlein",
+      "lat": 49.62193438,
+      "lon": 9.64684289,
+      "easting": 546719.69,
+      "northing": 5496797.92,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1,
+      "importance": "secondary"
+    },
+    {
+      "id": "flurname-070",
+      "name": "Hottenlochsweinberge",
+      "lat": 49.62368711,
+      "lon": 9.64582392,
+      "easting": 546644.42,
+      "northing": 5496992.15,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-071",
+      "name": "Hänglein",
+      "lat": 49.63569626,
+      "lon": 9.67256499,
+      "easting": 548563.83,
+      "northing": 5498344.21,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-072",
+      "name": "Hänglein (Henkerslehen)",
+      "lat": 49.64336922,
+      "lon": 9.70350066,
+      "easting": 550789.6,
+      "northing": 5499217.7,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center",
+      "outsideGemarkung": true
+    },
+    {
+      "id": "flurname-073",
+      "name": "Im Berg",
+      "lat": 49.63059381,
+      "lon": 9.62520886,
+      "easting": 545149.13,
+      "northing": 5497747.43,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-074",
+      "name": "Im ebenen Gewann",
+      "lat": 49.63197599,
+      "lon": 9.67162983,
+      "easting": 548500.0,
+      "northing": 5497930.0,
+      "sources": [
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Optischer Mittelpunkt der Beschriftung in einer georeferenzierten Rasterkarte",
+      "positionAccuracyMeters": 70,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-075",
+      "name": "Im ersten Teich",
+      "lat": 49.63479055,
+      "lon": 9.66709839,
+      "easting": 548170.0,
+      "northing": 5498240.0,
+      "sources": [
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Optischer Mittelpunkt der Beschriftung in einer georeferenzierten Rasterkarte",
+      "positionAccuracyMeters": 70,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-076",
+      "name": "Im Gewann",
+      "lat": 49.63191852,
+      "lon": 9.6715508,
+      "easting": 548494.35,
+      "northing": 5497923.56,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [
+        "Gewann"
+      ],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-077",
+      "name": "Im Roten Markstein",
+      "lat": 49.64375702,
+      "lon": 9.61416839,
+      "easting": 544339.9,
+      "northing": 5499204.3,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center",
+      "outsideGemarkung": true
+    },
+    {
+      "id": "flurname-078",
+      "name": "Im zweiten Teich",
+      "lat": 49.63382463,
+      "lon": 9.66880991,
+      "easting": 548294.54,
+      "northing": 5498133.71,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-079",
+      "name": "Impfinger Grund",
+      "lat": 49.63715444,
+      "lon": 9.66269881,
+      "easting": 547850.0,
+      "northing": 5498500.0,
+      "sources": [
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Optischer Mittelpunkt der Beschriftung in einer georeferenzierten Rasterkarte",
+      "positionAccuracyMeters": 130,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-080",
+      "name": "Impfinger Hölzlein",
+      "lat": 49.63899423,
+      "lon": 9.6177386,
+      "easting": 544602.0,
+      "northing": 5498676.9,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center",
+      "outsideGemarkung": true
+    },
+    {
+      "id": "flurname-081",
+      "name": "Innerer Edelberg",
+      "lat": 49.63034304,
+      "lon": 9.68493231,
+      "easting": 549462.25,
+      "northing": 5497757.12,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-082",
+      "name": "Insel",
+      "lat": 49.63440011,
+      "lon": 9.66692258,
+      "easting": 548157.69,
+      "northing": 5498196.48,
+      "sources": [
+        "ALKIS",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-083",
+      "name": "Kaiser",
+      "lat": 49.61673148,
+      "lon": 9.64777312,
+      "easting": 546791.86,
+      "northing": 5496220.06,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-084",
+      "name": "Kaiserspitze",
+      "lat": 49.634,
+      "lon": 9.68152778,
+      "easting": 549212.71,
+      "northing": 5498161.45,
+      "sources": [
+        "Koordinatenkorrektur 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Nach der vom Nutzer angegebenen Koordinate georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-085",
+      "name": "Kirchelberg",
+      "lat": 49.63663155,
+      "lon": 9.66630794,
+      "easting": 548111.11,
+      "northing": 5498444.17,
+      "sources": [
+        "ALKIS",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-086",
+      "name": "Kirschengarten",
+      "lat": 49.63165084,
+      "lon": 9.67803147,
+      "easting": 548962.6,
+      "northing": 5497898.0,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-087",
+      "name": "Krautgärten",
+      "lat": 49.6280335,
+      "lon": 9.66718183,
+      "easting": 548182.69,
+      "northing": 5497488.83,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-088",
+      "name": "Kühruh",
+      "lat": 49.62852778,
+      "lon": 9.69872222,
+      "easting": 550459.95,
+      "northing": 5497564.47,
+      "sources": [
+        "Koordinatenkorrektur 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Nach der vom Nutzer angegebenen Koordinate georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-089",
+      "name": "Kützberg",
+      "lat": 49.6355356,
+      "lon": 9.68505512,
+      "easting": 549465.86,
+      "northing": 5498334.49,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-090",
+      "name": "Lange Gewann",
+      "lat": 49.6244261,
+      "lon": 9.70190556,
+      "easting": 550694.1,
+      "northing": 5497110.6,
+      "sources": [
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932",
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Zielposition auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-091",
+      "name": "Lehmgrube",
+      "lat": 49.6247788,
+      "lon": 9.6518594,
+      "easting": 547079.28,
+      "northing": 5497117.28,
+      "sources": [
+        "Koordinatenkorrektur 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Nach der vom Nutzer angegebenen Koordinate georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-092",
+      "name": "Leintal",
+      "lat": 49.64130701,
+      "lon": 9.641624,
+      "easting": 546324.37,
+      "northing": 5498948.47,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-093",
+      "name": "Lenzenleite",
+      "lat": 49.64571872,
+      "lon": 9.67245469,
+      "easting": 548545.9,
+      "northing": 5499458.4,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center",
+      "outsideGemarkung": true
+    },
+    {
+      "id": "flurname-094",
+      "name": "Linsenleite",
+      "lat": 49.63004913,
+      "lon": 9.68209712,
+      "easting": 549257.81,
+      "northing": 5497722.58,
+      "sources": [
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932",
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Zielposition auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-095",
+      "name": "Löhlein",
+      "lat": 49.61424577,
+      "lon": 9.64531016,
+      "easting": 546616.32,
+      "northing": 5495942.18,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-096",
+      "name": "Mittberg",
+      "lat": 49.61296588,
+      "lon": 9.64649301,
+      "easting": 546702.99,
+      "northing": 5495800.62,
+      "sources": [
+        "ALKIS",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-097",
+      "name": "Mittlere Steig",
+      "lat": 49.61975294,
+      "lon": 9.68530649,
+      "easting": 549500.0,
+      "northing": 5496580.0,
+      "sources": [
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Optischer Mittelpunkt der Beschriftung in einer georeferenzierten Rasterkarte",
+      "positionAccuracyMeters": 80,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-098",
+      "name": "Mittlerer Brenner",
+      "lat": 49.62939385,
+      "lon": 9.67575963,
+      "easting": 548800.8,
+      "northing": 5497645.6,
+      "sources": [
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932",
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Zielposition auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-099",
+      "name": "Moosig",
+      "lat": 49.62435469,
+      "lon": 9.71237335,
+      "easting": 551450.19,
+      "northing": 5497109.77,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-100",
+      "name": "Moosigbrunnen",
+      "lat": 49.6335645,
+      "lon": 9.7005512,
+      "easting": 550586.82,
+      "northing": 5498125.66,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-101",
+      "name": "Moosigkauffeld",
+      "lat": 49.6337767,
+      "lon": 9.71539005,
+      "easting": 551658.1,
+      "northing": 5498159.34,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-102",
+      "name": "Mäntelein",
+      "lat": 49.61577123,
+      "lon": 9.67469453,
+      "easting": 548737.47,
+      "northing": 5496130.4,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-103",
+      "name": "Mühlwiesen",
+      "lat": 49.61775519,
+      "lon": 9.65756492,
+      "easting": 547498.17,
+      "northing": 5496340.01,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-104",
+      "name": "Nachtschatten",
+      "lat": 49.62055486,
+      "lon": 9.64688969,
+      "easting": 546724.39,
+      "northing": 5496644.58,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-105",
+      "name": "Neuberg",
+      "lat": 49.62846923,
+      "lon": 9.69384922,
+      "easting": 550108.1,
+      "northing": 5497554.7,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-106",
+      "name": "Oberer Brenner",
+      "lat": 49.62961447,
+      "lon": 9.67848648,
+      "easting": 548997.5,
+      "northing": 5497671.9,
+      "sources": [
+        "ALKIS",
+        "Korrekturkarte 2026"
+      ],
+      "variants": [
+        "Brenner",
+        "Oberer"
+      ],
+      "positionMethod": "Aus der markierten Zielposition auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 2,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-107",
+      "name": "Oberer Büchelberg",
+      "lat": 49.62289255,
+      "lon": 9.6924263,
+      "easting": 550011.05,
+      "northing": 5496933.76,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-108",
+      "name": "Oberer Hochhauser Grund",
+      "lat": 49.63223714,
+      "lon": 9.65884945,
+      "easting": 547576.85,
+      "northing": 5497950.87,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-109",
+      "name": "Oberer Sprait",
+      "lat": 49.62695296,
+      "lon": 9.64161117,
+      "easting": 546337.06,
+      "northing": 5497352.63,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-110",
+      "name": "Oberer Steig",
+      "lat": 49.62354433,
+      "lon": 9.68300589,
+      "easting": 549330.0,
+      "northing": 5497000.0,
+      "sources": [
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Optischer Mittelpunkt der Beschriftung in einer georeferenzierten Rasterkarte",
+      "positionAccuracyMeters": 90,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-111",
+      "name": "Oberes Brücklein",
+      "lat": 49.62983898,
+      "lon": 9.6648423,
+      "easting": 548011.96,
+      "northing": 5497688.06,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-112",
+      "name": "Oberes Taubenhaus",
+      "lat": 49.61832932,
+      "lon": 9.662221,
+      "easting": 547833.93,
+      "northing": 5496406.79,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-113",
+      "name": "Oberes Wolfstal",
+      "lat": 49.62945195,
+      "lon": 9.64543251,
+      "easting": 546610.65,
+      "northing": 5497632.82,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-114",
+      "name": "Poppensee",
+      "lat": 49.6475744,
+      "lon": 9.68639238,
+      "easting": 549550.2,
+      "northing": 5499673.8,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center",
+      "outsideGemarkung": true
+    },
+    {
+      "id": "flurname-115",
+      "name": "Rinderbach",
+      "lat": 49.61711602,
+      "lon": 9.62576003,
+      "easting": 545201.4,
+      "northing": 5496249.35,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-116",
+      "name": "Rohrwiesen",
+      "lat": 49.60203347,
+      "lon": 9.64410421,
+      "easting": 546540.83,
+      "northing": 5494583.72,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-117",
+      "name": "Sand",
+      "lat": 49.61705419,
+      "lon": 9.65689126,
+      "easting": 547450.19,
+      "northing": 5496261.65,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-118",
+      "name": "Schlacht",
+      "lat": 49.6180991,
+      "lon": 9.67218584,
+      "easting": 548553.94,
+      "northing": 5496387.58,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-119",
+      "name": "Schlachtgrund",
+      "lat": 49.61711346,
+      "lon": 9.67021406,
+      "easting": 548412.49,
+      "northing": 5496276.73,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-120",
+      "name": "Schleicher",
+      "lat": 49.60173964,
+      "lon": 9.64196296,
+      "easting": 546386.39,
+      "northing": 5494549.73,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-121",
+      "name": "Schlössersberg",
+      "lat": 49.63495013,
+      "lon": 9.68916269,
+      "easting": 549763.05,
+      "northing": 5498272.11,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-122",
+      "name": "Schlössersbergäcker",
+      "lat": 49.63382533,
+      "lon": 9.68522557,
+      "easting": 549479.9,
+      "northing": 5498144.46,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [
+        "Schlössers-",
+        "bergäcker"
+      ],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 2
+    },
+    {
+      "id": "flurname-123",
+      "name": "Schneekasten",
+      "lat": 49.63629795,
+      "lon": 9.64586312,
+      "easting": 546635.21,
+      "northing": 5498394.2,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-124",
+      "name": "Schwarzes Feld",
+      "lat": 49.63845057,
+      "lon": 9.70773202,
+      "easting": 551100.23,
+      "northing": 5498673.73,
+      "sources": [
+        "ALKIS",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-125",
+      "name": "Schütt",
+      "lat": 49.62194444,
+      "lon": 9.66666667,
+      "easting": 548151.49,
+      "northing": 5496811.54,
+      "sources": [
+        "Koordinatenkorrektur 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Nach der vom Nutzer angegebenen Koordinate georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-126",
+      "name": "Stammberg",
+      "lat": 49.61962131,
+      "lon": 9.64075866,
+      "easting": 546282.44,
+      "northing": 5496537.0,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 3
+    },
+    {
+      "id": "flurname-127",
+      "name": "Steinberg",
+      "lat": 49.626278,
+      "lon": 9.62575166,
+      "easting": 545192.32,
+      "northing": 5497267.94,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-128",
+      "name": "Stockgewann",
+      "lat": 49.63166681,
+      "lon": 9.65147072,
+      "easting": 547044.57,
+      "northing": 5497882.82,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-129",
+      "name": "Taubental",
+      "lat": 49.61765554,
+      "lon": 9.69012251,
+      "easting": 549850.0,
+      "northing": 5496350.0,
+      "sources": [
+        "Deutsche Grundkarte"
+      ],
+      "variants": [
+        "Taubertal"
+      ],
+      "positionMethod": "Optischer Mittelpunkt der Beschriftung in einer georeferenzierten Rasterkarte",
+      "positionAccuracyMeters": 100,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-130",
+      "name": "Taubergärten",
+      "lat": 49.62503221,
+      "lon": 9.66657591,
+      "easting": 548141.89,
+      "northing": 5497154.77,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-131",
+      "name": "Teufelsloch",
+      "lat": 49.65479384,
+      "lon": 9.69298757,
+      "easting": 550018.9,
+      "northing": 5500480.8,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center",
+      "outsideGemarkung": true
+    },
+    {
+      "id": "flurname-132",
+      "name": "Thüring",
+      "lat": 49.6454612,
+      "lon": 9.67928154,
+      "easting": 549039.0,
+      "northing": 5499434.2,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center",
+      "outsideGemarkung": true
+    },
+    {
+      "id": "flurname-133",
+      "name": "Trichter",
+      "lat": 49.63748895,
+      "lon": 9.67320862,
+      "easting": 548608.52,
+      "northing": 5498543.93,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-134",
+      "name": "Unterer Brenner",
+      "lat": 49.62766778,
+      "lon": 9.67251357,
+      "easting": 548568.1,
+      "northing": 5497451.6,
+      "sources": [
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932",
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Zielposition auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-135",
+      "name": "Unterer Büchelberg",
+      "lat": 49.62520775,
+      "lon": 9.68608944,
+      "easting": 549551.02,
+      "northing": 5497186.96,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-136",
+      "name": "Unteres Brücklein",
+      "lat": 49.63740028,
+      "lon": 9.66159625,
+      "easting": 547770.15,
+      "northing": 5498526.63,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-137",
+      "name": "Unteres Taubenhaus",
+      "lat": 49.61980395,
+      "lon": 9.66625982,
+      "easting": 548124.21,
+      "northing": 5496573.31,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-138",
+      "name": "Unteres Wolfstal",
+      "lat": 49.6340632,
+      "lon": 9.6422195,
+      "easting": 546374.24,
+      "northing": 5498143.5,
+      "sources": [
+        "Koordinatenkorrektur 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Nach der vom Nutzer angegebenen Koordinate georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-139",
+      "name": "Viertelisspitze",
+      "lat": 49.63432707,
+      "lon": 9.68169334,
+      "easting": 549224.33,
+      "northing": 5498197.92,
+      "sources": [
+        "Koordinatenkorrektur 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Nach der vom Nutzer angegebenen Koordinate georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-140",
+      "name": "Vordere Brehmenleite",
+      "lat": 49.60894824,
+      "lon": 9.64365979,
+      "easting": 546502.14,
+      "northing": 5495352.2,
+      "sources": [
+        "ALKIS",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-141",
+      "name": "Vorderer Heimberg",
+      "lat": 49.63524781,
+      "lon": 9.67973858,
+      "easting": 549082.26,
+      "northing": 5498299.01,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 2
+    },
+    {
+      "id": "flurname-142",
+      "name": "Vorderes Taubental",
+      "lat": 49.61845673,
+      "lon": 9.69151825,
+      "easting": 549950.0,
+      "northing": 5496440.0,
+      "sources": [
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Optischer Mittelpunkt der Beschriftung in einer georeferenzierten Rasterkarte",
+      "positionAccuracyMeters": 100,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-143",
+      "name": "Vorderes Wiesenbach",
+      "lat": 49.60618647,
+      "lon": 9.63465416,
+      "easting": 545854.11,
+      "northing": 5495039.63,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-144",
+      "name": "Wanne",
+      "lat": 49.63546302,
+      "lon": 9.62179922,
+      "easting": 544898.43,
+      "northing": 5498286.73,
+      "sources": [
+        "ALKIS"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-145",
+      "name": "Wellenberg",
+      "lat": 49.62209071,
+      "lon": 9.65179688,
+      "easting": 547077.35,
+      "northing": 5496818.39,
+      "sources": [
+        "ALKIS",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-146",
+      "name": "Wiesenbach",
+      "lat": 49.60158254,
+      "lon": 9.63434495,
+      "easting": 545836.08,
+      "northing": 5494527.59,
+      "sources": [
+        "ALKIS",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 60,
+      "sourcePointCount": 2
+    },
+    {
+      "id": "flurname-147",
+      "name": "Wolfstalflur",
+      "lat": 49.63293551,
+      "lon": 9.64678652,
+      "easting": 546705.1,
+      "northing": 5498020.95,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1,
+      "importance": "primary"
+    },
+    {
+      "id": "flurname-148",
+      "name": "Wörnersgründlein",
+      "lat": 49.63309449,
+      "lon": 9.69710035,
+      "easting": 550338.12,
+      "northing": 5498071.09,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-149",
+      "name": "Wörtgrund",
+      "lat": 49.62948991,
+      "lon": 9.66297354,
+      "easting": 547877.35,
+      "northing": 5497648.06,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    },
+    {
+      "id": "flurname-150",
+      "name": "Zent",
+      "lat": 49.61968506,
+      "lon": 9.67743069,
+      "easting": 548931.2,
+      "northing": 5496567.3,
+      "sources": [
+        "Korrekturkarte 2026"
+      ],
+      "variants": [],
+      "positionMethod": "Aus der markierten Position auf der Korrekturkarte georeferenziert",
+      "positionAccuracyMeters": 20,
+      "sourcePointCount": 1,
+      "placement": "center"
+    },
+    {
+      "id": "flurname-151",
+      "name": "Äußerer Edelberg",
+      "lat": 49.6309742,
+      "lon": 9.69249364,
+      "easting": 550007.64,
+      "northing": 5497832.29,
+      "sources": [
+        "ALKIS",
+        "Deutsche Grundkarte",
+        "Gemarkungskarte 1932"
+      ],
+      "variants": [],
+      "positionMethod": "Amtlicher ALKIS-Beschriftungspunkt; bei wiederholter Beschriftung geometrisches Mittel",
+      "positionAccuracyMeters": 5,
+      "sourcePointCount": 1
+    }
+  ]
+}

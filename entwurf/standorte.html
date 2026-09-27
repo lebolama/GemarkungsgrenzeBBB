@@ -1,0 +1,2841 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historische Standorte der Grenzsteine – Tauberbischofsheim</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    :root {
+      --bg: #f5f2ea;
+      --header: #7a0019;
+      --text: #1f1f1f;
+      --panel: #ffffff;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      color: var(--text);
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    header {
+      background: var(--header);
+      color: #fff;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.2rem;
+      flex: 1;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .header-title-mobile,
+    .header-link-mobile,
+    .map-panel-toolbar,
+    .mobile-panel-heading,
+    .mobile-panel-close {
+      display: none;
+    }
+
+    #map {
+      min-height: 0;
+      flex: 1 1 auto;
+      width: 100%;
+    }
+
+    .legend,
+    .info-box,
+    .field-tools,
+    .historical-map-control {
+      background: var(--panel);
+      padding: 10px 12px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+      line-height: 1.35;
+      max-width: 320px;
+    }
+
+    .historical-map-control {
+      min-width: 220px;
+    }
+
+    .historical-map-control[hidden] {
+      display: none;
+    }
+
+    .historical-map-control label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.86rem;
+      font-weight: bold;
+    }
+
+    .historical-map-opacity-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .historical-map-opacity-row input {
+      width: 165px;
+      accent-color: var(--header);
+    }
+
+    .historical-map-opacity-value {
+      min-width: 3.1em;
+      text-align: right;
+      font-size: 0.82rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .legend h3,
+    .info-box h3,
+    .field-tools h3 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    .description-toggle {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin: 10px 0 6px;
+      padding-top: 9px;
+      border-top: 1px solid #d8d2c5;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .description-toggle input {
+      width: 17px;
+      height: 17px;
+      margin: 1px 0 0;
+      accent-color: var(--header);
+      flex: 0 0 auto;
+    }
+
+    .legend-note {
+      color: #655f55;
+      font-size: 0.78rem;
+      max-width: 290px;
+    }
+
+    .field-name-options,
+    .poi-options {
+      margin: 7px 0 0 25px;
+      padding: 7px 0 0;
+      border-top: 1px dotted #d8d2c5;
+    }
+
+    .field-name-options[hidden],
+    .poi-options[hidden] {
+      display: none;
+    }
+
+    .field-name-subtoggle,
+    .poi-subtoggle {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      margin: 5px 0;
+      cursor: pointer;
+      font-size: 0.82rem;
+    }
+
+    .field-name-subtoggle input,
+    .poi-subtoggle input {
+      margin: 1px 0 0;
+      accent-color: var(--header);
+    }
+
+    .field-name-marker {
+      width: max-content !important;
+      height: auto !important;
+      margin: 0 !important;
+      transform: translate(-50%, -50%);
+      color: #4b0010;
+      font: 700 12px/1.15 Georgia, serif;
+      white-space: nowrap;
+      text-align: center;
+      text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff,
+        0 0 4px #fff;
+      pointer-events: none;
+    }
+
+    .field-name-marker > .field-name-label {
+      display: block;
+      width: max-content;
+    }
+
+    .field-name-marker.is-centered > .field-name-label {
+      transform: translate(-50%, -50%);
+    }
+
+    .field-name-marker.is-primary {
+      font-size: 17px;
+    }
+
+    .field-name-marker.is-secondary {
+      font-size: 15px;
+    }
+
+    .field-name-marker.is-outside {
+      color: #315d70;
+    }
+
+    .field-name-marker.is-selected > .field-name-label {
+      z-index: 10000 !important;
+      color: #59006e;
+      background: #fff04c;
+      border: 3px solid #ad00cb;
+      border-radius: 7px;
+      padding: 3px 7px;
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9), 0 0 16px #ad00cb;
+      text-shadow: none;
+    }
+
+    .poi-marker {
+      width: max-content !important;
+      height: auto !important;
+      margin: 0 !important;
+      transform: translate(-50%, -50%);
+      color: #164f62;
+      font: 700 12px/1.15 Georgia, serif;
+      white-space: nowrap;
+      text-align: center;
+      text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff,
+        0 0 4px #fff;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    .poi-marker > .poi-label {
+      display: block;
+      width: max-content;
+    }
+
+    .poi-popup-category {
+      margin: 2px 0 9px;
+      color: #777168;
+      font-style: italic;
+    }
+
+    .poi-popup-info p {
+      margin: 0 0 9px;
+      line-height: 1.42;
+    }
+
+    .poi-popup-empty {
+      margin: 8px 0 0;
+      color: #777168;
+      font-style: italic;
+    }
+
+    .poi-photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 9px;
+      margin-top: 11px;
+    }
+
+    .poi-photo {
+      margin: 0;
+    }
+
+    .poi-photo a {
+      display: block;
+    }
+
+    .poi-photo img {
+      display: block;
+      width: 100%;
+      max-height: 230px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+
+    .poi-photo figcaption {
+      margin-top: 4px;
+      color: #655f55;
+      font-size: 0.78rem;
+      line-height: 1.3;
+    }
+
+    .poi-marker.is-category-selected > .poi-label {
+      color: #123f74;
+      background: #d9f3ff;
+      border: 3px solid #1479a3;
+      border-radius: 7px;
+      padding: 3px 7px;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9), 0 0 13px #1479a3;
+      text-shadow: none;
+    }
+
+    .poi-marker.is-selected > .poi-label {
+      color: #59006e;
+      background: #fff04c;
+      border: 3px solid #ad00cb;
+      border-radius: 7px;
+      padding: 3px 7px;
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9), 0 0 16px #ad00cb;
+      text-shadow: none;
+    }
+
+    .field-name-sidebar,
+    .poi-sidebar {
+      width: min(270px, 70vw);
+      max-height: calc(100vh - 118px);
+      display: flex;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 9px;
+      box-shadow: 0 1px 12px rgba(0, 0, 0, 0.24);
+      overflow: hidden;
+    }
+
+    .field-name-sidebar[hidden],
+    .poi-sidebar[hidden] {
+      display: none;
+    }
+
+    .field-name-sidebar-header,
+    .poi-sidebar-header {
+      padding: 10px;
+      border-bottom: 1px solid #d8d2c5;
+    }
+
+    .field-name-sidebar-header strong,
+    .poi-sidebar-header strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #5f0014;
+    }
+
+    .field-name-sidebar select,
+    .poi-sidebar select {
+      width: 100%;
+      padding: 4px;
+      font: inherit;
+      background: #fff;
+      border: 1px solid #aaa397;
+      border-radius: 4px;
+    }
+
+    .field-name-list,
+    .poi-list {
+      margin: 0;
+      padding: 4px 0;
+      overflow-y: auto;
+      list-style: none;
+    }
+
+    .field-name-list button,
+    .poi-list button {
+      width: 100%;
+      padding: 5px 10px;
+      border: 0;
+      background: transparent;
+      color: #2d2a27;
+      font: 0.83rem/1.2 Georgia, serif;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .field-name-list button:hover,
+    .field-name-list button:focus-visible,
+    .poi-list button:hover,
+    .poi-list button:focus-visible {
+      background: #f1e9dc;
+      outline: none;
+    }
+
+    .field-name-list button.is-selected,
+    .poi-list button.is-selected {
+      color: #59006e;
+      background: #fff04c;
+      font-weight: bold;
+    }
+
+    .poi-list button.is-category-selected {
+      color: #123f74;
+      background: #d9f3ff;
+      font-weight: bold;
+    }
+
+    .poi-category {
+      color: #777168;
+      font-style: italic;
+      font-weight: normal;
+    }
+
+    .leaflet-top.leaflet-left.has-two-map-sidebars .field-name-sidebar,
+    .leaflet-top.leaflet-left.has-two-map-sidebars .poi-sidebar {
+      max-height: calc((100vh - 145px) / 2);
+    }
+
+    .field-name-source {
+      display: block;
+      margin-top: 2px;
+      color: #777168;
+      font: 0.67rem/1.15 Arial, sans-serif;
+    }
+
+    .history-section {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid #d8d2c5;
+    }
+
+    .history-section h4 {
+      margin: 0 0 7px;
+      color: #5f0014;
+      font-size: 0.95rem;
+    }
+
+    .history-list {
+      max-height: min(42vh, 360px);
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .history-entry {
+      margin: 0 0 7px;
+      line-height: 1.32;
+    }
+
+    .history-year {
+      color: #5f0014;
+      font-weight: bold;
+    }
+
+    .history-note {
+      color: #777168;
+      font-style: italic;
+    }
+
+    .history-separator {
+      color: #aaa397;
+    }
+
+    .history-empty {
+      color: #777168;
+      font-style: italic;
+    }
+
+    .history-stone-block + .history-stone-block {
+      border-top: 1px dotted #cfcfcf;
+      margin-top: 8px;
+      padding-top: 8px;
+    }
+
+    .history-stone-title {
+      color: #333;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .leaflet-popup-content {
+      min-width: 250px;
+      max-width: min(480px, 72vw);
+    }
+
+    .coordinate-popup-value {
+      display: block;
+      margin: 6px 0 4px;
+      padding: 5px 7px;
+      border: 1px solid #d8d2c5;
+      border-radius: 4px;
+      background: #f7f4ed;
+      font: 0.88rem/1.25 Consolas, "Courier New", monospace;
+      user-select: all;
+    }
+
+    .coordinate-popup-status {
+      color: #655f55;
+      font-size: 0.78rem;
+    }
+
+    .location-message {
+      position: fixed;
+      top: 58px;
+      left: 50%;
+      z-index: 2000;
+      width: max-content;
+      max-width: min(420px, calc(100vw - 24px));
+      padding: 9px 12px;
+      transform: translateX(-50%);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
+      color: #4b0010;
+      font: 0.86rem/1.3 Georgia, serif;
+      text-align: center;
+    }
+
+    .location-message[hidden] {
+      display: none;
+    }
+
+    .user-location-marker {
+      border: 0;
+      background: transparent;
+    }
+
+    .user-location-arrow {
+      position: relative;
+      width: 30px;
+      height: 34px;
+      transform: rotate(var(--location-heading, 0deg));
+      filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.55));
+      transition: transform 180ms linear;
+    }
+
+    .user-location-arrow::before,
+    .user-location-arrow::after {
+      position: absolute;
+      content: "";
+      clip-path: polygon(50% 0, 96% 94%, 50% 75%, 4% 94%);
+    }
+
+    .user-location-arrow::before {
+      inset: 0;
+      background: #fff;
+    }
+
+    .user-location-arrow::after {
+      inset: 3px 4px 4px;
+      background: #1479d3;
+    }
+
+    .field-tools {
+      width: min(330px, calc(100vw - 44px));
+      max-height: calc(100dvh - 92px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    .field-tools-section {
+      margin-top: 10px;
+      padding-top: 9px;
+      border-top: 1px solid #d8d2c5;
+    }
+
+    .field-tools label,
+    .field-tools summary {
+      font-weight: bold;
+    }
+
+    .field-tools label {
+      display: block;
+      margin-top: 7px;
+    }
+
+    .field-tools summary {
+      cursor: pointer;
+    }
+
+    .field-tools-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .field-tools input[type="number"],
+    .field-tools select,
+    .field-tools textarea {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 6px 7px;
+      border: 1px solid #aaa397;
+      border-radius: 5px;
+      background: #fff;
+      color: #2d2a27;
+      font: inherit;
+    }
+
+    .field-tools textarea {
+      min-height: 72px;
+      resize: vertical;
+    }
+
+    .field-tools button,
+    .stone-action-button,
+    .navigation-hud button {
+      padding: 6px 9px;
+      border: 1px solid #7a0019;
+      border-radius: 5px;
+      background: #7a0019;
+      color: #fff;
+      font: 700 0.8rem/1.2 Georgia, serif;
+      cursor: pointer;
+    }
+
+    .field-tools button:hover,
+    .field-tools button:focus-visible,
+    .stone-action-button:hover,
+    .stone-action-button:focus-visible,
+    .navigation-hud button:hover,
+    .navigation-hud button:focus-visible {
+      background: #9a1732;
+      outline: 2px solid #fff;
+      outline-offset: -3px;
+    }
+
+    .field-tools button:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    #clear-target {
+      margin-top: 7px;
+    }
+
+    .field-tools-status,
+    .field-tools-note {
+      margin-top: 6px;
+      color: #655f55;
+      font-size: 0.78rem;
+    }
+
+    .stone-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 9px;
+    }
+
+    .navigation-hud {
+      position: fixed;
+      left: 50%;
+      bottom: 26px;
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: calc(100vw - 24px);
+      padding: 7px 9px 7px 12px;
+      transform: translateX(-50%);
+      border: 1px solid rgba(20, 121, 211, 0.65);
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
+      color: #123f74;
+      font: 700 0.88rem/1.2 Georgia, serif;
+    }
+
+    .navigation-hud[hidden] {
+      display: none;
+    }
+
+    .navigation-hud button {
+      flex: 0 0 auto;
+      padding: 4px 7px;
+      background: #1479d3;
+      border-color: #1479d3;
+    }
+
+    .offline-progress {
+      width: 100%;
+      margin-top: 7px;
+      accent-color: #7a0019;
+    }
+
+    .note-photo-preview {
+      display: block;
+      width: 100%;
+      max-height: 180px;
+      margin-top: 7px;
+      border-radius: 6px;
+      object-fit: contain;
+      background: #eee9df;
+    }
+
+    .note-photo-preview[hidden] {
+      display: none;
+    }
+
+    .leaflet-control-layers.is-mobile-dismissed,
+    .legend.is-mobile-dismissed,
+    .field-name-sidebar.is-mobile-dismissed,
+    .poi-sidebar.is-mobile-dismissed,
+    .field-tools.is-mobile-dismissed {
+      display: none !important;
+    }
+
+    @media (min-width: 721px) {
+      header h1 {
+        min-width: 0;
+      }
+
+      .map-panel-toolbar {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .mobile-panel-toggle,
+      .mobile-panel-close {
+        display: grid;
+        padding: 0;
+        place-items: center;
+        border: 0;
+        border-radius: 6px;
+        font-family: Arial, sans-serif;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .mobile-panel-toggle {
+        flex: 0 0 32px;
+        width: 32px;
+        height: 32px;
+        color: #fff;
+        background: transparent;
+        font-size: 1rem;
+      }
+
+      .mobile-panel-toggle[hidden],
+      #toggle-current-location {
+        display: none;
+      }
+
+      .mobile-panel-toggle:hover,
+      .mobile-panel-toggle:focus-visible,
+      .mobile-panel-toggle[aria-expanded="true"] {
+        background: rgba(255, 255, 255, 0.18);
+        outline: 2px solid rgba(255, 255, 255, 0.9);
+        outline-offset: -2px;
+      }
+
+      .mobile-panel-close {
+        flex: 0 0 30px;
+        width: 30px;
+        height: 30px;
+        color: #5f0014;
+        background: #f1e9dc;
+        font-size: 1.2rem;
+      }
+
+      .mobile-panel-close:hover,
+      .mobile-panel-close:focus-visible {
+        background: #e4d6c3;
+        outline: 2px solid #7a0019;
+        outline-offset: -2px;
+      }
+
+      .mobile-panel-heading,
+      .panel-title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .mobile-panel-heading {
+        margin-bottom: 7px;
+        color: #5f0014;
+        font-size: 0.9rem;
+      }
+
+      .panel-title-row h3,
+      .field-name-sidebar-title,
+      .poi-sidebar-title {
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 720px) {
+      header {
+        min-height: 42px;
+        padding: 5px 8px;
+        gap: 6px;
+      }
+
+      header h1 {
+        min-width: 0;
+        overflow: hidden;
+        font-size: 0.88rem;
+        line-height: 1.05;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .header-title-desktop,
+      .header-link-desktop {
+        display: none;
+      }
+
+      .header-title-mobile,
+      .header-link-mobile {
+        display: inline;
+      }
+
+      header a {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border-radius: 6px;
+        font: 1.35rem/1 Arial, sans-serif;
+      }
+
+      header a:focus-visible,
+      header a:hover {
+        background: rgba(255, 255, 255, 0.16);
+        outline: 2px solid rgba(255, 255, 255, 0.9);
+        outline-offset: -2px;
+      }
+
+      .map-panel-toolbar {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+      }
+
+      .mobile-panel-toggle,
+      .mobile-panel-close {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        place-items: center;
+        border: 0;
+        border-radius: 6px;
+        font: 700 1.25rem/1 Arial, sans-serif;
+        cursor: pointer;
+      }
+
+      .mobile-panel-toggle[hidden] {
+        display: none;
+      }
+
+      .mobile-panel-toggle {
+        flex: 0 0 38px;
+        color: #fff;
+        background: transparent;
+      }
+
+      .mobile-panel-toggle:hover,
+      .mobile-panel-toggle:focus-visible,
+      .mobile-panel-toggle[aria-expanded="true"] {
+        background: rgba(255, 255, 255, 0.18);
+        outline: 2px solid rgba(255, 255, 255, 0.9);
+        outline-offset: -2px;
+      }
+
+      .mobile-panel-toggle[aria-pressed="true"] {
+        background: #1479d3;
+        outline: 2px solid #fff;
+        outline-offset: -2px;
+      }
+
+      .mobile-panel-close {
+        flex: 0 0 34px;
+        width: 34px;
+        height: 34px;
+        color: #5f0014;
+        background: #f1e9dc;
+        font-size: 1.35rem;
+      }
+
+      .mobile-panel-close:hover,
+      .mobile-panel-close:focus-visible {
+        background: #e4d6c3;
+        outline: 2px solid #7a0019;
+        outline-offset: -2px;
+      }
+
+      .mobile-panel-heading,
+      .panel-title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .mobile-panel-heading {
+        margin-bottom: 7px;
+        color: #5f0014;
+        font-size: 0.9rem;
+      }
+
+      .panel-title-row h3,
+      .field-name-sidebar-title,
+      .poi-sidebar-title {
+        margin: 0;
+      }
+
+      .leaflet-control-layers,
+      .legend,
+      .field-name-sidebar,
+      .poi-sidebar {
+        max-height: calc(100dvh - 78px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .legend {
+        max-width: min(270px, 72vw);
+        font-size: 0.82rem;
+      }
+
+      .field-name-sidebar,
+      .poi-sidebar {
+        max-height: calc(100dvh - 78px);
+      }
+
+      .location-message {
+        top: 60px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      header h1 {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>
+    <span class="header-title-desktop">Historische Standorte der Grenzsteine auf der (Tauber-)Bischofsheimer Gemarkungsgrenze</span>
+    <span class="header-title-mobile">Karte</span>
+  </h1>
+  <nav class="map-panel-toolbar" aria-label="Kartenfenster">
+    <button id="toggle-layer-panel" class="mobile-panel-toggle" type="button" aria-controls="map-layer-panel" aria-expanded="true" aria-label="Kartenebenen und Grenzgänge ein- oder ausblenden" title="Kartenebenen und Grenzgänge">▤</button>
+    <button id="toggle-legend-panel" class="mobile-panel-toggle" type="button" aria-controls="map-legend-panel" aria-expanded="true" aria-label="Erklärung und Anzeigeoptionen ein- oder ausblenden" title="Erklärung und Anzeigeoptionen">i</button>
+    <button id="toggle-field-name-panel" class="mobile-panel-toggle" type="button" aria-controls="field-name-panel" aria-expanded="false" aria-label="Flurnamenliste ein- oder ausblenden" title="Flurnamenliste" hidden>≡</button>
+    <button id="toggle-poi-panel" class="mobile-panel-toggle" type="button" aria-controls="poi-panel" aria-expanded="false" aria-label="POI-Liste ein- oder ausblenden" title="POI-Liste" hidden>P</button>
+    <button id="toggle-field-tools-panel" class="mobile-panel-toggle" type="button" aria-controls="field-tools-panel" aria-expanded="false" aria-label="Feldwerkzeuge ein- oder ausblenden" title="Feldwerkzeuge">⌖</button>
+    <button id="toggle-current-location" class="mobile-panel-toggle" type="button" aria-pressed="false" aria-label="Eigenen Standort anzeigen" title="Eigenen Standort anzeigen">➤</button>
+  </nav>
+  <a href="index.html" aria-label="Zurück zur Startseite" title="Zurück zur Startseite">
+    <span class="header-link-desktop">zurück zur Startseite</span>
+    <span class="header-link-mobile" aria-hidden="true">⌂</span>
+  </a>
+</header>
+
+  <div id="location-message" class="location-message" role="status" aria-live="polite" hidden></div>
+  <div id="navigation-hud" class="navigation-hud" role="status" aria-live="polite" hidden>
+    <span id="navigation-hud-text"></span>
+    <button id="stop-navigation" type="button" aria-label="Zielführung beenden" title="Zielführung beenden">×</button>
+  </div>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const YEAR_CONFIG = [
+      { key: "1569", historyLabel: "1569/1580", label: "Grenzgang 1569/1580", numberField: "1569 (1580) — Nr.", descriptionField: "1569 (1580) — sonstiges", meterMode: "none" },
+      { key: "1608", historyLabel: "1608", label: "Grenzgang 1608", numberField: "1608 — Nr.", descriptionField: "1608 — sonstiges", meterField: "1608 — Meter zum vorherigen", meterMode: "prev" },
+      { key: "1683", historyLabel: "1683", label: "Grenzgang 1683", numberField: "1683 — Nr.", descriptionField: "1683 — sonstiges", meterField: "1683 — Meter zum vorherigen", meterMode: "prev" },
+      { key: "1700", historyLabel: "1700", label: "Grenzgang 1700", numberField: "1700 — Nr.", descriptionField: "1700 — sonstiges", meterField: "1700 — Meter zum vorherigen", meterMode: "prev" },
+      { key: "1749", historyLabel: "1749", label: "Grenzgang 1749", numberField: "1749 — Nr.", descriptionField: "1749 — sonstiges", meterField: "1749 — Meter zum vorherigen", meterMode: "prev" },
+      {
+        key: "1784",
+        historyLabel: "1784",
+        label: "Großrinderfelder Grenzgang 1784",
+        numberField: "Großrinderfelder Grenzbegehung 1784 — Nr",
+        descriptionField: "Großrinderfelder Grenzbegehung 1784 — Beschreibung",
+        meterField: "Großrinderfelder Grenzbegehung 1784 — Meter",
+        meterMode: "next"
+      },
+      { key: "1872", historyLabel: "1872", label: "Grenzgang 1872", numberField: "1872 — Nr.", descriptionField: "1872 — sonstiges", meterField: "1872 — Meter zum vorherigen", meterMode: "prev" },
+      {
+        key: "1887",
+        historyLabel: "1887–1893",
+        label: "Grenzberichtigungen 1887–1893",
+        numberField: "Grenzberichtigungen 1887-93 — Nr.",
+        descriptionField: "Grenzberichtigungen 1887-93 — sonstiges",
+        meterField: "Grenzberichtigungen 1887-93 — Meter zum vorherigen",
+        meterMode: "prev"
+      }
+    ];
+
+    const map = L.map("map");
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 20,
+      attribution: '&copy; OpenStreetMap-Mitwirkende'
+    }).addTo(map);
+
+    const locationButton = document.getElementById("toggle-current-location");
+    const locationMessage = document.getElementById("location-message");
+    let locationWatchId = null;
+    let locationMarker = null;
+    let locationAccuracyCircle = null;
+    let currentLocationLatLng = null;
+    let previousLocationLatLng = null;
+    let currentLocationAccuracy = null;
+    let currentLocationHeading = 0;
+    let locationHasCentered = false;
+    let locationMessageTimer = null;
+    let locationUpdateListener = () => {};
+
+    map.createPane("userLocationPane");
+    map.getPane("userLocationPane").style.zIndex = 680;
+
+    function showLocationMessage(message) {
+      window.clearTimeout(locationMessageTimer);
+      locationMessage.textContent = message;
+      locationMessage.hidden = false;
+      locationMessageTimer = window.setTimeout(() => {
+        locationMessage.hidden = true;
+      }, 6000);
+    }
+
+    function bearingBetween(from, to) {
+      const fromLat = from.lat * Math.PI / 180;
+      const toLat = to.lat * Math.PI / 180;
+      const deltaLon = (to.lng - from.lng) * Math.PI / 180;
+      const y = Math.sin(deltaLon) * Math.cos(toLat);
+      const x = Math.cos(fromLat) * Math.sin(toLat) -
+        Math.sin(fromLat) * Math.cos(toLat) * Math.cos(deltaLon);
+      return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
+    }
+
+    function setLocationButtonActive(active) {
+      locationButton.setAttribute("aria-pressed", String(active));
+      locationButton.setAttribute(
+        "aria-label",
+        active ? "Standortanzeige ausschalten" : "Eigenen Standort anzeigen"
+      );
+      locationButton.title = active ? "Standortanzeige ausschalten" : "Eigenen Standort anzeigen";
+    }
+
+    function stopLocationTracking() {
+      if (locationWatchId !== null) navigator.geolocation.clearWatch(locationWatchId);
+      window.clearTimeout(locationMessageTimer);
+      locationMessage.hidden = true;
+      locationWatchId = null;
+      if (locationMarker) map.removeLayer(locationMarker);
+      if (locationAccuracyCircle) map.removeLayer(locationAccuracyCircle);
+      locationMarker = null;
+      locationAccuracyCircle = null;
+      currentLocationLatLng = null;
+      previousLocationLatLng = null;
+      currentLocationAccuracy = null;
+      locationHasCentered = false;
+      setLocationButtonActive(false);
+      locationUpdateListener(null);
+    }
+
+    function updateLocation(position) {
+      window.clearTimeout(locationMessageTimer);
+      locationMessage.hidden = true;
+      const nextLatLng = L.latLng(position.coords.latitude, position.coords.longitude);
+      const movement = previousLocationLatLng ? map.distance(previousLocationLatLng, nextLatLng) : 0;
+      if (Number.isFinite(position.coords.heading)) {
+        currentLocationHeading = position.coords.heading;
+      } else if (previousLocationLatLng && movement >= 2) {
+        currentLocationHeading = bearingBetween(previousLocationLatLng, nextLatLng);
+      }
+
+      currentLocationLatLng = nextLatLng;
+      currentLocationAccuracy = position.coords.accuracy;
+      previousLocationLatLng = nextLatLng;
+
+      if (!locationMarker) {
+        locationMarker = L.marker(nextLatLng, {
+          pane: "userLocationPane",
+          zIndexOffset: 1000,
+          icon: L.divIcon({
+            className: "user-location-marker",
+            html: '<div class="user-location-arrow" aria-hidden="true"></div>',
+            iconSize: [30, 34],
+            iconAnchor: [15, 17]
+          })
+        })
+          .bindPopup(() => `<b>Aktueller Standort</b><br>Genauigkeit: etwa ${Math.round(currentLocationAccuracy)} m`)
+          .addTo(map);
+      } else {
+        locationMarker.setLatLng(nextLatLng);
+      }
+      locationMarker.getElement()?.querySelector(".user-location-arrow")
+        ?.style.setProperty("--location-heading", `${currentLocationHeading}deg`);
+      locationMarker.getElement()?.setAttribute("aria-label", "Aktueller Standort");
+
+      if (!locationAccuracyCircle) {
+        locationAccuracyCircle = L.circle(nextLatLng, {
+          pane: "userLocationPane",
+          radius: currentLocationAccuracy,
+          color: "#1479d3",
+          weight: 1,
+          opacity: 0.5,
+          fillColor: "#1479d3",
+          fillOpacity: 0.08,
+          interactive: false
+        }).addTo(map);
+      } else {
+        locationAccuracyCircle.setLatLng(nextLatLng).setRadius(currentLocationAccuracy);
+      }
+
+      if (!locationHasCentered) {
+        map.flyTo(nextLatLng, Math.max(map.getZoom(), 17), { duration: 0.8 });
+        locationHasCentered = true;
+      }
+      locationUpdateListener(nextLatLng);
+    }
+
+    function handleLocationError(error) {
+      const messages = {
+        1: "Standortzugriff abgelehnt. Bitte erlaube der Website den Zugriff auf deinen Standort.",
+        2: "Der aktuelle Standort konnte nicht ermittelt werden.",
+        3: "Die Standortbestimmung dauert zu lange. Bitte versuche es erneut."
+      };
+      if (error.code === 1) stopLocationTracking();
+      showLocationMessage(messages[error.code] || "Die Standortanzeige ist fehlgeschlagen.");
+    }
+
+    function startLocationTracking() {
+      if (locationWatchId !== null) return;
+      if (!navigator.geolocation) {
+        showLocationMessage("Dieser Browser unterstützt keine Standortanzeige.");
+        return;
+      }
+      setLocationButtonActive(true);
+      showLocationMessage("Standort wird ermittelt …");
+      locationWatchId = navigator.geolocation.watchPosition(
+        updateLocation,
+        handleLocationError,
+        { enableHighAccuracy: true, maximumAge: 2000, timeout: 12000 }
+      );
+    }
+
+    locationButton.addEventListener("click", () => {
+      if (locationWatchId === null) startLocationTracking();
+      else stopLocationTracking();
+    });
+    window.addEventListener("pagehide", () => {
+      if (locationWatchId !== null) navigator.geolocation.clearWatch(locationWatchId);
+    });
+
+    // Anhand des gedruckten 500-Meter-Gitters und der historischen Grenzlinie
+    // georeferenzierte Ausdehnung der Gemarkungskarte von 1932.
+    const HISTORICAL_MAP_1932_BOUNDS = [
+      [49.59393991704597, 9.604196662987206],
+      [49.653137670369816, 9.743988412878615]
+    ];
+    const HISTORICAL_MAP_1932_DEFAULT_OPACITY = 0.65;
+
+    // Amtlicher WMS-Ausschnitt der Deutschen Grundkarte 1:5 000. Das
+    // Rechteck reicht auf jeder Seite 150 m über die heutige Gemarkungsgrenze
+    // hinaus und bleibt durch den WMS auch in hohen Zoomstufen scharf.
+    const DGK5_BOUNDS = [
+      [49.59700388825425, 9.612775759994632],
+      [49.65010148540998, 9.728034903994363]
+    ];
+    const DGK5_DEFAULT_OPACITY = 0.7;
+
+    map.createPane("historicalMap1932Pane");
+    map.getPane("historicalMap1932Pane").style.zIndex = 250;
+    map.getPane("historicalMap1932Pane").style.pointerEvents = "none";
+
+    const historicalMap1932Layer = L.imageOverlay(
+      "Flurnamen/gemarkungskarte-1932.jpg",
+      HISTORICAL_MAP_1932_BOUNDS,
+      {
+        pane: "historicalMap1932Pane",
+        opacity: HISTORICAL_MAP_1932_DEFAULT_OPACITY,
+        alt: "Historische Gemarkungskarte Tauberbischofsheim von 1932"
+      }
+    );
+
+    map.createPane("dgk5Pane");
+    map.getPane("dgk5Pane").style.zIndex = 240;
+    map.getPane("dgk5Pane").style.pointerEvents = "none";
+
+    const dgk5Layer = L.imageOverlay(
+      "Flurnamen/dgk5-tauberbischofsheim.jpg",
+      DGK5_BOUNDS,
+      {
+      opacity: DGK5_DEFAULT_OPACITY,
+      pane: "dgk5Pane",
+      alt: "Deutsche Grundkarte 1 zu 5 000 für Tauberbischofsheim",
+      attribution: 'LGL-BW (2026), <a href="https://www.govdata.de/dl-de/by-2-0">dl-de/by-2-0</a>'
+      }
+    );
+
+    function enableLocalMapWhenOffline() {
+      if (!navigator.onLine && !map.hasLayer(dgk5Layer)) {
+        dgk5Layer.addTo(map);
+        showLocationMessage("Offline: Die lokal gespeicherte Deutsche Grundkarte wurde eingeblendet.");
+      }
+    }
+
+    window.addEventListener("offline", enableLocalMapWhenOffline);
+    enableLocalMapWhenOffline();
+
+    const base2021Layer = L.layerGroup().addTo(map);
+    const yearLayers = {};
+    let descriptionsEnabled = false;
+    let fieldNamesEnabled = false;
+    let fieldNameLabelsEnabled = true;
+    let fieldNameSidebarEnabled = true;
+    let poisEnabled = false;
+    let poiLabelsEnabled = true;
+    let poiSidebarEnabled = true;
+
+    function createMobilePanelCloseButton(label) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "mobile-panel-close";
+      button.setAttribute("aria-label", label);
+      button.title = label;
+      button.textContent = "×";
+      return button;
+    }
+
+    function wireMobilePanel(buttonId, panel, closeButton, onChange) {
+      const toolbarButton = document.getElementById(buttonId);
+      if (!toolbarButton || !panel || !closeButton) return;
+
+      const setExpanded = (expanded, moveFocus = false, notify = true) => {
+        panel.classList.toggle("is-mobile-dismissed", !expanded);
+        toolbarButton.setAttribute("aria-expanded", String(expanded));
+        if (notify) onChange?.();
+        if (moveFocus) {
+          (expanded ? closeButton : toolbarButton).focus({ preventScroll: true });
+        }
+      };
+
+      toolbarButton.addEventListener("click", () => {
+        setExpanded(panel.classList.contains("is-mobile-dismissed"), true);
+      });
+      closeButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        setExpanded(false, true);
+      });
+
+      setExpanded(!panel.classList.contains("is-mobile-dismissed"), false, false);
+      return setExpanded;
+    }
+
+    function parseGpsFromRow(row) {
+      if (row?._gps_parsed?.lat && row?._gps_parsed?.lon) return [row._gps_parsed.lat, row._gps_parsed.lon];
+      const raw = row["2021 — GPS"];
+      if (!raw || typeof raw !== "string") return null;
+      const m = raw.match(/N\s*([0-9.]+)\s*E\s*([0-9.]+)/i);
+      if (!m) return null;
+      return [Number(m[1]), Number(m[2])];
+    }
+
+    function parseNumberValue(v) {
+      if (v === null || v === undefined || v === "") return null;
+      if (typeof v === "number") return Number.isFinite(v) ? v : null;
+      const s = String(v).replace(",", ".").trim();
+      if (!s || s === "?") return null;
+      const n = Number(s);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function flattenBorderLatLngs(geojson) {
+      const candidates = [];
+      for (const feature of geojson.features || []) {
+        const g = feature.geometry;
+        if (!g) continue;
+        if (g.type === "LineString") {
+          candidates.push(g.coordinates.map(([lon, lat]) => [lat, lon]));
+        } else if (g.type === "MultiLineString") {
+          for (const part of g.coordinates) {
+            candidates.push(part.map(([lon, lat]) => [lat, lon]));
+          }
+        }
+      }
+      return candidates.sort((a, b) => b.length - a.length)[0] || [];
+    }
+
+    function yearPresence(row, cfg) {
+      const v = row[cfg.numberField];
+      return !(v === "" || v === null || v === undefined);
+    }
+
+    function distanceBetween(previous, current, cfg) {
+      if (!cfg.meterField) return null;
+      if (cfg.meterMode === "prev") {
+        return parseNumberValue(current.row[cfg.meterField]);
+      }
+      if (cfg.meterMode === "next") {
+        return parseNumberValue(previous.row[cfg.meterField]);
+      }
+      return null;
+    }
+
+    function certaintyClass(certainty) {
+      if (certainty === "A") return { color: "#0b7d22", label: "A (GPS am ursprünglichen Standort)" };
+      if (certainty === "B") return { color: "#d18900", label: "B (plausible Rekonstruktion)" };
+      if (certainty === "D") return { color: "#356a9a", label: "D (nur räumlich eingegrenzt; kein berechneter Standort)" };
+      return { color: "#b10026", label: "C (widersprüchliche oder einseitige Distanzkette)" };
+    }
+
+    function positionLabel(position) {
+      if (position.certainty === "A") return "GPS 2021 am ursprünglichen Standort";
+      if (position.certainty === "D") return "nicht rekonstruiert; Darstellungspunkt im möglichen Abschnitt";
+      return "rekonstruiert auf der Grenze";
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    async function copyTextToClipboard(text) {
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error("Clipboard-API nicht verfügbar");
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.readOnly = true;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.append(textarea);
+        textarea.select();
+        try {
+          return document.execCommand("copy");
+        } catch {
+          return false;
+        } finally {
+          textarea.remove();
+        }
+      }
+    }
+
+    map.on("click", async (event) => {
+      const coordinates = `${event.latlng.lat.toFixed(7)}, ${event.latlng.lng.toFixed(7)}`;
+      const copied = await copyTextToClipboard(coordinates);
+      L.popup({ maxWidth: 340 })
+        .setLatLng(event.latlng)
+        .setContent(`
+          <strong>GPS-Koordinaten</strong>
+          <code class="coordinate-popup-value">${coordinates}</code>
+          <span class="coordinate-popup-status">${copied
+            ? "In die Zwischenablage kopiert – direkt in Google Maps einfügbar."
+            : "Automatisches Kopieren war nicht möglich. Die Koordinaten können oben markiert werden."}</span>
+        `)
+        .openOn(map);
+    });
+
+    function safeExternalLink(url, label) {
+      if (!url) return "";
+      try {
+        const parsed = new URL(String(url), window.location.href);
+        if (!/^https?:$/.test(parsed.protocol)) return "";
+        return `<a href="${escapeHtml(parsed.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
+      } catch {
+        return "";
+      }
+    }
+
+    function splitHistoricalText(value) {
+      const text = String(value)
+        .trim()
+        .replace(/;\s*(?=(?:NB|Not|Hinweis|Anmerkung|Bemerkung)\b)/gi, " / ");
+      const parts = [];
+      let start = 0;
+
+      for (let i = 0; i < text.length; i++) {
+        if (text[i] !== "/") continue;
+        const before = text[i - 1] || "";
+        const after = text[i + 1] || "";
+        if (/\d/.test(before) && /\d/.test(after)) continue;
+        parts.push(text.slice(start, i).trim());
+        start = i + 1;
+      }
+
+      parts.push(text.slice(start).trim());
+      return parts.filter(Boolean);
+    }
+
+    function isHistoricalNote(text) {
+      return /^(?:NB\.?|Not(?:a)?\b|Hinweis\b|Anmerkung\b|Bemerkung\b)|\b(?:soll(?:en)?|muß|muss|nachgesucht|nicht gemessen|nicht eingemessen|unkenntlich|unleserlich|verschwunden|nicht gefunden|fehlt|herausgenommen|umgefallen|abgebrochen|gerade gestellt|erhöht|erneuert|versetzt)\b/i.test(text);
+    }
+
+    function historicalDescriptionEntries(row) {
+      return YEAR_CONFIG.flatMap((cfg) => {
+        const raw = row[cfg.descriptionField];
+        if (raw === null || raw === undefined || String(raw).trim() === "") return [];
+        const segments = splitHistoricalText(raw);
+        const content = segments
+          .map((segment) => `<span class="${isHistoricalNote(segment) ? "history-note" : "history-place"}">${escapeHtml(segment)}</span>`)
+          .join('<span class="history-separator"> / </span>');
+        return [`<div class="history-entry"><span class="history-year">${escapeHtml(cfg.historyLabel)}:</span> ${content}</div>`];
+      });
+    }
+
+    function historicalDescriptionsHtml(row) {
+      const entries = historicalDescriptionEntries(row);
+
+      const content = entries.length
+        ? entries.join("")
+        : '<div class="history-empty">Für diesen Stein ist keine historische Standortbeschreibung eingetragen.</div>';
+
+      return `<section class="history-section"><h4>Historische Standortbeschreibungen</h4><div class="history-list">${content}</div></section>`;
+    }
+
+    function groupHistoricalDescriptionsHtml(group, stoneById) {
+      const blocks = group.ids.map((id) => {
+        const stone = stoneById.get(Number(id));
+        const entries = stone ? historicalDescriptionEntries(stone.row) : [];
+        const content = entries.length
+          ? entries.join("")
+          : '<div class="history-empty">Keine gesonderte Beschreibung überliefert.</div>';
+        return `<div class="history-stone-block"><div class="history-stone-title">Stein ${escapeHtml(id)}</div>${content}</div>`;
+      }).join("");
+      return `<section class="history-section"><h4>Historische Standortbeschreibungen</h4><div class="history-list">${blocks}</div></section>`;
+    }
+
+    function addHistoricalDescriptions(baseHtml, row) {
+      return descriptionsEnabled ? `${baseHtml}${historicalDescriptionsHtml(row)}` : baseHtml;
+    }
+
+    function detailsLink(stoneId, label = "Details") {
+      if (stoneId === null || stoneId === undefined || stoneId === "") return "";
+      return `<a href="stein.html?id=${encodeURIComponent(stoneId)}">${escapeHtml(label)}</a>`;
+    }
+
+    function parsePoiText(text) {
+      const entries = [];
+      const usedIds = new Set();
+      let currentEntry = null;
+
+      String(text).split(/\r?\n/).forEach((rawLine, index) => {
+        const lineNumber = index + 1;
+        const line = rawLine.trim();
+        if (!line || line.startsWith("#")) return;
+
+        if (/^\s/.test(rawLine)) {
+          if (!currentEntry) {
+            throw new Error(`Zusatzinfo ohne vorangehenden POI in Zeile ${lineNumber}: ${line}`);
+          }
+          const detailMatch = line.match(/^(Info|Foto):\s*(.*)$/i);
+          if (!detailMatch) {
+            throw new Error(`Unbekannte POI-Zusatzinfo in Zeile ${lineNumber}: ${line}`);
+          }
+          const detailType = detailMatch[1].toLocaleLowerCase("de");
+          const detailValue = detailMatch[2].trim();
+          if (!detailValue) {
+            throw new Error(`Leere POI-Zusatzinfo in Zeile ${lineNumber}: ${line}`);
+          }
+          if (detailType === "info") {
+            currentEntry.info.push(detailValue);
+            return;
+          }
+
+          const separatorIndex = detailValue.indexOf("|");
+          const file = (separatorIndex >= 0 ? detailValue.slice(0, separatorIndex) : detailValue).trim();
+          const caption = (separatorIndex >= 0 ? detailValue.slice(separatorIndex + 1) : "").trim();
+          if (!/^[^\\/:*?"<>|]+\.(?:jpe?g|png|webp)$/i.test(file)) {
+            throw new Error(`Ungültiger POI-Bildname in Zeile ${lineNumber}: ${file}`);
+          }
+          currentEntry.photos.push({ file, caption });
+          return;
+        }
+
+        const match = line.match(/^(.+?)\s+"([^"]+)"\s+(-?\d+(?:\.\d+)?),\s*(-?\d+(?:\.\d+)?)$/);
+        if (!match) throw new Error(`Ungültiger POI in Zeile ${lineNumber}: ${line}`);
+        const lat = Number(match[3]);
+        const lon = Number(match[4]);
+        if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
+          throw new Error(`Ungültige POI-Koordinate in Zeile ${lineNumber}: ${line}`);
+        }
+        const stableIdPart = `${match[1]}-${match[2]}`
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLocaleLowerCase("de")
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-|-$/g, "");
+        const baseId = `poi-${stableIdPart || entries.length + 1}`;
+        let id = baseId;
+        let suffix = 2;
+        while (usedIds.has(id)) id = `${baseId}-${suffix++}`;
+        usedIds.add(id);
+        currentEntry = {
+          id,
+          category: match[1].trim(),
+          name: match[2].trim(),
+          lat,
+          lon,
+          info: [],
+          photos: []
+        };
+        entries.push(currentEntry);
+      });
+
+      return entries;
+    }
+
+    function poiPopupHtml(entry) {
+      const infoHtml = entry.info.length
+        ? `<div class="poi-popup-info">${entry.info.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</div>`
+        : "";
+      const photoHtml = entry.photos.length
+        ? `<div class="poi-photo-gallery">${entry.photos.map((photo) => {
+            const src = `Flurnamen/poi-bilder/${encodeURIComponent(photo.file)}`;
+            const description = photo.caption || entry.name;
+            return `<figure class="poi-photo"><a href="${escapeHtml(src)}" target="_blank" rel="noopener"><img src="${escapeHtml(src)}" alt="${escapeHtml(description)}" loading="lazy"></a>${photo.caption ? `<figcaption>${escapeHtml(photo.caption)}</figcaption>` : ""}</figure>`;
+          }).join("")}</div>`
+        : "";
+      const emptyHtml = infoHtml || photoHtml
+        ? ""
+        : '<p class="poi-popup-empty">Zu diesem POI sind noch keine Zusatzinformationen eingetragen.</p>';
+      return `<article class="poi-popup"><b>${escapeHtml(entry.name)}</b><div class="poi-popup-category">${escapeHtml(entry.category)}</div>${infoHtml}${photoHtml}${emptyHtml}</article>`;
+    }
+
+    Promise.all([
+      fetch("Gemarkungsgrenze Tauberbischofsheim.geojson").then((r) => r.json()),
+      fetch("data.json").then((r) => r.json()),
+      fetch("standorte-positionen.json").then((r) => r.json()),
+      fetch("Flurnamen/flurnamen.json").then((r) => r.json()),
+      fetch("Flurnamen/pois.txt").then((r) => r.text())
+    ]).then(([borderJson, rows, positionData, fieldNameData, poiText]) => {
+      const borderLatLngs = flattenBorderLatLngs(borderJson);
+      if (!borderLatLngs.length) throw new Error("Keine Grenzgeometrie gefunden.");
+
+      const boundaryOverlay = L.geoJSON(borderJson, {
+        style: { color: "#d90000", weight: 4, opacity: 0.9 }
+      }).addTo(map);
+
+      map.createPane("fieldNamePane");
+      map.getPane("fieldNamePane").style.zIndex = 625;
+      map.getPane("fieldNamePane").style.pointerEvents = "none";
+
+      const fieldNames = Array.isArray(fieldNameData?.flurnamen) ? fieldNameData.flurnamen : [];
+      const fieldNameLayer = L.layerGroup();
+      const fieldNameMarkers = new Map();
+      let selectedFieldNameId = null;
+
+      fieldNames.forEach((entry) => {
+        const markerClasses = ["field-name-marker"];
+        if (entry.placement === "center") markerClasses.push("is-centered");
+        if (entry.importance === "primary") markerClasses.push("is-primary");
+        if (entry.importance === "secondary") markerClasses.push("is-secondary");
+        if (entry.outsideGemarkung) markerClasses.push("is-outside");
+        const marker = L.marker([entry.lat, entry.lon], {
+          pane: "fieldNamePane",
+          interactive: false,
+          keyboard: false,
+          icon: L.divIcon({
+            className: markerClasses.join(" "),
+            html: `<span class="field-name-label">${escapeHtml(entry.name)}</span>`,
+            iconSize: null
+          })
+        }).addTo(fieldNameLayer);
+        fieldNameMarkers.set(entry.id, marker);
+      });
+
+      const fieldNameSidebarControl = L.control({ position: "topleft" });
+      let fieldNameSidebar;
+      let fieldNameList;
+      let fieldNameSort;
+
+      function fieldNameSourceLabel(entry) {
+        const source = entry.sources
+          .map((source) => source === "Deutsche Grundkarte" ? "DGK" : source.replace("Gemarkungskarte ", "Karte "))
+          .join(" · ");
+        return entry.outsideGemarkung ? `Nachbargemarkung · ${source}` : source;
+      }
+
+      function updateFieldNameMarkerVisibility() {
+        const detailedZoom = fieldNamesEnabled && fieldNameLabelsEnabled && map.getZoom() >= 14;
+        const visible = [];
+        fieldNameMarkers.forEach((marker, id) => {
+          const element = marker.getElement();
+          if (!element) return;
+          const selected = fieldNamesEnabled && fieldNameSidebarEnabled && id === selectedFieldNameId;
+          if (detailedZoom || selected) {
+            element.style.removeProperty("display");
+            visible.push({ element, id, selected });
+          } else {
+            element.style.setProperty("display", "none", "important");
+          }
+          element.classList.toggle("is-selected", selected);
+        });
+
+        if (!detailedZoom) return;
+        visible.sort((a, b) => Number(b.selected) - Number(a.selected));
+        const occupied = [];
+        visible.forEach((item) => {
+          const rect = (item.element.querySelector(".field-name-label") || item.element).getBoundingClientRect();
+          const padded = {
+            left: rect.left - 3,
+            right: rect.right + 3,
+            top: rect.top - 2,
+            bottom: rect.bottom + 2
+          };
+          const collision = occupied.some((other) => !(
+            padded.right < other.left ||
+            padded.left > other.right ||
+            padded.bottom < other.top ||
+            padded.top > other.bottom
+          ));
+          if (collision && !item.selected) {
+            item.element.style.setProperty("display", "none", "important");
+          } else {
+            occupied.push(padded);
+          }
+        });
+      }
+
+      function selectFieldName(entry) {
+        selectedFieldNameId = entry.id;
+        if (!map.hasLayer(fieldNameLayer)) fieldNameLayer.addTo(map);
+        map.flyTo([entry.lat, entry.lon], Math.max(map.getZoom(), 16), { duration: 0.7 });
+        updateFieldNameMarkerVisibility();
+        fieldNameList?.querySelectorAll("button").forEach((button) => {
+          button.classList.toggle("is-selected", button.dataset.id === entry.id);
+        });
+        fieldNameList?.querySelector(`[data-id="${CSS.escape(entry.id)}"]`)?.scrollIntoView({ block: "nearest" });
+      }
+
+      function renderFieldNameList() {
+        if (!fieldNameList) return;
+        const sorted = [...fieldNames];
+        if (fieldNameSort.value === "geographic") {
+          sorted.sort((a, b) => b.lat - a.lat || a.lon - b.lon || a.name.localeCompare(b.name, "de"));
+        } else {
+          sorted.sort((a, b) => a.name.localeCompare(b.name, "de", { sensitivity: "base" }));
+        }
+        fieldNameList.replaceChildren();
+        sorted.forEach((entry) => {
+          const item = document.createElement("li");
+          const button = document.createElement("button");
+          button.type = "button";
+          button.dataset.id = entry.id;
+          button.classList.toggle("is-selected", entry.id === selectedFieldNameId);
+          const name = document.createElement("span");
+          name.textContent = entry.name;
+          const source = document.createElement("span");
+          source.className = "field-name-source";
+          source.textContent = fieldNameSourceLabel(entry);
+          button.append(name, source);
+          button.addEventListener("click", () => selectFieldName(entry));
+          item.append(button);
+          fieldNameList.append(item);
+        });
+      }
+
+      fieldNameSidebarControl.onAdd = () => {
+        const div = L.DomUtil.create("aside", "field-name-sidebar");
+        div.id = "field-name-panel";
+        div.setAttribute("aria-label", "Flurnamenliste");
+        div.hidden = true;
+        div.innerHTML = `
+          <div class="field-name-sidebar-header">
+            <div class="panel-title-row">
+              <strong class="field-name-sidebar-title">Flur- &amp; Gewannnamen (${fieldNames.length})</strong>
+              <button class="mobile-panel-close" type="button" aria-label="Flurnamenliste schließen" title="Flurnamenliste schließen">×</button>
+            </div>
+            <label for="field-name-sort">Sortierung</label>
+            <select id="field-name-sort">
+              <option value="alphabetic">Alphabetisch</option>
+              <option value="geographic">Nord nach Süd, dann West nach Ost</option>
+            </select>
+          </div>
+          <ol class="field-name-list"></ol>
+        `;
+        L.DomEvent.disableClickPropagation(div);
+        L.DomEvent.disableScrollPropagation(div);
+        fieldNameSidebar = div;
+        fieldNameList = div.querySelector(".field-name-list");
+        fieldNameSort = div.querySelector("#field-name-sort");
+        fieldNameSort.addEventListener("change", renderFieldNameList);
+        wireMobilePanel("toggle-field-name-panel", div, div.querySelector(".mobile-panel-close"), syncSidebarStacking);
+        renderFieldNameList();
+        return div;
+      };
+      fieldNameSidebarControl.addTo(map);
+
+      function syncFieldNameVisibility() {
+        const layerNeeded = fieldNamesEnabled && (
+          fieldNameLabelsEnabled || (fieldNameSidebarEnabled && selectedFieldNameId)
+        );
+        if (layerNeeded && !map.hasLayer(fieldNameLayer)) fieldNameLayer.addTo(map);
+        if (!layerNeeded && map.hasLayer(fieldNameLayer)) fieldNameLayer.removeFrom(map);
+        const sidebarAvailable = fieldNamesEnabled && fieldNameSidebarEnabled;
+        if (fieldNameSidebar) fieldNameSidebar.hidden = !sidebarAvailable;
+        const toolbarButton = document.getElementById("toggle-field-name-panel");
+        if (toolbarButton) {
+          toolbarButton.hidden = !sidebarAvailable;
+          toolbarButton.setAttribute(
+            "aria-expanded",
+            String(sidebarAvailable && !fieldNameSidebar?.classList.contains("is-mobile-dismissed"))
+          );
+        }
+        updateFieldNameMarkerVisibility();
+        syncSidebarStacking();
+      }
+
+      map.createPane("poiPane");
+      map.getPane("poiPane").style.zIndex = 630;
+      map.getPane("poiPane").style.pointerEvents = "none";
+
+      const pois = parsePoiText(poiText);
+      const poiById = new Map(pois.map((entry) => [entry.id, entry]));
+      const poiCategories = [...new Set(pois.map((entry) => entry.category))]
+        .sort((a, b) => a.localeCompare(b, "de", { sensitivity: "base" }));
+      const poiLayer = L.layerGroup();
+      const poiMarkers = new Map();
+      let selectedPoiId = null;
+      let selectedPoiCategory = null;
+
+      pois.forEach((entry) => {
+        const marker = L.marker([entry.lat, entry.lon], {
+          pane: "poiPane",
+          interactive: true,
+          keyboard: true,
+          bubblingMouseEvents: false,
+          title: `${entry.category}: ${entry.name}`,
+          alt: `${entry.category}: ${entry.name}`,
+          icon: L.divIcon({
+            className: "poi-marker",
+            html: `<span class="poi-label">${escapeHtml(entry.name)}</span>`,
+            iconSize: null
+          })
+        })
+          .bindPopup(() => poiPopupHtml(entry), {
+            maxWidth: 520,
+            autoPanPaddingTopLeft: [20, 20],
+            autoPanPaddingBottomRight: [300, 180]
+          })
+          .on("click", () => {
+            selectedPoiId = entry.id;
+            selectedPoiCategory = null;
+            if (poiCategorySelect) poiCategorySelect.value = "";
+            updatePoiMarkerVisibility();
+            updatePoiListSelection();
+          })
+          .addTo(poiLayer);
+        poiMarkers.set(entry.id, marker);
+      });
+
+      const poiSidebarControl = L.control({ position: "topleft" });
+      let poiSidebar;
+      let poiList;
+      let poiCategorySelect;
+
+      function syncSidebarStacking() {
+        const corner = fieldNameSidebar?.parentElement || poiSidebar?.parentElement;
+        if (!corner) return;
+        const isVisible = (sidebar) => Boolean(
+          sidebar &&
+          !sidebar.hidden &&
+          !sidebar.classList.contains("is-mobile-dismissed")
+        );
+        const bothVisible = Boolean(
+          isVisible(fieldNameSidebar) && isVisible(poiSidebar)
+        );
+        corner.classList.toggle("has-two-map-sidebars", bothVisible);
+      }
+
+      function updatePoiMarkerVisibility() {
+        const detailedZoom = poisEnabled && poiLabelsEnabled && map.getZoom() >= 14;
+        const visible = [];
+        poiMarkers.forEach((marker, id) => {
+          const element = marker.getElement();
+          const entry = poiById.get(id);
+          if (!element || !entry) return;
+          const selected = poisEnabled && poiSidebarEnabled && id === selectedPoiId;
+          const categorySelected = poisEnabled && poiSidebarEnabled && entry.category === selectedPoiCategory;
+          const highlighted = selected || categorySelected;
+          if (detailedZoom || highlighted) {
+            element.style.removeProperty("display");
+            visible.push({ element, selected, categorySelected });
+          } else {
+            element.style.setProperty("display", "none", "important");
+          }
+          element.classList.toggle("is-selected", selected);
+          element.classList.toggle("is-category-selected", !selected && categorySelected);
+        });
+
+        if (!detailedZoom) return;
+        visible.sort((a, b) => Number(b.selected) - Number(a.selected) || Number(b.categorySelected) - Number(a.categorySelected));
+        const occupied = [];
+        visible.forEach((item) => {
+          const rect = (item.element.querySelector(".poi-label") || item.element).getBoundingClientRect();
+          const padded = {
+            left: rect.left - 3,
+            right: rect.right + 3,
+            top: rect.top - 2,
+            bottom: rect.bottom + 2
+          };
+          const collision = occupied.some((other) => !(
+            padded.right < other.left ||
+            padded.left > other.right ||
+            padded.bottom < other.top ||
+            padded.top > other.bottom
+          ));
+          if (collision && !item.selected && !item.categorySelected) {
+            item.element.style.setProperty("display", "none", "important");
+          } else {
+            occupied.push(padded);
+          }
+        });
+      }
+
+      function updatePoiListSelection() {
+        poiList?.querySelectorAll("button").forEach((button) => {
+          const entry = poiById.get(button.dataset.id);
+          const selected = entry?.id === selectedPoiId;
+          const categorySelected = !selected && entry?.category === selectedPoiCategory;
+          button.classList.toggle("is-selected", selected);
+          button.classList.toggle("is-category-selected", categorySelected);
+        });
+      }
+
+      function selectPoi(entry) {
+        selectedPoiId = entry.id;
+        selectedPoiCategory = null;
+        if (poiCategorySelect) poiCategorySelect.value = "";
+        if (!map.hasLayer(poiLayer)) poiLayer.addTo(map);
+        const marker = poiMarkers.get(entry.id);
+        const openSelectedPopup = () => {
+          map.off("moveend", openSelectedPopup);
+          marker?.openPopup();
+        };
+        map.once("moveend", openSelectedPopup);
+        map.flyTo([entry.lat, entry.lon], Math.max(map.getZoom(), 16), { duration: 0.7 });
+        window.setTimeout(openSelectedPopup, 850);
+        updatePoiMarkerVisibility();
+        updatePoiListSelection();
+        poiList?.querySelector(`[data-id="${CSS.escape(entry.id)}"]`)?.scrollIntoView({ block: "nearest" });
+      }
+
+      function selectPoiCategory(category) {
+        selectedPoiId = null;
+        selectedPoiCategory = category || null;
+        updatePoiMarkerVisibility();
+        updatePoiListSelection();
+        if (!selectedPoiCategory) return;
+        if (!map.hasLayer(poiLayer)) poiLayer.addTo(map);
+        const categoryEntries = pois.filter((entry) => entry.category === selectedPoiCategory);
+        map.fitBounds(
+          L.latLngBounds(categoryEntries.map((entry) => [entry.lat, entry.lon])),
+          { padding: [45, 45], maxZoom: 15 }
+        );
+      }
+
+      function renderPoiList() {
+        if (!poiList) return;
+        const sorted = [...pois].sort((a, b) => (
+          a.category.localeCompare(b.category, "de", { sensitivity: "base" }) ||
+          a.name.localeCompare(b.name, "de", { sensitivity: "base" })
+        ));
+        poiList.replaceChildren();
+        sorted.forEach((entry) => {
+          const item = document.createElement("li");
+          const button = document.createElement("button");
+          button.type = "button";
+          button.dataset.id = entry.id;
+          const category = document.createElement("span");
+          category.className = "poi-category";
+          category.textContent = entry.category;
+          const name = document.createElement("span");
+          name.textContent = `: ${entry.name}`;
+          button.append(category, name);
+          button.addEventListener("click", () => selectPoi(entry));
+          item.append(button);
+          poiList.append(item);
+        });
+        updatePoiListSelection();
+      }
+
+      poiSidebarControl.onAdd = () => {
+        const div = L.DomUtil.create("aside", "poi-sidebar");
+        div.id = "poi-panel";
+        div.setAttribute("aria-label", "POI-Liste");
+        div.hidden = true;
+        const categoryOptions = poiCategories.map((category) => {
+          const count = pois.filter((entry) => entry.category === category).length;
+          return `<option value="${escapeHtml(category)}">${escapeHtml(category)} (${count})</option>`;
+        }).join("");
+        div.innerHTML = `
+          <div class="poi-sidebar-header">
+            <div class="panel-title-row">
+              <strong class="poi-sidebar-title">POIs – Points of Interest (${pois.length})</strong>
+              <button class="mobile-panel-close" type="button" aria-label="POI-Liste schließen" title="POI-Liste schließen">×</button>
+            </div>
+            <label for="poi-category-select">Kategorie hervorheben</label>
+            <select id="poi-category-select">
+              <option value="">Keine Kategorie</option>
+              ${categoryOptions}
+            </select>
+          </div>
+          <ol class="poi-list"></ol>
+        `;
+        L.DomEvent.disableClickPropagation(div);
+        L.DomEvent.disableScrollPropagation(div);
+        poiSidebar = div;
+        poiList = div.querySelector(".poi-list");
+        poiCategorySelect = div.querySelector("#poi-category-select");
+        poiCategorySelect.addEventListener("change", () => selectPoiCategory(poiCategorySelect.value));
+        wireMobilePanel("toggle-poi-panel", div, div.querySelector(".mobile-panel-close"), syncSidebarStacking);
+        renderPoiList();
+        return div;
+      };
+      poiSidebarControl.addTo(map);
+
+      function syncPoiVisibility() {
+        const hasSidebarSelection = poiSidebarEnabled && (selectedPoiId || selectedPoiCategory);
+        const layerNeeded = poisEnabled && (poiLabelsEnabled || hasSidebarSelection);
+        if (layerNeeded && !map.hasLayer(poiLayer)) poiLayer.addTo(map);
+        if (!layerNeeded && map.hasLayer(poiLayer)) poiLayer.removeFrom(map);
+        const sidebarAvailable = poisEnabled && poiSidebarEnabled;
+        if (poiSidebar) poiSidebar.hidden = !sidebarAvailable;
+        const toolbarButton = document.getElementById("toggle-poi-panel");
+        if (toolbarButton) {
+          toolbarButton.hidden = !sidebarAvailable;
+          toolbarButton.setAttribute(
+            "aria-expanded",
+            String(sidebarAvailable && !poiSidebar?.classList.contains("is-mobile-dismissed"))
+          );
+        }
+        updatePoiMarkerVisibility();
+        syncSidebarStacking();
+      }
+
+      window.addEventListener("resize", syncSidebarStacking);
+
+      map.on("zoomend moveend", updateFieldNameMarkerVisibility);
+      map.on("zoomend moveend", updatePoiMarkerVisibility);
+
+      if (!currentLocationLatLng) {
+        map.fitBounds(L.polyline(borderLatLngs).getBounds(), { padding: [20, 20] });
+      }
+
+      function bestReconstructedSearchPosition(stoneId) {
+        const candidates = YEAR_CONFIG.flatMap((cfg) => {
+          const position = positionData?.years?.[cfg.key]?.[String(stoneId)];
+          if (!position || !Number.isFinite(position.lat) || !Number.isFinite(position.lon)) return [];
+          if (position.certainty !== "B" && position.certainty !== "C") return [];
+          return [{
+            lat: position.lat,
+            lon: position.lon,
+            certainty: position.certainty,
+            year: cfg.key,
+            sourceLabel: cfg.label,
+            method: position.method || "Rekonstruierter Standort",
+            transferred: Boolean(position.transferred)
+          }];
+        });
+        candidates.sort((a, b) => (
+          (a.certainty === "B" ? 0 : 1) - (b.certainty === "B" ? 0 : 1) ||
+          Number(a.transferred) - Number(b.transferred) ||
+          Number(b.year) - Number(a.year)
+        ));
+        return candidates[0] || null;
+      }
+
+      const stones = rows.map((row, i) => {
+        const gps = parseGpsFromRow(row);
+        return {
+          idx: i,
+          id: row.ID,
+          row,
+          gps,
+          searchPosition: gps
+            ? {
+              lat: gps[0],
+              lon: gps[1],
+              certainty: "A",
+              year: "2021",
+              sourceLabel: "GPS 2021",
+              method: "GPS am heutigen Standort",
+              transferred: false
+            }
+            : bestReconstructedSearchPosition(row.ID)
+        };
+      });
+      const stoneById = new Map(stones.map((stone) => [Number(stone.id), stone]));
+
+      const navigationHud = document.getElementById("navigation-hud");
+      const navigationHudText = document.getElementById("navigation-hud-text");
+      const stopNavigationButton = document.getElementById("stop-navigation");
+      const navigationLine = L.polyline([], {
+        color: "#1479d3",
+        weight: 4,
+        opacity: 0.85,
+        dashArray: "8 7",
+        interactive: false
+      });
+      const navigationTargetMarker = L.circleMarker([0, 0], {
+        radius: 12,
+        color: "#1479d3",
+        weight: 4,
+        fillColor: "#fff",
+        fillOpacity: 0.25,
+        interactive: false
+      });
+      const navigationSearchArea = L.circle([0, 0], {
+        radius: 0,
+        color: "#1479d3",
+        weight: 2,
+        opacity: 0.55,
+        fillColor: "#1479d3",
+        fillOpacity: 0.08,
+        interactive: false
+      });
+      let targetStone = null;
+      let selectNearestWhenLocated = false;
+      let fieldToolsPanel;
+      let targetStatus;
+      let clearTargetButton;
+      let stoneSearchInput;
+      let offlineButton;
+      let offlineProgress;
+      let offlineStatus;
+      let notesDetails;
+      let noteStatus;
+      let noteText;
+      let notePhoto;
+      let notePhotoPreview;
+      let noteSaveButton;
+      let noteDeleteButton;
+      let noteStatusText;
+      let currentNote = null;
+      let notePhotoUrl = null;
+
+      function formatDistance(meters) {
+        if (!Number.isFinite(meters)) return "Entfernung unbekannt";
+        return meters < 1000 ? `${Math.round(meters)} m` : `${(meters / 1000).toFixed(1)} km`;
+      }
+
+      function compassDirection(degrees) {
+        const directions = ["N", "NO", "O", "SO", "S", "SW", "W", "NW"];
+        return directions[Math.round(degrees / 45) % directions.length];
+      }
+
+      function stoneActionsHtml(stoneId) {
+        const id = escapeHtml(stoneId);
+        return `
+          <div class="stone-action-row">
+            <button class="stone-action-button" type="button" data-target-stone-id="${id}">Stein ${id} als Ziel</button>
+            <button class="stone-action-button" type="button" data-note-stone-id="${id}">Notiz Stein ${id}</button>
+          </div>
+        `;
+      }
+
+      function setNavigationLayers(targetLatLng, searchPosition) {
+        const targetColor = searchPosition.certainty === "B"
+          ? "#d18900"
+          : searchPosition.certainty === "C" ? "#b10026" : "#1479d3";
+        navigationTargetMarker.setLatLng(targetLatLng);
+        navigationTargetMarker.setStyle({ color: targetColor });
+        if (!map.hasLayer(navigationTargetMarker)) navigationTargetMarker.addTo(map);
+        navigationLine.setStyle({ color: targetColor });
+        if (searchPosition.certainty === "B" || searchPosition.certainty === "C") {
+          navigationSearchArea.setLatLng(targetLatLng);
+          navigationSearchArea.setRadius(searchPosition.certainty === "B" ? 8 : 16);
+          navigationSearchArea.setStyle({ color: targetColor, fillColor: targetColor });
+          if (!map.hasLayer(navigationSearchArea)) navigationSearchArea.addTo(map);
+        } else if (map.hasLayer(navigationSearchArea)) {
+          navigationSearchArea.removeFrom(map);
+        }
+        if (currentLocationLatLng) {
+          navigationLine.setLatLngs([currentLocationLatLng, targetLatLng]);
+          if (!map.hasLayer(navigationLine)) navigationLine.addTo(map);
+        } else if (map.hasLayer(navigationLine)) {
+          navigationLine.removeFrom(map);
+        }
+        navigationTargetMarker.bringToFront();
+      }
+
+      function updateNavigation() {
+        if (!targetStone?.searchPosition) {
+          navigationHud.hidden = true;
+          return;
+        }
+        const searchPosition = targetStone.searchPosition;
+        const targetLatLng = L.latLng(searchPosition.lat, searchPosition.lon);
+        setNavigationLayers(targetLatLng, searchPosition);
+        const certaintyText = searchPosition.certainty === "A" ? "GPS" : `Klasse ${searchPosition.certainty}`;
+        let navigationText = locationWatchId === null
+          ? `Stein ${targetStone.id} · ${certaintyText} · Standortanzeige ist aus`
+          : `Stein ${targetStone.id} · ${certaintyText} · Standort wird ermittelt`;
+        if (currentLocationLatLng) {
+          const distance = map.distance(currentLocationLatLng, targetLatLng);
+          const bearing = bearingBetween(currentLocationLatLng, targetLatLng);
+          navigationText = `Stein ${targetStone.id} · ${formatDistance(distance)} · ${compassDirection(bearing)} · ${certaintyText}`;
+        }
+        navigationHudText.textContent = navigationText;
+        navigationHud.hidden = false;
+        if (clearTargetButton) clearTargetButton.disabled = false;
+        if (targetStatus) {
+          targetStatus.textContent = `${navigationText}. Zielposition: ${searchPosition.sourceLabel}. ${searchPosition.method}`;
+        }
+      }
+
+      function stopNavigation() {
+        targetStone = null;
+        selectNearestWhenLocated = false;
+        if (map.hasLayer(navigationLine)) navigationLine.removeFrom(map);
+        if (map.hasLayer(navigationTargetMarker)) navigationTargetMarker.removeFrom(map);
+        if (map.hasLayer(navigationSearchArea)) navigationSearchArea.removeFrom(map);
+        navigationHud.hidden = true;
+        if (targetStatus) targetStatus.textContent = "Kein Grenzstein als Ziel gewählt.";
+        if (clearTargetButton) clearTargetButton.disabled = true;
+        loadTargetNote();
+      }
+
+      function selectTargetStone(stone, { center = true, openNotes = false } = {}) {
+        if (!stone?.searchPosition) {
+          showLocationMessage("Für diesen Grenzstein liegt weder eine GPS- noch eine einzelne B- oder C-Suchposition vor.");
+          return;
+        }
+        targetStone = stone;
+        startLocationTracking();
+        updateNavigation();
+        if (center) {
+          const targetLatLng = L.latLng(stone.searchPosition.lat, stone.searchPosition.lon);
+          if (currentLocationLatLng) {
+            map.fitBounds(L.latLngBounds([currentLocationLatLng, targetLatLng]), {
+              padding: [45, 45],
+              maxZoom: 18
+            });
+          } else {
+            map.flyTo(targetLatLng, Math.max(map.getZoom(), 17), { duration: 0.7 });
+          }
+        }
+        loadTargetNote();
+        if (openNotes && notesDetails) {
+          notesDetails.open = true;
+          fieldToolsPanel?.classList.remove("is-mobile-dismissed");
+          document.getElementById("toggle-field-tools-panel")?.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      function nearestStone() {
+        if (!currentLocationLatLng) {
+          selectNearestWhenLocated = true;
+          showLocationMessage("Standort wird ermittelt. Danach wird der nächste Stein gewählt.");
+          startLocationTracking();
+          return;
+        }
+        const nearest = stones
+          .filter((stone) => stone.searchPosition)
+          .map((stone) => ({
+            stone,
+            distance: map.distance(
+              currentLocationLatLng,
+              L.latLng(stone.searchPosition.lat, stone.searchPosition.lon)
+            )
+          }))
+          .sort((a, b) => a.distance - b.distance)[0];
+        if (nearest) selectTargetStone(nearest.stone);
+      }
+
+      locationUpdateListener = () => {
+        updateNavigation();
+        if (selectNearestWhenLocated) {
+          selectNearestWhenLocated = false;
+          nearestStone();
+        }
+      };
+
+      stopNavigationButton.addEventListener("click", stopNavigation);
+
+      const notesDbPromise = new Promise((resolve, reject) => {
+        if (!window.indexedDB) {
+          reject(new Error("IndexedDB fehlt"));
+          return;
+        }
+        const request = indexedDB.open("grenzgaenge-fundnotizen", 1);
+        request.onupgradeneeded = () => {
+          if (!request.result.objectStoreNames.contains("notes")) {
+            request.result.createObjectStore("notes", { keyPath: "stoneId" });
+          }
+        };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+      });
+
+      async function readNote(stoneId) {
+        const db = await notesDbPromise;
+        return new Promise((resolve, reject) => {
+          const request = db.transaction("notes", "readonly").objectStore("notes").get(Number(stoneId));
+          request.onsuccess = () => resolve(request.result || null);
+          request.onerror = () => reject(request.error);
+        });
+      }
+
+      async function writeNote(note) {
+        const db = await notesDbPromise;
+        return new Promise((resolve, reject) => {
+          const request = db.transaction("notes", "readwrite").objectStore("notes").put(note);
+          request.onsuccess = () => resolve();
+          request.onerror = () => reject(request.error);
+        });
+      }
+
+      async function removeNote(stoneId) {
+        const db = await notesDbPromise;
+        return new Promise((resolve, reject) => {
+          const request = db.transaction("notes", "readwrite").objectStore("notes").delete(Number(stoneId));
+          request.onsuccess = () => resolve();
+          request.onerror = () => reject(request.error);
+        });
+      }
+
+      function showNotePhoto(blob) {
+        if (notePhotoUrl) URL.revokeObjectURL(notePhotoUrl);
+        notePhotoUrl = blob ? URL.createObjectURL(blob) : null;
+        notePhotoPreview.hidden = !notePhotoUrl;
+        if (notePhotoUrl) notePhotoPreview.src = notePhotoUrl;
+        else notePhotoPreview.removeAttribute("src");
+      }
+
+      async function compressNotePhoto(file) {
+        if (!file || !file.type.startsWith("image/") || !("createImageBitmap" in window)) return file;
+        try {
+          const bitmap = await createImageBitmap(file);
+          const scale = Math.min(1, 1600 / Math.max(bitmap.width, bitmap.height));
+          if (scale === 1 && file.size <= 1_500_000) {
+            bitmap.close();
+            return file;
+          }
+          const canvas = document.createElement("canvas");
+          canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+          canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+          canvas.getContext("2d").drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+          bitmap.close();
+          const compressed = await new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.82));
+          return compressed || file;
+        } catch (error) {
+          console.warn("Fundfoto konnte nicht verkleinert werden.", error);
+          return file;
+        }
+      }
+
+      async function loadTargetNote() {
+        if (!noteStatus) return;
+        const enabled = Boolean(targetStone);
+        noteStatus.disabled = !enabled;
+        noteText.disabled = !enabled;
+        notePhoto.disabled = !enabled;
+        noteSaveButton.disabled = !enabled;
+        noteDeleteButton.disabled = true;
+        if (!enabled) {
+          currentNote = null;
+          noteStatus.value = "";
+          noteText.value = "";
+          notePhoto.value = "";
+          noteStatusText.textContent = "Zuerst einen Grenzstein als Ziel wählen.";
+          showNotePhoto(null);
+          return;
+        }
+        const requestedStoneId = Number(targetStone.id);
+        try {
+          const storedNote = await readNote(requestedStoneId);
+          if (Number(targetStone?.id) !== requestedStoneId) return;
+          currentNote = storedNote;
+          noteStatus.value = currentNote?.status || "";
+          noteText.value = currentNote?.text || "";
+          notePhoto.value = "";
+          showNotePhoto(currentNote?.photo || null);
+          noteDeleteButton.disabled = !currentNote;
+          noteStatusText.textContent = currentNote
+            ? `Notiz für Stein ${targetStone.id}, gespeichert am ${new Date(currentNote.updatedAt).toLocaleString("de-DE")}.`
+            : `Noch keine Fundnotiz für Stein ${targetStone.id}.`;
+        } catch (error) {
+          console.error(error);
+          noteStatusText.textContent = "Fundnotizen können auf diesem Gerät nicht gelesen werden.";
+        }
+      }
+
+      async function saveTargetNote() {
+        if (!targetStone) return;
+        const photo = notePhoto.files[0]
+          ? await compressNotePhoto(notePhoto.files[0])
+          : currentNote?.photo || null;
+        const note = {
+          stoneId: Number(targetStone.id),
+          status: noteStatus.value,
+          text: noteText.value.trim(),
+          photo,
+          updatedAt: new Date().toISOString(),
+          recordedPosition: currentLocationLatLng
+            ? { lat: currentLocationLatLng.lat, lon: currentLocationLatLng.lng, accuracy: currentLocationAccuracy }
+            : null
+        };
+        try {
+          await writeNote(note);
+          currentNote = note;
+          notePhoto.value = "";
+          showNotePhoto(photo);
+          noteDeleteButton.disabled = false;
+          noteStatusText.textContent = `Fundnotiz für Stein ${targetStone.id} gespeichert.`;
+        } catch (error) {
+          console.error(error);
+          noteStatusText.textContent = "Fundnotiz konnte nicht gespeichert werden.";
+        }
+      }
+
+      async function deleteTargetNote() {
+        if (!targetStone || !currentNote) return;
+        if (!window.confirm(`Fundnotiz für Stein ${targetStone.id} wirklich löschen?`)) return;
+        try {
+          await removeNote(targetStone.id);
+          currentNote = null;
+          await loadTargetNote();
+        } catch (error) {
+          console.error(error);
+          noteStatusText.textContent = "Fundnotiz konnte nicht gelöscht werden.";
+        }
+      }
+
+      async function prepareOfflinePackage() {
+        if (!("serviceWorker" in navigator)) {
+          offlineStatus.textContent = "Dieser Browser unterstützt keine Offline-Pakete.";
+          return;
+        }
+        offlineButton.disabled = true;
+        offlineProgress.hidden = false;
+        offlineStatus.textContent = "Offline-Paket wird vorbereitet …";
+        try {
+          await navigator.storage?.persist?.();
+          const registration = await navigator.serviceWorker.register("service-worker.js");
+          const readyRegistration = await navigator.serviceWorker.ready;
+          const worker = readyRegistration.active || registration.active || registration.waiting;
+          if (!worker) throw new Error("Service Worker noch nicht aktiv");
+          worker.postMessage({ type: "CACHE_OFFLINE_PACKAGE" });
+        } catch (error) {
+          console.error(error);
+          offlineButton.disabled = false;
+          offlineProgress.hidden = true;
+          offlineStatus.textContent = "Offline-Paket konnte nicht geladen werden. Die Website muss über HTTPS geöffnet sein.";
+        }
+      }
+
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js").catch((error) => console.error(error));
+        navigator.serviceWorker.addEventListener("message", (event) => {
+          const message = event.data || {};
+          if (message.type === "OFFLINE_PROGRESS") {
+            offlineProgress.hidden = false;
+            offlineProgress.max = message.total;
+            offlineProgress.value = message.done;
+            offlineStatus.textContent = `Offline-Paket: ${message.done} von ${message.total} Dateien geladen.`;
+          }
+          if (message.type === "OFFLINE_COMPLETE") {
+            offlineButton.disabled = false;
+            offlineProgress.hidden = true;
+            offlineStatus.textContent = "Offline-Paket ist vollständig gespeichert.";
+          }
+          if (message.type === "OFFLINE_ERROR") {
+            offlineButton.disabled = false;
+            offlineProgress.hidden = true;
+            offlineStatus.textContent = `Offline-Paket unvollständig: ${message.message}`;
+          }
+        });
+      }
+
+      const fieldToolsControl = L.control({ position: "topright" });
+      fieldToolsControl.onAdd = () => {
+        const div = L.DomUtil.create("section", "field-tools is-mobile-dismissed");
+        div.id = "field-tools-panel";
+        div.setAttribute("aria-label", "Feldwerkzeuge");
+        div.innerHTML = `
+          <div class="panel-title-row">
+            <h3>Feldwerkzeuge</h3>
+            <button class="mobile-panel-close" type="button" aria-label="Feldwerkzeuge schließen" title="Feldwerkzeuge schließen">×</button>
+          </div>
+          <div id="target-status" class="field-tools-status">Kein Grenzstein als Ziel gewählt.</div>
+          <button id="clear-target" type="button" disabled>Ziel abwählen</button>
+          <form id="stone-search-form" class="field-tools-section">
+            <label for="stone-search">Grenzstein suchen</label>
+            <div class="field-tools-row">
+              <input id="stone-search" type="number" min="1" step="1" inputmode="numeric" placeholder="Steinnummer">
+              <button type="submit">Suchen</button>
+            </div>
+            <button id="nearest-stone" type="button">Nächster Stein</button>
+          </form>
+          <details class="field-tools-section">
+            <summary>Offline-Nutzung</summary>
+            <p class="field-tools-note">Speichert Karte, Grenzdaten, Flurnamen, POIs und die lokalen Kartenbilder auf diesem Gerät. Bereits betrachtete OpenStreetMap-Kacheln werden ebenfalls vorgehalten.</p>
+            <button id="prepare-offline" type="button">Offline-Paket laden</button>
+            <progress id="offline-progress" class="offline-progress" value="0" max="1" hidden></progress>
+            <div id="offline-status" class="field-tools-status">Noch kein Offline-Paket geladen.</div>
+          </details>
+          <details id="notes-details" class="field-tools-section">
+            <summary>Fundnotiz zum Zielstein</summary>
+            <label for="note-status">Zustand</label>
+            <select id="note-status" disabled>
+              <option value="">Keine Angabe</option>
+              <option value="gefunden">Gefunden</option>
+              <option value="nicht-gefunden">Nicht gefunden</option>
+              <option value="beschädigt">Beschädigt</option>
+              <option value="verschwunden">Verschwunden</option>
+            </select>
+            <label for="note-text">Notiz</label>
+            <textarea id="note-text" placeholder="Beobachtung, Zustand, Zugang …" disabled></textarea>
+            <label for="note-photo">Foto</label>
+            <input id="note-photo" type="file" accept="image/*" capture="environment" disabled>
+            <div class="field-tools-note">Große Fotos werden vor dem Speichern auf eine brauchbare Größe verkleinert.</div>
+            <img id="note-photo-preview" class="note-photo-preview" alt="Gespeichertes Fundfoto" hidden>
+            <div class="field-tools-row">
+              <button id="save-note" type="button" disabled>Speichern</button>
+              <button id="delete-note" type="button" disabled>Notiz löschen</button>
+            </div>
+            <div id="note-status-text" class="field-tools-status">Zuerst einen Grenzstein als Ziel wählen.</div>
+          </details>
+        `;
+        L.DomEvent.disableClickPropagation(div);
+        L.DomEvent.disableScrollPropagation(div);
+        fieldToolsPanel = div;
+        targetStatus = div.querySelector("#target-status");
+        clearTargetButton = div.querySelector("#clear-target");
+        stoneSearchInput = div.querySelector("#stone-search");
+        offlineButton = div.querySelector("#prepare-offline");
+        offlineProgress = div.querySelector("#offline-progress");
+        offlineStatus = div.querySelector("#offline-status");
+        notesDetails = div.querySelector("#notes-details");
+        noteStatus = div.querySelector("#note-status");
+        noteText = div.querySelector("#note-text");
+        notePhoto = div.querySelector("#note-photo");
+        notePhotoPreview = div.querySelector("#note-photo-preview");
+        noteSaveButton = div.querySelector("#save-note");
+        noteDeleteButton = div.querySelector("#delete-note");
+        noteStatusText = div.querySelector("#note-status-text");
+        wireMobilePanel("toggle-field-tools-panel", div, div.querySelector(".mobile-panel-close"));
+        clearTargetButton.addEventListener("click", stopNavigation);
+        div.querySelector("#stone-search-form").addEventListener("submit", (event) => {
+          event.preventDefault();
+          const stone = stoneById.get(Number(stoneSearchInput.value));
+          if (stone?.searchPosition) selectTargetStone(stone);
+          else targetStatus.textContent = "Keine GPS- oder rekonstruierte B/C-Suchposition zu dieser Steinnummer gefunden.";
+        });
+        div.querySelector("#nearest-stone").addEventListener("click", nearestStone);
+        offlineButton.addEventListener("click", prepareOfflinePackage);
+        notePhoto.addEventListener("change", () => showNotePhoto(notePhoto.files[0] || currentNote?.photo || null));
+        noteSaveButton.addEventListener("click", saveTargetNote);
+        noteDeleteButton.addEventListener("click", deleteTargetNote);
+        return div;
+      };
+      fieldToolsControl.addTo(map);
+
+      document.addEventListener("click", (event) => {
+        const targetButton = event.target.closest("[data-target-stone-id]");
+        const noteButton = event.target.closest("[data-note-stone-id]");
+        if (!targetButton && !noteButton) return;
+        const stoneId = Number((targetButton || noteButton).dataset.targetStoneId || noteButton?.dataset.noteStoneId);
+        const stone = stoneById.get(stoneId);
+        if (stone) {
+          map.closePopup();
+          selectTargetStone(stone, { openNotes: Boolean(noteButton) });
+        }
+      });
+
+      // 2021-Basislayer (immer sichtbar)
+      stones.forEach((stone) => {
+        if (!stone.gps) return;
+        const yearsFound = YEAR_CONFIG
+          .filter((cfg) => yearPresence(stone.row, cfg))
+          .map((cfg) => cfg.key);
+        const shownId = String(stone.id);
+        const label = `Stein ${shownId} (2021${yearsFound.length ? ", " + yearsFound.join(", ") : ""})`;
+
+        L.circleMarker(stone.gps, {
+          radius: 5,
+          color: "#0b7d22",
+          weight: 2,
+          fillColor: "#18a13a",
+          fillOpacity: 0.85,
+          bubblingMouseEvents: false
+        })
+          .bindPopup(() => {
+            const basePopup = [
+              `<b>${escapeHtml(label)}</b>`,
+              stone.row["Grenze"] ? `Grenze zu: ${escapeHtml(stone.row["Grenze"])}` : "",
+              safeExternalLink(stone.row["2021 — Fotos"], "Fotoalbum 2021"),
+              `GPS: ${stone.gps[0].toFixed(8)}, ${stone.gps[1].toFixed(8)}`,
+              detailsLink(stone.id, `Details Stein ${shownId}`)
+            ]
+              .filter(Boolean)
+              .join("<br>");
+            return `${addHistoricalDescriptions(basePopup, stone.row)}${stoneActionsHtml(stone.id)}`;
+          }, {
+            maxWidth: 520,
+            autoPanPaddingTopLeft: [20, 20],
+            autoPanPaddingBottomRight: [300, 180]
+          })
+          .addTo(base2021Layer);
+      });
+
+      const overlays = {
+        "Gemarkungskarte 1932": historicalMap1932Layer,
+        "Deutsche Grundkarte 1:5 000 (DGK5)": dgk5Layer,
+        "Grenze (rot hervorgehoben)": boundaryOverlay
+      };
+
+      YEAR_CONFIG.forEach((cfg) => {
+        const layer = L.layerGroup();
+        yearLayers[cfg.key] = layer;
+
+        const positions = positionData?.years?.[cfg.key] || {};
+        const surveyStones = stones.filter((stone) => yearPresence(stone.row, cfg));
+        const distanceToPrevious = new Map();
+        for (let i = 1; i < surveyStones.length; i++) {
+          distanceToPrevious.set(
+            surveyStones[i].id,
+            distanceBetween(surveyStones[i - 1], surveyStones[i], cfg)
+          );
+        }
+
+        for (let i = 0; i < stones.length; i++) {
+          if (!yearPresence(stones[i].row, cfg)) continue;
+          const position = positions[String(stones[i].id)];
+          if (!position || !Number.isFinite(position.lat) || !Number.isFinite(position.lon)) continue;
+          if (position.certainty === "D") continue;
+          const shownId = String(stones[i].id);
+          const latlng = [position.lat, position.lon];
+          const c = certaintyClass(position.certainty);
+          const dToPrev = distanceToPrevious.get(stones[i].id) ?? null;
+          const anchorConflict = Number(position.counterpartDifference);
+
+          const marker = L.circleMarker(latlng, {
+            radius: position.certainty === "A" ? 4 : 6,
+            color: c.color,
+            weight: 2,
+            fillColor: c.color,
+            fillOpacity: position.certainty === "A" ? 0.6 : 0.85,
+            bubblingMouseEvents: false
+          })
+            .bindPopup(() => {
+              const basePopup = [
+                `<b>Stein ${escapeHtml(shownId)}</b>`,
+                `Quelle: ${escapeHtml(cfg.label)}`,
+                `Position: ${escapeHtml(positionLabel(position))}`,
+                position.certainty !== "A" && position.method ? `Berechnung: ${escapeHtml(position.method)}` : "",
+                dToPrev !== null ? `Distanz zum vorherigen Stein laut Protokoll: ${escapeHtml(dToPrev)} m` : "Keine Distanzangabe verfügbar",
+                Number.isFinite(anchorConflict) && anchorConflict > 0.5
+                  ? `Abweichung zwischen beiden Ankerrechnungen: ${escapeHtml(anchorConflict.toFixed(1))} m`
+                  : "",
+                `Unsicherheitsklasse: ${escapeHtml(c.label)}`,
+                detailsLink(stones[i].id, `Details Stein ${shownId}`)
+              ].filter(Boolean).join("<br>");
+              return `${addHistoricalDescriptions(basePopup, stones[i].row)}${stoneActionsHtml(stones[i].id)}`;
+            }, {
+              maxWidth: 520,
+              autoPanPaddingTopLeft: [20, 20],
+              autoPanPaddingBottomRight: [300, 180]
+          });
+          marker.on("add", () => {
+            marker.getElement()?.setAttribute("aria-label", `Stein ${shownId}, ${cfg.label}`);
+          });
+          marker.addTo(layer);
+
+          if (position.certainty !== "A") {
+            L.circle(latlng, {
+              radius: position.certainty === "B" ? 8 : 16,
+              color: c.color,
+              weight: 1,
+              opacity: 0.35,
+              fillOpacity: 0.06,
+              interactive: false
+            }).addTo(layer);
+          }
+        }
+
+        const uncertainGroups = positionData?.uncertainGroups?.[cfg.key] || [];
+        for (const group of uncertainGroups) {
+          const c = certaintyClass("D");
+          const shownGroupLabel = group.label;
+          const shownPreviousStone = String(group.previousStone);
+          const shownNextStone = String(group.nextStone);
+          const latlng = [group.lat, group.lon];
+          if (Array.isArray(group.corridor) && group.corridor.length >= 2) {
+            L.polyline(group.corridor, {
+              color: c.color,
+              weight: 9,
+              opacity: 0.3,
+              dashArray: "9 7",
+              lineCap: "butt",
+              interactive: false
+            }).addTo(layer);
+          }
+
+          const groupMarker = L.circleMarker(latlng, {
+            radius: 7,
+            color: c.color,
+            weight: 3,
+            fillColor: "#dce8f2",
+            fillOpacity: 0.95,
+            bubblingMouseEvents: false
+          }).bindPopup(() => {
+            const detailLinks = group.ids
+              .map((id) => detailsLink(id, `Details Stein ${id}`))
+              .join(" &nbsp;|&nbsp; ");
+            const basePopup = [
+              `<b>${escapeHtml(shownGroupLabel)}</b>`,
+              `Quelle: ${escapeHtml(cfg.label)}`,
+              "Position: nicht rekonstruiert; Darstellungspunkt im möglichen Abschnitt",
+              `Möglicher Abschnitt: zwischen Stein ${escapeHtml(shownPreviousStone)} und Stein ${escapeHtml(shownNextStone)}, jeweils ${escapeHtml(group.marginMeters)} m Abstand`,
+              `Länge des dargestellten Unsicherheitskorridors: ${escapeHtml(Number(group.possibleSectionLengthMeters).toFixed(0))} m`,
+              escapeHtml(group.note),
+              "Kein rekonstruierter Standort. Der Marker dient nur zum Öffnen der überlieferten Beschreibung.",
+              `Unsicherheitsklasse: ${escapeHtml(c.label)}`,
+              detailLinks
+            ].filter(Boolean).join("<br>");
+            const popupContent = descriptionsEnabled
+              ? `${basePopup}${groupHistoricalDescriptionsHtml(group, stoneById)}`
+              : basePopup;
+            return `${popupContent}${group.ids.map((id) => stoneActionsHtml(id)).join("")}`;
+          }, {
+            maxWidth: 520,
+            autoPanPaddingTopLeft: [20, 20],
+            autoPanPaddingBottomRight: [300, 180]
+          });
+          groupMarker.on("add", () => {
+            groupMarker.getElement()?.setAttribute("aria-label", `${shownGroupLabel}, ${cfg.label}, Unsicherheitsklasse D`);
+          });
+          groupMarker.addTo(layer);
+        }
+
+        overlays[cfg.label] = layer;
+      });
+
+      overlays["Steine 2021 (GPS)"] = base2021Layer;
+      const layerControl = L.control.layers(null, overlays, { collapsed: false }).addTo(map);
+      const layerPanel = layerControl.getContainer();
+      layerPanel.id = "map-layer-panel";
+      layerPanel.setAttribute("aria-label", "Kartenebenen und Grenzgänge");
+      const layerPanelHeading = document.createElement("div");
+      layerPanelHeading.className = "mobile-panel-heading";
+      layerPanelHeading.innerHTML = "<strong>Kartenebenen und Grenzgänge</strong>";
+      const layerPanelClose = createMobilePanelCloseButton("Kartenebenen und Grenzgänge schließen");
+      layerPanelHeading.append(layerPanelClose);
+      layerPanel.prepend(layerPanelHeading);
+      wireMobilePanel("toggle-layer-panel", layerPanel, layerPanelClose);
+
+      function addMapOpacityControl({ layer, id, label, defaultOpacity, ariaLabel }) {
+        const control = L.control({ position: "bottomleft" });
+        control.onAdd = () => {
+        const div = L.DomUtil.create("div", "historical-map-control");
+        div.hidden = !map.hasLayer(layer);
+        div.innerHTML = `
+          <label for="${id}">${label}</label>
+          <div class="historical-map-opacity-row">
+            <input
+              id="${id}"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="${defaultOpacity}"
+              aria-label="${ariaLabel}"
+            >
+            <output class="historical-map-opacity-value" for="${id}">${Math.round(defaultOpacity * 100)} %</output>
+          </div>
+        `;
+        L.DomEvent.disableClickPropagation(div);
+        L.DomEvent.disableScrollPropagation(div);
+
+        const slider = div.querySelector(`#${CSS.escape(id)}`);
+        const value = div.querySelector(".historical-map-opacity-value");
+        slider.addEventListener("input", () => {
+          const opacity = Number(slider.value);
+          layer.setOpacity(opacity);
+          value.value = `${Math.round(opacity * 100)} %`;
+          value.textContent = value.value;
+        });
+
+        map.on("overlayadd", (event) => {
+          if (event.layer === layer) div.hidden = false;
+        });
+        map.on("overlayremove", (event) => {
+          if (event.layer === layer) div.hidden = true;
+        });
+        return div;
+        };
+        control.addTo(map);
+      }
+
+      addMapOpacityControl({
+        layer: historicalMap1932Layer,
+        id: "historical-map-opacity",
+        label: "Deckkraft der Gemarkungskarte 1932",
+        defaultOpacity: HISTORICAL_MAP_1932_DEFAULT_OPACITY,
+        ariaLabel: "Deckkraft der historischen Gemarkungskarte"
+      });
+
+      addMapOpacityControl({
+        layer: dgk5Layer,
+        id: "dgk5-opacity",
+        label: "Deckkraft der Deutschen Grundkarte 1:5 000",
+        defaultOpacity: DGK5_DEFAULT_OPACITY,
+        ariaLabel: "Deckkraft der Deutschen Grundkarte 1 zu 5 000"
+      });
+
+
+      const legend = L.control({ position: "bottomright" });
+      legend.onAdd = () => {
+        const div = L.DomUtil.create("div", "legend");
+        div.id = "map-legend-panel";
+        div.setAttribute("aria-label", "Erklärung und Anzeigeoptionen");
+        div.innerHTML = `
+          <div class="panel-title-row">
+            <h3>Unsicherheitsvisualisierung</h3>
+            <button class="mobile-panel-close" type="button" aria-label="Erklärung und Anzeigeoptionen schließen" title="Erklärung und Anzeigeoptionen schließen">×</button>
+          </div>
+          <div><span class="dot" style="background:#0b7d22"></span>A: GPS am ursprünglichen Standort</div>
+          <div><span class="dot" style="background:#d18900"></span>B: plausible Rekonstruktion</div>
+          <div><span class="dot" style="background:#b10026"></span>C: widersprüchliche oder einseitige Distanzkette</div>
+          <div><span class="dot" style="background:#356a9a"></span>D: nur räumlich eingegrenzt; kein berechneter Standort</div>
+          <label class="description-toggle">
+            <input id="toggle-historical-descriptions" type="checkbox" aria-controls="historical-description-note" aria-expanded="false">
+            <span>Historische Standortbeschreibungen anzeigen</span>
+          </label>
+          <div id="historical-description-note" class="legend-note" hidden>Wenn diese Option aktiv ist, erscheinen die überlieferten Standortangaben beim Klick auf einen Grenzstein. Hinweise zum Zustand oder zur Vermessung stehen in schwächerer Schrift.</div>
+          <label class="description-toggle">
+            <input id="toggle-field-names" type="checkbox" aria-controls="field-name-options" aria-expanded="false">
+            <span>Flur- &amp; Gewannnamen anzeigen</span>
+          </label>
+          <div id="field-name-options" class="field-name-options" hidden>
+            <label class="field-name-subtoggle">
+              <input id="toggle-field-name-labels" type="checkbox" checked>
+              <span>Flurnamen auf der Karte</span>
+            </label>
+            <label class="field-name-subtoggle">
+              <input id="toggle-field-name-sidebar" type="checkbox" checked>
+              <span>Flurnamen-Navigationsleiste</span>
+            </label>
+            <div class="legend-note">Die Beschriftungen erscheinen ab Zoomstufe 14. Ein Name aus der Liste wird sofort herangezoomt und hervorgehoben.</div>
+          </div>
+          <label class="description-toggle">
+            <input id="toggle-pois" type="checkbox" aria-controls="poi-options" aria-expanded="false">
+            <span>POIs (Points of Interest) anzeigen</span>
+          </label>
+          <div id="poi-options" class="poi-options" hidden>
+            <label class="poi-subtoggle">
+              <input id="toggle-poi-labels" type="checkbox" checked>
+              <span>POI-Namen auf der Karte</span>
+            </label>
+            <label class="poi-subtoggle">
+              <input id="toggle-poi-sidebar" type="checkbox" checked>
+              <span>POI-Navigationsleiste</span>
+            </label>
+            <div class="legend-note">Die Beschriftungen erscheinen ab Zoomstufe 14. Ein Klick auf einen POI zeigt seine Zusatzinformationen und Fotos. Einzelne POIs oder ganze Kategorien können in der Liste hervorgehoben werden.</div>
+          </div>
+        `;
+        L.DomEvent.disableClickPropagation(div);
+        L.DomEvent.disableScrollPropagation(div);
+        wireMobilePanel("toggle-legend-panel", div, div.querySelector(".mobile-panel-close"));
+        const toggle = div.querySelector("#toggle-historical-descriptions");
+        const historicalDescriptionNote = div.querySelector("#historical-description-note");
+        toggle.checked = descriptionsEnabled;
+        historicalDescriptionNote.hidden = !descriptionsEnabled;
+        toggle.setAttribute("aria-expanded", String(descriptionsEnabled));
+        toggle.addEventListener("change", () => {
+          descriptionsEnabled = toggle.checked;
+          historicalDescriptionNote.hidden = !descriptionsEnabled;
+          toggle.setAttribute("aria-expanded", String(descriptionsEnabled));
+          map.closePopup();
+        });
+
+        const fieldNamesToggle = div.querySelector("#toggle-field-names");
+        const fieldNameOptions = div.querySelector("#field-name-options");
+        const fieldNameLabelsToggle = div.querySelector("#toggle-field-name-labels");
+        const fieldNameSidebarToggle = div.querySelector("#toggle-field-name-sidebar");
+        fieldNamesToggle.checked = fieldNamesEnabled;
+        fieldNameOptions.hidden = !fieldNamesEnabled;
+        fieldNamesToggle.setAttribute("aria-expanded", String(fieldNamesEnabled));
+        fieldNameLabelsToggle.checked = fieldNameLabelsEnabled;
+        fieldNameSidebarToggle.checked = fieldNameSidebarEnabled;
+        fieldNamesToggle.addEventListener("change", () => {
+          fieldNamesEnabled = fieldNamesToggle.checked;
+          fieldNameOptions.hidden = !fieldNamesEnabled;
+          fieldNamesToggle.setAttribute("aria-expanded", String(fieldNamesEnabled));
+          syncFieldNameVisibility();
+        });
+        fieldNameLabelsToggle.addEventListener("change", () => {
+          fieldNameLabelsEnabled = fieldNameLabelsToggle.checked;
+          syncFieldNameVisibility();
+        });
+        fieldNameSidebarToggle.addEventListener("change", () => {
+          fieldNameSidebarEnabled = fieldNameSidebarToggle.checked;
+          syncFieldNameVisibility();
+        });
+
+        const poisToggle = div.querySelector("#toggle-pois");
+        const poiOptions = div.querySelector("#poi-options");
+        const poiLabelsToggle = div.querySelector("#toggle-poi-labels");
+        const poiSidebarToggle = div.querySelector("#toggle-poi-sidebar");
+        poisToggle.checked = poisEnabled;
+        poiOptions.hidden = !poisEnabled;
+        poisToggle.setAttribute("aria-expanded", String(poisEnabled));
+        poiLabelsToggle.checked = poiLabelsEnabled;
+        poiSidebarToggle.checked = poiSidebarEnabled;
+        poisToggle.addEventListener("change", () => {
+          poisEnabled = poisToggle.checked;
+          poiOptions.hidden = !poisEnabled;
+          poisToggle.setAttribute("aria-expanded", String(poisEnabled));
+          syncPoiVisibility();
+        });
+        poiLabelsToggle.addEventListener("change", () => {
+          poiLabelsEnabled = poiLabelsToggle.checked;
+          syncPoiVisibility();
+        });
+        poiSidebarToggle.addEventListener("change", () => {
+          poiSidebarEnabled = poiSidebarToggle.checked;
+          syncPoiVisibility();
+        });
+        return div;
+      };
+      legend.addTo(map);
+    }).catch((err) => {
+      console.error(err);
+      L.popup()
+        .setLatLng(map.getCenter())
+        .setContent("Fehler beim Laden der Kartendaten. Bitte prüfen, ob data.json, standorte-positionen.json, Flurnamen/flurnamen.json, Flurnamen/pois.txt und die GeoJSON-Grenzdatei vorhanden sind.")
+        .openOn(map);
+    });
+  </script>
+</body>
+</html>

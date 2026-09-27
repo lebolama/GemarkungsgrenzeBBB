@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Chronik & Grenzbegehungen – Tauberbischofsheim</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    :root{
+      --bg:#faf7f2;
+      --ink:#1f1f1f;
+      --muted:#666;
+      --line:#d8d3cb;
+
+      --gang:#7a0019;      /* Grenzgänge */
+      --mainz:#1f5f9a;     /* Kurmainz/Erzbistum Mainz */
+      --wue:#1d7a4a;       /* Hochstift Würzburg */
+      --war:#8a4b00;       /* Kriege/Konflikte */
+      --crisis:#6a3d8f;    /* Hunger/Seuchen/Krisen */
+      --disaster:#0a6a6a;  /* Unwetter/Hochwasser */
+      --modern:#444;       /* Moderne Verwaltung */
+    }
+
+    body{background:#fff;color:var(--ink)}
+    header{padding:18px 12px}
+
+    .container{max-width:1100px;margin:0 auto;padding:0 12px 40px}
+    .intro{
+      background:var(--bg);
+      border-radius:14px;
+      padding:14px 16px;
+      line-height:1.45;
+    }
+    .intro small{color:var(--muted)}
+    .legend{
+      display:flex;flex-wrap:wrap;gap:8px;margin-top:10px
+    }
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);
+      font-size:13px;color:var(--muted);user-select:none
+    }
+    .dot{width:10px;height:10px;border-radius:50%}
+    .controls{
+      margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center
+    }
+    .controls label{font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}
+    .controls input[type="checkbox"]{transform:translateY(1px)}
+    .controls input[type="text"]{padding:8px 10px;border:1px solid var(--line);border-radius:10px;min-width:240px}
+
+    .timeline{
+      margin-top:18px;
+      position:relative;
+      padding-left:26px;
+    }
+    .timeline::before{
+      content:"";
+      position:absolute;left:10px;top:0;bottom:0;
+      width:2px;background:var(--line);
+    }
+
+    .item{
+      position:relative;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 14px 12px 14px;
+      margin:10px 0;
+      box-shadow:0 2px 10px rgba(0,0,0,0.03);
+    }
+    .item::before{
+      content:"";
+      position:absolute;
+      left:-21px;
+      top:18px;
+      width:12px;height:12px;border-radius:50%;
+      background:var(--muted);
+      border:2px solid #fff;
+      box-shadow:0 0 0 2px var(--line);
+    }
+
+    .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}
+    .year{
+      font-weight:800;font-size:15px;letter-spacing:0.2px;
+    }
+    .tag{
+      font-size:12px;
+      padding:3px 8px;border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);background:#fff;
+    }
+    .title{margin-top:6px;font-size:16px;font-weight:800}
+    .desc{margin-top:6px;color:var(--muted);line-height:1.45}
+    .links{margin-top:8px;font-size:13px}
+    .links a{color:#0b4d8a;text-decoration:none}
+    .links a:hover{text-decoration:underline}
+
+    /* Kategorien */
+    .gang{border-left:6px solid var(--gang)}
+    .gang::before{background:var(--gang)}
+    .mainz{border-left:6px solid var(--mainz)}
+    .mainz::before{background:var(--mainz)}
+    .wue{border-left:6px solid var(--wue)}
+    .wue::before{background:var(--wue)}
+    .war{border-left:6px solid var(--war)}
+    .war::before{background:var(--war)}
+    .crisis{border-left:6px solid var(--crisis)}
+    .crisis::before{background:var(--crisis)}
+    .disaster{border-left:6px solid var(--disaster)}
+    .disaster::before{background:var(--disaster)}
+    .modern{border-left:6px solid var(--modern)}
+    .modern::before{background:var(--modern)}
+
+    /* Grenzgang-Karten extra hervorheben */
+    .gang .title{color:var(--gang)}
+    .gang .tag{border-color:rgba(122,0,25,.35);color:var(--gang);background:rgba(122,0,25,.06)}
+    .gang .itemHint{
+      margin-top:8px;
+      font-size:12px;
+      color:rgba(122,0,25,.9);
+      background:rgba(122,0,25,.06);
+      border:1px dashed rgba(122,0,25,.35);
+      padding:8px 10px;border-radius:12px;
+    }
+
+    @media (prefers-color-scheme: dark){
+      body{background:#0f0f10;color:#f4f4f4}
+      .intro{background:#151517}
+      .chip,.item,.tag{background:#121214;border-color:#2a2a2f}
+      .timeline::before{background:#2a2a2f}
+      .item{box-shadow:none}
+      .desc,.chip,.tag{color:#c8c8cf}
+      .links a{color:#7ab6ff}
+      .item::before{box-shadow:0 0 0 2px #2a2a2f}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="margin:0">Chronik regionaler Ereignisse & Grenzbegehungen</h1>
+</header>
+
+<div style="text-align:center;margin-top:10px">
+<a href="index.html">Start</a> |
+<a href="suche.html">Recherche</a> |
+<a href="vergleich.html">Vergleich</a> |
+<a href="karte.html">Karte</a>
+</div>
+
+<div class="container">
+
+  <div class="intro">
+    <div style="font-weight:700">Ziel</div>
+    <div>
+      Diese Seite listet ausgewählte, regional relevante Ereignisse (Kurmainz / Hochstift Würzburg / Kriege / Krisen / Unwetter / Verwaltung)
+      und ordnet dazwischen die dokumentierten Grenzbegehungen der Gemarkung Tauberbischofsheim sowie die Begehung 2021 ein.
+    </div>
+    <small>
+      Hinweis: Die Chronik ist bewusst „kuratiert“ (keine Vollständigkeit), soll aber eine robuste Kontextschicht zur Grenzstein-Edition darstellen.
+    </small>
+
+    <div class="legend" aria-label="Legende">
+      <span class="chip"><span class="dot" style="background:var(--gang)"></span>Grenzbegehung / Grenzberichtigung</span>
+      <span class="chip"><span class="dot" style="background:var(--mainz)"></span>Kurmainz / Erzbistum Mainz</span>
+      <span class="chip"><span class="dot" style="background:var(--wue)"></span>Hochstift Würzburg</span>
+      <span class="chip"><span class="dot" style="background:var(--war)"></span>Kriege / Konflikte</span>
+      <span class="chip"><span class="dot" style="background:var(--crisis)"></span>Krisen (Hunger/Seuchen)</span>
+      <span class="chip"><span class="dot" style="background:var(--disaster)"></span>Unwetter / Hochwasser</span>
+      <span class="chip"><span class="dot" style="background:var(--modern)"></span>Moderne Verwaltung</span>
+    </div>
+
+    <div class="controls">
+      <label><input type="checkbox" checked data-filter="gang"> Grenzbegehungen</label>
+      <label><input type="checkbox" checked data-filter="mainz"> Kurmainz/Mainz</label>
+      <label><input type="checkbox" checked data-filter="wue"> Würzburg</label>
+      <label><input type="checkbox" checked data-filter="war"> Kriege</label>
+      <label><input type="checkbox" checked data-filter="crisis"> Krisen</label>
+      <label><input type="checkbox" checked data-filter="disaster"> Unwetter</label>
+      <label><input type="checkbox" checked data-filter="modern"> Moderne</label>
+      <input id="q" type="text" placeholder="Suche in Chronik (z.B. 'Julius Echter', '1803', 'Hochwasser')">
+    </div>
+  </div>
+
+  <div id="timeline" class="timeline" aria-label="Chronik"></div>
+
+  <div class="intro" style="margin-top:18px">
+    <div style="font-weight:700">Quellenhinweis</div>
+    <small>
+      Die Links in den Einträgen verweisen auf Nachschlagewerke/Institutionen (u. a. Stadt Tauberbischofsheim, Bistum Mainz, LEO-BW) und dienen der schnellen Verifikation einzelner Daten.
+    </small>
+  </div>
+
+</div>
+
+<script>
+/*
+  Chronik-Datensatz (kuratiert).
+  - year: Zahl oder String (z.B. "1887–1893")
+  - sort: numerischer Sortwert (bei Spannen: Startjahr)
+  - cat: eine der CSS-Kategorien
+  - title, desc
+  - links: [{label,url}]
+*/
+
+const entries = [
+  // --- Grundlinien Kurmainz / Mainz / Würzburg ---
+  {
+    year: "14. Jh. – 1803",
+    sort: 1300,
+    cat: "mainz",
+    title: "Tauberbischofsheim als kurmainzische Amtsstadt (lange Zugehörigkeit bis 1803)",
+    desc: "Tauberbischofsheim war über Jahrhunderte kurmainzische Amtsstadt (und u.a. Sitz eines Centgerichts). Diese Zugehörigkeit bildet den zentralen Kontext für Grenzverwaltung und Symbolik (Mainzer Rad).",
+    links: [
+      {label:"Stadt Tauberbischofsheim – Stadtgeschichte", url:"https://www.tauberbischofsheim.de/site/Tauberbischofsheim/node/1464539/stadtgeschichte.html"},
+      {label:"Überblick (taubertal.de)", url:"https://taubertal.de/staedteinfo/tauberbischofsheim/-geschichte-von-tauberbischofsheim/"}
+    ]
+  },
+
+  // --- Bauernkrieg / Frühneuzeit ---
+  {
+    year: 1525,
+    sort: 1525,
+    cat: "war",
+    title: "Deutscher Bauernkrieg (Tauberfranken / regionaler Kontext)",
+    desc: "Bauernkrieg als überregionale Krise mit regionalen Auswirkungen in Tauberfranken. Für Grenzregime relevant (Konflikt, Besitzfragen, Herrschaftslegitimation).",
+    links: [
+      {label:"Bauernkriegslandschaft – Tauberbischofsheim", url:"https://bauernkriegslandschaft.de/Bauernkriegslandschaft/Tauberbischofsheim"}
+    ]
+  },
+
+  // --- Grenzgänge (deine Edition) ---
+  {
+    year: "1569 (Wiederholung 1580)",
+    sort: 1569,
+    cat: "gang",
+    title: "Grenzgang / Grenzbegehungsprotokoll Tauberbischofsheim",
+    desc: "Frühneuzeitliche Grenzbegehung: Nummerierung und Beschreibung von Grenzsteinen, teils mit Jahreszahlen, Symbolen (Wappen, Mainzer Rad, b, Kreuze) und Lagehinweisen im Freitext.",
+    links: []
+  },
+  {
+    year: 1573,
+    sort: 1573,
+    cat: "wue",
+    title: "Beginn der Regierungszeit Julius Echter (Fürstbischof Würzburg 1573–1617)",
+    desc: "Julius Echter gilt als Verwaltungsreformer und prägende Figur der Gegenreformation im Hochstift Würzburg – relevant für angrenzende würzburgische Orte (z.B. Impfingen, Dittigheim bis 1803).",
+    links: [
+      {label:"Julius Echter (Wikipedia)", url:"https://de.wikipedia.org/wiki/Julius_Echter_von_Mespelbrunn"},
+      {label:"Liste der Bischöfe von Würzburg (Wikipedia)", url:"https://de.wikipedia.org/wiki/Liste_der_Bisch%C3%B6fe_von_W%C3%BCrzburg"}
+    ]
+  },
+  {
+    year: 1608,
+    sort: 1608,
+    cat: "gang",
+    title: "Grenzgang Tauberbischofsheim (mit Ruthen-/Meter-Angaben)",
+    desc: "Grenzbegehung mit (für Forschung besonders wertvollen) Distanzangaben zwischen Steinen in fränkischer Ruthe (3,65 m) und Umrechnung in Meter.",
+    links: []
+  },
+  {
+    year: "1618–1648",
+    sort: 1618,
+    cat: "war",
+    title: "Dreißigjähriger Krieg",
+    desc: "Großer Krieg im Alten Reich; für die Region Franken/Baden mit Besetzungen, Verwüstungen und Verwaltungsstörungen verbunden. Kann Grenzpflege/Markierung beeinflussen (Zerstörung, Umsetzungen, Nachsetzungen).",
+    links: [
+      {label:"LEO-BW – Überblick Dreißigjähriger Krieg", url:"https://leo-bw.de/themenmodul/dreissigjaehriger-krieg/einfuhrung/uberblick"}
+    ]
+  },
+  {
+    year: 1683,
+    sort: 1683,
+    cat: "gang",
+    title: "Grenzgang Tauberbischofsheim",
+    desc: "Spätere Überlieferungsstufe: teils abweichende Datierungen (Austausch/Überarbeitung von Steinen möglich).",
+    links: []
+  },
+  {
+    year: 1700,
+    sort: 1700,
+    cat: "gang",
+    title: "Grenzgang Tauberbischofsheim",
+    desc: "Grenzbegehung um 1700: geeignet zur Untersuchung von Symbolwandel und Verwaltungsstandardisierung.",
+    links: []
+  },
+
+  // Hunger-/Krisenfenster um 1770–1772 (regional anschlussfähig)
+  {
+    year: "1770–1772",
+    sort: 1770,
+    cat: "crisis",
+    title: "Hungerjahre 1770–1772 (europäische Krise, auch in Franken/Bayern dokumentiert)",
+    desc: "Witterungs- und Erntekrisen führten in vielen Regionen zu Teuerung und Hunger. Solche Krisen können indirekt Grenzpflege, Gemeindehaushalte und Steinsetzung beeinflussen.",
+    links: [
+      {label:"bavarikon – Hungerjahre 1770–1772 (Kontext)", url:"https://www.bavarikon.de/object/bav:BSB-CMS-0000000000012276"}
+    ]
+  },
+
+  // Großrinderfeld-Grenzgang
+  {
+    year: 1784,
+    sort: 1784,
+    cat: "gang",
+    title: "Grenzgang Großrinderfeld (Streckenabschnitt zur Bischofsheimer Gemarkung)",
+    desc: "Eigenes Protokoll der Nachbargemarkung (andere Laufrichtung: Distanz zum nächsten Stein). Wertvoll für Vergleich von Wahrnehmung/Nummerierung und lokaler Praxis.",
+    links: []
+  },
+
+  // Tauberbischofsheim als Ort: 1803/1806 etc.
+  {
+    year: 1803,
+    sort: 1803,
+    cat: "mainz",
+    title: "Säkularisation / Ende kurmainzischer Zugehörigkeit (Reichsdeputationshauptschluss-Kontext)",
+    desc: "1803 endet die jahrhundertelange Zugehörigkeit zu Kurmainz (territorialer Systemwechsel). Für Symbolik (Mainzer Rad) und Grenzverwaltung ein zentraler Einschnitt.",
+    links: [
+      {label:"Stadt Tauberbischofsheim – 1803/1806", url:"https://www.tauberbischofsheim.de/site/Tauberbischofsheim/node/1464539/stadtgeschichte.html"},
+      {label:"Historisches Lexikon Bayerns – Mainz (1801/03)", url:"https://www.historisches-lexikon-bayerns.de/Lexikon/Mainz%2C_Erzbistum%3A_Sprengel_und_Verwaltung"}
+    ]
+  },
+  {
+    year: 1806,
+    sort: 1806,
+    cat: "modern",
+    title: "Übergang zum Großherzogtum Baden (staatlicher Neuaufbau)",
+    desc: "Nach 1803/1806 erfolgt die Integration in neue staatliche Verwaltungsstrukturen. Grenzpflege kann dabei neu geregelt und standardisiert worden sein.",
+    links: [
+      {label:"Stadt Tauberbischofsheim – Stadtgeschichte", url:"https://www.tauberbischofsheim.de/site/Tauberbischofsheim/node/1464539/stadtgeschichte.html"}
+    ]
+  },
+
+  // Jahr ohne Sommer (1816/17) – Kontext
+  {
+    year: "1816–1817",
+    sort: 1816,
+    cat: "crisis",
+    title: "„Jahr ohne Sommer“ / Hungerkrise 1816–1817 (Kontext)",
+    desc: "Nach dem Tambora-Ausbruch kam es in Europa zu massiven Witterungsanomalien und Hunger. Auch in Süddeutschland ist der Krisenkontext gut belegt.",
+    links: [
+      {label:"Deutsches Historisches Museum – Jahr ohne Sommer", url:"https://www.dhm.de/blog/2016/12/05/das-jahr-ohne-sommer/"}
+    ]
+  },
+
+  // Grenzgang 1872
+  {
+    year: 1872,
+    sort: 1872,
+    cat: "gang",
+    title: "Grenzgang Tauberbischofsheim",
+    desc: "Spätes Protokoll im 19. Jahrhundert: oft relevanter Referenzpunkt für jüngere Steinsetzungen/Symbolstände.",
+    links: []
+  },
+
+  // Krieg 1866 (lokal sehr konkret)
+  {
+    year: 1866,
+    sort: 1866,
+    cat: "war",
+    title: "Gefecht bei Tauberbischofsheim (Deutscher Krieg) – 24. Juli 1866",
+    desc: "Lokaler Kriegsschauplatz im Mainfeldzug. Für Ortsgeschichte und mögliche Schäden/Umsetzungen im Grenzraum relevant.",
+    links: [
+      {label:"Wikipedia – Gefecht bei Tauberbischofsheim", url:"https://de.wikipedia.org/wiki/Gefecht_bei_Tauberbischofsheim"},
+      {label:"LEO-BW – Objekt/Quelle zum Gefecht", url:"https://www.leo-bw.de/detail-gis/-/Detail/details/DOKUMENT/labw_findmittel_06/labw-1-116233/Gefecht%2Bbei%2BTauberbischofsheim%2B1866%2Bunter%2BArtilleriebeschuss%2BKampf%2Bw%C3%BCrtt%2BTruppen%2Bgegen%2Bpreussische%2BEinheiten%2Bum%2Bdie%2BTaub"}
+    ]
+  },
+
+  // Grenzberichtigungen 1887–1893
+  {
+    year: "1887–1893",
+    sort: 1887,
+    cat: "gang",
+    title: "Grenzberichtigungen (Änderungen des Grenzverlaufs in Teilabschnitten)",
+    desc: "Grenzberichtigungen als eigener Quellenkomplex: relevant für kleinräumige Grenzverschiebungen, neue Nummerierungen und Freitextkommentare (Gültigkeit älterer Ordnungszahlen).",
+    links: []
+  },
+
+  // Fronleichnamsflut 1984 (regional konkret)
+  {
+    year: 1984,
+    sort: 1984,
+    cat: "disaster",
+    title: "Fronleichnamsflut im Main-Tauber-Kreis (u.a. Tauberbischofsheim/Boxberg)",
+    desc: "Starkregenereignis mit massiven Überschwemmungen am 21. Juni 1984. Für Denkmalbestand und Standortbedingungen (Erosion/Verlagerung) potenziell relevant.",
+    links: [
+      {label:"Wikipedia – Fronleichnamsflut 1984", url:"https://de.wikipedia.org/wiki/Fronleichnamsflut"}
+    ]
+  },
+
+  // Gemeindereform (lokal)
+  {
+    year: "1971–1975",
+    sort: 1971,
+    cat: "modern",
+    title: "Gemeindereform / Eingemeindungen (Umfeld Tauberbischofsheim)",
+    desc: "Kommunalreformphase: Veränderungen der Verwaltungszuständigkeiten – Grenzbezüge und Benennungen können sich im Sprachgebrauch/Archivkontext verschieben.",
+    links: [
+      {label:"Stadt Tauberbischofsheim – Stadtgeschichte", url:"https://www.tauberbischofsheim.de/site/Tauberbischofsheim/node/1464539/stadtgeschichte.html"}
+    ]
+  },
+
+  // Deine Begehung
+  {
+    year: 2021,
+    sort: 2021,
+    cat: "gang",
+    title: "Grenzbegehung Hendrik Beierstettel (2021)",
+    desc: "Moderne Begehung mit Fotoalben und GPS-Koordinaten (sofern ermittelbar). Für die Edition zentral als heutiger Befundstand (Erhalten/Verloren/Versetzt).",
+    links: []
+  },
+
+  // Mainz-Bischöfe/Erzbischöfe als Kontext (Auswahl um die Grenzgänge herum)
+  {
+    year: "1555–1582",
+    sort: 1555.1,
+    cat: "mainz",
+    title: "Kurmainz: Daniel Brendel von Homburg (Erzbischof/Kurfürst 1555–1582)",
+    desc: "Konfessionalisierungszeit: Territoriale und kirchliche Verwaltung im Umbruch; symbolische Markierung (Mainzer Rad) als Herrschaftszeichen wichtig.",
+    links: [
+      {label:"Bistum Mainz – Kurfürst-Erzbischöfe 1514–1647 (Übersicht)", url:"https://bistummainz.de/kunst-gebaeude-geschichte/kirchengeschichte/bischofsviten/viten-mainzer-erz-bischoefe/mainzer-kurfuerst_erzbisoefe-1514-bis-1647/".replace("kurfuerst_erzbisoefe","kurfuerst-erzbischoefe")}, // defensive
+      {label:"Wikipedia – Daniel Brendel von Homburg", url:"https://de.wikipedia.org/wiki/Daniel_Brendel_von_Homburg"}
+    ]
+  },
+  {
+    year: "1604–1626",
+    sort: 1604.1,
+    cat: "mainz",
+    title: "Kurmainz: Johann Schweikhard von Kronberg (1604–1626)",
+    desc: "Phase vor und zu Beginn des Dreißigjährigen Krieges – administrative Verdichtung und Konfliktkontexte.",
+    links: [
+      {label:"Bistum Mainz – Johann Schweikhard von Kronberg", url:"https://bistummainz.de/kunst-gebaeude-geschichte/kirchengeschichte/bischofsviten/viten-mainzer-erz-bischoefe/mainzer-kurfuerst-erzbischoefe-1514-bis-1647/80-16041626-johann-schweikard-von-kronberg/"}
+    ]
+  },
+  {
+    year: "1647–1802/03",
+    sort: 1647.1,
+    cat: "mainz",
+    title: "Kurmainz: Reihe der Kurfürst-Erzbischöfe bis zur Säkularisation",
+    desc: "Langphase nach dem Dreißigjährigen Krieg bis zur Säkularisation. Für die Zeit der Grenzgänge 1683/1700/1749 besonders passend als Kontextschicht.",
+    links: [
+      {label:"Bistum Mainz – Kurfürst-Erzbischöfe 1647–1802/03 (Übersicht)", url:"https://bistummainz.de/kunst-gebaeude-geschichte/kirchengeschichte/bischofsviten/viten-mainzer-erz-bischoefe/mainzer-kurfuerst-erzbischoefe-1647-bis-1802/"}
+    ]
+  }
+];
+
+// Render
+const tl = document.getElementById("timeline");
+const q = document.getElementById("q");
+
+function normalize(s){ return (s||"").toString().toLowerCase(); }
+
+function render(){
+  const enabled = new Set(
+    [...document.querySelectorAll('input[type="checkbox"][data-filter]')]
+      .filter(x=>x.checked)
+      .map(x=>x.getAttribute("data-filter"))
+  );
+
+  const query = normalize(q.value).trim();
+
+  const filtered = entries
+    .slice()
+    .sort((a,b)=>a.sort-b.sort)
+    .filter(e => enabled.has(e.cat))
+    .filter(e => {
+      if(!query) return true;
+      const blob = normalize(e.year) + " " + normalize(e.title) + " " + normalize(e.desc) + " " +
+        (e.links||[]).map(l=>normalize(l.label)).join(" ");
+      return blob.includes(query);
+    });
+
+  tl.innerHTML = "";
+
+  filtered.forEach(e=>{
+    const div = document.createElement("div");
+    div.className = `item ${e.cat}`;
+    const links = (e.links && e.links.length)
+      ? `<div class="links">${
+          e.links.map(l=>`<a href="${l.url}" target="_blank" rel="noopener noreferrer">${l.label}</a>`).join(" · ")
+        }</div>`
+      : "";
+
+    const hint = e.cat === "gang"
+      ? `<div class="itemHint">Grenzbegehung/Editionseintrag: chronologisch einsortiert und farblich hervorgehoben.</div>`
+      : "";
+
+    div.innerHTML = `
+      <div class="meta">
+        <div class="year">${e.year}</div>
+        <div class="tag">${tagLabel(e.cat)}</div>
+      </div>
+      <div class="title">${e.title}</div>
+      <div class="desc">${e.desc}</div>
+      ${links}
+      ${hint}
+    `;
+    tl.appendChild(div);
+  });
+}
+
+function tagLabel(cat){
+  switch(cat){
+    case "gang": return "Grenzbegehung";
+    case "mainz": return "Kurmainz / Mainz";
+    case "wue": return "Hochstift Würzburg";
+    case "war": return "Krieg / Konflikt";
+    case "crisis": return "Krise";
+    case "disaster": return "Unwetter / Hochwasser";
+    case "modern": return "Moderne Verwaltung";
+    default: return cat;
+  }
+}
+
+document.querySelectorAll('input[type="checkbox"][data-filter]').forEach(x=>x.addEventListener("change", render));
+q.addEventListener("input", render);
+render();
+</script>
+
+</body>
+</html>
