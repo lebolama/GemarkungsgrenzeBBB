@@ -1,51 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Projektbeschreibung</title>
-<link rel="stylesheet" href="assets/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Über das Projekt – Grenzsteine Tauberbischofsheim</title>
+<meta name="description" content="Wer hinter der Erforschung der Tauberbischofsheimer Grenzsteine steht, wie das Projekt entstand und mit welchen Hilfsmitteln die Website gebaut ist.">
+<link rel="stylesheet" href="assets/grenze.css">
+<script src="assets/menue.js" defer></script>
+<style>mark.offen{background:#ffe9a8;padding:0 .2rem}</style>
 </head>
 <body>
+<!-- KOPF -->
+<header class="kopf">
+  <div class="kopf-innen">
+    <a class="marke" href="index.html">Grenzsteine Tauberbischofsheim</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
+    <nav id="hauptmenue" aria-label="Hauptmenü">
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="standorte.html">Karte</a></li>
+      <li><a href="reconstruction_xl.html">Verschwundene Steine</a></li>
+      <li><a href="recherche.html">Steine suchen</a></li>
+      <li><a href="grenzgaenge.html">Die Grenzgänge</a></li>
+      <li><a href="chronik.html">Geschichte</a></li>
+      <li><a href="quellen.html">Quellen und Methode</a></li>
+      <li><a href="begriffe.html">Begriffe</a></li>
+      <li><a href="projekt.html" aria-current="page">Über das Projekt</a></li>
+    </ul>
+    </nav>
+  </div>
+</header>
+<!-- /KOPF -->
 
-<div style="text-align:center;margin-top:10px">
-<a href="index.html">Start</a> |
-<a href="suche.html">Recherche</a> |
-<a href="vergleich.html">Vergleich</a> |
-<a href="karte.html">Karte</a>
+<main>
+<div class="text">
+<h1>Über das Projekt</h1>
+
+<p class="einleitung">Die Website ist das Ergebnis eines privaten Forschungsvorhabens von
+Hendrik Beierstettel aus Tauberbischofsheim. Er ist ehrenamtlicher Grenzsteinbeauftragter der
+Stadt Tauberbischofsheim und Mitglied der Tauberfränkischen Heimatfreunde e.V.</p>
+
+<h2>Wie es anfing</h2>
+<p><mark class="offen">[Hendrik: zwei, drei Sätze – wann und wodurch das Interesse an den
+Grenzsteinen begann, wann die Arbeit an den Protokollen begann]</mark></p>
+
+<h2>Was geleistet wurde</h2>
+<ul>
+  <li>Auswertung von neun Grenzbeschreibungen aus den Jahren 1569 bis 1893, Stein für Stein
+  übertragen und einander zugeordnet.</li>
+  <li>Begehung der Gemarkungsgrenze 2021: 143 Steine wiedergefunden, fotografiert und per GPS
+  eingemessen.</li>
+  <li>Berechnung der wahrscheinlichen Standorte von 248 verschwundenen Steinen aus den
+  historischen Abstandsangaben.</li>
+  <li>Zusammenführung mit historischen Flurkarten, Flurnamen und den amtlichen Grenzpunkten.</li>
+</ul>
+
+<h2>Hilfsmittel</h2>
+<p>Quellenauswertung, Zuordnung der Steine, Geländearbeit und Fotos stammen von Hendrik
+Beierstettel. Beim Programmieren der Karten und Suchfunktionen sowie bei Textentwürfen für die
+Website hat er KI-Werkzeuge eingesetzt (OpenAI Codex, Anthropic Claude). Alle Inhalte hat er
+geprüft und verantwortet.</p>
+<p>Technisch besteht die Website aus einfachen HTML-Seiten. Die Karten nutzen die freie
+Bibliothek Leaflet und Kartendaten von OpenStreetMap. Alle Daten stecken in einer einzigen
+Datei, die Sie unter <a href="download.html">Daten</a> herunterladen können.</p>
+
+<h2>Wie es weitergeht</h2>
+<p><mark class="offen">[Hendrik: Pläne, z. B. weitere Suche nach verschwundenen Steinen,
+Zusammenarbeit mit der Stadt, Denkmalschutz]</mark></p>
+
+<h2>Mitmachen</h2>
+<p>Sie kennen einen Grenzstein an der Tauberbischofsheimer Gemarkungsgrenze, der hier fehlt,
+oder haben einen Fehler entdeckt? Schreiben Sie bitte eine E-Mail an
+<span class="mail">mail [at] beierstettel.de</span>. Hinweise auf verschwundene Steine sind
+besonders willkommen.</p>
+
+<h2>Zitiervorschlag</h2>
+<p>Hendrik Beierstettel: Die Grenzsteine der Gemarkung Tauberbischofsheim.
+https://beierstettel.de/Grenze/ (abgerufen am …).</p>
 </div>
+</main>
 
-<div class="container">
-
-<div class="card">
-<h2>Titel</h2>
-Digitale Edition der Grenzsteine der Gemarkung Tauberbischofsheim (1569–1872)
-</div>
-
-<div class="card">
-<h2>Ziel</h2>
-Systematische Erfassung, Analyse und digitale Veröffentlichung historischer Grenzsteine anhand archivalischer Grenzgangprotokolle.
-</div>
-
-<div class="card">
-<h2>Methoden</h2>
-Digitale Edition<br>
-Quellentranskription<br>
-GIS-Analyse<br>
-Datenmodellierung
-</div>
-
-<div class="card">
-<h2>Umfang</h2>
-206 Grenzsteine<br>
-6 historische Zeitpunkte<br>
-75 Datenfelder
-</div>
-
-<div class="card">
-<h2>Wissenschaftliche Einordnung</h2>
-Das Projekt verbindet Editionswissenschaft, historische Geographie und Digital Humanities.
-</div>
-
-</div>
+<!-- FUSS -->
+<footer class="fuss">
+  <div class="fuss-innen">
+    <span>© Hendrik Beierstettel, Tauberbischofsheim</span>
+    <ul>
+      <li><a href="karteXL.html">Amtliche Grenzpunkte</a></li>
+      <li><a href="download.html">Daten</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+<!-- /FUSS -->
+<script>
+(function () {
+  var a = "mail", d = "beierstettel.de";
+  document.querySelectorAll(".mail").forEach(function (el) {
+    el.innerHTML = '<a href="mailto:' + a + "@" + d + '">' + a + "@" + d + "</a>";
+  });
+})();
+</script>
 </body>
 </html>

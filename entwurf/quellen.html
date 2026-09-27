@@ -2,159 +2,151 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Quellen</title>
-<link rel="stylesheet" href="assets/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quellen und Methode – Grenzsteine Tauberbischofsheim</title>
+<meta name="description" content="Welche Quellen der Website zugrunde liegen, wie die Grenzbeschreibungen ausgewertet, die Steine 2021 eingemessen und verschwundene Standorte berechnet wurden.">
+<link rel="stylesheet" href="assets/grenze.css">
+<script src="assets/menue.js" defer></script>
+<style>mark.offen{background:#ffe9a8;padding:0 .2rem}</style>
 </head>
 <body>
-
-<header>
-<h1>Quellen und Überlieferung</h1>
+<!-- KOPF -->
+<header class="kopf">
+  <div class="kopf-innen">
+    <a class="marke" href="index.html">Grenzsteine Tauberbischofsheim</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
+    <nav id="hauptmenue" aria-label="Hauptmenü">
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="standorte.html">Karte</a></li>
+      <li><a href="reconstruction_xl.html">Verschwundene Steine</a></li>
+      <li><a href="recherche.html">Steine suchen</a></li>
+      <li><a href="grenzgaenge.html">Die Grenzgänge</a></li>
+      <li><a href="chronik.html">Geschichte</a></li>
+      <li><a href="quellen.html" aria-current="page">Quellen und Methode</a></li>
+      <li><a href="begriffe.html">Begriffe</a></li>
+      <li><a href="projekt.html">Über das Projekt</a></li>
+    </ul>
+    </nav>
+  </div>
 </header>
-<div style="text-align:center;margin-top:10px">
-<a href="index.html">Start</a> |
-<a href="suche.html">Recherche</a> |
-<a href="vergleich.html">Vergleich</a> |
-<a href="karte.html">Karte</a>
+<!-- /KOPF -->
+
+<main>
+<div class="text">
+<h1>Quellen und Methode</h1>
+<p class="einleitung">Diese Seite legt offen, worauf die Angaben der Website beruhen: welche
+Protokolle ausgewertet wurden, wie die Steine der verschiedenen Jahrhunderte einander zugeordnet
+wurden, wie die Geländebegehung 2021 ablief und wie die Standorte verschwundener Steine
+berechnet werden.</p>
+
+<h2 id="quellen">Die Quellen</h2>
+<div class="tabelle-rahmen">
+<table>
+<thead><tr><th scope="col">Quelle</th><th scope="col">Archiv und Signatur</th></tr></thead>
+<tbody>
+<tr><td>Grenzgang 1569, wiederholt 1580</td><td><mark class="offen">[Angabe folgt]</mark></td></tr>
+<tr><td>Grenzgang 1608</td><td><mark class="offen">[Angabe folgt]</mark></td></tr>
+<tr><td>Grenzgang 1683</td><td><mark class="offen">[Angabe folgt]</mark></td></tr>
+<tr><td>Grenzgang 1700</td><td><mark class="offen">[Angabe folgt]</mark></td></tr>
+<tr><td>Grenzgang 1749</td><td><mark class="offen">[Angabe folgt]</mark></td></tr>
+<tr><td>Großrinderfelder Grenzbegehung 1784</td><td><mark class="offen">[Angabe folgt]</mark></td></tr>
+<tr><td>Grenzgang 1872</td><td><mark class="offen">[Angabe folgt]</mark></td></tr>
+<tr><td>Grenzberichtigungen 1887–1893</td><td><mark class="offen">[Angabe folgt]</mark></td></tr>
+</tbody>
+</table>
 </div>
+<p>Die Protokolle sind Verwaltungsschriftgut. Sie sollten die Grenze sichern, nicht die Steine
+beschreiben, und sind deshalb unterschiedlich ausführlich. Manche Grenzgänge nennen jeden Stein
+mit Zeichen und Abstand, andere fassen Abschnitte knapp zusammen. Was ein Protokoll nicht
+erwähnt, muss es deshalb nicht gegeben haben.</p>
 
-<div class="container">
-
-<div class="card">
-
-<h2>Primärquellen</h2>
-
-Die Grundlage dieser Edition bilden historische Grenzgangprotokolle der Gemarkung Tauberbischofsheim aus folgenden Jahren:
-
+<h3>Kartengrundlagen</h3>
 <ul>
-<li>1569</li>
-<li>1608</li>
-<li>1683</li>
-<li>1700</li>
-<li>1749</li>
-<li>1872</li>
+  <li>Hintergrundkarte: © OpenStreetMap-Mitwirkende</li>
+  <li>Deutsche Grundkarte 1:5 000 und Gemarkungskarte 1932: <mark class="offen">[Herkunft und Lizenz]</mark></li>
+  <li>Amtliche Grenzpunkte: Landesamt für Geoinformation und Landentwicklung Baden-Württemberg,
+  Open GeoData <mark class="offen">[genaue Bezeichnung des Datensatzes]</mark></li>
 </ul>
 
-Die Protokolle dokumentieren Begehungen der Gemarkungsgrenzen, bei denen Lage, Zustand und Kennzeichen der Grenzsteine überprüft wurden.
+<h2 id="auswertung">Die Auswertung der Protokolle</h2>
+<p>Jedes Protokoll wurde Stein für Stein in eine Tabelle übertragen: Nummer, Jahreszahl, Größe,
+Farbe, Zeichen, Rückseite, Abstand zum vorigen Stein und die Lagebeschreibung. Die Angaben
+wurden buchstabengetreu übernommen; historische Schreibweisen wie „uff der Dittinger Pfadt
+Wiesen“ bleiben unverändert.</p>
+<p>Anschließend wurden die Einträge der verschiedenen Jahre einander zugeordnet: Welcher Stein
+von 1608 ist derselbe wie welcher von 1749 oder 1872? Anhaltspunkte sind die Reihenfolge entlang
+der Grenze, die Abstände, die Zeichen und die Lagebeschreibungen.
+<mark class="offen">[Hendrik: kurz beschreiben, wie Zweifelsfälle entschieden wurden]</mark>
+So entstand für jede Steinposition eine Zeile mit allen Angaben aus allen Jahrhunderten –
+insgesamt 394 Positionen.</p>
+<p>Leere Felder bedeuten, dass das Protokoll zu diesem Merkmal nichts sagt. Ob der Stein das
+Merkmal nicht hatte oder der Schreiber es nur nicht erwähnt hat, lässt sich aus den Quellen
+meist nicht entscheiden; die Tabelle unterscheidet diese Fälle deshalb nicht.</p>
 
+<h3>Längenmaße</h3>
+<p>Die Abstände sind in Ruten angegeben und für die Website in Meter umgerechnet: bis 1749 mit
+der fränkischen Werkrute zu 3,65 m, 1872 und 1887–1893 mit der neuen badischen Rute zu 3,00 m.
+<mark class="offen">[Beleg für den Wert der Werkrute]</mark> Das Großrinderfelder Protokoll von
+1784 läuft in umgekehrter Richtung; seine Abstände gelten bis zum nächsten Stein.</p>
+
+<h2 id="gelaende">Die Geländebegehung 2021</h2>
+<p>2021 hat Hendrik Beierstettel die Grenze abgesucht. Jeder gefundene Stein wurde
+fotografiert, per GPS eingemessen und der Position aus den Quellen zugeordnet. Dabei wurde
+festgehalten, ob die Zuordnung sicher, wahrscheinlich oder unsicher ist und ob der Stein noch am
+ursprünglichen Platz steht.
+<mark class="offen">[GPS-Gerät bzw. App, erreichbare Genauigkeit, Zeitraum und Zahl der Begehungstage]</mark></p>
+<p>Ergebnis: 143 der 394 Positionen wurden wiedergefunden. 126 Steine stehen noch am
+ursprünglichen Platz, 19 wurden versetzt oder ihr Platz ist unklar. Die Fotos liegen in Alben
+bei Google Fotos und sind aus jedem Steckbrief verlinkt.</p>
+
+<h2 id="rekonstruktion">Die Berechnung verschwundener Standorte</h2>
+<p>Für die 248 Positionen ohne Fund berechnet die Karte einen wahrscheinlichen Standort. Das
+Verfahren ist bewusst einfach gehalten, damit es sich nachvollziehen lässt:</p>
+<ol>
+  <li><strong>Anker.</strong> Als feste Punkte dienen nur Steine, die 2021 per GPS an ihrem
+  ursprünglichen Platz eingemessen wurden.</li>
+  <li><strong>Abstandsketten.</strong> Von einem Anker aus werden die Abstände eines Protokolls
+  Stein für Stein entlang des historischen Grenzverlaufs abgetragen, vorwärts vom vorigen und
+  rückwärts vom folgenden Anker.</li>
+  <li><strong>Widersprüche.</strong> Passen die Ketten von beiden Seiten nicht zusammen, gilt der
+  nähere Anker. Ein Anker darf höchstens 40 Meter vom Grenzverlauf entfernt liegen.</li>
+  <li><strong>Übertragung.</strong> Ist derselbe Stein in einem anderen Grenzgang genauer
+  bestimmt, wird dieser Standort übernommen und als übertragen gekennzeichnet.</li>
+  <li><strong>Einstufung.</strong> Jeder Standort erhält eine Sicherheitsklasse: A (GPS am
+  ursprünglichen Platz), B (plausible Rekonstruktion), C (widersprüchliche oder einseitige
+  Abstandskette) oder D (nur auf einen Grenzabschnitt eingrenzbar).</li>
+</ol>
+<p>Im Abschnitt zwischen Hänglein und Bösehof folgen alle Grenzgänge bis 1887 dem alten, heute
+nicht mehr gültigen Grenzverlauf; die Berechnung nutzt dort diese historische Linie.</p>
+<div class="kasten">
+<p>Ein berechneter Standort ist ein Suchhinweis, kein Befund. Er gibt an, wo ein Stein nach
+den Abständen im Protokoll gestanden haben muss, wenn die Messung damals genau war und die
+Grenze seither nicht verändert wurde. Beides ist nicht immer der Fall.</p>
 </div>
 
-<div class="card">
+<h2 id="literatur">Literatur</h2>
+<p><mark class="offen">[Hendrik: benutzte Literatur, z. B. Stadtgeschichte, Arbeiten zu Grenzsteinen in Tauberfranken]</mark></p>
 
-<h2>Archivstandort</h2>
-
-Die Originalquellen befinden sich im:
-
-<br><br>
-<b>Stadtarchiv Tauberbischofsheim</b>
-
-<br><br>
-Die Auswertung erfolgte durch vollständige Durchsicht der einschlägigen Protokollbücher.
-
+<h2 id="stand">Datenstand</h2>
+<p>Datensatz mit 394 Steinpositionen, Stand <mark class="offen">[Datum der Einreichung]</mark>.
+Der vollständige Datensatz steht unter <a href="download.html">Daten</a> zum Herunterladen
+bereit.</p>
 </div>
+</main>
 
-<div class="card">
-
-<h2>Quellencharakter</h2>
-
-Die Grenzgangprotokolle sind Verwaltungsdokumente mit amtlichem Charakter.  
-Sie dienen primär der Sicherung territorialer Grenzen und nicht der archäologischen Dokumentation.
-
-Daraus ergeben sich typische Eigenschaften:
-
-<ul>
-<li>selektive Beschreibung</li>
-<li>unterschiedliche Detailtiefe</li>
-<li>periodische Aktualisierung</li>
-<li>lokale Terminologie</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2>Überlieferungsprobleme</h2>
-
-Folgende Einschränkungen ergeben sich aus der Quellenlage:
-
-<ul>
-<li>nicht alle Steine werden in jedem Grenzgang erwähnt</li>
-<li>Nummerierungen wechseln zwischen den Jahrhunderten</li>
-<li>einzelne Steine verschwinden aus den Protokollen</li>
-<li>neue Steine erscheinen erst später</li>
-</ul>
-
-Die Edition bildet diese Dynamik bewusst vollständig ab.
-
-</div>
-
-<div class="card">
-
-<h2>Moderne Ergänzung (2021)</h2>
-
-Zusätzlich zu den archivalischen Quellen wurde im Jahr 2021 eine eigene Begehung der historischen Grenzlinie durchgeführt.
-
-Dabei wurden:
-
-<ul>
-<li>erhaltene Grenzsteine lokalisiert</li>
-<li>GPS-Koordinaten erfasst</li>
-<li>Fotodokumentationen erstellt</li>
-<li>Identifikationen vorgenommen</li>
-</ul>
-
-Diese Daten sind als eigenständige Beobachtungsschicht gekennzeichnet.
-
-</div>
-
-<div class="card">
-
-<h2>Editionsprinzip der Quellenintegration</h2>
-
-Die Edition verfolgt ein Vollständigkeitsprinzip:
-
-<ul>
-<li>alle dokumentierten Grenzsteine wurden aufgenommen</li>
-<li>auch verschwundene Steine bleiben erhalten</li>
-<li>später auftretende Steine werden ergänzt</li>
-<li>abweichende Beschreibungen werden nicht harmonisiert</li>
-</ul>
-
-Ziel ist die Rekonstruktion der historischen Entwicklung der Grenzlinie.
-
-</div>
-
-<div class="card">
-
-<h2>Forschungswert</h2>
-
-Der Quellenbestand ermöglicht Untersuchungen zu:
-
-<ul>
-<li>territorialer Grenzentwicklung</li>
-<li>Verwaltungsgeschichte</li>
-<li>Grenzrecht</li>
-<li>Materialkultur</li>
-<li>Symbolik von Grenzzeichen</li>
-<li>Landschaftswandel</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2>Quellenzitation</h2>
-
-Bei wissenschaftlicher Verwendung der Daten wird folgende Zitierform empfohlen:
-
-<br><br>
-
-Beierstettel, Hendrik (Hg.):  
-Digitale Edition der Grenzsteine der Gemarkung Tauberbischofsheim (1569–1872),  
-Version 1.0, Tauberbischofsheim 2026.
-
-</div>
-
-</div>
-
+<!-- FUSS -->
+<footer class="fuss">
+  <div class="fuss-innen">
+    <span>© Hendrik Beierstettel, Tauberbischofsheim</span>
+    <ul>
+      <li><a href="karteXL.html">Amtliche Grenzpunkte</a></li>
+      <li><a href="download.html">Daten</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+<!-- /FUSS -->
 </body>
 </html>

@@ -134,3 +134,6 @@ button:hover,.knopf:hover{background:var(--rot-hell);color:#fff}
   .aufmacher{grid-template-columns:1fr;gap:0}
   .titelfoto{max-width:22rem}
 }
+
+/* Für ältere Seiten (Chronik), die .container als Inhaltsrahmen nutzen */
+.container{max-width:72rem;margin:0 auto;padding:1.5rem 1rem 3rem}

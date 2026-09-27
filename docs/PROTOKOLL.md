@@ -1,5 +1,30 @@
 # Arbeitsprotokoll
 
+## 27.09.2026 (Abend) – Abschnitt 2 lokal fertig (noch nicht hochgeladen)
+
+**Neu in `entwurf/`:** `recherche.html` (Suche mit Hilfetext, Beispiel-Links,
+teilbaren Adressen und CSV-Export), `grenzgaenge.html` (Übersichtstabelle je
+Quelle, aus `data.json` berechnet, ohne Deutungen), `begriffe.html` (mit
+Archivfoto LABW StAWt K-LRA 91 Nr. 253 Bild 17), `quellen.html` (Quellen,
+Auswertung, Geländebegehung, Rekonstruktionsverfahren nach
+`standorte-positionen.json`/Modell „anchor-interval-v1“), `projekt.html`
+(inkl. offener Angabe zu KI-Werkzeugen), `download.html` (CSV + JSON,
+Feldbeschreibung, CC BY 4.0), `vergleich.html` (zwei Quellen vergleichen),
+`stein.html` (neu: Befund 2021, Geschichte, berechneter Standort, Blättern,
+Quellen einzeln, keine Besucher-Notizen mehr), `chronik.html` (Rahmen,
+Einleitung und Beschreibungen sachlich neu), `grenzsteine-tauberbischofsheim.csv`.
+
+**Geprüft** (lokaler Testserver): 16 Seiten ohne Skriptfehler und ohne kaputte
+Bilder; alle Seiten ohne seitliches Überlaufen bei 375 px; Suchzahlen stimmen
+mit dem Datensatz (126/19/248, 14 Dreimärker).
+
+**Gelb markierte Lücken** (`mark.offen`) warten auf Hendriks Angaben; vor dem
+Upload müssen sie gefüllt oder entfernt sein.
+
+**Datenauffälligkeit:** frühester Jahreswert auf einem Stein 1224 –
+vermutlich Tippfehler (Hendrik prüfen).
+
+
 ## 27.09.2026, 16:29 – Erster Upload
 
 **Sicherung vorher:** vollständiges FTP-Backup `backups/2026-09-27_1629_server_ftp`

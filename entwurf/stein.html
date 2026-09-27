@@ -2,410 +2,247 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Grenzstein-Dossier</title>
-<link rel="stylesheet" href="assets/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steckbrief – Grenzsteine Tauberbischofsheim</title>
+<meta name="description" content="Steckbrief eines Grenzsteins der Gemarkung Tauberbischofsheim mit allen Angaben aus den Grenzbeschreibungen von 1569 bis 1893 und dem Befund von 2021.">
+<link rel="stylesheet" href="assets/grenze.css">
+<script src="assets/menue.js" defer></script>
 <style>
-  .section-title{margin:0 0 10px 0;color:#6b0000}
-  .meta-line{margin:4px 0}
-  .hr{border:0;border-top:1px solid #e5e0d6;margin:16px 0}
-  .kv{display:grid;grid-template-columns:280px 1fr;gap:8px 14px;align-items:start}
-  .k{font-weight:bold}
-  .v{white-space:pre-wrap}
-  .small{font-size:14px;color:#555}
-  details summary{cursor:pointer;font-weight:bold;color:#6b0000}
-  .badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#f4f1ea;color:#6b0000;font-size:12px;margin-left:8px}
-  .note{background:#fbfaf6;border-left:4px solid #6b0000;padding:10px 12px;border-radius:8px;white-space:pre-wrap}
-  .chip{display:inline-block;padding:3px 10px;border-radius:999px;background:#f4f1ea;color:#6b0000;font-size:12px;margin-right:6px;margin-bottom:6px}
-  .ok{color:#0b6b2f;font-weight:bold}
-  .toc a{display:inline-block;margin:4px 8px 4px 0}
-  .profile{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:14px;
-  }
-  @media (max-width:800px){
-    .profile{grid-template-columns:1fr}
-    .kv{grid-template-columns:1fr}
-  }
-  .profile-box{
-    background:#fbfaf6;
-    border:1px solid #eee6da;
-    border-radius:10px;
-    padding:12px;
-  }
-  .profile-box h3{margin:0 0 10px 0;color:#6b0000}
-  .pill{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:6px 10px;
-    border-radius:999px;
-    border:1px solid #eadfce;
-    background:#fff;
-    margin:4px 6px 0 0;
-    font-size:13px;
-  }
-  .dot{
-    width:10px;height:10px;border-radius:999px;background:#6b0000;display:inline-block;
-  }
+.blaettern{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin:.2rem 0 1rem;font-size:.97rem}
+.untertitel{color:var(--grau);margin:-.6rem 0 1.2rem}
+.steckbrief{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(17rem,100%),1fr));gap:1rem;margin:1rem 0}
+.steckbrief section{background:var(--weiss);border:1px solid var(--linie);border-radius:6px;padding:1rem 1.2rem}
+.steckbrief h2{margin-top:0;font-size:1.15rem}
+dl.kv{display:grid;grid-template-columns:minmax(8rem,auto) minmax(0,1fr);gap:.35rem 1rem;margin:0}
+dl.kv dt{font-weight:bold}
+dl.kv dd{margin:0;overflow-wrap:anywhere}
+.quelle{background:var(--weiss);border:1px solid var(--linie);border-radius:6px;padding:1rem 1.2rem;margin:1rem 0}
+.quelle h3{margin-top:0;color:var(--rot)}
+.zitat{font-style:italic;background:var(--akzent);padding:.1rem .3rem;border-radius:3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.sprung a{margin-right:.9rem;white-space:nowrap;line-height:1.9}
+@media (max-width:500px){dl.kv{grid-template-columns:1fr}dl.kv dd{margin-bottom:.4rem}}
 </style>
 </head>
 <body>
-
-<header>
-  <h1>Grenzstein-Dossier</h1>
+<!-- KOPF -->
+<header class="kopf">
+  <div class="kopf-innen">
+    <a class="marke" href="index.html">Grenzsteine Tauberbischofsheim</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
+    <nav id="hauptmenue" aria-label="Hauptmenü">
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="standorte.html">Karte</a></li>
+      <li><a href="reconstruction_xl.html">Verschwundene Steine</a></li>
+      <li><a href="recherche.html">Steine suchen</a></li>
+      <li><a href="grenzgaenge.html">Die Grenzgänge</a></li>
+      <li><a href="chronik.html">Geschichte</a></li>
+      <li><a href="quellen.html">Quellen und Methode</a></li>
+      <li><a href="begriffe.html">Begriffe</a></li>
+      <li><a href="projekt.html">Über das Projekt</a></li>
+    </ul>
+    </nav>
+  </div>
 </header>
+<!-- /KOPF -->
 
-<div class="container" id="content"></div>
+<main id="inhalt"><p>Daten werden geladen …</p></main>
+
+<!-- FUSS -->
+<footer class="fuss">
+  <div class="fuss-innen">
+    <span>© Hendrik Beierstettel, Tauberbischofsheim</span>
+    <ul>
+      <li><a href="karteXL.html">Amtliche Grenzpunkte</a></li>
+      <li><a href="download.html">Daten</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+<!-- /FUSS -->
 
 <script>
-const id = new URLSearchParams(location.search).get("id");
+(function () {
+  "use strict";
+  var ANZAHL = 394;
+  var id = new URLSearchParams(location.search).get("id");
+  var inhalt = document.getElementById("inhalt");
 
-function esc(s){
-  return String(s)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;");
-}
-function isEmpty(v){
-  if(v === null || v === undefined) return true;
-  const s = String(v).trim();
-  return s === "" || s.toLowerCase() === "nan";
-}
-function isUrl(s){
-  if(!s) return false;
-  const t = String(s).trim();
-  return t.startsWith("http://") || t.startsWith("https://");
-}
-function formatX(value){
-  if(isEmpty(value)) return "";
-  const s = String(value).trim();
-  const sl = s.toLowerCase();
-  if(sl === "x") return "<span class='ok'>✓</span>";
-  const m = sl.match(/(\d+)\s*x/);
-  if(m) return `<span class='ok'>${m[1]}× ✓</span>`;
-  return esc(s);
-}
-function formatB(value){
-  if(isEmpty(value)) return "";
-  const s = String(value).trim();
-  const sl = s.toLowerCase();
-  if(sl === "x") return "<span class='ok'>B: 1</span>";
-  const m = sl.match(/(\d+)/);
-  if(m) return `<span class='ok'>B: ${m[1]}</span>`;
-  return esc(s);
-}
-function isLikelySonstiges(label){ return /sonstiges/i.test(label); }
-function isLikelyFotos(label){ return /foto/i.test(label); }
-function isLikelyGPS(label){ return /\bgps\b/i.test(label); }
-function isLikelyWappen(label){ return /wappen|wappenschild/i.test(label); }
-function isLikelyRad(label){ return /\brad\b/i.test(label) || /mainzer/i.test(label); }
-function isLikelyKreuz(label){ return /kreuz/i.test(label); }
-function isLikelyB(label){
-  const l=label.trim().toLowerCase();
-  return l==="b" || l==="bischofsheim";
-}
-function niceLabel(label){
-  const l = String(label).trim();
-  return l
-    .replaceAll("groß/klein","Größe/Form")
-    .replaceAll("gross/klein","Größe/Form")
-    .replaceAll("Ruthen zum vorherigen (Fränkische Werkrute 3,65m)","Ruthen zum vorherigen (3,65 m)")
-    .replaceAll("Kreuz oben","Kreuz (Oberseite)")
-    .replaceAll("sonstiges","Sonstiges");
-}
-function groupTitle(groupKey){
-  const g = String(groupKey);
-  if(/\b2021\b/.test(g)) return "Grenzbegehung von Hendrik Beierstettel im Jahr 2021";
-  if(/\b1887\b/.test(g) || /\b1893\b/.test(g)) return "Grenzberichtigungen in den Jahren 1887 bis 1893";
-  if(/\b1784\b/.test(g) || /großrinderfeld/i.test(g)) return "Großrinderfelder Grenzgang im Jahr 1784";
-  if(/\b1569\b/.test(g) && /\b1580\b/.test(g)) return "Grenzgang im Jahr 1569 (Wiederholung 1580)";
-  if(/\b1569\b/.test(g)) return "Grenzgang im Jahr 1569";
-  if(/\b1608\b/.test(g)) return "Grenzgang im Jahr 1608";
-  if(/\b1683\b/.test(g)) return "Grenzgang im Jahr 1683";
-  if(/\b1700\b/.test(g)) return "Grenzgang im Jahr 1700";
-  if(/\b1749\b/.test(g)) return "Grenzgang im Jahr 1749";
-  if(/\b1872\b/.test(g)) return "Grenzgang im Jahr 1872";
-  return g;
-}
-function slug(s){
-  return String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");
-}
-function osmLinkFromText(s){
-  if(isEmpty(s)) return "";
-  const m = String(s).match(/(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)/);
-  if(!m) return "";
-  const lat = parseFloat(m[1]), lon = parseFloat(m[2]);
-  if(isNaN(lat)||isNaN(lon)) return "";
-  const url = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=18/${lat}/${lon}`;
-  return `<a href="${esc(url)}" target="_blank" rel="noopener">Karte öffnen (OSM)</a> <span class="small">(${lat}, ${lon})</span>`;
-}
-
-function summarizeSymbols(derived){
-  const sy = derived?.symbols_by_year || {};
-  let w=false,r=false,k=false,b=false;
-  for(const y in sy){
-    const o=sy[y];
-    if((o.wappen_count||0)>0) w=true;
-    if((o.rad_count||0)>0) r=true;
-    if((o.kreuz_count||0)>0) k=true;
-    if((o.b_count||0)>0) b=true;
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
   }
-  return {w,r,k,b};
-}
-
-fetch("data.json").then(r=>r.json()).then(data=>{
-  const row = data.find(r => String(Object.values(r)[0]) === String(id));
-  if(!row){
-    content.innerHTML = `<div class="card"><b>Kein Datensatz gefunden.</b><br>Unbekannte ID: ${esc(id)}</div>`;
-    return;
+  function leer(v) {
+    if (v === null || v === undefined) return true;
+    var s = String(v).trim();
+    return s === "" || s.toLowerCase() === "nan";
+  }
+  function osm(lat, lon, text) {
+    return '<a href="https://www.openstreetmap.org/?mlat=' + lat + "&amp;mlon=" + lon + "#map=18/" + lat + "/" + lon +
+      '" rel="noopener">' + text + "</a>";
   }
 
-  const stoneId = row.ID ?? Object.values(row)[0];
-  const border  = row.Grenze ?? Object.values(row)[1];
-  const derived = row._derived || null;
+  // Reihenfolge und Titel der Quellen
+  var QUELLEN = [
+    ["1569 (1580)", "Grenzgang 1569 (wiederholt 1580)"],
+    ["1608", "Grenzgang 1608"],
+    ["1683", "Grenzgang 1683"],
+    ["1700", "Grenzgang 1700"],
+    ["1749", "Grenzgang 1749"],
+    ["Großrinderfelder Grenzbegehung 1784", "Großrinderfelder Grenzbegehung 1784"],
+    ["1872", "Grenzgang 1872"],
+    ["Grenzberichtigungen 1887-93", "Grenzberichtigungen 1887–1893"]
+  ];
+  var FELDNAME = {
+    "Nr.": "Nummer im Protokoll", "Nr": "Nummer im Protokoll", "Jahr": "Jahreszahl auf dem Stein",
+    "groß/ klein": "Größe", "groß/klein": "Größe", "Farbe": "Farbe", "Wappenschild": "Wappenschild",
+    "Wappen": "Wappen", "Rad": "Mainzer Rad", "b": "„b“", "Kreuz oben": "Kreuz auf der Oberseite",
+    "Rückseite": "Rückseite", "sonstiges": "Lage und Bemerkungen", "Beschreibung": "Lage und Bemerkungen",
+    "Meter zum vorherigen": "Abstand zum vorigen Stein", "Meter": "Abstand zum nächsten Stein"
+  };
 
-  // Gruppenbildung
-  const groups = new Map();
-  function addToGroup(g, label, value){
-    if(!groups.has(g)) groups.set(g, []);
-    groups.get(g).push({label, value});
+  function feldWert(feld, wert) {
+    var s = String(wert).trim();
+    if (/Wappen|Rad|Kreuz/.test(feld) && s.toLowerCase() === "x") return "erwähnt";
+    if (feld === "b" && /^\d$/.test(s)) return s === "1" ? "ein „b“" : s + " „b“";
+    if (/^Meter/.test(feld)) return esc(s) + (/^[\d.,]+$/.test(s) ? " m" : "");
+    if (feld === "sonstiges" || feld === "Beschreibung") return '<span class="zitat">' + esc(s) + "</span>";
+    return esc(s);
   }
-  for(const [k,v] of Object.entries(row)){
-    if(k === "ID" || k === "Grenze") continue;
-    if(k === "_gps_parsed" || k === "_derived") continue;
-    const key = String(k);
-    if(key.includes(" — ")){
-      const [g, lab] = key.split(" — ", 2);
-      addToGroup(g, lab, v);
-    }else{
-      addToGroup("Allgemein", key, v);
+
+  function besteRekonstruktion(pos, sid) {
+    var k = [];
+    Object.keys((pos && pos.years) || {}).forEach(function (j) {
+      var p = pos.years[j][String(sid)];
+      if (p && isFinite(p.lat) && isFinite(p.lon) && (p.certainty === "B" || p.certainty === "C")) k.push({ jahr: j, p: p });
+    });
+    k.sort(function (a, b) {
+      return (a.p.certainty === "B" ? 0 : 1) - (b.p.certainty === "B" ? 0 : 1) ||
+        Number(!!a.p.transferred) - Number(!!b.p.transferred) || Number(b.jahr) - Number(a.jahr);
+    });
+    return k[0] || null;
+  }
+
+  function ohneId() {
+    document.title = "Steckbrief – Grenzsteine Tauberbischofsheim";
+    inhalt.innerHTML = '<div class="text"><h1>Steckbrief eines Steins</h1>' +
+      "<p>Jeder der 394 Steinpositionen hat einen eigenen Steckbrief. Geben Sie eine Nummer ein oder wählen Sie einen Stein über die " +
+      '<a href="recherche.html">Suche</a> oder die <a href="standorte.html">Karte</a>.</p>' +
+      '<form onsubmit="location.href=\'stein.html?id=\'+encodeURIComponent(this.n.value);return false">' +
+      '<label for="n">Steinnummer (1–' + ANZAHL + '):</label> <input type="text" id="n" name="n" inputmode="numeric" size="5"> ' +
+      "<button>Anzeigen</button></form></div>";
+  }
+
+  if (!id) { ohneId(); return; }
+
+  Promise.all([
+    fetch("data.json").then(function (r) { return r.json(); }),
+    fetch("standorte-positionen.json").then(function (r) { return r.json(); }).catch(function () { return null; })
+  ]).then(function (e) {
+    var daten = e[0], pos = e[1];
+    var r = daten.find(function (x) { return String(x.ID) === String(id); });
+    if (!r) {
+      inhalt.innerHTML = '<div class="text"><h1>Stein nicht gefunden</h1><p>Es gibt keinen Stein mit der Nummer ' + esc(id) +
+        '. Die Nummern reichen von 1 bis ' + ANZAHL + '. <a href="stein.html">Andere Nummer eingeben</a></p></div>';
+      return;
     }
-  }
+    var d = r._derived || {};
+    var n = Number(r.ID);
+    document.title = "Stein " + r.ID + " – Grenzsteine Tauberbischofsheim";
 
-  const preferredOrder=["2021","1569","1608","1683","1700","1749","1872","1887","1784"];
-  const groupKeys = Array.from(groups.keys());
-  groupKeys.sort((a,b)=>{
-    const sa=String(a), sb=String(b);
-    const ra = preferredOrder.findIndex(p => sa.includes(p));
-    const rb = preferredOrder.findIndex(p => sb.includes(p));
-    if(ra !== -1 || rb !== -1){
-      if(ra === -1) return 1;
-      if(rb === -1) return -1;
-      return ra - rb;
+    var html = '<nav class="blaettern" aria-label="Blättern">' +
+      (n > 1 ? '<a href="stein.html?id=' + (n - 1) + '">← Stein ' + (n - 1) + "</a>" : "<span></span>") +
+      '<a href="recherche.html">Zur Suche</a>' +
+      (n < ANZAHL ? '<a href="stein.html?id=' + (n + 1) + '">Stein ' + (n + 1) + " →</a>" : "<span></span>") + "</nav>";
+
+    html += "<h1>Stein " + esc(r.ID) + "</h1>";
+    html += '<p class="untertitel">Grenze zu ' + esc(r.Grenze) + (d.is_dreimaerker ? " · Dreimärker" : "") + "</p>";
+
+    // Befund 2021
+    var s = d.status || {}, sv = d.survey2021 || {};
+    var zustand = s.standing_original ? "steht an seinem ursprünglichen Platz"
+      : s.moved_or_unknown_location ? "gefunden, aber versetzt oder ursprünglicher Platz unklar"
+      : s.missing_2021 ? "nicht gefunden" : "–";
+    var befund = '<dl class="kv"><dt>Zustand</dt><dd>' + zustand + "</dd>";
+    if (!leer(sv.number_raw)) befund += "<dt>Nummer 2021</dt><dd>" + esc(sv.number_raw) +
+      (sv.number_certainty && sv.number_certainty !== "sicher" ? " (Zuordnung " + esc(sv.number_certainty) + ")" : "") + "</dd>";
+    if (sv.gps && isFinite(sv.gps.lat)) befund += "<dt>Position</dt><dd>" + osm(sv.gps.lat, sv.gps.lon, "auf OpenStreetMap zeigen") +
+      '<br><span class="klein">' + sv.gps.lat.toFixed(6) + ", " + sv.gps.lon.toFixed(6) + "</span></dd>";
+    else {
+      var rek = besteRekonstruktion(pos, r.ID);
+      if (rek) befund += "<dt>Berechneter Standort</dt><dd>" + osm(rek.p.lat.toFixed(6), rek.p.lon.toFixed(6), "auf OpenStreetMap zeigen") +
+        '<br><span class="klein">Klasse ' + esc(rek.p.certainty) + ", aus dem Grenzgang " + esc(rek.jahr) +
+        ' – <a href="quellen.html#rekonstruktion">wie berechnet?</a></span></dd>';
     }
-    return sa.localeCompare(sb, "de");
-  });
+    if (sv.photos_url) befund += '<dt>Fotos</dt><dd><a href="' + esc(sv.photos_url) + '" rel="noopener">Fotoalbum bei Google Fotos öffnen</a></dd>';
+    befund += "</dl>";
 
-  // Sprungmarken vorbereiten
-  const tocItems = [];
-  for(const g of groupKeys){
-    const items = (groups.get(g)||[]).filter(it=>!isEmpty(it.value));
-    if(items.length===0) continue;
-    const title = groupTitle(g);
-    const anchor = "sec-" + slug(g);
-    tocItems.push({title, anchor});
-  }
+    // Geschichte
+    var jz = d.year_on_stone_values || [];
+    var gesch = '<dl class="kv"><dt>in den Quellen</dt><dd>' +
+      (d.first_documented_year ? (d.first_documented_year === d.last_documented_year ? d.first_documented_year
+        : "von " + d.first_documented_year + " bis " + d.last_documented_year) : "–") + "</dd>";
+    if (jz.length) gesch += "<dt>Jahreszahl" + (jz.length > 1 ? "en" : "") + "</dt><dd>" + jz.map(esc).join(", ") + "</dd>";
+    var zeichen = [];
+    var sy = d.symbols_by_year || {};
+    [["rad_count", "Mainzer Rad"], ["wappen_count", "Wappen"], ["kreuz_count", "Kreuz"], ["b_count", "„b“"]].forEach(function (z) {
+      if (Object.keys(sy).some(function (y) { return y !== "2021" && sy[y][z[0]] > 0; })) zeichen.push(z[1]);
+    });
+    gesch += "<dt>Zeichen</dt><dd>" + (zeichen.length ? zeichen.join(", ") : "keine erwähnt") + "</dd></dl>";
+    var fruehste = jz.length ? Math.min.apply(null, jz) : null;
+    if (fruehste && d.first_documented_year && fruehste > d.first_documented_year) {
+      gesch += '<p class="klein" style="margin-top:.8rem">Die Stelle ist schon ' + d.first_documented_year +
+        " belegt, die Jahreszahl lautet aber " + fruehste + ". Hier wurde also später ein neuer Stein gesetzt, der den älteren ersetzt.</p>";
+    }
 
-  // Steckbrief Daten: 2021-GPS/Fotos, Erst/Letzt, Setzjahr, Symbolbadges
-  const sym = summarizeSymbols(derived);
-  const photosUrl = derived?.survey2021?.photos_url || "";
-  const gpsNorm = derived?.survey2021?.gps_normalized || "";
-  const gpsRaw = derived?.survey2021?.gps_raw || "";
+    html += '<div class="steckbrief"><section><h2>Befund 2021</h2>' + befund + "</section>" +
+      "<section><h2>Geschichte</h2>" + gesch + "</section></div>";
 
-  const gpsBlock = osmLinkFromText(gpsNorm) || osmLinkFromText(gpsRaw) || (isEmpty(gpsRaw) ? "—" : esc(gpsRaw));
-
-  let html = `
-    <div class="card">
-      <h2 class="section-title">Bischofsheimer Gemarkungsgrenzstein ID-Nr. ${esc(stoneId)}</h2>
-      <div class="meta-line"><span class="chip">Grenze</span> ${esc(border || "—")}</div>
-      <div class="small">Permalink: <a href="${esc(location.href)}">${esc(location.href)}</a></div>
-    </div>
-
-    <div class="card">
-      <div class="profile">
-        <div class="profile-box">
-          <h3>Steckbrief</h3>
-          <div class="kv">
-            <div class="k">Erstnennung</div><div class="v">${esc(derived?.first_documented_year || "—")}</div>
-            <div class="k">Letztnennung</div><div class="v">${esc(derived?.last_documented_year || "—")}</div>
-            <div class="k">Frühestes mögliches Setzjahr</div><div class="v">${esc(derived?.earliest_possible_setting_year || "—")}</div>
-            <div class="k">Dreimärker</div><div class="v">${derived?.is_dreimaerker ? "ja" : "nein"}</div>
-            <div class="k">GPS (2021)</div><div class="v">${gpsBlock}</div>
-            <div class="k">Fotos (2021)</div>
-            <div class="v">${
-              isUrl(photosUrl)
-                ? `<a href="${esc(photosUrl)}" target="_blank" rel="noopener">Google-Fotoalbum öffnen</a>`
-                : "—"
-            }</div>
-          </div>
-        </div>
-
-        <div class="profile-box">
-          <h3>Symbolik (gesamt)</h3>
-          <div>
-            <span class="pill"><span class="dot"></span> Wappen: ${sym.w ? "<span class='ok'>✓</span>" : "—"}</span>
-            <span class="pill"><span class="dot"></span> Mainzer Rad: ${sym.r ? "<span class='ok'>✓</span>" : "—"}</span>
-            <span class="pill"><span class="dot"></span> Kreuz: ${sym.k ? "<span class='ok'>✓</span>" : "—"}</span>
-            <span class="pill"><span class="dot"></span> B: ${sym.b ? "<span class='ok'>✓</span>" : "—"}</span>
-          </div>
-          <div class="hr"></div>
-          <div class="small">
-            <b>Hinweis:</b> „gesamt“ bedeutet: Merkmal ist in mindestens einem Grenzgang dokumentiert.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card toc">
-      <h3 class="section-title">Sprungmarken</h3>
-      ${
-        tocItems.length
-          ? tocItems.map(t=>`<a href="#${esc(t.anchor)}">${esc(t.title)}</a>`).join("")
-          : "<span class='small'>Keine Abschnittsdaten vorhanden.</span>"
+    // Quellen einzeln
+    var abschnitte = [];
+    QUELLEN.forEach(function (q) {
+      var zeilen = [];
+      Object.keys(r).forEach(function (k) {
+        if (k.indexOf(q[0] + " — ") !== 0) return;
+        var feld = k.slice(q[0].length + 3);
+        if (/^Ruthen/.test(feld)) return; // Ruten werden beim Meterwert mitgenannt
+        if (leer(r[k])) return;
+        var wert = feldWert(feld, r[k]);
+        if (/^Meter/.test(feld)) {
+          var rk = Object.keys(r).find(function (x) { return x.indexOf(q[0] + " — Ruthen") === 0; });
+          if (rk && !leer(r[rk])) wert += " (" + esc(r[rk]) + " Ruten)";
+        }
+        zeilen.push("<dt>" + esc(FELDNAME[feld] || feld) + "</dt><dd>" + wert + "</dd>");
+      });
+      // Nur Ruten ohne Meterwert
+      var rk2 = Object.keys(r).find(function (x) { return x.indexOf(q[0] + " — Ruthen") === 0; });
+      var mk = Object.keys(r).find(function (x) { return x.indexOf(q[0] + " — Meter") === 0; });
+      if (rk2 && !leer(r[rk2]) && (!mk || leer(r[mk]))) zeilen.push("<dt>Abstand</dt><dd>" + esc(r[rk2]) + " Ruten</dd>");
+      if (zeilen.length) {
+        var anker = "q" + q[0].replace(/\D+/g, "").slice(0, 4);
+        abschnitte.push({ anker: anker, titel: q[1], html: '<section class="quelle" id="' + anker + '"><h3>' + q[1] +
+          '</h3><dl class="kv">' + zeilen.join("") + "</dl></section>" });
       }
-    </div>
-  `;
-
-  // Abschnitte ausgeben
-  for(const g of groupKeys){
-    const items = (groups.get(g)||[]).filter(it=>!isEmpty(it.value));
-    if(items.length===0) continue;
-
-    const title = groupTitle(g);
-    const anchor = "sec-" + slug(g);
-
-    html += `<div class="card" id="${esc(anchor)}">`;
-    html += `<h3 class="section-title">${esc(title)}</h3>`;
-    html += `<div class="kv">`;
-
-    items.forEach(({label,value})=>{
-      const lab = niceLabel(label);
-
-      if(isLikelySonstiges(lab)){
-        html += `<div class="k">${esc(lab)}</div><div class="v"><div class="note">${esc(value)}</div></div>`;
-        return;
-      }
-
-      if(isLikelyFotos(lab) && isUrl(value)){
-        html += `<div class="k">${esc(lab)}</div><div class="v"><a href="${esc(value)}" target="_blank" rel="noopener">Google-Fotoalbum öffnen</a></div>`;
-        return;
-      }
-
-      if(isLikelyGPS(lab)){
-        const osm = osmLinkFromText(value);
-        html += `<div class="k">${esc(lab)}</div><div class="v">${osm || esc(value)}</div>`;
-        return;
-      }
-
-      if(isLikelyWappen(lab) || isLikelyRad(lab) || isLikelyKreuz(lab)){
-        const fx = formatX(value);
-        html += `<div class="k">${esc(lab)}</div><div class="v">${fx || "—"}</div>`;
-        return;
-      }
-
-      if(isLikelyB(lab)){
-        const fb = formatB(value);
-        html += `<div class="k">${esc(lab)}</div><div class="v">${fb || "—"}</div>`;
-        return;
-      }
-
-      if(isUrl(value)){
-        html += `<div class="k">${esc(lab)}</div><div class="v"><a href="${esc(value)}" target="_blank" rel="noopener">${esc(value)}</a></div>`;
-        return;
-      }
-
-      html += `<div class="k">${esc(lab)}</div><div class="v">${esc(value)}</div>`;
     });
 
-    html += `</div></div>`;
-    html += `<div class="hr"></div>`;
-  }
-
-  // Abgeleitete Felder (voll) einklappbar
-  if(derived){
-    html += `
-      <div class="card">
-        <details>
-          <summary>Abgeleitete Forschungsfelder (vollständig) <span class="badge">automatisch berechnet</span></summary>
-          <div class="hr"></div>
-          <pre style="white-space:pre-wrap;margin:0">${esc(JSON.stringify(derived,null,2))}</pre>
-          <div class="hr"></div>
-          <div class="small"><b>Hinweis:</b> Diese Felder sind abgeleitet und ändern keine Rohdaten.</div>
-        </details>
-      </div>
-    `;
-  }
-
-  // Notizen
-  html += `
-    <div class="card">
-      <h3 class="section-title">Forschungsnotizen</h3>
-
-      <b>Beschreibung / Beobachtung</b><br>
-      <textarea id="note_obs" style="width:100%;height:80px"></textarea><br><br>
-
-      <b>Deutung / Hypothesen</b><br>
-      <textarea id="note_interp" style="width:100%;height:80px"></textarea><br><br>
-
-      <b>Literatur / Quellen</b><br>
-      <textarea id="note_lit" style="width:100%;height:60px"></textarea><br><br>
-
-      <b>To-do</b><br>
-      <textarea id="note_todo" style="width:100%;height:60px"></textarea><br><br>
-
-      <div class="small">Zuletzt geändert: <span id="updated">–</span></div><br>
-
-      <button onclick="exportNotes()">Export Notizen</button>
-      <button onclick="clearNotes()">Löschen</button>
-    </div>
-  `;
-
-  content.innerHTML = html;
-
-  // Notes persistence
-  const KEY = "stein_notes_" + stoneId;
-  function load(){
-    let n={};
-    try{ n = JSON.parse(localStorage.getItem(KEY)||"{}"); }catch(e){}
-    note_obs.value=n.obs||"";
-    note_interp.value=n.interp||"";
-    note_lit.value=n.lit||"";
-    note_todo.value=n.todo||"";
-    updated.textContent=n.updated||"–";
-  }
-  function save(){
-    const n={
-      obs:note_obs.value,
-      interp:note_interp.value,
-      lit:note_lit.value,
-      todo:note_todo.value,
-      updated:new Date().toLocaleString()
-    };
-    localStorage.setItem(KEY,JSON.stringify(n));
-    updated.textContent=n.updated;
-  }
-  ["note_obs","note_interp","note_lit","note_todo"].forEach(fid=>{
-    document.getElementById(fid).addEventListener("input",save);
-  });
-  window.exportNotes=function(){
-    const n=localStorage.getItem(KEY) || "{}";
-    const blob=new Blob([n],{type:"application/json"});
-    const a=document.createElement("a");
-    a.href=URL.createObjectURL(blob);
-    a.download="Notizen_Stein_"+stoneId+".json";
-    a.click();
-  };
-  window.clearNotes=function(){
-    if(confirm("Notizen löschen?")){
-      localStorage.removeItem(KEY);
-      load();
+    html += "<h2>Was die Quellen sagen</h2>";
+    if (abschnitte.length) {
+      html += '<p class="sprung">' + abschnitte.map(function (a) { return '<a href="#' + a.anker + '">' + a.titel + "</a>"; }).join(" ") + "</p>";
+      html += abschnitte.map(function (a) { return a.html; }).join("");
+      html += '<p class="klein">Lagebeschreibungen sind buchstabengetreu wiedergegeben. Die Abstände sind aus Ruten umgerechnet, ' +
+        'siehe <a href="begriffe.html#rute">Rute</a>.</p>';
+    } else {
+      html += "<p>Zu diesem Stein enthalten die historischen Quellen keine Angaben.</p>";
     }
-  };
-  load();
-});
-</script>
 
+    html += '<p class="klein">Dauerhafter Link zu diesem Steckbrief: <a href="https://beierstettel.de/Grenze/stein.html?id=' +
+      esc(r.ID) + '">beierstettel.de/Grenze/stein.html?id=' + esc(r.ID) + "</a></p>";
+
+    inhalt.innerHTML = html;
+  }).catch(function () {
+    inhalt.innerHTML = "<p>Die Daten konnten nicht geladen werden. Bitte laden Sie die Seite neu.</p>";
+  });
+})();
+</script>
 </body>
 </html>
