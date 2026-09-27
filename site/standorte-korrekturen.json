@@ -1,0 +1,9 @@
+{
+  "372": {
+    "lat": 49.618687800613834,
+    "lon": 9.714125323826767,
+    "years": ["1569", "1608", "1683", "1700", "1749", "1872"],
+    "method": "Dreimärker am Grenzknick; gegengeprüft mit 218,25 Metern ab GPS-Anker Stein 371 entgegen der GeoJSON-Linienrichtung",
+    "source": "Grenzgang 1872 und Kartenabgleich vom 1. August 2026"
+  }
+}

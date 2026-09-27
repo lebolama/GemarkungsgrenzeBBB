@@ -1,0 +1,13 @@
+# Datierte Backups liegen nur lokal auf Hendriks PC; ins Repo kommen nur Manifeste und LIESMICH.
+backups/**
+!backups/*/
+!backups/README.md
+!backups/*/_MANIFEST*.json
+!backups/*/_namenskollision/
+!backups/*/_namenskollision/LIESMICH.txt
+
+# Zu gross fürs Repo (40 MB); liegt im lokalen Backup und auf dem Server.
+site/Flurnamen/dgk5-tauberbischofsheim.jpg
+
+# Expression-Web-Metadaten
+_vti_cnf/

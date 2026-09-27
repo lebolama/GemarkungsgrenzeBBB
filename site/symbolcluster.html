@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Symbol-Clusteranalyse</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.box{background:#faf7f2;padding:18px;border-radius:12px;margin-top:18px}
+h2{margin-top:0;color:#6b0000}
+.big{font-size:22px;font-weight:bold}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #ddd;padding:6px;text-align:center}
+th{background:#eee}
+</style>
+</head>
+<body>
+
+<header><h1>Symbol-Clusteranalyse</h1></header>
+
+<div style="text-align:center;margin-top:10px">
+<a href="index.html">Start</a> |
+<a href="suche.html">Recherche</a> |
+<a href="vergleich.html">Vergleich</a> |
+<a href="karte.html">Karte</a>
+</div>
+
+<div class="container">
+
+<button onclick="run()">Analyse starten</button>
+
+<div id="out"></div>
+
+</div>
+
+<script>
+let data=[];
+fetch("data.json").then(r=>r.json()).then(j=>data=j);
+
+function clusterKey(row){
+
+let sy=row._derived?.symbols_by_year;
+if(!sy)return "keine";
+
+let max={
+w:0,r:0,k:0,b:0
+};
+
+for(let y in sy){
+let s=sy[y];
+max.w=Math.max(max.w,s.wappen_count||0);
+max.r=Math.max(max.r,s.rad_count||0);
+max.k=Math.max(max.k,s.kreuz_count||0);
+max.b=Math.max(max.b,s.b_count||0);
+}
+
+let parts=[];
+if(max.w)parts.push("W");
+if(max.r)parts.push("R");
+if(max.k)parts.push("K");
+if(max.b)parts.push("B"+max.b);
+
+return parts.length?parts.join("+"):"ohne Symbol";
+}
+
+function run(){
+
+let map={};
+
+data.forEach(r=>{
+let k=clusterKey(r);
+map[k]=(map[k]||0)+1;
+});
+
+let entries=Object.entries(map).sort((a,b)=>b[1]-a[1]);
+
+let total=data.length;
+
+let html="<div class=box><h2>Clusterhäufigkeit</h2>";
+html+="<table><tr><th>Cluster</th><th>Anzahl</th><th>Anteil</th></tr>";
+
+entries.forEach(([k,n])=>{
+html+=`<tr><td>${k}</td><td>${n}</td><td>${Math.round(n/total*100)}%</td></tr>`;
+});
+
+html+="</table></div>";
+
+// dominant
+let top=entries[0];
+html+=`
+<div class="box">
+<h2>Dominanter Symboltyp</h2>
+<div class="big">${top[0]}</div>
+Anteil ${Math.round(top[1]/total*100)}%
+</div>`;
+
+// seltene cluster
+let rare=entries.filter(e=>e[1]===1).map(e=>e[0]);
+
+html+=`
+<div class="box">
+<h2>Seltene Kombinationen</h2>
+${rare.length?rare.join(", "):"keine"}
+</div>`;
+
+// interpretative analyse
+html+=`
+<div class="box">
+<h2>Interpretation</h2>
+Cluster repräsentieren symbolische Markierungsstrategien.
+Mehrfachkombinationen deuten auf besonders stark markierte Grenzpunkte,
+Einzelsymbole auf Standardmarkierungen,
+fehlende Symbole auf funktionale Grenzsteine ohne Repräsentationsfunktion.
+</div>`;
+
+out.innerHTML=html;
+}
+</script>
+
+</body>
+</html>

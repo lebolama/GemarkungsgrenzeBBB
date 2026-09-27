@@ -1,0 +1,6 @@
+Auf dem Linux-Server existieren zwei Dateien, die sich nur in der
+Gross-/Kleinschreibung unterscheiden:
+  Zeitachse.html  (1732 Bytes, = lokale Expression-Web-Datei Zeitachse.html)
+  zeitachse.html  (2052 Bytes, liegt im Hauptordner)
+Unter Windows kann nur eine davon im selben Ordner liegen. Die grossgeschriebene
+Fassung steht deshalb hier.

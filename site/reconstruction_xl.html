@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rekonstruktionskarte – der historischen Grenzsteine auf der Gemarkungsgrenze Tauberbischofsheim</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    :root {
+      --bg: #f5f2ea;
+      --header: #7a0019;
+      --text: #1f1f1f;
+      --panel: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    header {
+      background: var(--header);
+      color: #fff;
+      padding: 10px 16px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    #map {
+      height: calc(100vh - 52px);
+      width: 100%;
+    }
+
+    .legend,
+    .info-box {
+      background: var(--panel);
+      padding: 10px 12px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+      line-height: 1.35;
+      max-width: 320px;
+    }
+
+    .legend h3,
+    .info-box h3 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+<header style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 20px;">
+  <h1 style="margin:0; flex:1;">
+    Interaktive Rekonstruktionskarte der historischen Grenzsteine auf der (Tauber-)Bischofsheimer Gemarkungsgrenze
+  </h1>
+  <a href="index.html" style="color:white; text-decoration:none; font-size:0.7em; white-space:nowrap;">
+    zurück zur Startseite
+  </a>
+</header>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const YEAR_CONFIG = [
+      { key: "1569", label: "Grenzgang 1569/1580", numberField: "1569 (1580) — Nr.", meterMode: "none" },
+      { key: "1608", label: "Grenzgang 1608", numberField: "1608 — Nr.", meterField: "1608 — Meter zum vorherigen", meterMode: "prev" },
+      { key: "1683", label: "Grenzgang 1683", numberField: "1683 — Nr.", meterField: "1683 — Meter zum vorherigen", meterMode: "prev" },
+      { key: "1700", label: "Grenzgang 1700", numberField: "1700 — Nr.", meterField: "1700 — Meter zum vorherigen", meterMode: "prev" },
+      { key: "1749", label: "Grenzgang 1749", numberField: "1749 — Nr.", meterField: "1749 — Meter zum vorherigen", meterMode: "prev" },
+      {
+        key: "1784",
+        label: "Großrinderfelder Grenzgang 1784",
+        numberField: "Großrinderfelder Grenzbegehung 1784 — Nr",
+        meterField: "Großrinderfelder Grenzbegehung 1784 — Meter",
+        meterMode: "next"
+      },
+      { key: "1872", label: "Grenzgang 1872", numberField: "1872 — Nr.", meterField: "1872 — Meter zum vorherigen", meterMode: "prev" },
+      {
+        key: "1887",
+        label: "Grenzberichtigungen 1887–1893",
+        numberField: "Grenzberichtigungen 1887-93 — Nr.",
+        meterField: "Grenzberichtigungen 1887-93 — Meter zum vorherigen",
+        meterMode: "prev"
+      }
+    ];
+
+    const map = L.map("map");
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 20,
+      attribution: '&copy; OpenStreetMap-Mitwirkende'
+    }).addTo(map);
+
+    const base2021Layer = L.layerGroup().addTo(map);
+    const yearLayers = {};
+
+    function parseGpsFromRow(row) {
+      if (row?._gps_parsed?.lat && row?._gps_parsed?.lon) return [row._gps_parsed.lat, row._gps_parsed.lon];
+      const raw = row["2021 — GPS"];
+      if (!raw || typeof raw !== "string") return null;
+      const m = raw.match(/N\s*([0-9.]+)\s*E\s*([0-9.]+)/i);
+      if (!m) return null;
+      return [Number(m[1]), Number(m[2])];
+    }
+
+    function parseNumberValue(v) {
+      if (v === null || v === undefined || v === "") return null;
+      if (typeof v === "number") return Number.isFinite(v) ? v : null;
+      const s = String(v).replace(",", ".").trim();
+      if (!s || s === "?") return null;
+      const n = Number(s);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function flattenBorderLatLngs(geojson) {
+      const candidates = [];
+      for (const feature of geojson.features || []) {
+        const g = feature.geometry;
+        if (!g) continue;
+        if (g.type === "LineString") {
+          candidates.push(g.coordinates.map(([lon, lat]) => [lat, lon]));
+        } else if (g.type === "MultiLineString") {
+          for (const part of g.coordinates) {
+            candidates.push(part.map(([lon, lat]) => [lat, lon]));
+          }
+        }
+      }
+      return candidates.sort((a, b) => b.length - a.length)[0] || [];
+    }
+
+    function createLineUtils(lineLatLngs) {
+      const earth = 6371000;
+      const refLatRad = (lineLatLngs[0][0] * Math.PI) / 180;
+      const cosRef = Math.cos(refLatRad);
+      const toXY = ([lat, lon]) => {
+        const latR = (lat * Math.PI) / 180;
+        const lonR = (lon * Math.PI) / 180;
+        return [earth * lonR * cosRef, earth * latR];
+      };
+      const toLatLon = ([x, y]) => [(y / earth) * (180 / Math.PI), (x / (earth * cosRef)) * (180 / Math.PI)];
+
+      const xy = lineLatLngs.map(toXY);
+      const cumulative = [0];
+      for (let i = 1; i < xy.length; i++) {
+        const dx = xy[i][0] - xy[i - 1][0];
+        const dy = xy[i][1] - xy[i - 1][1];
+        cumulative[i] = cumulative[i - 1] + Math.hypot(dx, dy);
+      }
+
+      const totalLength = cumulative[cumulative.length - 1] || 0;
+
+      function interpolate(chainage) {
+        const d = Math.min(totalLength, Math.max(0, chainage));
+        for (let i = 1; i < cumulative.length; i++) {
+          if (cumulative[i] >= d) {
+            const seg = cumulative[i] - cumulative[i - 1] || 1;
+            const t = (d - cumulative[i - 1]) / seg;
+            const x = xy[i - 1][0] + (xy[i][0] - xy[i - 1][0]) * t;
+            const y = xy[i - 1][1] + (xy[i][1] - xy[i - 1][1]) * t;
+            return toLatLon([x, y]);
+          }
+        }
+        return lineLatLngs[lineLatLngs.length - 1];
+      }
+
+      function snap(latlng) {
+        const p = toXY(latlng);
+        let best = { dist: Number.POSITIVE_INFINITY, chainage: 0, point: lineLatLngs[0] };
+
+        for (let i = 1; i < xy.length; i++) {
+          const a = xy[i - 1];
+          const b = xy[i];
+          const abx = b[0] - a[0];
+          const aby = b[1] - a[1];
+          const ab2 = abx * abx + aby * aby || 1;
+          const apx = p[0] - a[0];
+          const apy = p[1] - a[1];
+          const t = Math.max(0, Math.min(1, (apx * abx + apy * aby) / ab2));
+          const proj = [a[0] + abx * t, a[1] + aby * t];
+          const dist = Math.hypot(p[0] - proj[0], p[1] - proj[1]);
+          if (dist < best.dist) {
+            best = { dist, chainage: cumulative[i - 1] + Math.hypot(proj[0] - a[0], proj[1] - a[1]), point: toLatLon(proj) };
+          }
+        }
+        return best;
+      }
+
+      return { totalLength, interpolate, snap };
+    }
+
+    function yearPresence(row, cfg) {
+      const v = row[cfg.numberField];
+      return !(v === "" || v === null || v === undefined);
+    }
+
+    function distanceBetween(stones, prevIdx, currIdx, cfg) {
+      if (currIdx !== prevIdx + 1 || !cfg.meterField) return null;
+      if (cfg.meterMode === "prev") {
+        return parseNumberValue(stones[currIdx].row[cfg.meterField]);
+      }
+      if (cfg.meterMode === "next") {
+        return parseNumberValue(stones[prevIdx].row[cfg.meterField]);
+      }
+      return null;
+    }
+
+    function certaintyClass(base) {
+      if (base === "exact") return { color: "#0b7d22", label: "A (GPS 2021)" };
+      if (base === "A") return { color: "#d18900", label: "B (rekonstruiert ab GPS-Anker)" };
+      return { color: "#b10026", label: "C (rekonstruiert aus Kette)" };
+    }
+
+    function detailsLink(stoneId) {
+      if (stoneId === null || stoneId === undefined || stoneId === "") return "";
+      return `<a href="stein.html?id=${encodeURIComponent(stoneId)}">Details</a>`;
+    }
+
+    Promise.all([
+      fetch("Gemarkungsgrenze Tauberbischofsheim.geojson").then((r) => r.json()),
+      fetch("data.json").then((r) => r.json())
+    ]).then(([borderJson, rows]) => {
+      const borderLatLngs = flattenBorderLatLngs(borderJson);
+      if (!borderLatLngs.length) throw new Error("Keine Grenzgeometrie gefunden.");
+
+      const boundaryOverlay = L.geoJSON(borderJson, {
+        style: { color: "#d90000", weight: 4, opacity: 0.9 }
+      }).addTo(map);
+
+      const line = createLineUtils(borderLatLngs);
+      map.fitBounds(L.polyline(borderLatLngs).getBounds(), { padding: [20, 20] });
+
+      const stones = rows.map((row, i) => {
+        const gps = parseGpsFromRow(row);
+        const snapped = gps ? line.snap(gps) : null;
+        return {
+          idx: i,
+          id: row.ID,
+          row,
+          gps,
+          chainageGps: snapped ? snapped.chainage : null,
+          snappedGps: snapped ? snapped.point : null
+        };
+      });
+
+      // 2021-Basislayer (immer sichtbar)
+      stones.forEach((stone) => {
+        if (!stone.gps) return;
+        const yearsFound = YEAR_CONFIG.filter((cfg) => yearPresence(stone.row, cfg)).map((cfg) => cfg.key);
+        const label = `Stein ${stone.id} (2021${yearsFound.length ? ", " + yearsFound.join(", ") : ""})`;
+        const popup = [
+          `<b>${label}</b>`,
+          stone.row["Grenze"] ? `Grenze zu: ${stone.row["Grenze"]}` : "",
+          stone.row["2021 — Fotos"] ? `<a href="${stone.row["2021 — Fotos"]}" target="_blank" rel="noopener">Fotoalbum 2021</a>` : "",
+          `GPS: ${stone.gps[0].toFixed(8)}, ${stone.gps[1].toFixed(8)}`,
+          detailsLink(stone.id)
+        ]
+          .filter(Boolean)
+          .join("<br>");
+
+        L.circleMarker(stone.gps, {
+          radius: 5,
+          color: "#0b7d22",
+          weight: 2,
+          fillColor: "#18a13a",
+          fillOpacity: 0.85
+        })
+          .bindPopup(popup)
+          .addTo(base2021Layer);
+      });
+
+      const overlays = {
+        "Grenze (rot hervorgehoben)": boundaryOverlay
+      };
+
+      YEAR_CONFIG.forEach((cfg) => {
+        const layer = L.layerGroup();
+        yearLayers[cfg.key] = layer;
+
+        const positions = new Array(stones.length).fill(null);
+        const certainties = new Array(stones.length).fill(null);
+
+        for (let i = 0; i < stones.length; i++) {
+          if (yearPresence(stones[i].row, cfg) && stones[i].chainageGps !== null) {
+            positions[i] = stones[i].chainageGps;
+            certainties[i] = "exact";
+          }
+        }
+
+        let changed = true;
+        let guard = 0;
+        while (changed && guard < stones.length * 4) {
+          changed = false;
+          guard++;
+
+          for (let i = 1; i < stones.length; i++) {
+            if (!yearPresence(stones[i].row, cfg) || positions[i] !== null) continue;
+            if (!yearPresence(stones[i - 1].row, cfg) || positions[i - 1] === null) continue;
+            const d = distanceBetween(stones, i - 1, i, cfg);
+            if (d === null) continue;
+            positions[i] = positions[i - 1] + d;
+            certainties[i] = certainties[i - 1] === "exact" ? "A" : "C";
+            changed = true;
+          }
+
+          for (let i = stones.length - 2; i >= 0; i--) {
+            if (!yearPresence(stones[i].row, cfg) || positions[i] !== null) continue;
+            if (!yearPresence(stones[i + 1].row, cfg) || positions[i + 1] === null) continue;
+            const d = distanceBetween(stones, i, i + 1, cfg);
+            if (d === null) continue;
+            positions[i] = positions[i + 1] - d;
+            certainties[i] = certainties[i + 1] === "exact" ? "A" : "C";
+            changed = true;
+          }
+        }
+
+        for (let i = 0; i < stones.length; i++) {
+          if (!yearPresence(stones[i].row, cfg) || positions[i] === null) continue;
+          const latlng = line.interpolate(positions[i]);
+          const c = certaintyClass(certainties[i] || "C");
+
+          const dToPrev = i > 0 ? distanceBetween(stones, i - 1, i, cfg) : null;
+          const popup = [
+            `<b>Stein ${stones[i].id}</b>`,
+            `Quelle: ${cfg.label}`,
+            `Position: ${certainties[i] === "exact" ? "GPS 2021" : "rekonstruiert auf Grenze"}`,
+            dToPrev !== null ? `Distanz zum vorherigen Stein laut Protokoll: ${dToPrev} m` : "Keine Distanzangabe verfügbar",
+            `Unsicherheitsklasse: ${c.label}`,
+            detailsLink(stones[i].id)
+          ].join("<br>");
+
+          L.circleMarker(latlng, {
+            radius: certainties[i] === "exact" ? 4 : 6,
+            color: c.color,
+            weight: 2,
+            fillColor: c.color,
+            fillOpacity: certainties[i] === "exact" ? 0.6 : 0.85
+          })
+            .bindPopup(popup)
+            .addTo(layer);
+
+          if (certainties[i] !== "exact") {
+            L.circle(latlng, {
+              radius: certainties[i] === "A" ? 8 : 16,
+              color: c.color,
+              weight: 1,
+              opacity: 0.35,
+              fillOpacity: 0.06
+            }).addTo(layer);
+          }
+        }
+
+        overlays[cfg.label] = layer;
+      });
+
+      overlays["Steine 2021 (GPS)"] = base2021Layer;
+      L.control.layers(null, overlays, { collapsed: false }).addTo(map);
+
+
+      const legend = L.control({ position: "bottomright" });
+      legend.onAdd = () => {
+        const div = L.DomUtil.create("div", "legend");
+        div.innerHTML = `
+          <h3>Unsicherheitsvisualisierung</h3>
+          <div><span class="dot" style="background:#0b7d22"></span>A: GPS-basiert (2021)</div>
+          <div><span class="dot" style="background:#d18900"></span>B: Rekonstruktion ab GPS-Anker + Distanz</div>
+          <div><span class="dot" style="background:#b10026"></span>C: Rekonstruktion aus Distanzkette</div>
+        `;
+        return div;
+      };
+      legend.addTo(map);
+    }).catch((err) => {
+      console.error(err);
+      L.popup()
+        .setLatLng(map.getCenter())
+        .setContent("Fehler beim Laden von data.json oder der GeoJSON-Grenzdatei. Bitte prüfen, ob beide Dateien im gleichen Ordner wie reconstruction.html liegen.")
+        .openOn(map);
+    });
+  </script>
+</body>
+</html>

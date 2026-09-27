@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Periodenanalyse</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.box{background:#faf7f2;padding:18px;border-radius:12px;margin-top:18px}
+h2{margin-top:0;color:#6b0000}
+.big{font-size:22px;font-weight:bold}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #ddd;padding:6px;text-align:center}
+th{background:#eee}
+</style>
+</head>
+<body>
+
+<header><h1>Periodenanalyse – Symboltypen</h1></header>
+
+<div style="text-align:center;margin-top:10px">
+<a href="index.html">Start</a> |
+<a href="suche.html">Recherche</a> |
+<a href="vergleich.html">Vergleich</a> |
+<a href="karte.html">Karte</a>
+</div>
+
+<div class="container">
+<button onclick="run()">Analyse starten</button>
+<div id="out"></div>
+</div>
+
+<script>
+const YEARS=["1569","1608","1683","1700","1749","1872","1887","2021"];
+let data=[];
+fetch("data.json").then(r=>r.json()).then(j=>data=j);
+
+function cluster(row,year){
+let s=row._derived?.symbols_by_year?.[year];
+if(!s) return null;
+
+let p=[];
+if(s.wappen_count>0)p.push("W");
+if(s.rad_count>0)p.push("R");
+if(s.kreuz_count>0)p.push("K");
+if(s.b_count>0)p.push("B"+s.b_count);
+
+return p.length?p.join("+"):"ohne";
+}
+
+function stats(year){
+let map={};
+let total=0;
+
+data.forEach(r=>{
+if(!r._derived?.presence_by_year?.[year]) return;
+
+let c=cluster(r,year);
+if(!c)return;
+
+map[c]=(map[c]||0)+1;
+total++;
+});
+
+return {map,total};
+}
+
+function dominant(map){
+let best=null,max=0;
+for(let k in map){
+if(map[k]>max){max=map[k];best=k;}
+}
+return best;
+}
+
+function run(){
+
+let html="";
+
+// Tabelle
+html+="<div class=box><h2>Dominante Symboltypen pro Epoche</h2>";
+html+="<table><tr><th>Jahr</th><th>dominanter Typ</th><th>Anteil</th></tr>";
+
+let timeline={};
+
+YEARS.forEach(y=>{
+let s=stats(y);
+if(!s.total)return;
+
+let d=dominant(s.map);
+let pct=Math.round(s.map[d]/s.total*100);
+
+html+=`<tr><td>${y}</td><td>${d}</td><td>${pct}%</td></tr>`;
+
+timeline[y]=d;
+});
+
+html+="</table></div>";
+
+
+// Stabilität
+let unique=new Set(Object.values(timeline));
+
+html+=`
+<div class="box">
+<h2>Periodenstruktur</h2>
+Unterschiedliche dominante Typen: <b>${unique.size}</b><br>
+Interpretation: ${
+unique.size<=2
+?"hohe Symbolkontinuität"
+:unique.size<=4
+?"moderate Wandelphase"
+:"starke Symbolumbrüche"}
+</div>`;
+
+// Wechselanalyse
+let changes=0;
+let prev=null;
+
+for(let y of YEARS){
+let d=timeline[y];
+if(!d)continue;
+if(prev && prev!==d)changes++;
+prev=d;
+}
+
+html+=`
+<div class="box">
+<h2>Symbolwechsel</h2>
+Dominanzwechsel: <span class="big">${changes}</span><br>
+Je mehr Wechsel, desto dynamischer die Grenzsymbolik.
+</div>`;
+
+// Kurzlebige Typen
+let freq={};
+
+YEARS.forEach(y=>{
+let s=stats(y);
+for(let k in s.map){
+freq[k]=(freq[k]||0)+1;
+}
+});
+
+let short=Object.entries(freq).filter(e=>e[1]===1).map(e=>e[0]);
+
+html+=`
+<div class="box">
+<h2>Kurzlebige Symboltypen</h2>
+${short.length?short.join(", "):"keine"}
+</div>`;
+
+// Interpretation
+html+=`
+<div class="box">
+<h2>Historische Interpretation</h2>
+Dominante Symboltypen markieren administrative Normphasen.
+Kurzlebige Typen deuten auf Reformphasen, Grenzkorrekturen oder lokale Sonderlösungen.
+Häufige Dominanzwechsel sprechen für politische oder administrative Umbrüche.
+</div>`;
+
+out.innerHTML=html;
+}
+</script>
+
+</body>
+</html>

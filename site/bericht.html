@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Forschungsbericht Generator</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+button{padding:10px 18px;font-size:16px}
+.report{background:#faf7f2;padding:20px;border-radius:12px;margin-top:20px}
+h2{color:#6b0000}
+</style>
+</head>
+<body>
+
+<header><h1>Automatischer Forschungsbericht</h1></header>
+
+<div style="text-align:center;margin-top:10px">
+<a href="index.html">Start</a> |
+<a href="suche.html">Recherche</a> |
+<a href="vergleich.html">Vergleich</a> |
+<a href="karte.html">Karte</a>
+</div>
+
+<div class="container">
+<button onclick="generate()">Bericht erzeugen</button>
+<button onclick="downloadPDF()">PDF herunterladen</button>
+<div id="report" class="report"></div>
+</div>
+
+<script>
+let data=[];
+fetch("data.json").then(r=>r.json()).then(j=>data=j);
+
+const YEARS=["1569","1608","1683","1700","1749","1872","1887","2021"];
+
+function countYear(y){
+return data.filter(r=>r._derived?.presence_by_year?.[y]).length;
+}
+
+function symPct(year,key){
+let subset=data.filter(r=>r._derived?.presence_by_year?.[year]);
+let n=subset.length;
+if(!n) return 0;
+let c=subset.filter(r=>r._derived.symbols_by_year?.[year]?.[key]>0).length;
+return Math.round(c/n*100);
+}
+
+// ---- neue B-Statistik ----
+function bDist(year){
+let subset=data.filter(r=>r._derived?.presence_by_year?.[year]);
+let n=subset.length;
+if(!n)return null;
+
+let any=0,e1=0,e2=0,e3=0;
+
+subset.forEach(r=>{
+let b=r._derived?.symbols_by_year?.[year]?.b_count||0;
+if(b>0) any++;
+if(b===1)e1++;
+if(b===2)e2++;
+if(b===3)e3++;
+});
+
+let pct=x=>Math.round(x/n*100);
+return {
+any:pct(any),
+e1:pct(e1),
+e2:pct(e2),
+e3:pct(e3)
+};
+}
+
+function generate(){
+
+let text="";
+
+text+=`<h2>Digitaler Forschungsbericht – Grenzsteine Tauberbischofsheim</h2>`;
+text+=`Datensätze: <b>${data.length}</b><br><br>`;
+
+text+="<h3>Zeitliche Überlieferung</h3>";
+YEARS.forEach(y=>{
+text+=`${y}: ${countYear(y)} dokumentierte Steine<br>`;
+});
+
+text+="<h3>Symbolentwicklung</h3>";
+YEARS.forEach(y=>{
+let b=bDist(y);
+text+=`<b>${y}</b><br>`;
+text+=`Wappen ${symPct(y,"wappen_count")}% · Rad ${symPct(y,"rad_count")}% · Kreuz ${symPct(y,"kreuz_count")}%<br>`;
+if(b){
+text+=`B-Symbolik → ≥1: ${b.any}% | =1: ${b.e1}% | =2: ${b.e2}% | =3: ${b.e3}%<br>`;
+}
+text+="<br>";
+});
+
+report.innerHTML=text;
+}
+
+async function downloadPDF(){
+const { jsPDF } = window.jspdf;
+let pdf=new jsPDF();
+let txt=report.innerText.split("\n");
+let y=10;
+txt.forEach(line=>{
+pdf.text(line,10,y);
+y+=7;
+if(y>280){pdf.addPage();y=10;}
+});
+pdf.save("Forschungsbericht.pdf");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Karte</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css"/>
+
+<style>
+body{margin:0;font-family:serif;background:#f5f2ea}
+header{padding:10px;text-align:center;background:#7a0019;color:white}
+#map{height:85vh}
+
+.legend{
+background:white;
+padding:10px;
+border-radius:10px;
+box-shadow:0 0 15px rgba(0,0,0,0.2);
+line-height:1.5em;
+}
+
+.dot{
+display:inline-block;
+width:12px;
+height:12px;
+border-radius:50%;
+margin-right:6px;
+}
+.real{background:#2e8b57}
+.recon{background:#d9822b}
+</style>
+</head>
+<body>
+
+<header><h1>Kartenanalyse</h1></header>
+
+<div style="text-align:center;margin-top:10px">
+<a href="index.html">Start</a> |
+<a href="suche.html">Recherche</a> |
+<a href="vergleich.html">Vergleich</a> |
+<a href="karte.html">Karte</a>
+</div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+<script>
+
+// Karte
+const map=L.map("map").setView([49.62,9.66],13);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+attribution:"© OpenStreetMap"
+}).addTo(map);
+
+
+// ===============================
+// Layergruppen
+// ===============================
+const steineLayer=L.layerGroup();
+const rekonLayer=L.layerGroup();
+
+const grenzpunktCluster=L.markerClusterGroup({
+spiderfyOnMaxZoom:true,
+disableClusteringAtZoom:17,
+maxClusterRadius:40
+});
+
+let grenzeLayer=null;
+
+
+// ===============================
+// Marker Icon
+// ===============================
+function marker(color){
+return L.divIcon({
+html:`<div style="background:${color};width:14px;height:14px;border-radius:50%;border:2px solid white"></div>`,
+iconSize:[14,14]
+});
+}
+
+
+// ===============================
+// Steine laden
+// ===============================
+fetch("data.json")
+.then(r=>r.json())
+.then(data=>{
+
+data.forEach(r=>{
+
+if(!r.gps || !r.gps.includes(",")) return;
+
+let [lat,lon]=r.gps.split(",").map(Number);
+
+let m=L.marker([lat,lon],{icon:marker("#2e8b57")})
+.bindPopup(`<b>Grenzstein ${r.id}</b><br>${r.gemarkung||""}`);
+
+steineLayer.addLayer(m);
+
+});
+
+});
+
+
+// ===============================
+// Grenzpunkte laden
+// ===============================
+fetch("grenzpunkte.geojson")
+.then(r=>r.json())
+.then(g=>{
+
+let layer=L.geoJSON(g,{
+pointToLayer:(f,latlng)=>L.circleMarker(latlng,{
+radius:2,
+color:"#0044cc",
+weight:1,
+fillOpacity:.8
+})
+});
+
+grenzpunktCluster.addLayer(layer);
+
+});
+
+
+// ===============================
+// Grenzlinie laden
+// ===============================
+fetch("grenzlinie.geojson")
+.then(r=>r.json())
+.then(g=>{
+
+grenzeLayer=L.geoJSON(g,{
+style:{color:"red",weight:3,opacity:0.9}
+});
+
+layerControl.addOverlay(grenzeLayer,"Gemarkungsgrenze");
+
+});
+
+
+// ===============================
+// Layercontrol
+// ===============================
+const overlayMaps={
+"Historische Grenzsteine":steineLayer,
+"Rekonstruierte Steine":rekonLayer,
+"Opengeodata.lgl-bw.de-Grenzpunkte":grenzpunktCluster
+};
+
+const layerControl=L.control.layers(null,overlayMaps,{collapsed:false}).addTo(map);
+
+
+// ===============================
+// Legende
+// ===============================
+const legend=L.control({position:"bottomright"});
+
+legend.onAdd=function(){
+const div=L.DomUtil.create("div","legend");
+
+div.innerHTML=`
+<b>Legende</b><br>
+<span class="dot real"></span>GPS-Grenzsteine<br>
+<span class="dot recon"></span>Rekonstruiert<br>
+<span style="color:#0044cc">●</span> LGL-Grenzpunkte
+`;
+
+return div;
+};
+
+legend.addTo(map);
+
+</script>
+</body>
+</html>

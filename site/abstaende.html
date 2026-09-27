@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Abstandsstatistik</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{font-family:serif;background:#f5f2ea;margin:0;padding:20px}
+h1{text-align:center}
+.box{background:white;padding:20px;margin:20px auto;max-width:1000px;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,.1)}
+</style>
+</head>
+<body>
+
+<h1>Abstände zwischen Grenzsteinen</h1>
+
+<div style="text-align:center;margin-top:10px">
+<a href="index.html">Start</a> |
+<a href="suche.html">Recherche</a> |
+<a href="vergleich.html">Vergleich</a> |
+<a href="karte.html">Karte</a>
+</div>
+
+<div class="box">
+<h2>Durchschnittsabstand pro Grenzgang</h2>
+<canvas id="chart"></canvas>
+</div>
+
+<div class="box" id="stats"></div>
+
+<script>
+
+const YEARS=["1569","1608","1683","1700","1749","1872","1887"];
+
+function getDist(row,year){
+
+// mögliche Felder durchsuchen
+let obj=row[year];
+if(!obj) return null;
+
+for(let k in obj){
+if(k.toLowerCase().includes("meter"))
+return Number(obj[k]);
+}
+
+return null;
+}
+
+fetch("data.json")
+.then(r=>r.json())
+.then(data=>{
+
+let averages=[];
+let report="";
+
+YEARS.forEach(y=>{
+
+let arr=[];
+
+data.forEach(r=>{
+let d=getDist(r,y);
+if(!isNaN(d)) arr.push(d);
+});
+
+if(!arr.length){
+averages.push(null);
+return;
+}
+
+let avg=arr.reduce((a,b)=>a+b)/arr.length;
+let min=Math.min(...arr);
+let max=Math.max(...arr);
+
+averages.push(avg.toFixed(1));
+
+report+=`
+<b>${y}</b><br>
+Messungen: ${arr.length}<br>
+Ø Abstand: ${avg.toFixed(2)} m<br>
+Min: ${min.toFixed(2)} m<br>
+Max: ${max.toFixed(2)} m<br><br>
+`;
+
+});
+
+stats.innerHTML="<h2>Statistische Übersicht</h2>"+report;
+
+new Chart(chart,{
+type:"line",
+data:{labels:YEARS,datasets:[{label:"Ø Abstand (m)",data:averages,tension:.2}]},
+options:{scales:{y:{beginAtZero:true}}}
+});
+
+});
+</script>
+
+</body>
+</html>

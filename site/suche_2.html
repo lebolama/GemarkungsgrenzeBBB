@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Forschungsinterface – Vergleichsanalyse</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card input,.card select{width:100%}
+.results{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{font-size:14px;color:#444;margin-top:6px}
+.diff{margin-top:10px;font-size:14px}
+</style>
+</head>
+<body>
+
+<header><h1>Vergleichsanalyse – Grenzsteine</h1></header>
+
+<div style="text-align:center;margin-top:10px">
+<a href="index.html">Start</a> |
+<a href="suche_2.html">Recherche</a> |
+<a href="veraenderung.html">Zeitliche Veränderung</a> |
+<a href="vergleich.html">Vergleich</a> |
+<a href="karte.html">Karte</a> |
+<a href="statistik.html">Statistik</a> |
+<a href="Zeitachse.html">Zeitachse</a> |
+<a href="projekt.html">Projektbeschreibung</a> |
+<a href="edition.html">Edition</a> |
+<a href="quellen.html">Quellen</a> |
+<a href="changelog.html">Changelog</a> |
+<a href="download.html">Datensatz</a> |
+<a href="impressum.html">Impressum</a>
+</div>
+
+
+<div class="container">
+
+<div class="grid">
+
+<div class="card">
+<h3>Filter A</h3>
+<div id="A"></div>
+<div class="stat" id="statA"></div>
+</div>
+
+<div class="card">
+<h3>Filter B</h3>
+<div id="B"></div>
+<div class="stat" id="statB"></div>
+</div>
+
+</div>
+
+<div class="card">
+<h3>Vergleich</h3>
+<div id="diff" class="diff"></div>
+</div>
+
+<div class="results">
+<div id="resA"></div>
+<div id="resB"></div>
+</div>
+
+</div>
+
+<script>
+let data=[];
+fetch("data.json").then(r=>r.json()).then(j=>{
+data=j;
+buildFilters("A");
+buildFilters("B");
+run();
+});
+
+const YEARS=["","1569","1608","1683","1700","1749","1872","1887","2021"];
+
+function buildFilters(side){
+let el=document.getElementById(side);
+el.innerHTML=`
+<input placeholder="Text" id="${side}_text">
+<select id="${side}_year">${YEARS.map(y=>`<option value="${y}">${y||"Alle Jahre"}</option>`).join("")}</select>
+<label><input type=checkbox id="${side}_dreim"> Dreimärker</label>
+<label><input type=checkbox id="${side}_jahr"> Jahreszahl</label>
+<label><input type=checkbox id="${side}_wap"> Wappen</label>
+<label><input type=checkbox id="${side}_rad"> Rad</label>
+<label><input type=checkbox id="${side}_kre"> Kreuz</label>
+<label><input type=checkbox id="${side}_b"> b</label>
+`;
+el.querySelectorAll("input,select").forEach(i=>i.oninput=run);
+}
+
+function hasSymbol(r,t){
+let sy=r._derived?.symbols_by_year;
+if(!sy) return false;
+for(let y in sy){
+let s=sy[y];
+if(t=="wappen" && s.wappen_count>0) return true;
+if(t=="rad" && s.rad_count>0) return true;
+if(t=="kreuz" && s.kreuz_count>0) return true;
+}
+return false;
+}
+
+function bCount(r){
+let sy=r._derived?.symbols_by_year;
+if(!sy) return 0;
+let m=0;
+for(let y in sy)m=Math.max(m,sy[y].b_count||0);
+return m;
+}
+
+function filter(side){
+let t=document.getElementById(side+"_text").value.toLowerCase();
+let y=document.getElementById(side+"_year").value;
+
+return data.filter(r=>{
+
+if(t && !Object.values(r).some(v=>String(v).toLowerCase().includes(t))) return false;
+
+if(y){
+if(y=="1887"){
+if(!Object.keys(r).some(k=>k.includes("1887")||k.includes("189"))) return false;
+}else{
+if(!r._derived?.presence_by_year?.[y]) return false;
+}
+}
+
+if(document.getElementById(side+"_dreim").checked && !r._derived?.is_dreimaerker) return false;
+if(document.getElementById(side+"_jahr").checked && !(r._derived?.year_on_stone_values?.length>0)) return false;
+if(document.getElementById(side+"_wap").checked && !hasSymbol(r,"wappen")) return false;
+if(document.getElementById(side+"_rad").checked && !hasSymbol(r,"rad")) return false;
+if(document.getElementById(side+"_kre").checked && !hasSymbol(r,"kreuz")) return false;
+if(document.getElementById(side+"_b").checked && bCount(r)==0) return false;
+
+return true;
+});
+}
+
+function stat(list,id){
+if(!list.length){document.getElementById(id).textContent="";return;}
+let p=n=>Math.round(n/list.length*100)+"%";
+document.getElementById(id).innerHTML=
+"Dreimärker "+p(list.filter(r=>r._derived?.is_dreimaerker).length)+" · "+
+"Wappen "+p(list.filter(r=>hasSymbol(r,"wappen")).length)+" · "+
+"Rad "+p(list.filter(r=>hasSymbol(r,"rad")).length)+" · "+
+"Kreuz "+p(list.filter(r=>hasSymbol(r,"kreuz")).length);
+}
+
+function render(list,id){
+let el=document.getElementById(id);
+el.innerHTML="";
+list.forEach(r=>{
+let d=document.createElement("div");
+d.className="card";
+d.innerHTML="<b>"+Object.values(r)[0]+"</b><br>"+Object.values(r)[1];
+d.onclick=()=>location="stein.html?id="+Object.values(r)[0];
+el.appendChild(d);
+});
+}
+
+function run(){
+let A=filter("A");
+let B=filter("B");
+
+render(A,"resA");
+render(B,"resB");
+
+stat(A,"statA");
+stat(B,"statB");
+
+let idsA=new Set(A.map(r=>r.ID));
+let idsB=new Set(B.map(r=>r.ID));
+
+let onlyA=[...idsA].filter(x=>!idsB.has(x));
+let onlyB=[...idsB].filter(x=>!idsA.has(x));
+let both=[...idsA].filter(x=>idsB.has(x));
+
+diff.innerHTML=
+`Nur A: ${onlyA.length} | Nur B: ${onlyB.length} | Beide: ${both.length}`;
+}
+</script>
+
+</body>
+</html>

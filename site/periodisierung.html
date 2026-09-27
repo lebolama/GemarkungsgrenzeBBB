@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Automatische Periodisierung</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.box{background:#faf7f2;padding:18px;border-radius:12px;margin-top:18px}
+h2{margin-top:0;color:#6b0000}
+.big{font-size:24px;font-weight:bold}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #ddd;padding:6px;text-align:center}
+th{background:#eee}
+</style>
+</head>
+<body>
+
+<header><h1>Automatische Periodisierung</h1></header>
+
+<div style="text-align:center;margin-top:10px">
+<a href="index.html">Start</a> |
+<a href="suche.html">Recherche</a> |
+<a href="vergleich.html">Vergleich</a> |
+<a href="karte.html">Karte</a>
+</div>
+
+<div class="container">
+<button onclick="run()">Periodisierung berechnen</button>
+<div id="out"></div>
+</div>
+
+<script>
+const YEARS=["1569","1608","1683","1700","1749","1872","1887","2021"];
+let data=[];
+fetch("data.json").then(r=>r.json()).then(j=>data=j);
+
+function features(year){
+
+let set=data.filter(r=>r._derived?.presence_by_year?.[year]);
+let n=set.length;
+if(!n)return null;
+
+let f={w:0,r:0,k:0,b:0};
+
+set.forEach(r=>{
+let s=r._derived?.symbols_by_year?.[year]||{};
+if(s.wappen_count>0)f.w++;
+if(s.rad_count>0)f.r++;
+if(s.kreuz_count>0)f.k++;
+if(s.b_count>0)f.b++;
+});
+
+for(let k in f)f[k]=f[k]/n;
+return f;
+}
+
+function distance(a,b){
+return Math.sqrt(
+Math.pow(a.w-b.w,2)+
+Math.pow(a.r-b.r,2)+
+Math.pow(a.k-b.k,2)+
+Math.pow(a.b-b.b,2)
+);
+}
+
+function run(){
+
+let vecs={};
+YEARS.forEach(y=>vecs[y]=features(y));
+
+let html="";
+
+// Distanzmatrix
+html+="<div class=box><h2>Distanzmatrix</h2><table><tr><th></th>";
+YEARS.forEach(y=>html+=`<th>${y}</th>`);
+html+="</tr>";
+
+YEARS.forEach(y1=>{
+html+=`<tr><th>${y1}</th>`;
+YEARS.forEach(y2=>{
+let v1=vecs[y1],v2=vecs[y2];
+let d=(v1&&v2)?distance(v1,v2):0;
+html+=`<td>${d.toFixed(2)}</td>`;
+});
+html+="</tr>";
+});
+html+="</table></div>";
+
+
+// Bruchstellen erkennen
+let breaks=[];
+for(let i=0;i<YEARS.length-1;i++){
+let y1=YEARS[i];
+let y2=YEARS[i+1];
+let d=distance(vecs[y1],vecs[y2]);
+breaks.push({pair:y1+"→"+y2,d});
+}
+
+let avg=breaks.reduce((a,b)=>a+b.d,0)/breaks.length;
+
+let major=breaks.filter(b=>b.d>avg*1.5);
+
+// Anzeige
+html+=`<div class="box"><h2>Erkannte Periodenbrüche</h2>`;
+
+if(!major.length){
+html+="Keine signifikanten Brüche erkannt.";
+}else{
+major.forEach(b=>{
+html+=`<div class="big">${b.pair}</div> Distanz ${b.d.toFixed(2)}<br><br>`;
+});
+}
+html+="</div>";
+
+
+// Periodenbildung
+let periods=[];
+let start=YEARS[0];
+
+breaks.forEach((b,i)=>{
+if(b.d>avg*1.5){
+periods.push(start+"–"+YEARS[i]);
+start=YEARS[i+1];
+}
+});
+
+periods.push(start+"–"+YEARS.at(-1));
+
+html+=`<div class="box"><h2>Automatisch berechnete Perioden</h2>`;
+periods.forEach(p=>html+=p+"<br>");
+html+="</div>";
+
+
+// Interpretation
+html+=`
+<div class="box">
+<h2>Interpretation</h2>
+Perioden entstehen dort, wo sich die Symbolstruktur deutlich verändert.
+Hohe Distanzwerte markieren historische Umbruchphasen.
+Niedrige Werte deuten auf stabile Verwaltungs- und Grenzpraktiken.
+</div>`;
+
+out.innerHTML=html;
+}
+</script>
+
+</body>
+</html>

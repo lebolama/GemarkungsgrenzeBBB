@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/print.css" media="print">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header><h1>Zeitliche Entwicklung</h1></header>
+
+
+<div style="text-align:center;margin-top:10px">
+<a href="index.html">Start</a> |
+<a href="suche.html">Recherche</a> |
+<a href="vergleich.html">Vergleich</a> |
+<a href="karte.html">Karte</a>
+</div>
+
+<div class="container">
+
+<div class="card" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+  <button id="btnPng">Diagramm als PNG</button>
+  <button onclick="window.print()">Druckansicht</button>
+</div>
+
+<div class="card">
+  <canvas id="chart"></canvas>
+</div>
+
+</div>
+
+<script>
+fetch("data.json").then(r=>r.json()).then(data=>{
+
+  const years=["1569","1608","1683","1700","1749","1872"];
+  const counts={}; years.forEach(y=>counts[y]=0);
+
+  data.forEach(r=>{
+    Object.keys(r).forEach(k=>{
+      years.forEach(y=>{
+        if(k.includes(y) && r[k]) counts[y]++;
+      });
+    });
+  });
+
+  const c = document.getElementById("chart");
+  const chartObj = new Chart(c,{
+    type:"line",
+    data:{
+      labels:Object.keys(counts),
+      datasets:[{
+        label:"Dokumentierte Einträge (nicht normalisiert)",
+        data:Object.values(counts),
+        fill:false
+      }]
+    },
+    options:{
+      plugins:{
+        tooltip:{enabled:true},
+        legend:{display:true}
+      }
+    }
+  });
+
+  document.getElementById("btnPng").onclick=()=>{
+    const a=document.createElement("a");
+    a.href=chartObj.toBase64Image();
+    a.download="zeitachse_grenzsteine.png";
+    a.click();
+  };
+});
+</script>
+
+</body>
+</html>
