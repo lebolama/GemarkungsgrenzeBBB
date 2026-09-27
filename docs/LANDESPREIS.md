@@ -137,8 +137,16 @@ heimatpflege@mwk.bwl.de
 
 ## Offene Punkte
 
-- [ ] Hendrik: Ausbildung/Beruf – kein Bezug zur Arbeit? (Ausschlusskriterium)
-- [ ] Hendrik: Wohnsitz in Baden-Württemberg? Nie Landespreisträger?
+- [x] Ausbildung/Beruf: Hendrik Beierstettel ist hauptberuflich Leiter der
+      Zentralen Studienberatung der Universität Würzburg – kein Bezug zu
+      Geschichte, Archivwesen oder Vermessung. Heimatforschung ist Hobby.
+      → kein Ausschlussgrund. (Antwort Hendrik, 27.09.2026)
+- [x] Wohnsitz: Tauberbischofsheim (Geburtsstadt), Main-Tauber-Kreis, BW.
+- [x] Noch nie am Wettbewerb teilgenommen, also auch kein früherer Preis.
+- Für die Dokumentation nutzen: Mitglied der Tauberfränkischen Heimatfreunde e.V.;
+  **ehrenamtlicher Grenzsteinbeauftragter der Stadt Tauberbischofsheim**
+  (verliehen aufgrund seiner Tätigkeit). Das belegt heimatkundliche Einbindung
+  und passt zum Themenfeld „Denkmalschutz“ und „Bürgerengagement“.
 - [ ] Hendrik: Frist 31.10.2026 halten oder Runde 2028 (Ausschreibung Mai–Okt. 2027)? Entscheidung nach Vorlage der Vorschlagsliste.
 - [ ] Umgang mit KI-Anteil in der Dokumentation festlegen (Vorschlag: offen benennen, Forschungsleistung klar abgrenzen).
 - [ ] Ggf. bei der Geschäftsstelle nachfragen, ob ein eingefrorener Snapshot-Link akzeptiert wird.

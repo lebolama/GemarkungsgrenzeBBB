@@ -76,15 +76,17 @@ docs/DEPLOYMENT.md     Backup-, Upload- und Dokumentationsverfahren
 docs/LANDESPREIS.md    Alles zum Landespreis für Heimatforschung
 docs/VORSCHLAEGE.md    Verbesserungsliste für die Website (Schritt 2)
 docs/PROTOKOLL.md      Laufendes Arbeitsprotokoll
-site/                  (geplant) Spiegel des aktuellen Live-Stands
-backups/               (geplant) datierte Sicherungen vor jedem Upload
+docs/landespreis/      Originalunterlagen des Landespreises (PDF)
+site/                  Spiegel des Live-Stands (byte-genau)
+backups/               datierte Sicherungen (Dateien lokal, im Repo nur Manifeste)
 ```
 
 ## Fahrplan
 
 - [x] Schritt 1: Projektdokumentation anlegen (dieses Repo)
-- [ ] Schritt 1b: Aktuellen Live-Stand der Website ins Repo holen (`site/`), Erst-Backup
-- [ ] Schritt 2: Website Seite für Seite sichten, Vorschlagsliste (`docs/VORSCHLAEGE.md`) → Freigabe durch Hendrik
+- [x] Schritt 1b: Aktuellen Live-Stand der Website ins Repo holen (`site/`), Erst-Backup (27.09.2026)
+- [x] Schritt 2: Website Seite für Seite sichten, Vorschlagsliste (`docs/VORSCHLAEGE.md`) (27.09.2026)
+- [ ] Schritt 2b: Freigabe der Vorschlagsliste durch Hendrik
 - [ ] Schritt 3: Texte und Layout überarbeiten (ohne die drei geschützten Seiten)
 - [ ] Schritt 4: Upload mit Backup und Protokoll
 - [ ] Schritt 5: Bewerbungsunterlagen Landespreis erstellen und einreichen (Frist 31.10.2026)
