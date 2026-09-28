@@ -1,5 +1,19 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 21:58 – Voller Wortlaut statt Kurzfassung in den gekürzten Abschriften
+
+Entscheidung Hendrik: Wo die PDF-Kommentare den ausführlichen Text eines Steins enthalten, ersetzt
+dieser die Kurzfassung aus der Excel-Spalte „sonstiges“. `werkzeuge/erfassung_seiten.py` liest dazu
+die nummerierten Kommentare aus „Büschemer Gemarkungsumgehungen.pdf“ (1569: S. 1–20, Abschrift 1580:
+S. 21–48; „8.) & 9.)“ gilt für beide Nummern; Randvermerk „wegen großen Rinderfeldt“ vor Stein 70
+abgetrennt). Ergebnis: 40 Steine auf `erfassung-1569.html` im vollen Wortlaut. 1608 nur Nr. 1, weil
+die Kommentarnummer „18.)“ zu einem anderen Stein gehört als Nr. 18 der Tabelle. 1700 und 1749:
+keine Kommentare, unverändert.
+
+Hochgeladen (Sicherung `backups/2026-09-28_2157_server_ftp`): erfassung-1569, erfassung-1608 –
+2/2 identisch; lokaler Ordner und `site/` angeglichen.
+
+
 ## 28.09.2026, 21:47 – Gekürzte Abschriften 1569/1580, 1608, 1700, 1749
 
 Vollständige Transkriptionen der übrigen Bücher liegen auf einer externen Festplatte (Hendrik sucht).

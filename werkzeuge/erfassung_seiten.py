@@ -23,7 +23,15 @@ RAND = {
     "1569": [(2, "??, f??? ?? uff Montag", "Der Anfang des Protokolls von 1569")],
     "1580": [(41, "wegen großen Rinderfeldt", "Wechsel der Begleiter an der Grenze zu Großrinderfeld (Abschrift 1580)")],
     "1608": [(50, "Ano 1608", "Der Anfang des Protokolls von 1608"),
-             (68, "18.) Ein rother Stein", "Nachtrag zu Nr. 18 (Dreimärker Bischofsheim – Großrinderfeld – Impfingen)")],
+             (68, "18.) Ein rother Stein", "Anmerkung beim Dreimärker Bischofsheim – Großrinderfeld – Impfingen")],
+}
+
+# Ausführlicher Wortlaut aus den PDF-Kommentaren ersetzt die Kurzfassung aus der Tabelle
+# (Entscheidung Hendrik 28.09.2026). Seitenbereiche in der Sammeldatei; nur Nummern, deren
+# Zuordnung geprüft ist (1608: Nummerierung der Kommentare weicht ab, daher nur Nr. 1).
+WORTLAUT = {
+    "1569": {"bereiche": [(1, 20), (21, 48)], "nur": None},
+    "1608": {"bereiche": [(49, 77)], "nur": {1}},
 }
 
 SEITEN = {
@@ -72,6 +80,33 @@ def rand_html(text):
     return t
 
 
+def wortlaut(jahr):
+    cfg = WORTLAUT.get(jahr)
+    if not cfg or not SAMMEL.exists():
+        return {}
+    d = fitz.open(SAMMEL)
+    out = {}
+    for a, b in cfg["bereiche"]:
+        for i in range(a - 1, b):
+            for x in d[i].annots() or []:
+                t = (x.info.get("content") or "").strip().replace(chr(13), chr(10))
+                t = re.sub(r"^wegen großen Rinderfeldt\s*" + chr(10), "", t)  # Randvermerk vor Stein 70 (1580)
+                m = re.match(r"^\s*(\d+)\s*(?:\.\)|\.|:|\s)(?:\s*&\s*(\d+)\s*\.\))?", t)
+                if not m:
+                    continue
+                for n in (m.group(1), m.group(2)):
+                    if n and (cfg["nur"] is None or int(n) in cfg["nur"]):
+                        out[int(n)] = t
+    return out
+
+
+def nr_schluessel(v):
+    try:
+        return int(float(str(v).strip()))
+    except ValueError:
+        return None
+
+
 def merkmale(r, p):
     teile = []
     feld = lambda n: r.get(f"{p} — {n}")
@@ -99,17 +134,19 @@ def abstand(r, p):
 
 def seite(jahr, cfg, daten):
     p = cfg["prefix"]
+    wl = wortlaut(jahr)
     zeilen = []
     for r in daten:
         if not any(k.startswith(p + " — ") and not leer(v) for k, v in r.items()):
             continue
         nr = r.get(f"{p} — Nr.")
         text = r.get(f"{p} — sonstiges")
+        voll = wl.get(nr_schluessel(nr)) if not leer(nr) else None
         zeilen.append(
             f'<tr><td class="nr">{e(nr) if not leer(nr) else "–"}</td>'
             f'<td><a href="stein.html?id={r["ID"]}">{r["ID"]}</a><br><span class="klein">{e(r["Grenze"])}</span></td>'
             f"<td>{merkmale(r, p)}</td><td class=\"nr\">{abstand(r, p)}</td>"
-            f'<td class="lage">{e(text) if not leer(text) else ""}</td></tr>')
+            f'<td class="lage">{rand_html(voll) if voll else (e(text) if not leer(text) else "")}</td></tr>')
     rand = randbemerkungen(cfg["rand"])
     rand_block = ""
     if rand:
