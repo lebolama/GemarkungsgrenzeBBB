@@ -26,6 +26,7 @@ MENUE = [
 
 FUSS_LINKS = [
     ("karteXL.html", "Amtliche Grenzpunkte"),
+    ("artikel.html", "Artikel"),
     ("download.html", "Daten"),
     ("impressum.html", "Impressum"),
     ("datenschutz.html", "Datenschutz"),

@@ -1,5 +1,38 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 14:27 – Artikelseite, Begriffe vervollständigt, vierter Upload
+
+**Antworten Hendriks eingearbeitet:**
+- Henkerslehen: westliche Grenze = Gemarkungsgrenze zu Großrinderfeld; ein 1490er-Stein dort
+  wurde bei manchen Begehungen als Gemarkungsgrenzstein anerkannt.
+- Archivfoto = Stein 94 bestätigt.
+- Kreuz oben (Deutung nicht überliefert; vermutlich von Findlingen übernommen, später durch
+  Richtungslinien ersetzt), rot = Buntsandstein, weiß = Kalkstein, Zahl in der b-Spalte =
+  Anzahl der „b“, „GB“/„G.B.“ = Gemeinde Bischofsheim (19. Jh.), Gründe für drei „b“,
+  Werkrute = Nürnberger Rute 3,647676 m (Wikipedia „Rute (Einheit)“, im Gelände bestätigt).
+- Stein 369: Der „1308er“ ist verschwunden; der Befund im Datensatz betrifft einen anderen
+  Stein im Umkreis von ca. 2 m, vermutlich Waldgrenzstein. → Anmerkung im Dossier.
+  **`data.json` nicht geändert** (von den geschützten Seiten genutzt) – Entscheidung Hendriks offen.
+- Weiteres Protokoll 1724 (StA Würzburg, Gebr. A Wü IV G 196 III) in die Quellen aufgenommen.
+
+**Neu: `artikel.html`** – die sieben FN-Artikel (27.08.–04.11.2024) in Hendriks
+Manuskriptfassung, mit Titel und Erscheinungsdatum der Zeitung. Nur Fotos mit Vermerk
+„H. Beierstettel“ übernommen (Galgen Mudau, Spitalsteine, Hoheitssäulen); Archivkarten und
+Fotos Dritter weggelassen. Verlinkt von Start, Projekt, Quellen, Stein 94/369 und im Fuß
+aller Seiten (`werkzeuge/rahmen.py`).
+
+**Hochgeladen** (Sicherung vorher `backups/2026-09-28_1427_server_ftp`): 4 Bilder, artikel,
+begriffe, quellen, stein, projekt, index und die übrigen Rahmenseiten – 17 Dateien, alle per
+SHA-256 identisch. Lokaler Ordner per PowerShell angeglichen, `site/` aktualisiert.
+
+**Offen:**
+1. Hendrik: Fotos ohne Bildvermerk in den Artikeln (Judenstein, Stein 1493, Bruchstück 1508,
+   Gründle, Bruchstück 1490, Rosenstein, Hufeisen) – eigene Fotos? Dann aufnehmen.
+2. Hendrik: Stein 369 in `data.json` korrigieren (Befehl nötig, geschützte Seiten lesen die Datei)?
+3. Neue Erklärseite zur Rekonstruktion mit durchgerechnetem Beispiel (Hendriks Wunsch f).
+4. Bewerbungsunterlagen Landespreis.
+
+
 ## 28.09.2026, 12:34 – Hendriks Angaben eingearbeitet, dritter Upload
 
 **Neue Quellen von Hendrik:** `Quellenverzeichnis Gemarkungsgrenze TBB.txt` (im Repo),
