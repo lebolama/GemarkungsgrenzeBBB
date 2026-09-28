@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>So werden verschwundene Steine berechnet – Grenzsteine Tauberbischofsheim</title>
+<meta name="description" content="Wie aus alten Grenzgangprotokollen und heute noch stehenden Steinen die Standorte verschwundener Grenzsteine berechnet werden – Schritt für Schritt an einem echten Beispiel.">
+<link rel="stylesheet" href="assets/grenze.css">
+<script src="assets/menue.js" defer></script>
+<style>
+.schritte{counter-reset:schritt;list-style:none;padding:0;margin:1rem 0}
+.schritte li{counter-increment:schritt;position:relative;padding:0 0 1rem 3rem;margin:0}
+.schritte li::before{content:counter(schritt);position:absolute;left:0;top:.05rem;width:2rem;height:2rem;border-radius:50%;
+  background:var(--rot);color:#fff;font-weight:bold;display:flex;align-items:center;justify-content:center}
+.schritte strong{display:block}
+figure.skizze{margin:1.5rem 0;background:var(--weiss);border:1px solid var(--linie);border-radius:6px;padding:1rem}
+figure.skizze .wisch{overflow-x:auto;-webkit-overflow-scrolling:touch}
+figure.skizze svg{width:100%;min-width:640px;height:auto;display:block}
+figure.skizze .wischhinweis{display:none;font-size:.85rem;color:var(--grau);margin:.3rem 0 0}
+@media (max-width:700px){figure.skizze .wischhinweis{display:block}}
+figure.skizze figcaption{font-size:.9rem;color:var(--grau);margin-top:.6rem}
+.skizze .linie{stroke:#c0392b;stroke-width:4}
+.skizze .anker{fill:#1d6b35}
+.skizze .fehlt{fill:#fff;stroke:#b86b00;stroke-width:4}
+.skizze text{font-family:Georgia,serif;fill:var(--text);font-size:15px}
+.skizze .klein{font-size:13px;fill:var(--grau)}
+.skizze .mass{stroke:var(--grau);stroke-width:1.5}
+.skizze .luecke{fill:#fdebd0}
+td.zahl,th.zahl{text-align:right;white-space:nowrap}
+tr.gut td{background:#eef6ee}
+tr.ab td{background:#fbf1e3}
+</style>
+</head>
+<body>
+<!-- KOPF -->
+<header class="kopf">
+  <div class="kopf-innen">
+    <a class="marke" href="index.html">Grenzsteine Tauberbischofsheim</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
+    <nav id="hauptmenue" aria-label="Hauptmenü">
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="standorte.html">Karte</a></li>
+      <li><a href="reconstruction_xl.html">Verschwundene Steine</a></li>
+      <li><a href="berechnung.html" aria-current="page">So wird gerechnet</a></li>
+      <li><a href="recherche.html">Steine suchen</a></li>
+      <li><a href="grenzgaenge.html">Die Grenzgänge</a></li>
+      <li><a href="chronik.html">Geschichte</a></li>
+      <li><a href="quellen.html">Quellen und Methode</a></li>
+      <li><a href="begriffe.html">Begriffe</a></li>
+      <li><a href="projekt.html">Über das Projekt</a></li>
+    </ul>
+    </nav>
+  </div>
+</header>
+<!-- /KOPF -->
+
+<main>
+<div class="text">
+<h1>So werden verschwundene Steine berechnet</h1>
+<p class="einleitung">249 der 394 Grenzsteine, die die alten Protokolle nennen, sind heute nicht
+mehr zu finden. Trotzdem lässt sich für die meisten von ihnen sagen, wo sie gestanden haben
+müssen. Diese Seite erklärt, wie das geht – mit einem echten Beispiel zum Nachrechnen.</p>
+
+<h2>Die Idee</h2>
+<p>Die Landschieder haben bei ihren Grenzgängen nicht nur beschrieben, wie ein Stein aussah und
+wo er stand, sondern meist auch, wie weit er vom vorigen Stein entfernt war – in Ruten, einem
+alten Längenmaß. Steht einer dieser Steine heute noch an seinem Platz, kennt man seine genaue
+Position. Von ihm aus kann man die überlieferten Abstände entlang der Grenze abtragen, so als
+ginge man mit dem Maßband die Grenze ab. Wo das Maßband endet, muss der nächste Stein gestanden
+haben.</p>
+
+<h2>In sieben Schritten</h2>
+<ol class="schritte">
+  <li><strong>Im Gelände:</strong> Die gesamte Grenze wurde von 2017 bis 2021 abgegangen. Jeder
+  noch vorhandene Stein wurde fotografiert, mit GPS eingemessen und beschrieben: Inschrift,
+  Zeichen, Größe, Gestein.</li>
+  <li><strong>Die Grenzlinie:</strong> Der Verlauf der Gemarkungsgrenze wurde aus der Deutschen
+  Grundkarte 1:5 000 nachgezeichnet und als Linie in die Karte übernommen. Wo die Grenze später
+  verlegt wurde, braucht es zusätzlich den alten Verlauf.</li>
+  <li><strong>Im Archiv:</strong> Die Protokolle der Grenzgänge von 1569 bis 1893 wurden Stein für
+  Stein abgeschrieben: Nummer, Zeichen, Lagebeschreibung und Abstand zum vorigen Stein.</li>
+  <li><strong>Übereinstimmungen finden:</strong> Welcher Stein im Gelände ist welcher Stein im
+  Protokoll? Das entscheiden Zeichen, Jahreszahl, Lagebeschreibung und Abstände. Nur eindeutige
+  Fälle gelten als sicher. Dieser Schritt ist reine Handarbeit.</li>
+  <li><strong>Die Tabelle:</strong> Für jede Steinposition entsteht eine Zeile mit allen Angaben
+  aus allen Protokollen und dem Befund im Gelände. Die sicher zugeordneten, heute noch am
+  ursprünglichen Platz stehenden Steine sind die <em>Anker</em>.</li>
+  <li><strong>Die Berechnung:</strong> Für jeden fehlenden Stein werden die Abstände des Protokolls
+  vom nächstgelegenen Anker aus entlang der Grenzlinie abgetragen. So entsteht ein berechneter
+  Standort mit einer Angabe, wie sicher er ist.</li>
+  <li><strong>Die Karte:</strong> Alle Steine – gefundene und berechnete – erscheinen auf der
+  <a href="reconstruction_xl.html">Karte der verschwundenen Steine</a> und auf der
+  <a href="standorte.html">Karte der Grenzsteine</a>, jeweils mit allen Angaben aus den
+  Quellen.</li>
+</ol>
+
+<h2 id="beispiel">Ein Beispiel zum Nachrechnen</h2>
+<p>An der Grenze zu Grünsfeld, auf der Höhe im Wald, stehen heute zwei Steine, die sich sicher
+zuordnen lassen: <a href="stein.html?id=367">Stein 367</a> mit der Jahreszahl 1769 und
+<a href="stein.html?id=370">Stein 370</a> mit der Jahreszahl 1815. Der Grenzgang von 1872 nennt
+zwischen ihnen zwei weitere Steine, die heute fehlen: <a href="stein.html?id=368">Stein 368</a>,
+einen roten viereckigen Waldstein, und <a href="stein.html?id=369">Stein 369</a> – den
+rätselhaften Stein mit der Jahreszahl 1308, von dem seit Jahrzehnten jede Spur fehlt.</p>
+</div>
+
+<figure class="skizze">
+<div class="wisch">
+<svg viewBox="0 0 760 250" role="img" aria-labelledby="skizze-titel skizze-text">
+  <title id="skizze-titel">Skizze der Berechnung zwischen Stein 367 und Stein 370</title>
+  <desc id="skizze-text">Eine Linie stellt die Grenze dar. Links steht Stein 367, rechts Stein 370, beide heute vorhanden.
+  Von Stein 367 aus werden 53,4 Meter bis zum fehlenden Stein 368 abgetragen, von Stein 370 aus rückwärts
+  110,6 Meter bis zum fehlenden Stein 369. Zwischen 368 und 369 bleibt ein Rest von 7,5 Metern.</desc>
+  <!-- Grenzlinie: 234,2 m auf 640 px, Maßstab 2,733 px/m, Start x=60 -->
+  <line class="linie" x1="60" y1="120" x2="700" y2="120"/>
+  <!-- Lücke zwischen 368 (x=206) und 369 (x=398): Protokoll 62,7 m = 171 px, gemessen 70,2 m = 192 px -->
+  <rect class="luecke" x="377" y="108" width="21" height="24"/>
+  <circle class="anker" cx="60" cy="120" r="11"/>
+  <circle class="fehlt" cx="206" cy="120" r="10"/>
+  <circle class="fehlt" cx="398" cy="120" r="10"/>
+  <circle class="anker" cx="700" cy="120" r="11"/>
+  <text x="60" y="95" text-anchor="middle">Stein 367</text>
+  <text x="60" y="160" text-anchor="middle" class="klein">steht (1769)</text>
+  <text x="206" y="95" text-anchor="middle">368</text>
+  <text x="206" y="160" text-anchor="middle" class="klein">fehlt</text>
+  <text x="398" y="95" text-anchor="middle">369</text>
+  <text x="398" y="160" text-anchor="middle" class="klein">fehlt („1308“)</text>
+  <text x="700" y="95" text-anchor="middle">Stein 370</text>
+  <text x="700" y="160" text-anchor="middle" class="klein">steht (1815)</text>
+  <!-- Maßpfeile -->
+  <line class="mass" x1="60" y1="190" x2="206" y2="190"/>
+  <text x="133" y="210" text-anchor="middle" class="klein">18 Ruten = 53,4 m →</text>
+  <line class="mass" x1="398" y1="190" x2="700" y2="190"/>
+  <text x="549" y="210" text-anchor="middle" class="klein">← 37 Ruten = 110,6 m</text>
+  <line class="mass" x1="206" y1="60" x2="398" y2="60"/>
+  <text x="302" y="50" text-anchor="middle" class="klein">Protokoll: 21 Ruten = 62,7 m</text>
+  <text x="387" y="240" text-anchor="middle" class="klein">Rest 7,5 m</text>
+  <line class="mass" x1="60" y1="20" x2="700" y2="20"/>
+  <text x="380" y="14" text-anchor="middle" class="klein">entlang der Grenzlinie gemessen: 234,2 m</text>
+</svg>
+</div>
+<p class="wischhinweis">Zeichnung seitlich wischen, um sie ganz zu sehen.</p>
+<figcaption>Grün: heute noch stehende Steine (Anker). Weiß: verschwundene Steine, deren Standort
+berechnet wird. Jeder fehlende Stein wird vom näheren Anker aus bestimmt; die Abweichung
+zwischen Protokoll und Messung bleibt dazwischen als Rest sichtbar.</figcaption>
+</figure>
+
+<div class="text">
+<h3>Die Rechnung</h3>
+<div class="tabelle-rahmen">
+<table>
+<thead><tr><th scope="col">Abschnitt laut Protokoll 1872</th><th scope="col" class="zahl">Ruten</th><th scope="col" class="zahl">Meter</th></tr></thead>
+<tbody>
+<tr><td>Stein 367 → Stein 368</td><td class="zahl">18</td><td class="zahl">53,4</td></tr>
+<tr><td>Stein 368 → Stein 369</td><td class="zahl">21</td><td class="zahl">62,7</td></tr>
+<tr><td>Stein 369 → Stein 370</td><td class="zahl">37</td><td class="zahl">110,6</td></tr>
+<tr><th scope="row">Summe laut Protokoll</th><td class="zahl"></td><th class="zahl">226,7</th></tr>
+<tr><th scope="row">Heute gemessen, Stein 367 bis 370 entlang der Grenzlinie</th><td class="zahl"></td><th class="zahl">234,2</th></tr>
+<tr><th scope="row">Unterschied</th><td class="zahl"></td><th class="zahl">7,5 (3 %)</th></tr>
+</tbody>
+</table>
+</div>
+<p>Die Landschieder von 1872 haben also auf fast 250 Metern Waldgrenze nur 7,5 Meter weniger
+gemessen als das GPS heute. Für die Berechnung heißt das:</p>
+<ul>
+  <li><strong>Stein 368</strong> liegt näher an Stein 367. Also werden von Stein 367 aus 53,4 m
+  entlang der Grenze abgetragen.</li>
+  <li><strong>Stein 369</strong> liegt näher an Stein 370. Also werden von Stein 370 aus rückwärts
+  110,6 m abgetragen.</li>
+  <li>Die 7,5 m Unterschied fallen in den Abschnitt zwischen den beiden fehlenden Steinen. Sie
+  zeigen, wie genau man suchen muss: Wer den „1308er“ oder seine Reste im Boden sucht, sollte
+  rund um den berechneten Punkt einige Meter in beide Richtungen absuchen.</li>
+</ul>
+<p>Die Karte führt diese Rechnung für alle Grenzgänge und alle fehlenden Steine durch. Liegen
+für denselben Stein Werte aus mehreren Protokollen vor, wird der verlässlichste übernommen.</p>
+
+<h2 id="genauigkeit">Wie genau haben die Landschieder gemessen?</h2>
+<p>Das lässt sich überprüfen: Wo zwei direkt benachbarte Steine heute noch unversetzt stehen,
+kann man den Abstand im Protokoll mit dem Abstand zwischen den GPS-Punkten vergleichen. Das ist
+an der Tauberbischofsheimer Grenze bei 118 Steinpaaren möglich.</p>
+<div class="tabelle-rahmen">
+<table>
+<thead><tr><th scope="col">Grenzgang</th><th scope="col">Steine</th><th scope="col" class="zahl">Ruten</th>
+<th scope="col" class="zahl">Protokoll</th><th scope="col" class="zahl">GPS heute</th><th scope="col" class="zahl">Abweichung</th></tr></thead>
+<tbody>
+<tr class="gut"><td>1683</td><td><a href="stein.html?id=1">1</a> → <a href="stein.html?id=2">2</a></td><td class="zahl">26</td><td class="zahl">94,9 m</td><td class="zahl">95,7 m</td><td class="zahl">0,8 m</td></tr>
+<tr class="gut"><td>1749</td><td><a href="stein.html?id=191">191</a> → <a href="stein.html?id=192">192</a></td><td class="zahl">25</td><td class="zahl">91,2 m</td><td class="zahl">91,1 m</td><td class="zahl">0,1 m</td></tr>
+<tr class="gut"><td>1872</td><td><a href="stein.html?id=59">59</a> → <a href="stein.html?id=60">60</a></td><td class="zahl">76</td><td class="zahl">229,2 m</td><td class="zahl">228,0 m</td><td class="zahl">1,2 m</td></tr>
+<tr class="gut"><td>1872</td><td><a href="stein.html?id=61">61</a> → <a href="stein.html?id=62">62</a></td><td class="zahl">47</td><td class="zahl">143,7 m</td><td class="zahl">143,9 m</td><td class="zahl">0,2 m</td></tr>
+<tr class="gut"><td>1887–1893</td><td><a href="stein.html?id=213">213</a> → <a href="stein.html?id=214">214</a></td><td class="zahl">25</td><td class="zahl">75,6 m</td><td class="zahl">75,7 m</td><td class="zahl">0,1 m</td></tr>
+<tr class="gut"><td>1887–1893</td><td><a href="stein.html?id=232">232</a> → <a href="stein.html?id=233">233</a></td><td class="zahl">49</td><td class="zahl">149,7 m</td><td class="zahl">150,6 m</td><td class="zahl">0,9 m</td></tr>
+<tr class="ab"><td>1749</td><td><a href="stein.html?id=194">194</a> → <a href="stein.html?id=195">195</a></td><td class="zahl">34</td><td class="zahl">124,1 m</td><td class="zahl">83,9 m</td><td class="zahl">40,2 m</td></tr>
+<tr class="ab"><td>1872</td><td><a href="stein.html?id=65">65</a> → <a href="stein.html?id=66">66</a></td><td class="zahl">56</td><td class="zahl">168,0 m</td><td class="zahl">67,5 m</td><td class="zahl">100,5 m</td></tr>
+</tbody>
+</table>
+</div>
+<p>Das Bild ist gemischt, und das gehört zur Wahrheit: Bei 35 der 118 Paare liegt die Abweichung
+unter 5 Metern, bei elf sogar unter einem Meter – bei Messungen mit Kette oder Messrute vor
+Jahrhunderten eine erstaunliche Leistung. Im Mittel (Median) beträgt die Abweichung aber
+rund 12 Meter, und einzelne Paare weichen um mehr als 100 Meter ab. Mögliche Gründe:</p>
+<ul>
+  <li><strong>Gelände:</strong> Die Landschieder maßen am Boden entlang, das GPS misst waagrecht.
+  Am steilen Hang wird die alte Strecke dadurch länger.</li>
+  <li><strong>Umwege:</strong> Wo die Grenze einem Bach, Graben oder Waldrand folgt, ist der Weg
+  von Stein zu Stein länger als die gerade Linie zwischen ihnen.</li>
+  <li><strong>Ausgelassene Steine:</strong> Nennt ein Protokoll einen Zwischenstein nicht, bezieht
+  sich die Entfernung auf einen weiter entfernten Stein.</li>
+  <li><strong>Ersetzte oder versetzte Steine:</strong> Ein heute stehender Stein kann ein
+  Nachfolger sein, der nicht genau am alten Platz gesetzt wurde.</li>
+  <li><strong>Schreib- und Lesefehler</strong> in den Protokollen und bei der Abschrift.</li>
+</ul>
+<p>Paare mit großer Abweichung sind deshalb selbst ein Befund: Sie zeigen Stellen, an denen es
+sich lohnt, genauer hinzusehen. Für die Berechnung bedeuten sie, dass nicht jeder berechnete
+Standort gleich verlässlich ist – deshalb die Sicherheitsklassen.</p>
+
+<h2 id="klassen">Was die Sicherheitsklassen bedeuten</h2>
+<table>
+<thead><tr><th scope="col">Klasse</th><th scope="col">Bedeutung</th><th scope="col">Für die Suche im Gelände</th></tr></thead>
+<tbody>
+<tr><td><strong>A</strong></td><td>Stein steht, per GPS eingemessen</td><td>Der Stein ist da.</td></tr>
+<tr><td><strong>B</strong></td><td>Standort aus einer stimmigen Abstandskette berechnet</td><td>Suche lohnt sich im Umkreis weniger Meter.</td></tr>
+<tr><td><strong>C</strong></td><td>Abstände widersprechen sich oder reichen nur von einer Seite</td><td>Größeren Bereich absuchen.</td></tr>
+<tr><td><strong>D</strong></td><td>Nur der Grenzabschnitt ist bekannt</td><td>Hinweis auf den Abschnitt, kein Punkt.</td></tr>
+</tbody>
+</table>
+
+<h2>Was die Berechnung nicht kann</h2>
+<p>Ein berechneter Standort ist ein Suchhinweis, kein Befund. Er gilt nur, wenn die Grenze seit
+dem Protokoll nicht verlegt wurde. Wo sie verlegt wurde – bei Tauberbischofsheim etwa 1887 im
+Abschnitt zwischen Hänglein und Bösehof und in den 1980er-Jahren am Industriegebiet an der
+A 81 –, rechnet die Karte mit dem alten Verlauf oder gar nicht. Mehr dazu unter
+<a href="quellen.html#rekonstruktion">Quellen und Methode</a>.</p>
+
+<div class="kasten">
+<p><strong>Mitsuchen erwünscht.</strong> Jeder wiedergefundene Stein wird zu einem neuen Anker
+und macht die Berechnung seiner Nachbarn genauer. Wer bei einem berechneten Standort einen Stein
+oder ein Bruchstück findet, meldet das bitte an
+<span class="mail">mail [at] beierstettel.de</span>. Grabungen bitte nur in Absprache mit dem
+Grenzsteinbeauftragten der Stadt. Grenzsteine sind Kleindenkmale; wer sie entfernt oder versetzt,
+macht sich strafbar.</p>
+</div>
+</div>
+</main>
+
+<!-- FUSS -->
+<footer class="fuss">
+  <div class="fuss-innen">
+    <span>© Hendrik Beierstettel, Tauberbischofsheim</span>
+    <ul>
+      <li><a href="karteXL.html">Amtliche Grenzpunkte</a></li>
+      <li><a href="artikel.html">Artikel</a></li>
+      <li><a href="download.html">Daten</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+<!-- /FUSS -->
+<script>
+(function () {
+  var a = "mail", d = "beierstettel.de";
+  document.querySelectorAll(".mail").forEach(function (el) {
+    el.innerHTML = '<a href="mailto:' + a + "@" + d + '">' + a + "@" + d + "</a>";
+  });
+})();
+</script>
+</body>
+</html>

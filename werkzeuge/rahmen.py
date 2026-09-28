@@ -16,6 +16,7 @@ MENUE = [
     ("index.html", "Start"),
     ("standorte.html", "Karte"),
     ("reconstruction_xl.html", "Verschwundene Steine"),
+    ("berechnung.html", "So wird gerechnet"),
     ("recherche.html", "Steine suchen"),
     ("grenzgaenge.html", "Die Grenzgänge"),
     ("chronik.html", "Geschichte"),

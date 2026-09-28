@@ -1,5 +1,30 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 14:50 – Erklärseite „So wird gerechnet“, sechster Upload
+
+**Neu: `berechnung.html`** (Wunsch f, von Hendrik freigegeben): Idee, sieben Schritte (nach
+Hendriks Mail an Dr. Himmelsbach), Rechenbeispiel Grenzgang 1872, Stein 367 → 368 → 369 („1308er“)
+→ 370 mit SVG-Skizze (Summe Protokoll 226,7 m, entlang der Grenzlinie gemessen 234,2 m,
+Unterschied 7,5 m = 3 %), Genauigkeitsprüfung, Sicherheitsklassen, Grenzen der Methode,
+Aufruf zum Mitsuchen. Im Menü („So wird gerechnet“), auf der Startseite, in Quellen und Begriffe
+verlinkt. Skizze auf dem Handy seitlich wischbar (Schrift sonst 6 px).
+
+**Genauigkeitsprüfung (neu ausgewertet, 118 direkt benachbarte Paare unversetzter Steine):**
+Median der Abweichung Protokoll ↔ GPS 12,1 m (13,7 %); 35 Paare ≤ 5 m, 11 ≤ 1 m; Ausreißer bis
+>100 m, teils in allen Jahrgängen gleich (z. B. 194→195, 387→389). Die frühere Formulierung
+„stimmen erstaunlich gut überein“ in `quellen.html` wurde durch diese Zahlen ersetzt.
+
+**Hochgeladen** (Sicherung `backups/2026-09-28_1450_server_ftp`): berechnung und die 13 übrigen
+Rahmenseiten (neuer Menüpunkt) – 14/14 identisch. Lokaler Ordner und `site/` angeglichen.
+
+**Rückfragen an Hendrik:**
+1. Meterwerte 1872/1887–93: z. B. 18 Ruten = 53,4 m, 25 Ruten = 75,6 m – nicht genau × 3,00 m.
+   Stehen die Meter so im Protokoll (dann „laut Protokoll“) oder wurden sie umgerechnet?
+   Texte in Begriffe/Quellen/Daten sprechen derzeit von „umgerechnet mit 3,00 m“.
+2. Auffällige Paare prüfen: 194→195 (alle Jahrgänge ca. 124–128 m laut Protokoll, GPS 84 m),
+   387→388→389, 65→66 (1872), 72→73 – Zuordnung, Versetzung oder Zwischensteine?
+
+
 ## 28.09.2026, 14:42 – Artikelbilder, Stein 369 im Datensatz korrigiert, fünfter Upload
 
 **Artikelseite:** alle 19 Abbildungen der sieben Artikel übernommen, mit den Quellenangaben
