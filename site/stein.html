@@ -66,6 +66,22 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
 (function () {
   "use strict";
   var ANZAHL = 394;
+
+  // Anmerkungen zu einzelnen Steinen (Hendrik Beierstettel)
+  var ANMERKUNG = {
+    94: "Der älteste datierte Stein, der heute noch auf der Tauberbischofsheimer Gemarkungsgrenze steht: " +
+        "ein Eckstein von 1474 am Auslauf des Bischofsheimer Gründles ins Brehmbachtal. Anders als alle anderen " +
+        "Steine trägt er ein leicht schräg geneigtes Wappenschild und nur zwei, dafür besonders große „b“; das " +
+        "dritte „b“ sitzt auf der schmalen Seitenfläche. Die Königheimer Seite zeigt ein schlichtes K. Die " +
+        "Jahreszahl ist in der Ziffernschrift des 15. Jahrhunderts eingehauen. Ein älteres Foto zeigt die Seite " +
+        '<a href="begriffe.html">Begriffe</a>.',
+    369: "Die Protokolle ab 1683 nennen für diesen Stein die Jahreszahl 1308 – er wäre damit der älteste datierte " +
+        "Grenzstein weit und breit. Zweifel sind angebracht: Auf 1308 folgt fast hundert Jahre lang kein weiterer " +
+        "datierter Stein, und in Form und Ziffernschrift gleicht er den Steinen, die 1508 an der Grenze gesetzt " +
+        "wurden. Möglicherweise wurde eine undeutlich eingehauene 5 als 3 gelesen.",
+    370: "Das Protokoll von 1749 nennt die Jahreszahl 1224. Gesetzt wurde der Stein aber erst 1724; die " +
+        "Landschieder haben die 7 als 2 gelesen. Die Website gibt die Zahl so wieder, wie sie im Protokoll steht."
+  };
   var id = new URLSearchParams(location.search).get("id");
   var inhalt = document.getElementById("inhalt");
 
@@ -163,8 +179,8 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
     var zustand = s.standing_original ? "steht an seinem ursprünglichen Platz"
       : s.moved_or_unknown_location ? "gefunden, aber versetzt oder ursprünglicher Platz unklar"
       : s.missing_2021 ? "nicht gefunden" : "–";
-    var befund = '<dl class="kv"><dt>Zustand</dt><dd>' + zustand + "</dd>";
-    if (!leer(sv.number_raw)) befund += "<dt>Nummer 2021</dt><dd>" + esc(sv.number_raw) +
+    var befund = '<dl class="kv"><dt>Zustand</dt><dd>' + zustand + '<br><span class="klein">Begehungen 2017–2021</span></dd>';
+    if (!leer(sv.number_raw)) befund += "<dt>Nummer der Begehung</dt><dd>" + esc(sv.number_raw) +
       (sv.number_certainty && sv.number_certainty !== "sicher" ? " (Zuordnung " + esc(sv.number_certainty) + ")" : "") + "</dd>";
     if (sv.gps && isFinite(sv.gps.lat)) befund += "<dt>Position</dt><dd>" + osm(sv.gps.lat, sv.gps.lon, "auf OpenStreetMap zeigen") +
       '<br><span class="klein">' + sv.gps.lat.toFixed(6) + ", " + sv.gps.lon.toFixed(6) + "</span></dd>";
@@ -195,8 +211,9 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
         " belegt, die Jahreszahl lautet aber " + fruehste + ". Hier wurde also später ein neuer Stein gesetzt, der den älteren ersetzt.</p>";
     }
 
-    html += '<div class="steckbrief"><section><h2>Befund 2021</h2>' + befund + "</section>" +
+    html += '<div class="steckbrief"><section><h2>Befund im Gelände</h2>' + befund + "</section>" +
       "<section><h2>Geschichte</h2>" + gesch + "</section></div>";
+    if (ANMERKUNG[n]) html += '<div class="kasten"><p><strong>Anmerkung.</strong> ' + ANMERKUNG[n] + "</p></div>";
 
     // Quellen einzeln
     var abschnitte = [];

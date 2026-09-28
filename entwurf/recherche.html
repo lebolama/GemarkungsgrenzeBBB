@@ -72,7 +72,7 @@ tragen. Was die Zeichen bedeuten, steht unter <a href="begriffe.html">Begriffe</
   <li><a href="?grenze=Impfingen&amp;jahr=1608&amp;rad=1">Steine an der Grenze zu Impfingen, die 1608 ein Mainzer Rad trugen</a></li>
   <li><a href="?dreimaerker=1">alle Dreimärker</a></li>
   <li><a href="?zustand=original&amp;jahreszahl=1">heute noch am ursprünglichen Platz und mit Jahreszahl</a></li>
-  <li><a href="?jahr=1569&amp;zustand=fehlt">1569 schon genannt, 2021 nicht mehr gefunden</a></li>
+  <li><a href="?jahr=1569&amp;zustand=fehlt">1569 schon genannt, heute nicht mehr gefunden</a></li>
 </ul>
 </details>
 </div>
@@ -101,7 +101,7 @@ tragen. Was die Zeichen bedeuten, steht unter <a href="begriffe.html">Begriffe</
     </select>
   </div>
   <div>
-    <label class="titel" for="f-zustand">Zustand 2021</label>
+    <label class="titel" for="f-zustand">Zustand im Gelände</label>
     <select id="f-zustand">
       <option value="">beliebig</option>
       <option value="original">steht am ursprünglichen Platz</option>
@@ -120,7 +120,7 @@ tragen. Was die Zeichen bedeuten, steht unter <a href="begriffe.html">Begriffe</
   <fieldset class="haken">
     <legend>Art</legend>
     <label><input type="checkbox" id="f-dreimaerker"> nur Dreimärker</label>
-    <label><input type="checkbox" id="f-fotos"> nur Steine mit Fotos von 2021</label>
+    <label><input type="checkbox" id="f-fotos"> nur Steine mit Fotos</label>
   </fieldset>
 </form>
 
@@ -136,7 +136,7 @@ tragen. Was die Zeichen bedeuten, steht unter <a href="begriffe.html">Begriffe</
   <caption class="klein" style="text-align:left;caption-side:bottom;padding-top:.4rem">Die Nummer ist die laufende
   Nummer dieser Website entlang der Grenze. Die Nummern der historischen Protokolle stehen im Steckbrief.</caption>
   <thead><tr><th scope="col">Stein</th><th scope="col">Grenze zu</th><th scope="col">in den Quellen</th>
-  <th scope="col">Zeichen (irgendwann erwähnt)</th><th scope="col">2021</th></tr></thead>
+  <th scope="col">Zeichen (irgendwann erwähnt)</th><th scope="col">im Gelände</th></tr></thead>
   <tbody id="treffer"></tbody>
 </table>
 </div>
@@ -294,7 +294,7 @@ tragen. Was die Zeichen bedeuten, steht unter <a href="begriffe.html">Begriffe</
   }
 
   function csv() {
-    var zeilen = [["Stein", "Grenze zu", "in den Quellen", "Zeichen", "Zustand 2021", "Link"]];
+    var zeilen = [["Stein", "Grenze zu", "in den Quellen", "Zeichen", "Zustand im Gelände (2017-2021)", "Link"]];
     filtern().forEach(function (r) {
       zeilen.push([r.ID, r.Grenze, zeitraum(r), zeichenText(r),
         { original: "steht am Platz", versetzt: "versetzt/unklar", fehlt: "nicht gefunden", "": "" }[zustand(r)],

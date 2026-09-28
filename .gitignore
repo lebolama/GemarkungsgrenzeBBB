@@ -14,3 +14,6 @@ _vti_cnf/
 entwurf/Flurnamen/dgk5-tauberbischofsheim.jpg
 .vorschau/
 werkzeuge/ftp.py
+
+# Enthält Kontaktdaten Dritter, nur lokal
+Gmail - *.pdf
