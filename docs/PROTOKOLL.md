@@ -1,5 +1,31 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 22:45 – Ersterfassung 2018/19 und Kulturlandschaftspreis 2019 offengelegt
+
+Hinweis Hendrik: Seine Söhne Jonne und Matti und ihr Freund Phil Engert (damals 7, 10, 11 Jahre)
+erhielten 2019 den Sonderpreis Kleindenkmale des Kulturlandschaftspreises (Schwäbischer
+Heimatbund) für die gemeinsame Ersterfassung der Steine (Spätherbst 2018 bis Mai 2019) und die
+Freilegung des Grünsfelder Wegs; Hendrik hatte sie vorgeschlagen. Quelle: „Erfassung aller
+Grenzsteine der Gemarkung Tauberbischofsheim (Beierstettel, 2017-21).pdf“. Die Ersterfassung
+blieb lückenhaft; die drei vollständigen Umgehungen (27.12.2017, 5.4.2019, 14.5.2021) und alle
+späteren systematischen Begehungen hat Hendrik allein gemacht (mit Hund Lumi). Alle Fotos der
+Website sind von ihm.
+
+Teilnahme: unschädlich. FAQ 2027: ausgeschlossen ist nur, wer schon einen Landespreis für
+Heimatforschung erhalten hat.
+
+Geändert: `dokumentation.md` Kap. 4 (Vorgeschichte, Namen, Preis, Daten der Umgehungen),
+`kriterienkatalog.md` (Eigenleistung „bis auf eine Ausnahme allein“, eigene Zeile Ersterfassung,
+Hinweis auf den Preis der Kinder), beide PDFs neu (13 und 3 Seiten). `projekt.html`: neuer
+Absatz zur Vorgeschichte, online ohne Namen („meine beiden Söhne und ein Freund“).
+
+Hochgeladen (Sicherung `backups/2026-09-28_2242_server_ftp`): projekt.html – identisch; lokaler
+Ordner und `site/` angeglichen.
+
+Offen: `projekt.html` sagt „Angefangen hat es um 2005 mit … meinem Hund“; im Vorschlagsschreiben
+2019 steht, Lumi kam „vor 9 Jahren“ (≈ 2010). Mit Hendrik klären.
+
+
 ## 28.09.2026, 21:58 – Voller Wortlaut statt Kurzfassung in den gekürzten Abschriften
 
 Entscheidung Hendrik: Wo die PDF-Kommentare den ausführlichen Text eines Steins enthalten, ersetzt

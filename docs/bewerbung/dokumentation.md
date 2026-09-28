@@ -85,9 +85,24 @@ Unsicheres ist gekennzeichnet.
 
 ## 4 Die Geländearbeit
 
-Von 2017 bis 2021 bin ich die Grenze dreimal vollständig an einem Stück und zahlreiche Male in
-Teilabschnitten abgegangen. Jeden gefundenen Stein habe ich behutsam gereinigt, fotografiert,
-beschrieben und eingemessen.
+Die Grenzsteine meiner Heimatgemarkung haben mich schon lange beschäftigt. Am 27. Dezember 2017
+bin ich die Grenze zum ersten Mal vollständig an einem Stück abgegangen.
+
+Eine systematische Erfassung aller Steine begann im Spätherbst 2018, gemeinsam mit meinen Söhnen
+Jonne und Matti und ihrem Freund Phil Engert, damals 7, 10 und 11 Jahre alt. Bis Mai 2019 sind
+wir die Grenze in Etappen abgegangen; die Kinder haben die Steine gesucht, fotografiert und auf
+einem Erfassungsbogen beschrieben, den ich dafür entworfen hatte. Für diese Arbeit und für die
+Freilegung eines alten Weges erhielten die drei 2019 den Sonderpreis Kleindenkmale des
+Kulturlandschaftspreises (Schwäbischer Heimatbund und Sparkassenverband Baden-Württemberg). Ich
+hatte sie vorgeschlagen; Preisträger sind die Kinder.
+
+Diese Ersterfassung blieb lückenhaft. Die belastbare Grundlage der Website sind die Begehungen,
+die ich allein unternommen habe, nur begleitet von meinem Hund Lumi: die drei vollständigen
+Umgehungen an einem Stück am 27. Dezember 2017, am 5. April 2019 und am 14. Mai 2021, dazu
+zahlreiche Teilbegehungen und Nachkontrollen. Dabei habe ich gezielt nach bis dahin nicht
+gefundenen Steinen gesucht und alle Standorte genau eingemessen. Jeden gefundenen Stein habe ich
+behutsam gereinigt, fotografiert und beschrieben. Alle Fotos auf der Website stammen von diesen
+Begehungen.
 
 Gemessen habe ich mit einem GPS-Handgerät Garmin GPSMAP 65s, das mit mehreren Frequenzen und
 fünf Satellitensystemen arbeitet und auch im dichten Wald in der Regel auf höchstens 2 Meter genau

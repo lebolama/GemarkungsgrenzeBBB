@@ -30,7 +30,9 @@ Das Verfahren ist so beschrieben, dass es sich auf andere Gemarkungen übertrage
 
 ## b) Eigenleistung
 
-Ich habe die Arbeit allein und ehrenamtlich erstellt. Ich bin Diplom-Psychologe und beruflich
+Ich habe die Arbeit ehrenamtlich und bis auf eine Ausnahme allein erstellt: Die Ersterfassung der
+Steine 2018/19 habe ich gemeinsam mit meinen Söhnen Jonne und Matti und ihrem Freund Phil Engert
+unternommen (siehe Tabelle). Ich bin Diplom-Psychologe und beruflich
 Leiter der Zentralen Studienberatung der Universität Würzburg; die Arbeit steht in keinem
 Zusammenhang mit meiner Ausbildung oder meinem Beruf.
 
@@ -40,7 +42,8 @@ Zusammenhang mit meiner Ausbildung oder meinem Beruf.
 | Fotografieren der Quellen | 497 Protokollseiten, 400 Seiten Landschiederbücher | vollständig | Kamera |
 | Transkription | alle Protokolle, von Hand; Kurrentschrift selbst erlernt | vollständig | Handschriftenerkennung Transkribus nur in einzelnen Zweifelsfällen, kaum hilfreich |
 | Zuordnung der Steine über die Jahrhunderte | 394 Steinpositionen aus neun Grenzbeschreibungen | vollständig | ohne KI |
-| Geländebegehungen 2017–2021 | 3 vollständige Umgehungen der rund 30 km langen Grenze, zahlreiche Teilbegehungen; 142 Steine wiedergefunden, gereinigt, fotografiert, beschrieben | vollständig | – |
+| Ersterfassung 2018/19 | Grenze in Etappen abgegangen, Steine gesucht, fotografiert und auf Erfassungsbögen beschrieben; blieb lückenhaft | gemeinsam mit drei Kindern (damals 7, 10 und 11 Jahre); Erfassungsbogen und Anleitung von mir | – |
+| Systematische Geländebegehungen 2017–2021 | 3 vollständige Umgehungen der rund 30 km langen Grenze an einem Stück (27.12.2017, 5.4.2019, 14.5.2021), zahlreiche Teilbegehungen und Nachkontrollen, gezielte Suche nach bis dahin nicht gefundenen Steinen; 142 Steine wiedergefunden, gereinigt, fotografiert, beschrieben | vollständig | – |
 | Einmessung | GPS-Einmessung aller gefundenen Steine, Abgleich mit Deutscher Grundkarte 1:5 000 | vollständig | Garmin GPSMAP 65s, Smartphone, Kamera-GPS |
 | Grenzlinie | Nachzeichnen der Gemarkungsgrenze aus der Deutschen Grundkarte | vollständig | QGIS |
 | Methode der Standortberechnung | Konzept: Abstandsketten von heute stehenden Steinen aus | vollständig | – |
@@ -48,7 +51,11 @@ Zusammenhang mit meiner Ausbildung oder meinem Beruf.
 | Suche im Gelände mit der berechneten Karte | seit 2026; zwei verschollene Steine wiedergefunden und wieder aufgerichtet | vollständig | – |
 
 Alle Inhalte der Website stammen von mir; ich habe sie geprüft und verantworte sie. Die Arbeit
-hat keine Mitautoren.
+hat keine Mitautoren: Die drei Kinder waren an der Ersterfassung im Gelände beteiligt, nicht an
+Quellenarbeit, Auswertung oder Website. Für die Ersterfassung und die Freilegung eines alten Weges
+erhielten sie 2019 den Sonderpreis Kleindenkmale des Kulturlandschaftspreises des Schwäbischen
+Heimatbunds. Ich selbst habe für diese Arbeit keinen Preis erhalten und mich noch nie um den
+Landespreis für Heimatforschung beworben.
 
 ## c) Wie die Arbeit die Bewertungskriterien erfüllt
 
