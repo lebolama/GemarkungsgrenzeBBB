@@ -30,9 +30,9 @@ Das Verfahren ist so beschrieben, dass es sich auf andere Gemarkungen übertrage
 
 ## b) Eigenleistung
 
-Ich habe die Arbeit allein und ehrenamtlich erstellt. Beruflich bin ich Leiter der Zentralen
-Studienberatung der Universität Würzburg; die Arbeit steht in keinem Zusammenhang mit meiner
-Ausbildung oder meinem Beruf.
+Ich habe die Arbeit allein und ehrenamtlich erstellt. Ich bin Diplom-Psychologe und beruflich
+Leiter der Zentralen Studienberatung der Universität Würzburg; die Arbeit steht in keinem
+Zusammenhang mit meiner Ausbildung oder meinem Beruf.
 
 | Arbeitsschritt | Umfang | Eigenleistung | Hilfsmittel |
 |---|---|---|---|
@@ -45,10 +45,10 @@ Ausbildung oder meinem Beruf.
 | Grenzlinie | Nachzeichnen der Gemarkungsgrenze aus der Deutschen Grundkarte | vollständig | QGIS |
 | Methode der Standortberechnung | Konzept: Abstandsketten von heute stehenden Steinen aus | vollständig | – |
 | Programmierung der Website, Karten, Suche und Berechnung | 16 Seiten, 394 Steckbriefe, 3 interaktive Karten | Konzept, Vorgaben, Prüfung | KI-Werkzeuge (OpenAI Codex, Anthropic Claude Code) |
-| Inhalte und Texte | alle Seiten | Inhalte, Prüfung und Verantwortung | ✏️ siehe Hinweis |
 | Suche im Gelände mit der berechneten Karte | seit 2026; zwei verschollene Steine wiedergefunden und wieder aufgerichtet | vollständig | – |
 
-Die Arbeit hat keine Mitautoren.
+Alle Inhalte der Website stammen von mir; ich habe sie geprüft und verantworte sie. Die Arbeit
+hat keine Mitautoren.
 
 ## c) Wie die Arbeit die Bewertungskriterien erfüllt
 

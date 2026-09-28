@@ -17,7 +17,7 @@ Markierung: ✏️ = Hendrik muss ergänzen oder prüfen.
 **Titel der Arbeit \***
 > Die Grenzsteine der Gemarkung Tauberbischofsheim – Website mit Rekonstruktion verschwundener Grenzsteine aus historischen Grenzgangprotokollen
 
-(Kürzere Alternative: „Die Grenzsteine der Gemarkung Tauberbischofsheim“)
+(Entscheidung Hendrik: lange Fassung)
 
 **Region, auf die sich die Arbeit bezieht \***
 > Tauberbischofsheim, Main-Tauber-Kreis (Tauberfranken)
@@ -42,12 +42,12 @@ Leer lassen (nur bei Vorschlägen durch Dritte).
 | Straße, Hausnummer \* | Mörikeweg 6 |
 | PLZ \* | 97941 |
 | Ort | Tauberbischofsheim |
-| Telefon (tagsüber) \* | ✏️ nur Ziffern |
-| E-Mail-Adresse \* | ✏️ |
-| Geburtsjahrgang \* | ✏️ |
+| Telefon (tagsüber) \* | Hendrik trägt ein (liegt vor, bewusst nicht im Repo) |
+| E-Mail-Adresse \* | mail@beierstettel.de |
+| Geburtsjahrgang \* | Hendrik trägt ein (liegt vor, bewusst nicht im Repo) |
 
 **Ausbildung/ erlernter Beruf/ ggf. Hochschulabschluss mit Fachrichtung/ derzeitige Tätigkeit \***
-> ✏️ Hochschulabschluss: [Fach eintragen]. Derzeitige Tätigkeit: Leiter der Zentralen Studienberatung der Julius-Maximilians-Universität Würzburg. Die Heimatforschung betreibe ich ehrenamtlich; seit 2021 bin ich ehrenamtlicher Grenzsteinbeauftragter der Stadt Tauberbischofsheim.
+> Diplom-Psychologe (Julius-Maximilians-Universität Würzburg, 2002). Derzeitige Tätigkeit: Leiter der Zentralen Studienberatung der Julius-Maximilians-Universität Würzburg. Die Heimatforschung betreibe ich ehrenamtlich; seit 2021 bin ich ehrenamtlicher Grenzsteinbeauftragter der Stadt Tauberbischofsheim.
 
 (Wichtig für die Jury: Beruf ohne Bezug zu Geschichte, Archivwesen oder Vermessung → kein Ausschlussgrund.)
 
