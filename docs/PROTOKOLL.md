@@ -1,5 +1,37 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 20:09 – Transkriptionen auf der Website, zehnter Upload
+
+**Bestandsaufnahme der Transkriptionen** (Quellordner F:\…\Büschemer Gemarkungsumgehungsbücher\PDF):
+
+| Protokoll | Vollständige Abschrift | PDF-Kommentare in „Büschemer Gemarkungsumgehungen.pdf“ |
+|---|---|---|
+| 1569 | – | 6 von 20 Seiten, 23 Kommentare, 4 600 Zeichen |
+| 1580 (Abschrift) | – | 4 von 28 Seiten, 18 Kommentare, 2 700 Zeichen |
+| 1608 | – (docx nur Überschrift) | 3 von 29 Seiten, 618 Zeichen |
+| 1683 | **ja** (Transkript pdf/odt/rtf, 108 Steine) | 39 von 47 Seiten |
+| 1700 | – | keine |
+| 1724 | – | keine |
+| 1749 | – | keine |
+| 1872 + 1887–93 | **ja** (Transkript pdf/rtf, 239 Seitenmarken) | 226 von 246 Seiten |
+
+Für 1569, 1580, 1608, 1700, 1724 und 1749 gibt es außerdem nur die Steinbeschreibungen in den
+Excel-Tabellen (ohne Zwischentexte). Hendrik sucht die fehlenden Transkriptionen.
+
+**Neu:** `werkzeuge/transkription_seiten.py` erzeugt `transkription-1683.html` und
+`transkription-1872.html` (Zeilenumbrüche wie im Original, Seitenmarken als Sprungziele,
+Anmerkungen [ ] und unsichere Lesungen (?) hervorgehoben). Auf `protokolle.html` sind Einband und
+Textlink „Transkription“ für 1683 und 1872 verlinkt. `grenze.css`: Silbentrennung in
+Überschriften (langes „Gemarkungsumgehungsbuch“ lief auf dem Handy über).
+
+**Fund für „So wird gerechnet“:** Vorbericht 1872, Punkt 3: Die Messlatten wurden „auf den Boden
+so wie derselbe beschaffen ist“ gelegt, nur über Dämme und Gräben waagrecht gemessen – Beleg aus
+der Quelle, warum Protokollabstände am Hang länger sind als GPS-Strecken. Noch einzubauen.
+
+Hochgeladen (Sicherung `backups/2026-09-28_2009_server_ftp`): grenze.css, transkription-1683,
+transkription-1872, protokolle – 4/4 identisch; lokaler Ordner und `site/` angeglichen.
+
+
 ## 28.09.2026, abends – Bewerbungsunterlagen, Abschnitte 1 und 2 (Entwurf)
 
 - `docs/bewerbung/formular.md`: alle Felder des Online-Formulars (langer Titel, Ausbildung

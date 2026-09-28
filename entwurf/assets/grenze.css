@@ -137,3 +137,6 @@ button:hover,.knopf:hover{background:var(--rot-hell);color:#fff}
 
 /* Für ältere Seiten (Chronik), die .container als Inhaltsrahmen nutzen */
 .container{max-width:72rem;margin:0 auto;padding:1.5rem 1rem 3rem}
+
+/* Lange deutsche Wörter in Überschriften auf schmalen Bildschirmen trennen */
+h1,h2,h3{hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
