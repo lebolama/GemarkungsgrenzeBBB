@@ -1,0 +1,472 @@
+{
+ "Flurnamen/dgk5-tauberbischofsheim.jpg": {
+  "bytes": 40491210,
+  "sha256": "c5564e18e45280575fcaa46809ab40725955a3cb494228091db326dccbf3d9da",
+  "gespeichert_als": "Flurnamen/dgk5-tauberbischofsheim.jpg"
+ },
+ "Flurnamen/flurnamen.json": {
+  "bytes": 72596,
+  "sha256": "e73f1231ff435c5172af48dc360142d3afc65c95c5bb1b44cf4642eb481166ae",
+  "gespeichert_als": "Flurnamen/flurnamen.json"
+ },
+ "Flurnamen/gemarkungskarte-1932.jpg": {
+  "bytes": 2982564,
+  "sha256": "9c63a50b2453c84827a126946d0ae60702725e33727d8fb6f91670c716d945f9",
+  "gespeichert_als": "Flurnamen/gemarkungskarte-1932.jpg"
+ },
+ "Flurnamen/poi-bilder/rektorskapelle (1).JPG": {
+  "bytes": 838526,
+  "sha256": "d9252b89edb335c3731f8757d4b9dc22fa357600fc287c481625984ad880cf69",
+  "gespeichert_als": "Flurnamen/poi-bilder/rektorskapelle (1).JPG"
+ },
+ "Flurnamen/poi-bilder/rektorskapelle (2).JPG": {
+  "bytes": 769613,
+  "sha256": "ab9aebda5c0beb12340de7ab1fa693d003eaa0dffe2afb7aa20270af4ad74665",
+  "gespeichert_als": "Flurnamen/poi-bilder/rektorskapelle (2).JPG"
+ },
+ "Flurnamen/poi-bilder/rektorskapelle (3).JPG": {
+  "bytes": 349610,
+  "sha256": "9aee3798c54092dd8f319fcaeaaf59dad7dc83b848d7c5a87488f48266d3e965",
+  "gespeichert_als": "Flurnamen/poi-bilder/rektorskapelle (3).JPG"
+ },
+ "Flurnamen/poi-bilder/rektorskapelle (4).JPG": {
+  "bytes": 561514,
+  "sha256": "a0e44d3cd83312eb5ff824583fd669cc12b21a671ff30bfb559d4ada9ce382b9",
+  "gespeichert_als": "Flurnamen/poi-bilder/rektorskapelle (4).JPG"
+ },
+ "Flurnamen/poi-bilder/rektorskapelle (4).jpg": {
+  "bytes": 561514,
+  "sha256": "a0e44d3cd83312eb5ff824583fd669cc12b21a671ff30bfb559d4ada9ce382b9",
+  "gespeichert_als": "_namenskollision/Flurnamen/poi-bilder/rektorskapelle (4).jpg"
+ },
+ "Flurnamen/poi-bilder/rektorskapelle (5).JPG": {
+  "bytes": 618017,
+  "sha256": "6b6f787d088fb46ac9a5bd065cc96dd1a2b9583061874ae2bfeb16884e45ee48",
+  "gespeichert_als": "Flurnamen/poi-bilder/rektorskapelle (5).JPG"
+ },
+ "Flurnamen/poi-bilder/rektorskapelle (5).jpg": {
+  "bytes": 618017,
+  "sha256": "6b6f787d088fb46ac9a5bd065cc96dd1a2b9583061874ae2bfeb16884e45ee48",
+  "gespeichert_als": "_namenskollision/Flurnamen/poi-bilder/rektorskapelle (5).jpg"
+ },
+ "Flurnamen/poi-bilder/rektorskapelle (6).JPG": {
+  "bytes": 385295,
+  "sha256": "3d036a330e0c9298117fc1509767be00de0121a8290f9303943410fdbb3bca7d",
+  "gespeichert_als": "Flurnamen/poi-bilder/rektorskapelle (6).JPG"
+ },
+ "Flurnamen/poi-bilder/rektorskapelle (6).jpg": {
+  "bytes": 385295,
+  "sha256": "3d036a330e0c9298117fc1509767be00de0121a8290f9303943410fdbb3bca7d",
+  "gespeichert_als": "_namenskollision/Flurnamen/poi-bilder/rektorskapelle (6).jpg"
+ },
+ "Flurnamen/pois.txt": {
+  "bytes": 8033,
+  "sha256": "0a06fe030b7f1294565e22e9b65257f8071400d2643ec3bb8a178434025849be",
+  "gespeichert_als": "Flurnamen/pois.txt"
+ },
+ "Gemarkungsgrenze Tauberbischofsheim.geojson": {
+  "bytes": 81272,
+  "sha256": "96145625f85cc0c168d9971d568d28b3cd51290d3f76cc7e004e66d8236dfb0a",
+  "gespeichert_als": "Gemarkungsgrenze Tauberbischofsheim.geojson"
+ },
+ "Zeitachse.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "Zeitachse.html"
+ },
+ "abstaende.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "abstaende.html"
+ },
+ "analysen.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "analysen.html"
+ },
+ "anomalien.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "anomalien.html"
+ },
+ "artikel.html": {
+  "bytes": 52309,
+  "sha256": "c16dd17b8f0fe74a1245b9c3ad9a8078d3434ed9b5369f802ab9ce84b170172d",
+  "gespeichert_als": "artikel.html"
+ },
+ "assets/grenze.css": {
+  "bytes": 5513,
+  "sha256": "fbd75cce7e4d3018310b4535a8b78d9d555b9cf919435e76c80b45a91907f0dc",
+  "gespeichert_als": "assets/grenze.css"
+ },
+ "assets/mail.js": {
+  "bytes": 99,
+  "sha256": "f1023c587e875c383f75cb78041fdf57ae773613d5dd7aba7e15d6b7291741a0",
+  "gespeichert_als": "assets/mail.js"
+ },
+ "assets/menue.js": {
+  "bytes": 425,
+  "sha256": "18dd88909f79666e2e98b29e52a727eed1f7f8b48ae275df468bb0d1fa1c891a",
+  "gespeichert_als": "assets/menue.js"
+ },
+ "assets/print.css": {
+  "bytes": 399,
+  "sha256": "f4d4e97385a387698485f79dfaa62ecb28fc40fe35228e17657880ba74a8f0c6",
+  "gespeichert_als": "assets/print.css"
+ },
+ "assets/style.css": {
+  "bytes": 781,
+  "sha256": "80c27da8dcdf9e39a94df5dcf4a4114581c261dcbc643c4f4155f9bbbf942ee1",
+  "gespeichert_als": "assets/style.css"
+ },
+ "b_typologie.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "b_typologie.html"
+ },
+ "begriffe.html": {
+  "bytes": 13359,
+  "sha256": "59f5277a450071ed8e44981a0f7d17dd6a9b7412f5801446dae48df4bec69747",
+  "gespeichert_als": "begriffe.html"
+ },
+ "berechnung.html": {
+  "bytes": 16915,
+  "sha256": "f3e07c4e176735cf3419af3f7453acc0fa5c12c27384fef1634e105748f00028",
+  "gespeichert_als": "berechnung.html"
+ },
+ "bericht.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "bericht.html"
+ },
+ "bilder/artikel-01-grenzstein-1493.jpg": {
+  "bytes": 84516,
+  "sha256": "6b501cec86081e176512f3363333194ff10bcdff75da6ea9be4a6677c6a3c2e1",
+  "gespeichert_als": "bilder/artikel-01-grenzstein-1493.jpg"
+ },
+ "bilder/artikel-01-judenstein.jpg": {
+  "bytes": 167019,
+  "sha256": "a3fee995bd2318eca0b4749d867c84b5d139c391f64a9181b622e338a7b4f09a",
+  "gespeichert_als": "bilder/artikel-01-judenstein.jpg"
+ },
+ "bilder/artikel-01-karte-gemarkungsgrenze.jpg": {
+  "bytes": 184863,
+  "sha256": "58ac1237b04710bdbc83cd321947b71b03be61efc8168f492ea2dad800fc3699",
+  "gespeichert_als": "bilder/artikel-01-karte-gemarkungsgrenze.jpg"
+ },
+ "bilder/artikel-02-1308-und-1508.jpg": {
+  "bytes": 148010,
+  "sha256": "a5feaa824e354b6832b71423d02cae65cbac2e825f00b3607d08b83d9757640f",
+  "gespeichert_als": "bilder/artikel-02-1308-und-1508.jpg"
+ },
+ "bilder/artikel-02-bruchstueck-1508.jpg": {
+  "bytes": 154047,
+  "sha256": "18b7d26e0e404184fe957ff922fc17f3a07b905b175715e35c0c15eecf0c6261",
+  "gespeichert_als": "bilder/artikel-02-bruchstueck-1508.jpg"
+ },
+ "bilder/artikel-03-bischofsheimer-gruendle.jpg": {
+  "bytes": 68181,
+  "sha256": "af1c6dc9cadf1fca894b8246aa3dcac2cade4606aa82385be73f8061a8c146bd",
+  "gespeichert_als": "bilder/artikel-03-bischofsheimer-gruendle.jpg"
+ },
+ "bilder/artikel-03-eckstein-1474.jpg": {
+  "bytes": 280167,
+  "sha256": "96abe6bdbaac46c8118cfbc229900bd0d050bcfc07696558343c214ac988193f",
+  "gespeichert_als": "bilder/artikel-03-eckstein-1474.jpg"
+ },
+ "bilder/artikel-03-jahreszahl-1474.jpg": {
+  "bytes": 54916,
+  "sha256": "8c4f678e3ec8f3b87ff375388532f4828b8e2b7d418d5bf7e368b790508d8590",
+  "gespeichert_als": "bilder/artikel-03-jahreszahl-1474.jpg"
+ },
+ "bilder/artikel-04-galgen-mudau.jpg": {
+  "bytes": 86200,
+  "sha256": "3b2a23a74712e3f05fb41edea0e1d178442cf52dcfda89c15b2048284621b032",
+  "gespeichert_als": "bilder/artikel-04-galgen-mudau.jpg"
+ },
+ "bilder/artikel-04-stein-1490.jpg": {
+  "bytes": 192373,
+  "sha256": "ad38eb6462ba884f1f20641de1151a91fd5e5fc670b7486088c38aecf36acb08",
+  "gespeichert_als": "bilder/artikel-04-stein-1490.jpg"
+ },
+ "bilder/artikel-05-karte-schoenertswald.jpg": {
+  "bytes": 124783,
+  "sha256": "278832305bcc984c613b1cc2604ffa95ed31639ecc39695b508a827c6fc46649",
+  "gespeichert_als": "bilder/artikel-05-karte-schoenertswald.jpg"
+ },
+ "bilder/artikel-05-rosenstein.jpg": {
+  "bytes": 208587,
+  "sha256": "116c9472c726cb511dae4621861e58b1577bf570aaa9ebb1af028e4fe5a571de",
+  "gespeichert_als": "bilder/artikel-05-rosenstein.jpg"
+ },
+ "bilder/artikel-06-karte-1811.jpg": {
+  "bytes": 159025,
+  "sha256": "ded8b3868bd63b31a6a5a6d30ade537eed45c66d8b096e2caf1d280b7f6daf16",
+  "gespeichert_als": "bilder/artikel-06-karte-1811.jpg"
+ },
+ "bilder/artikel-06-spitalsteine.jpg": {
+  "bytes": 113250,
+  "sha256": "a763808c8c377f5c80b9e7e79b22ce802cd989ffad1dafe1e5cb7b3c5fd50a39",
+  "gespeichert_als": "bilder/artikel-06-spitalsteine.jpg"
+ },
+ "bilder/artikel-07-geleitzettel-1668.jpg": {
+  "bytes": 76056,
+  "sha256": "23803fbb09be7b1cab3617916966aabff594f8acd2e2bb561a93d8d58f596703",
+  "gespeichert_als": "bilder/artikel-07-geleitzettel-1668.jpg"
+ },
+ "bilder/artikel-07-hoheitssaeulen.jpg": {
+  "bytes": 178461,
+  "sha256": "43cd4eefbbb48fee466f5cd03b48a4e22a0cd4accdf9d033bb04814386e6d541",
+  "gespeichert_als": "bilder/artikel-07-hoheitssaeulen.jpg"
+ },
+ "bilder/artikel-07-hufeisen.jpg": {
+  "bytes": 136410,
+  "sha256": "2f4141a266c9345f0f44e8265745b84cb1006c2b447e85fcd191a4bfe92c4cd3",
+  "gespeichert_als": "bilder/artikel-07-hufeisen.jpg"
+ },
+ "bilder/artikel-07-inschrift-mainzer-saeule.jpg": {
+  "bytes": 143742,
+  "sha256": "806da7a8a310bc52fa51125f5b88ac8faae0f9e117ee930f5afc66ddbd034992",
+  "gespeichert_als": "bilder/artikel-07-inschrift-mainzer-saeule.jpg"
+ },
+ "bilder/artikel-07-karte-1668.jpg": {
+  "bytes": 169160,
+  "sha256": "428f463bafcde17da26ea630a3d00405b2dccaa58176c4bfe9d0b7156938a496",
+  "gespeichert_als": "bilder/artikel-07-karte-1668.jpg"
+ },
+ "bilder/grenzstein-brehmbachtal-landesarchiv.jpg": {
+  "bytes": 227605,
+  "sha256": "7ca0d521668cd03686d1e505121dada97616f482c2692499b8fe5ff9cd37534a",
+  "gespeichert_als": "bilder/grenzstein-brehmbachtal-landesarchiv.jpg"
+ },
+ "bilder/grenzstein-mainzer-rad.jpg": {
+  "bytes": 238104,
+  "sha256": "696b88f3bc51596170dc75cd3de9c78af7af0b2d7da96968f4cce130007b891c",
+  "gespeichert_als": "bilder/grenzstein-mainzer-rad.jpg"
+ },
+ "changelog.html": {
+  "bytes": 477,
+  "sha256": "1832313e978af09422f5a9814f070d156adc65e35059c971536a64531d6cd538",
+  "gespeichert_als": "changelog.html"
+ },
+ "chronik.html": {
+  "bytes": 20660,
+  "sha256": "0333a3f76edb0f902dad5629aa4f4bb22b992fa418e47deefd4dd9245cee1523",
+  "gespeichert_als": "chronik.html"
+ },
+ "data.json": {
+  "bytes": 2471457,
+  "sha256": "587e7b40450838a9f805165f1bc71aea7cf3ddee3e0f007b4b8d86ac0c605627",
+  "gespeichert_als": "data.json"
+ },
+ "datenschutz.html": {
+  "bytes": 6711,
+  "sha256": "55df6dfd2c290eee7c10710bf466428fce6484ec4d3bac4b844cbcb9a4ba1157",
+  "gespeichert_als": "datenschutz.html"
+ },
+ "distanzkarte.html": {
+  "bytes": 491,
+  "sha256": "65c7b869515ec8a3733345e4aaa9d5b6d11bcfccf892c69b3a9c2aa2033b770d",
+  "gespeichert_als": "distanzkarte.html"
+ },
+ "download.html": {
+  "bytes": 5211,
+  "sha256": "dfa2991ac1c8fbc10a0876e100aa1f9e50d3ee5a4e865441da00b753b621e725",
+  "gespeichert_als": "download.html"
+ },
+ "edition.html": {
+  "bytes": 481,
+  "sha256": "d8a8493f1e29f5f0fdd5449d8e7a4be9a14a921f1028a40eff3b3711bcaa0b31",
+  "gespeichert_als": "edition.html"
+ },
+ "flurnamen.json": {
+  "bytes": 72596,
+  "sha256": "e73f1231ff435c5172af48dc360142d3afc65c95c5bb1b44cf4642eb481166ae",
+  "gespeichert_als": "flurnamen.json"
+ },
+ "grenzgaenge.html": {
+  "bytes": 9130,
+  "sha256": "f2fc12efa043d037ccd9e8737be6d3ee7ca8091df70b1254d127ac06352ee201",
+  "gespeichert_als": "grenzgaenge.html"
+ },
+ "grenzlinie.geojson": {
+  "bytes": 1020,
+  "sha256": "d7e57b37def8866069659f21995fe9a31a1e72c0d7d450fcdb248734265c09fe",
+  "gespeichert_als": "grenzlinie.geojson"
+ },
+ "grenzpunkte.geojson": {
+  "bytes": 5077251,
+  "sha256": "615fde41305f8dac2b1af1518950c2ba805f89e5bb5c9d8a892317d60c1cd8eb",
+  "gespeichert_als": "grenzpunkte.geojson"
+ },
+ "grenzsteine-tauberbischofsheim.csv": {
+  "bytes": 154737,
+  "sha256": "1de4fa32bcd4f00843420e4891b7cc7c09fffe181e4323d625f763fd7783cb3a",
+  "gespeichert_als": "grenzsteine-tauberbischofsheim.csv"
+ },
+ "hypothesen.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "hypothesen.html"
+ },
+ "impressum.html": {
+  "bytes": 3970,
+  "sha256": "6bfeeaa5afa99c2eda79f9e91f31c16de602704cebf1906f12e93a3a4ac10915",
+  "gespeichert_als": "impressum.html"
+ },
+ "index.html": {
+  "bytes": 6434,
+  "sha256": "f8bd2af85bfed2bff447a8866390fdbb8e4dbd126091f003603717e860b9a6a6",
+  "gespeichert_als": "index.html"
+ },
+ "karte-b.html": {
+  "bytes": 491,
+  "sha256": "65c7b869515ec8a3733345e4aaa9d5b6d11bcfccf892c69b3a9c2aa2033b770d",
+  "gespeichert_als": "karte-b.html"
+ },
+ "karte.html": {
+  "bytes": 491,
+  "sha256": "65c7b869515ec8a3733345e4aaa9d5b6d11bcfccf892c69b3a9c2aa2033b770d",
+  "gespeichert_als": "karte.html"
+ },
+ "karte2.html": {
+  "bytes": 491,
+  "sha256": "65c7b869515ec8a3733345e4aaa9d5b6d11bcfccf892c69b3a9c2aa2033b770d",
+  "gespeichert_als": "karte2.html"
+ },
+ "karteXL.html": {
+  "bytes": 4922,
+  "sha256": "dd3df03ceb3c347f0a9f0f02feb28687d9b82a251d69422218224d49c208cf5c",
+  "gespeichert_als": "karteXL.html"
+ },
+ "karte_v2.html": {
+  "bytes": 491,
+  "sha256": "65c7b869515ec8a3733345e4aaa9d5b6d11bcfccf892c69b3a9c2aa2033b770d",
+  "gespeichert_als": "karte_v2.html"
+ },
+ "perioden.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "perioden.html"
+ },
+ "periodisierung.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "periodisierung.html"
+ },
+ "projekt.html": {
+  "bytes": 6973,
+  "sha256": "70d37bd0f3c3d0c1e025c8752ca84ea228a5e1a458957592edca46ba6bd07e1f",
+  "gespeichert_als": "projekt.html"
+ },
+ "quellen.html": {
+  "bytes": 16040,
+  "sha256": "12933aef8f7100f29d61b3688b59e38b0a6e67cbbd7166b42ce3a8c3ea5b7fed",
+  "gespeichert_als": "quellen.html"
+ },
+ "recherche.html": {
+  "bytes": 14396,
+  "sha256": "ff4353f1a75b6ad885b8975038669ec38349a0ab2587719cc4dec39406d1dd34",
+  "gespeichert_als": "recherche.html"
+ },
+ "reconstruction.html": {
+  "bytes": 513,
+  "sha256": "4918cbf5244ced91b789f086f42e943e8752412f23f76b58f1fe3d1ff7410ea6",
+  "gespeichert_als": "reconstruction.html"
+ },
+ "reconstruction_.html": {
+  "bytes": 513,
+  "sha256": "4918cbf5244ced91b789f086f42e943e8752412f23f76b58f1fe3d1ff7410ea6",
+  "gespeichert_als": "reconstruction_.html"
+ },
+ "reconstruction_test.html": {
+  "bytes": 513,
+  "sha256": "4918cbf5244ced91b789f086f42e943e8752412f23f76b58f1fe3d1ff7410ea6",
+  "gespeichert_als": "reconstruction_test.html"
+ },
+ "reconstruction_xl.html": {
+  "bytes": 14280,
+  "sha256": "a17b28ce510ac6e5c2a52a5ea39ef528f7e7051c71abe49b4bef4f68f11c7d90",
+  "gespeichert_als": "reconstruction_xl.html"
+ },
+ "rekonstruktion.html": {
+  "bytes": 513,
+  "sha256": "4918cbf5244ced91b789f086f42e943e8752412f23f76b58f1fe3d1ff7410ea6",
+  "gespeichert_als": "rekonstruktion.html"
+ },
+ "service-worker.js": {
+  "bytes": 4906,
+  "sha256": "fe6a6a18a40913c8b78bb584caa41bb762a4a708a40aaad5399e4518e14a6637",
+  "gespeichert_als": "service-worker.js"
+ },
+ "standorte-korrekturen.json": {
+  "bytes": 347,
+  "sha256": "4a997818af72ece1ac753f0a585893f9e3f565278eb1b6d4abbdca632ea21823",
+  "gespeichert_als": "standorte-korrekturen.json"
+ },
+ "standorte-positionen.json": {
+  "bytes": 451270,
+  "sha256": "716092733d45e0511f4860b38ae28987884acc35f5ee5e168e588fc1e5dcc231",
+  "gespeichert_als": "standorte-positionen.json"
+ },
+ "standorte.html": {
+  "bytes": 104372,
+  "sha256": "c59e338bd777e5b8440394091e54dd08c9d657fef641c67ca78af214d32d9837",
+  "gespeichert_als": "standorte.html"
+ },
+ "statistik.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "statistik.html"
+ },
+ "stein.html": {
+  "bytes": 15162,
+  "sha256": "cfb161f675a7e49c876b3ea5e2a8b76651c47fff0153663152fb1b084619e471",
+  "gespeichert_als": "stein.html"
+ },
+ "suche.html": {
+  "bytes": 475,
+  "sha256": "df4a1377e49ff4b56e6882c51ab13dbefd2aeb34714410f4f4064c3d3d5d77d9",
+  "gespeichert_als": "suche.html"
+ },
+ "suche_2.html": {
+  "bytes": 475,
+  "sha256": "df4a1377e49ff4b56e6882c51ab13dbefd2aeb34714410f4f4064c3d3d5d77d9",
+  "gespeichert_als": "suche_2.html"
+ },
+ "symbolcluster.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "symbolcluster.html"
+ },
+ "titelbild.png": {
+  "bytes": 1186314,
+  "sha256": "1f1a72f3fb11f6995468772661f5b54ab1eb99820d9a1f731faca701a8efbf0c",
+  "gespeichert_als": "titelbild.png"
+ },
+ "veraenderung.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "veraenderung.html"
+ },
+ "vergleich.html": {
+  "bytes": 6357,
+  "sha256": "55c6c4e64a9a6328a1447bc06613df3b24f41260d89193599f5ddc2c3be17641",
+  "gespeichert_als": "vergleich.html"
+ },
+ "version.json": {
+  "bytes": 165,
+  "sha256": "60908c04f2e88fc5b6189daef108ec9d18d951e04a160a5b5a1d1e494ca86347",
+  "gespeichert_als": "version.json"
+ },
+ "zeitachse.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "_namenskollision/zeitachse.html"
+ },
+ "zeitachse_v2.html": {
+  "bytes": 485,
+  "sha256": "5cdbd1abff037435620744fe49c5b95137526cb96d2120a41a72a33de31018ec",
+  "gespeichert_als": "zeitachse_v2.html"
+ }
+}

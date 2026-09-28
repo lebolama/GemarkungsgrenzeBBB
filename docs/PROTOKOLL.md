@@ -1,5 +1,32 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 15:19 – Nachträge Hendrik, siebter Upload
+
+- `projekt.html`: „sowie bei Textentwürfen für die Website“ gestrichen (Wunsch Hendriks; Claude hat
+  auf das Risiko bei der Eigenleistungserklärung hingewiesen, s. Chat).
+- Begehungen 2017–2021 präzisiert: drei vollständige Umgehungen + zahlreiche Teilbegehungen,
+  Steine behutsam gereinigt; Begehungen laufen weiter (projekt, quellen).
+- Historische Grenzgänge: abschnittsweise, Feldschieder beider Nachbarorte, bei Streit neutrale
+  Feldschieder einer dritten Gemeinde (begriffe).
+- **Zwei Steine mit der Karte wiedergefunden** (± ca. 2,5 m vorhergesagt): Fahrentalgraben
+  (Steilhang) und Wald bei den ehem. Dienstadter Weinbergen; beide umgestürzt knapp unter der
+  Oberfläche, wieder aufgerichtet. Allgemein eingearbeitet (projekt, berechnung „Bewährt im
+  Gelände“). **Stein-IDs, GPS, Fotos fehlen noch** → Datensatz noch nicht aktualisiert.
+- Ausreißer > 100 m als möglicher Hinweis auf unbekannte Grenzänderung (berechnung).
+- **Meterwerte 1872/1887–93 geklärt:** Hendriks Sorge (2,97 m) unbegründet. Die Meter enthalten
+  Ruten + Fuß + Zoll (1 Rute = 10 Fuß = 3,00 m; 1 Fuß = 10 Zoll). 181 von 196 Meterwerten 1872
+  stimmen exakt mit „Distat … Ruthen … Fuß … Zoll“ der Transkription überein; die Rutenspalte
+  enthält nur ganze Ruten. **Datensatz nicht geändert.** Texte (quellen, begriffe, download,
+  berechnung) entsprechend präzisiert; Beispiel zitiert „Distat 17 Ruthen 8 Fuß oder 53 Meter 40
+  Centimeter“.
+- Neuer Quellbestand freigegeben: `F:\User\Dokumente2\Tauberfranken\_Büscheme\Büschemer
+  Gemarkungsumgehungsbücher` (3,2 GB; Fotos aller Seiten, PDFs, Transkriptionen 1608/1683/1872,
+  Protokoll 1724, Landschieder-Tagebücher 1860–1919). Transkribus-XML dort ohne Textzeilen.
+
+Hochgeladen (Sicherung `backups/2026-09-28_1519_server_ftp`): projekt, quellen, begriffe, download,
+berechnung – 5/5 identisch; lokaler Ordner und `site/` angeglichen.
+
+
 ## 28.09.2026, 14:50 – Erklärseite „So wird gerechnet“, sechster Upload
 
 **Neu: `berechnung.html`** (Wunsch f, von Hendrik freigegeben): Idee, sieben Schritte (nach
