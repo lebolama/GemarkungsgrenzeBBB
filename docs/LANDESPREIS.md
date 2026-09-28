@@ -160,9 +160,8 @@ heimatpflege@mwk.bwl.de
 - [ ] Auffällige Steinpaare mit Hendrik klären: 194→195 (alle Jahrgänge ca. 124–128 m laut
       Protokoll, GPS 84 m), 387→388→389, 65→66 (1872), 72→73 – Zuordnung, Versetzung,
       Zwischenstein oder unbekannte Grenzänderung?
-- [ ] Die zwei 2026 wiedergefundenen Steine (Fahrentalgraben, Dienstadter Weinberge) im
-      Datensatz von „fehlt“ auf „vorhanden“ setzen (IDs, GPS, Fotos von Hendrik), Kennzahlen
-      auf allen Seiten anpassen, `standorte-positionen.json` beachten.
+- [x] Die zwei 2026 wiedergefundenen Steine (Fahrentalgraben, Dienstadter Weinberge): laut
+      Hendrik bereits von Codex im Datensatz auf „vorhanden“ gesetzt (28.09.2026).
 - [ ] 15 Meterwerte 1872, die nicht zu „Ruten/Fuß/Zoll“ der Transkription passen, stichprobenartig
       prüfen (46,8; 69,3; 49,35; 190,0; 28,6; 163,59; 185,2; 100,5; 49,8; 152,2; 162,0; 178,95;
       256,0; 65,0; 237,9).

@@ -1,5 +1,29 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 15:50 – Ich-Form, Seite „Die Protokolle“, achter Upload
+
+- **Erzählperspektive (Entscheidung Hendrik):** „Über das Projekt“ in Ich-Form, unterschrieben;
+  Sachseiten unpersönlich (grenzgaenge, quellen, chronik, download). Name bleibt nur als
+  Urheberangabe (Fotos, Impressum, Zitierweise, Fuß).
+- Projektseite neu: Abschnitt „Die Arbeit an den Protokollen“ (Kurrentschrift selbst erlernt,
+  > 2 Wochen je 3–4 h pro Protokoll, anfangs bis 1 h pro Stein; alles von Hand transkribiert,
+  Transkribus nur in seltenen Zweifelsfällen, kaum hilfreich).
+- **Neu: `protokolle.html`** – Aufwand in Zahlen (9 Grenzbeschreibungen, 497 fotografierte
+  Protokollseiten + 400 Seiten Landschiederbücher, 62 Seiten Abschrift 1872, 394 Positionen);
+  „Ein Stein durch drei Jahrhunderte“: der „1308er“ (Stein 369) 1608 / 1683 / 1872 als Original
+  (Ausschnitte aus Hendriks PDF „Besondere Grenzsteine“) neben Hendriks Abschrift (1683 und 1872
+  aus den Transkripten, 1608 aus der Tabelle „Gemarkungsumgehungen 1580-1749.xlsx“); Bücherregal
+  mit 8 Titelseiten und Signaturen. Im Menü, auf Start, in Quellen, Projekt und Stein 369 verlinkt.
+- **Neues Indiz zum „1308er“:** 1608/1683 „leuchtenbergisch Wappen“ auf der Grünsfelder Seite;
+  Grünsfeld kam erst 1502/03 an Leuchtenberg (Wikipedia „Grünsfeld“), 1308 Rieneck → spricht für
+  1508. Auf protokolle.html und in der Anmerkung zu Stein 369 – **von Hendrik bestätigen lassen.**
+- Genehmigungen der Archive zur Veröffentlichung der Abbildungen liegen laut Hendrik vor.
+- Prüfliste: wiedergefundene Steine erledigt (laut Hendrik von Codex bereits im Datensatz).
+
+Hochgeladen (Sicherung `backups/2026-09-28_1550_server_ftp`): 11 Bilder, protokolle und alle
+14 übrigen Rahmenseiten – 26/26 identisch; lokaler Ordner und `site/` angeglichen.
+
+
 ## 28.09.2026, 15:19 – Nachträge Hendrik, siebter Upload
 
 - `projekt.html`: „sowie bei Textentwürfen für die Website“ gestrichen (Wunsch Hendriks; Claude hat

@@ -21,6 +21,7 @@ MENUE = [
     ("grenzgaenge.html", "Die Grenzgänge"),
     ("chronik.html", "Geschichte"),
     ("quellen.html", "Quellen und Methode"),
+    ("protokolle.html", "Die Protokolle"),
     ("begriffe.html", "Begriffe"),
     ("projekt.html", "Über das Projekt"),
 ]
