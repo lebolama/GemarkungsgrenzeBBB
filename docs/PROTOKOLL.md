@@ -1,5 +1,33 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 14:42 – Artikelbilder, Stein 369 im Datensatz korrigiert, fünfter Upload
+
+**Artikelseite:** alle 19 Abbildungen der sieben Artikel übernommen, mit den Quellenangaben
+aus den Artikeln (Staatsarchive Wertheim und Würzburg, Archiv Tauberfränkische Heimatfreunde,
+OpenStreetMap, Fotos H. Beierstettel). Freigabe Hendriks: Archivkarten mit Quellenangabe,
+Heimatfreunde-Material als Mitglied, alle übrigen Fotos von ihm. Hufeisen-Foto (Art. 07):
+Gesicht des Kindes (Hendriks Sohn) verpixelt.
+
+**Stein 369 („1308er“) – auf ausdrücklichen Befehl Hendriks, Backup vorher:**
+- `data.json`: 2021-Felder und `_gps_parsed` geleert, `_derived.survey2021`/`status` wie bei
+  nicht gefundenen Steinen, `presence_by_year.2021 = false`. Die Begehungsdaten des Ersatzsteins
+  (Nr. 187.2, GPS, Fotos) stehen im neuen Feld `_befund_2021_anderer_stein`. Diff geprüft: nur
+  Stein 369 geändert.
+- `standorte-positionen.json`: 6 Einträge für 369 von Klasse A auf B („Standort aus dem GPS-Punkt
+  eines anderen Steins im Umkreis von ca. 2 m übernommen“).
+- Neue Kennzahlen: 142 gefunden (vorher 143), 125 am ursprünglichen Platz (126), 19 versetzt,
+  249 ohne Fund (248). Angepasst in index, chronik, grenzgaenge, projekt, quellen; CSV neu.
+- Test lokal: standorte.html 128 Marker (vorher 129), reconstruction_xl.html 128, karteXL.html
+  125 GPS + 261 rekonstruiert; keine Konsolenfehler. Hinweis: Browser mit altem Cache zeigen
+  bis zum Ablauf die alte data.json (keine Cache-Steuerung auf dem Server).
+
+**Hochgeladen** (Sicherung `backups/2026-09-28_1442_server_ftp`): 15 Artikelbilder, artikel,
+data.json, standorte-positionen.json, CSV, index, chronik, grenzgaenge, projekt, quellen, stein –
+25/25 identisch. Lokaler Ordner und `site/` angeglichen.
+
+**Als Nächstes:** Erklärseite „So werden verschwundene Steine berechnet“ (von Hendrik freigegeben).
+
+
 ## 28.09.2026, 14:27 – Artikelseite, Begriffe vervollständigt, vierter Upload
 
 **Antworten Hendriks eingearbeitet:**

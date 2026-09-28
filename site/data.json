@@ -72665,9 +72665,9 @@
   {
     "ID": 369,
     "Grenze": "Grünsfeld",
-    "2021 — Nr.": 187.2,
-    "2021 — Fotos": "https://photos.app.goo.gl/s9iBfTnVqGTcHdKi8",
-    "2021 — GPS": "N 49.621419 E 9.719029",
+    "2021 — Nr.": "",
+    "2021 — Fotos": "",
+    "2021 — GPS": "",
     "1569 (1580) — Nr.": 82,
     "1569 (1580) — Jahr": "",
     "1569 (1580) — groß/ klein": "",
@@ -72755,23 +72755,17 @@
     "Großrinderfelder Grenzbegehung 1784 — Ruthen (Achtung: GRF geht in die andere Richtung!)": "",
     "Großrinderfelder Grenzbegehung 1784 — Meter": "",
     "Großrinderfelder Grenzbegehung 1784 — Beschreibung": "",
-    "_gps_parsed": {
-      "lat": 49.621419,
-      "lon": 9.719029
-    },
+    "_gps_parsed": "",
     "_derived": {
       "survey2021": {
-        "number_raw": 187.2,
-        "number_certainty": "sicher",
-        "photos_url": "https://photos.app.goo.gl/s9iBfTnVqGTcHdKi8",
-        "gps_raw": "N 49.621419 E 9.719029",
-        "gps_normalized": "49.621419, 9.719029",
-        "gps_status": "original_or_measured",
-        "gps": {
-          "lat": 49.621419,
-          "lon": 9.719029
-        },
-        "has_photos": true
+        "number_raw": "",
+        "number_certainty": "unbekannt",
+        "photos_url": "",
+        "gps_raw": "",
+        "gps_normalized": "",
+        "gps_status": "missing",
+        "gps": "",
+        "has_photos": false
       },
       "is_dreimaerker": false,
       "presence_by_year": {
@@ -72784,7 +72778,7 @@
         "1784": false,
         "1872": true,
         "1887": false,
-        "2021": true
+        "2021": false
       },
       "first_documented_year": 1569,
       "last_documented_year": 1872,
@@ -72946,11 +72940,17 @@
         }
       },
       "status": {
-        "found_2021": true,
-        "standing_original": true,
+        "found_2021": false,
+        "standing_original": false,
         "moved_or_unknown_location": false,
-        "missing_2021": false
+        "missing_2021": true
       }
+    },
+    "_befund_2021_anderer_stein": {
+      "hinweis": "Der Stein von 1308 ist verschwunden. Die Begehungsdaten gehören zu einem anderen Stein im Umkreis von ca. 2 m am Waldrand, vermutlich einem Waldgrenzstein (Hendrik Beierstettel, 28.09.2026).",
+      "nr": 187.2,
+      "fotos": "https://photos.app.goo.gl/s9iBfTnVqGTcHdKi8",
+      "gps": "N 49.621419 E 9.719029"
     }
   },
   {
