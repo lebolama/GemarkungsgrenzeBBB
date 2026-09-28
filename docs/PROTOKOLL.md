@@ -1,5 +1,17 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 23:05 – Projektseite: Lumi, Kobe und die Ziegenböcke
+
+Wunsch Hendrik. `projekt.html`: Lumi (Hündin, 2010–2024) bei der ersten Umgehung 2017 mit Namen
+und kurzer Geschichte (blieb vor Grenzsteinen stehen, bis sie gelobt wurde; hat wohl keinen
+unbekannten Stein neu entdeckt). Bei der Suche mit der berechneten Karte: heute Hund Kobe, auf
+manchen Strecken die Ziegenböcke Freddy und Siggi. Klärung: „um 2005 mit meinem Hund“ meint
+Scooby (bis 2010) und bleibt.
+
+Hochgeladen (Sicherung `backups/2026-09-28_2303_server_ftp`): projekt.html – identisch; lokaler
+Ordner und `site/` angeglichen.
+
+
 ## 28.09.2026, 22:57 – Kriterienkatalog-PDF nachträglich erzeugt, PDF-Werkzeug abgesichert
 
 Hendrik bemerkte, dass die Kriterienkatalog-PDF noch der Stand von 17:00 war. Ursache: Beim
