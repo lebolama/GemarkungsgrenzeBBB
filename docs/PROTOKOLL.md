@@ -1,5 +1,13 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 20:14 – Messweise 1872 auf „So wird gerechnet“
+
+Zitat aus dem Vorbericht 1872 („auf den Boden so wie derselbe beschaffen ist …“) als Beleg für
+längere Protokollstrecken am Hang eingebaut, **ausdrücklich nur für 1872** (Hinweis Hendrik: für
+frühere Grenzgänge nicht überliefert); verlinkt auf transkription-1872.html.
+Hochgeladen (Sicherung `backups/2026-09-28_2014_server_ftp`): berechnung – identisch.
+
+
 ## 28.09.2026, 20:09 – Transkriptionen auf der Website, zehnter Upload
 
 **Bestandsaufnahme der Transkriptionen** (Quellordner F:\…\Büschemer Gemarkungsumgehungsbücher\PDF):
