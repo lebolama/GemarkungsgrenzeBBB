@@ -1,5 +1,18 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 15:57 – Leuchtenberg-Indiz bestätigt, neunter Upload
+
+- Hendrik bestätigt das Leuchtenberg-Indiz, mit Einschränkung: Wappen konnten nachgearbeitet
+  werden (Beispiel: Fürstenhaus Leiningen ließ 1803–1806 auf Waldgrenzsteinen im ehemals
+  kurmainzischen Forst „FL“ über „CM“ hauen). In protokolle.html und Anmerkung zu Stein 369
+  ergänzt.
+- Abschrift 1608 auf der Protokollseite beginnt jetzt „Von dannen nechst …“ (Hendrik bestätigt).
+  Hinweis: Im Datensatz (`data.json`, 1608 — sonstiges, Stein 369) steht weiterhin „von diesem
+  nechst“ – nicht geändert, da von den geschützten Seiten gelesen.
+
+Hochgeladen (Sicherung `backups/2026-09-28_1557_server_ftp`): protokolle, stein – 2/2 identisch.
+
+
 ## 28.09.2026, 15:50 – Ich-Form, Seite „Die Protokolle“, achter Upload
 
 - **Erzählperspektive (Entscheidung Hendrik):** „Über das Projekt“ in Ich-Form, unterschrieben;
