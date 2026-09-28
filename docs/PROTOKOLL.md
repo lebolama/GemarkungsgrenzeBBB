@@ -1,5 +1,13 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 22:52 – GPS-Genauigkeit: „mindestens“ statt „höchstens“
+
+Korrektur Hendrik: Der Garmin GPSMAP 65s misst im Wald „auf mindestens 2 Meter genau“. Geändert in
+`dokumentation.md` (PDF neu) und `quellen.html`. Hochgeladen (Sicherung
+`backups/2026-09-28_2250_server_ftp`): quellen.html – identisch; lokaler Ordner und `site/`
+angeglichen.
+
+
 ## 28.09.2026, 22:45 – Ersterfassung 2018/19 und Kulturlandschaftspreis 2019 offengelegt
 
 Hinweis Hendrik: Seine Söhne Jonne und Matti und ihr Freund Phil Engert (damals 7, 10, 11 Jahre)

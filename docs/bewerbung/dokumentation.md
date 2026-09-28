@@ -105,7 +105,7 @@ behutsam gereinigt, fotografiert und beschrieben. Alle Fotos auf der Website sta
 Begehungen.
 
 Gemessen habe ich mit einem GPS-Handgerät Garmin GPSMAP 65s, das mit mehreren Frequenzen und
-fünf Satellitensystemen arbeitet und auch im dichten Wald in der Regel auf höchstens 2 Meter genau
+fünf Satellitensystemen arbeitet und auch im dichten Wald in der Regel auf mindestens 2 Meter genau
 misst, dazu mit einem Smartphone und einer Kamera mit eingebautem GPS. Wichen die Werte stark
 voneinander ab, habe ich mit dem Garmin-Gerät nachgemessen. Am Schreibtisch habe ich alle
 Koordinaten mit der Deutschen Grundkarte 1:5 000 abgeglichen, in der die bis 1997 erfassten
