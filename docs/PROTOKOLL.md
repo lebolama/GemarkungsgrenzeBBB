@@ -1,5 +1,43 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 12:34 – Hendriks Angaben eingearbeitet, dritter Upload
+
+**Neue Quellen von Hendrik:** `Quellenverzeichnis Gemarkungsgrenze TBB.txt` (im Repo),
+Mailwechsel mit Dr. Gerrit Himmelsbach (Spessart-Projekt), 24.–26.02.2026 (PDF nur lokal,
+per `.gitignore` ausgeschlossen – Kontaktdaten Dritter), FN-Artikelserie 2024, Folgen 02–04
+(`C:\Users\User\Documents\_Taubertal\FN-Grenzsteine-Serie`, Leserecht erteilt).
+
+**Eingearbeitet:**
+- `quellen.html` neu: alle Signaturen (Stadtarchiv TBB Abt. B Nr. 3–8a, GLA 229 Nr. 35161 a),
+  zwölf weitere Archivalien, Kartengrundlagen mit Lizenzlinks (DGK5 über Geoportal BW,
+  Historische Gemarkungsübersicht Baden 1:10000 als Open GeoData), Grenzlinie in QGIS aus
+  der DGK5 nachgezeichnet, Messverfahren (Garmin GPSMAP 65s + Pixel 4/8 + Sony DSC-HX60V,
+  Abgleich, DGK5-Kontrolle), Begehungen **2017–2021** (nicht nur 2021), Validierung an
+  Steinpaaren, bekannte Grenzen der Berechnung (Berichtigung 1887 Hänglein–Bösehof,
+  A 81/Industriegebiet 1980er), Literatur (Simmerding 1997/99, Pahl 1955, FN-Serie 2024).
+- `projekt.html`: Entstehung (seit ca. 2005, Hundespaziergänge, TK25, Kleindenkmale),
+  Forschungsfrage, Eigenleistung genauer (Zuordnung ohne KI), Ausblick, Veröffentlichungen.
+- `begriffe.html`: Landschieder/Feldschieder, Eckstein, Dreimärker (dreieckig), drei „b“,
+  Jahreszahlen und Lesefehler (1224 statt 1724, „1308“?), Ziffernschrift 15. Jh.,
+  Bildunterschrift Archivfoto = **Stein 94** (Eckstein 1474; Protokolle 1569 und 1608: 2 „b“).
+- `stein.html`: Anmerkungen zu Stein 94, 369 („1308“), 370 („1224“); „Befund 2021“ →
+  „Befund im Gelände“.
+- `index.html`: Bildunterschrift Titelfoto = Stein 58 (1508, Heidenkessel, Grenze Dittwar).
+- 2021 → 2017–2021 in index, grenzgaenge, chronik, recherche, vergleich, download.
+
+**Hochgeladen** (Sicherung vorher `backups/2026-09-28_1234_server_ftp`): quellen, projekt,
+begriffe, grenzgaenge, recherche, vergleich, download, chronik, stein, index. Alle 10 per
+SHA-256 identisch; live geprüft. Lokaler Ordner per PowerShell angeglichen, `site/` aktualisiert.
+
+**Offen / Rückfragen an Hendrik:**
+1. Frage 5 (Kreuz oben, rot/weiß, „GB“/„G.B.“ in der b-Spalte, Beleg Werkrute 3,65 m) –
+   Hendrik hat die Frage nicht verstanden; im Chat neu erklärt.
+2. **Widerspruch Stein 369 („1308“):** Datensatz: gefunden, am ursprünglichen Platz
+   (Nr. 187.2); FN-Artikel 02: „seit ein paar Jahrzehnten spurlos verschwunden“.
+3. Stein 94 = Archivfoto bestätigen lassen.
+4. Erscheinungsdaten der FN-Artikel für das Literaturverzeichnis.
+
+
 ## 27.09.2026, 17:32 – Zweiter Upload: Abschnitt 1 und 2 online (auf Hendriks Wunsch vor Eingang der Restangaben)
 
 **Sicherung vorher:** `backups/2026-09-27_1732_server_ftp` (64 Dateien).
