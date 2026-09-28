@@ -41,7 +41,7 @@ Zusammenhang mit meiner Ausbildung oder meinem Beruf.
 | Archivrecherche | Gemarkungsumgehungsbücher 1569–1872, Grenzberichtigungen 1887–1893, Großrinderfelder Grenzbegehung 1784, Grenzgang 1724, 12 weitere Akten (Stadtarchiv Tauberbischofsheim, Generallandesarchiv Karlsruhe, Staatsarchiv Würzburg) | vollständig | – |
 | Fotografieren der Quellen | 497 Protokollseiten, 400 Seiten Landschiederbücher | vollständig | Kamera |
 | Transkription | alle Protokolle, von Hand; Kurrentschrift selbst erlernt | vollständig | Handschriftenerkennung Transkribus nur in einzelnen Zweifelsfällen, kaum hilfreich |
-| Zuordnung der Steine über die Jahrhunderte | 394 Steinpositionen aus neun Grenzbeschreibungen | vollständig | ohne KI |
+| Zuordnung der Steine über die Jahrhunderte | 394 Steinpositionen aus neun Grenzbeschreibungen | vollständig | – |
 | Ersterfassung 2018/19 | Grenze in Etappen abgegangen, Steine gesucht, fotografiert und auf Erfassungsbögen beschrieben; blieb lückenhaft | gemeinsam mit drei Kindern (damals 7, 10 und 11 Jahre); Erfassungsbogen und Anleitung von mir | – |
 | Systematische Geländebegehungen 2017–2021 | 3 vollständige Umgehungen der rund 30 km langen Grenze an einem Stück (27.12.2017, 5.4.2019, 14.5.2021), zahlreiche Teilbegehungen und Nachkontrollen, gezielte Suche nach bis dahin nicht gefundenen Steinen; 142 Steine wiedergefunden, gereinigt, fotografiert, beschrieben | vollständig | – |
 | Einmessung | GPS-Einmessung aller gefundenen Steine, Abgleich mit Deutscher Grundkarte 1:5 000 | vollständig | Garmin GPSMAP 65s, Smartphone, Kamera-GPS |

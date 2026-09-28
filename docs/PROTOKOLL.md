@@ -1,5 +1,13 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 23:00 – GPS-Formulierung eindeutig, „ohne KI“ gestrichen
+
+Wunsch Hendrik: GPS jetzt „in der Regel auf 2 Meter genau oder besser“ (`dokumentation.md`,
+`quellen.html`). Kriterienkatalog, Zeile „Zuordnung der Steine“: Hilfsmittel „ohne KI“ durch „–“
+ersetzt. Beide PDFs neu. Hochgeladen (Sicherung `backups/2026-09-28_2252_server_ftp`):
+quellen.html – identisch; lokaler Ordner und `site/` angeglichen.
+
+
 ## 28.09.2026, 22:52 – GPS-Genauigkeit: „mindestens“ statt „höchstens“
 
 Korrektur Hendrik: Der Garmin GPSMAP 65s misst im Wald „auf mindestens 2 Meter genau“. Geändert in
