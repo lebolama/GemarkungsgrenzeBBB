@@ -1,5 +1,22 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, abends – Bewerbungsunterlagen, Abschnitte 1 und 2 (Entwurf)
+
+- `docs/bewerbung/formular.md`: alle Felder des Online-Formulars (langer Titel, Ausbildung
+  Diplom-Psychologe JMU 2002). Telefon und Geburtsdatum bewusst nicht im Repo.
+- `docs/bewerbung/kriterienkatalog.md` (+ PDF, 3 Seiten): Intention, Eigenleistungstabelle,
+  Bewertungskriterien. Zeile „Inhalte und Texte“ auf Hendriks Wunsch gestrichen; stattdessen der
+  zutreffende Satz „Alle Inhalte stammen von mir; geprüft und verantwortet“. Keine ausdrückliche
+  Behauptung, alle Texte seien allein formuliert.
+- `docs/bewerbung/dokumentation.md` (+ PDF, 13 Seiten, 1,5 MB): 10 Kapitel mit 7 Screenshots und
+  vollständigem Quellen- und Literaturverzeichnis.
+- Werkzeug `werkzeuge/dokumentation_pdf.py`: Markdown → HTML → PDF mit Edge headless
+  (Erlaubnis Hendriks 28.09.2026, in CLAUDE.md eingetragen). Screenshots unter
+  `docs/bewerbung/abbildungen/`.
+- Offen: Datum und Link der Stichtagsfassung (✏️), Seitenzahl im Formular (13),
+  Abschnitt 3 (eingefrorene Stichtagsfassung), Prüfliste vor Abgabe (LANDESPREIS.md).
+
+
 ## 28.09.2026, 15:57 – Leuchtenberg-Indiz bestätigt, neunter Upload
 
 - Hendrik bestätigt das Leuchtenberg-Indiz, mit Einschränkung: Wappen konnten nachgearbeitet
