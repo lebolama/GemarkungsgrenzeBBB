@@ -1,5 +1,24 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 21:47 – Gekürzte Abschriften 1569/1580, 1608, 1700, 1749
+
+Vollständige Transkriptionen der übrigen Bücher liegen auf einer externen Festplatte (Hendrik sucht).
+Bis dahin (Hendriks Vorgabe): neue Seiten `erfassung-1569.html` (auch für die Abschrift 1580),
+`erfassung-1608.html`, `erfassung-1700.html`, `erfassung-1749.html`, erzeugt mit
+`werkzeuge/erfassung_seiten.py` aus `data.json` (= Excel „Grenzsteine BBB (alle Grenzgänge).xlsx“):
+je Stein Nr., Zeichen, Abstand, Lage/Bemerkung; oben ein Hinweis, dass Randpassagen (Namen der
+Begleiter usw.) fehlen, mit Verweis auf die vollständigen Abschriften 1683/1872. Randbemerkungen aus
+den PDF-Kommentaren der Sammeldatei ergänzt: Anfang 1569, Begleiterwechsel „wegen großen
+Rinderfeldt“ (1580), Anfang 1608, Nachtrag zu Nr. 18 (1608). Linktext auf protokolle.html:
+„Abschrift (gekürzt)“. 1724: noch keine Abschrift.
+
+Hinweis an Hendrik: Die PDF-Kommentare enthalten für 1569 Nr. 1–22 und 1580 Nr. 59–76 deutlich
+ausführlichere Wortlaut-Abschriften als die Excel-Spalte „sonstiges“ (dort teils zusammengefasst).
+
+Hochgeladen (Sicherung `backups/2026-09-28_2147_server_ftp`): 4 Erfassungsseiten, protokolle – 5/5
+identisch; lokaler Ordner und `site/` angeglichen.
+
+
 ## 28.09.2026, 20:14 – Messweise 1872 auf „So wird gerechnet“
 
 Zitat aus dem Vorbericht 1872 („auf den Boden so wie derselbe beschaffen ist …“) als Beleg für
