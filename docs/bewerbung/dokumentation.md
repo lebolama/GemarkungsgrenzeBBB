@@ -6,6 +6,7 @@
 Kategorie „Heimatforschung digital“**
 
 Hendrik Beierstettel, Tauberbischofsheim · ✏️ Datum
+
 Website: ✏️ Link zur Stichtagsfassung · laufende Fassung: https://beierstettel.de/Grenze/
 
 ---

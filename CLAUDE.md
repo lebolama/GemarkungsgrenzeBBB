@@ -49,6 +49,9 @@ Freigegeben (27.09.2026):
 - Lokaler Testserver für `entwurf/` (`python -m http.server 8777 --bind 127.0.0.1`,
   Eintrag `grenze-entwurf` in `C:\claude-Lab\.claude\launch.json`): dauerhaft erlaubt (27.09.2026)
 - Lesen des Ordners `...\httpdocs\Grenze\fotos` (Titelbild, Archivfoto)
+- Lesen von `F:\User\Dokumente2\Tauberfranken\_Büscheme\Büschemer Gemarkungsumgehungsbücher`
+  und `C:\Users\User\Documents\_Taubertal\FN-Grenzsteine-Serie` (28.09.2026)
+- Microsoft Edge im Hintergrund (headless) für Screenshots und PDF-Erzeugung (28.09.2026)
 
 **Vorher fragen und begründen:** Zugriff auf weitere lokale Ordner, Starten
 oder Installieren sonstiger Software.
