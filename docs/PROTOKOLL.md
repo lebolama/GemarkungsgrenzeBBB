@@ -1,5 +1,16 @@
 # Arbeitsprotokoll
 
+## 28.09.2026, 22:57 – Kriterienkatalog-PDF nachträglich erzeugt, PDF-Werkzeug abgesichert
+
+Hendrik bemerkte, dass die Kriterienkatalog-PDF noch der Stand von 17:00 war. Ursache: Beim
+direkten Nacheinander zweier Aufrufe dockt der zweite Edge an die noch laufende Instanz mit
+demselben Profil an und beendet sich ohne Ausgabe; das Skript meldete die Größe der alten Datei.
+`werkzeuge/dokumentation_pdf.py` löscht jetzt die alte PDF vorher, wartet auf die neue, versucht
+es bis zu dreimal und bricht sonst mit Fehler ab. Beide PDFs neu erzeugt und inhaltlich geprüft
+(Kriterienkatalog 3 Seiten mit Ersterfassung, ohne „ohne KI“; Dokumentation 13 Seiten, GPS-Satz
+„2 Meter genau oder besser“).
+
+
 ## 28.09.2026, 23:00 – GPS-Formulierung eindeutig, „ohne KI“ gestrichen
 
 Wunsch Hendrik: GPS jetzt „in der Regel auf 2 Meter genau oder besser“ (`dokumentation.md`,

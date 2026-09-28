@@ -10,6 +10,7 @@ import pathlib
 import re
 import subprocess
 import sys
+import time
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 BEW = REPO / "docs" / "bewerbung"
@@ -151,9 +152,21 @@ def main():
     ziele = {"dokumentation": "Dokumentation_Grenzsteine_Tauberbischofsheim.pdf",
              "kriterienkatalog": "Kriterienkatalog_Grenzsteine_Tauberbischofsheim.pdf"}
     pdf = BEW / ziele[name]
-    subprocess.run([EDGE, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
-                    f"--user-data-dir={BEW / '.edge-profil'}", f"--print-to-pdf={pdf}",
-                    html_datei.as_uri()], check=True, capture_output=True, timeout=120)
+    # Alte PDF entfernen: Läuft noch ein Edge mit demselben Profil, beendet sich der neue Aufruf
+    # sonst stillschweigend, und die veraltete Datei bliebe unbemerkt liegen.
+    pdf.unlink(missing_ok=True)
+    for _ in range(3):
+        subprocess.run([EDGE, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
+                        f"--user-data-dir={BEW / '.edge-profil'}", f"--print-to-pdf={pdf}",
+                        html_datei.as_uri()], check=True, capture_output=True, timeout=120)
+        for _ in range(30):
+            if pdf.exists() and pdf.stat().st_size > 0:
+                break
+            time.sleep(1)
+        if pdf.exists():
+            break
+    if not pdf.exists():
+        sys.exit(f"FEHLER: {pdf.name} wurde nicht erzeugt")
     print(pdf.name, round(pdf.stat().st_size / 1e6, 2), "MB")
 
 
