@@ -1,5 +1,19 @@
 # Arbeitsprotokoll
 
+## 02.10.2026, 13:50 – Entscheidungen Hendrik: laufende Seite, Kapitel 8, Abbildung 4
+
+1. **Laufende Website:** `reconstruction_xl.html` bleibt dort unverändert (kein Entfernen). Die
+   Dokumentation nennt weiter Stichtagslink und „laufende Fassung“.
+2. **Dokumentation Kap. 8:** „… das zeigen zwei Funde bei zehn gesuchten Steinen.“
+3. **Abbildung 4 neu:** Karte der Grenzsteine mit eingeschalteter Ebene „Grenzgang 1872“ (grün A,
+   orange B, rot C = berechnete Standorte). Aufgenommen mit Edge headless aus einer Scratchpad-Kopie
+   der Abgabeversion, in der ein Skript die Ebene automatisch einschaltet (Seite im Repo und auf dem
+   Server unberührt, kein Upload). Bildunterschrift angepasst. Dokumentation weiter 12 Seiten.
+
+Offen für morgen: Prüfliste vor der Abgabe (ungerade Steinpaare, 15 Meterwerte 1872), Formular
+gegen die endgültigen PDFs lesen, Abgabeversion bei Änderungen an `entwurf/` neu bauen (05.10.).
+
+
 ## 02.10.2026, 13:10 – Kriterienkatalog überarbeitet
 
 Wünsche Hendrik umgesetzt: Kopfblock jetzt linksbündig (der Blocksatz zog die Zeile „Form“

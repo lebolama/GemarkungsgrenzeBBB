@@ -185,7 +185,7 @@ wenigen Sätzen, was sie zeigt und wie man anfängt.
 | Artikel | meine siebenteilige Serie in den Fränkischen Nachrichten (2024) |
 | Daten | der vollständige Datensatz als Tabelle und JSON, Lizenz CC BY 4.0 |
 
-✏️ [Abb. 4: Karte der Grenzsteine mit historischen Beschreibungen · Abb. 5: Steckbrief eines Steins · Abb. 6: Suche]
+✏️ [Abb. 4: Karte der Grenzsteine mit berechneten Standorten · Abb. 5: Steckbrief eines Steins · Abb. 6: Suche]
 
 **Technik.** Die Website besteht aus statischen HTML-Seiten ohne Datenbank und ohne Anmeldung.
 Die Karten nutzen die freie Bibliothek Leaflet und Kartendaten von OpenStreetMap, dazu
@@ -209,7 +209,7 @@ KI-Werkzeuge (OpenAI Codex, Anthropic Claude Code) nach meinen genauen Vorgaben 
   Grünsfeld aber erst 1502/03 erhielten. Vieles spricht dafür, dass er in Wahrheit von 1508
   stammt.
 - **Methode:** Die alten Abstandsangaben sind vielerorts genau genug, um verschwundene Steine
-  wiederzufinden; das haben zwei Funde bestätigt.
+  wiederzufinden; das zeigen zwei Funde bei zehn gesuchten Steinen.
 
 ## 9 Ausblick
 
