@@ -21,10 +21,9 @@ ABB = {
     "Abb. 1": [("01-start.jpg", "Abb. 1: Die Startseite")],
     "Abb. 2": [("02-protokolle.jpg", "Abb. 2: Die Seite „Die Protokolle“ – der „1308er“ in drei Jahrhunderten, Original und Abschrift")],
     "Abb. 3": [("03-berechnung.jpg", "Abb. 3: „So wird gerechnet“ – das Rechenbeispiel Stein 367 bis 370")],
-    "Abb. 4": [("04-verschwunden.jpg", "Abb. 4: Karte „Verschwundene Steine“ – berechnete Standorte mit Sicherheitsklassen")],
-    "Abb. 5": [("05-standorte.jpg", "Abb. 5: Karte der Grenzsteine mit Kartenebenen für alle Grenzgänge"),
-               ("06-steckbrief.jpg", "Abb. 6: Steckbrief eines Steins (Stein 94, Eckstein von 1474)"),
-               ("07-suche.jpg", "Abb. 7: Die Suche, hier: Steine an der Grenze zu Impfingen mit Mainzer Rad im Jahr 1608")],
+    "Abb. 4": [("04-standorte.jpg", "Abb. 4: Karte der Grenzsteine mit Kartenebenen für alle Grenzgänge"),
+               ("05-steckbrief.jpg", "Abb. 5: Steckbrief eines Steins (Stein 94, Eckstein von 1474)"),
+               ("06-suche.jpg", "Abb. 6: Die Suche, hier: Steine an der Grenze zu Impfingen mit Mainzer Rad im Jahr 1608")],
 }
 
 CSS = """

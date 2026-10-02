@@ -1,5 +1,39 @@
 # Arbeitsprotokoll
 
+## 02.10.2026, 12:30 – Abgabeversion `version-20261005` online, Dokumentation überarbeitet
+
+**Abgabeversion (Stichtagsfassung):** https://beierstettel.de/Grenze/version-20261005/ – Kopie der
+aktuellen Website ohne die Seite `reconstruction_xl.html` („Verschwundene Steine“; alles darauf
+steht auch auf `standorte.html`). Gebaut mit dem neuen `werkzeuge/stichtag.py` aus `entwurf/`:
+Menüpunkt, Startseitenkarte und alle Verweise entfernt (berechnung.html, datenschutz.html, CSS-
+Kommentar), Startseitenkarte „Karte der Grenzsteine“ nennt jetzt die berechneten Standorte.
+Weiterleitungsseiten für alte Adressen entfallen bis auf `karte.html` und `suche.html`, weil die
+geschützte `karteXL.html` darauf verlinkt. Ergebnis: 23 Seiten, 78 Dateien, 60 MB; kein Verweis auf
+`reconstruction*` in HTML/JS/CSS/JSON, keine toten Links oder Anker. `standorte.html` und
+`karteXL.html` byte-identisch kopiert. Hochgeladen mit neuem `ftp.py stichtag NAME` (nur in das neue
+Unterverzeichnis; Sicherung vorher: `backups/2026-10-02_1219_server_ftp`); alle 78 Dateien per
+SHA-256 gegen den Server geprüft, 0 Abweichungen. `version-20261005/reconstruction_xl.html` → 404,
+laufende `reconstruction_xl.html` → 200 (unverändert). Ordner `stichtag/` steht in `.gitignore`
+(reproduzierbar mit `stichtag.py`, Stand `entwurf/` zum Zeitpunkt des Commits).
+
+**Dokumentation (jetzt 12 Seiten, vorher 13):** Untertitel „… Rekonstruktion der ehemaligen
+Standorte verschwundener Grenzsteine aus historischen Grenzgangprotokollen“ (auch im Formular);
+Titelblatt mit Adresse Mörikeweg 6 und Datum 5. Oktober 2026; Link zur Stichtagsfassung; Kennzahl
+„2 Steine von 10 gesuchten (erste Stichprobe zur Validierung der Methodik)“; „Die Bewährung“ um
+Hendriks Absatz zur Erfolgsquote 20 % ergänzt; Zeile „Verschwundene Steine“ und Abb. 4 gestrichen,
+Abbildungen neu nummeriert (jetzt 1–6), Karten-Zeile nennt die berechneten Standorte;
+Wikipedia-Eintrag mit URL. Abbildungen 1, 3, 5, 6 neu aus der Abgabeversion aufgenommen (Menü ohne
+„Verschwundene Steine“). **Kriterienkatalog:** Stichtagslink, Datum 5. Oktober 2026, „23 Seiten,
+394 Steckbriefe, 2 interaktive Karten“. **Formular:** Seitenzahl 12, Stichtagslink eingetragen.
+
+**Offen / Hinweise:** Die laufende Website (`/Grenze/`) hat `reconstruction_xl.html` und den Menüpunkt
+weiter; die Dokumentation nennt sie als „laufende Fassung“ – Entscheidung Hendrik. Stand
+`entwurf/` ändert sich noch? Dann vor dem 05.10. `stichtag.py` und `ftp.py stichtag` erneut laufen
+lassen und die Abbildungen prüfen. Prüfliste vor Abgabe (ungerade Steinpaare, 15 Meterwerte 1872)
+steht noch aus. Dokumentation Kap. 8 „das haben zwei Funde bestätigt“ ist bei 2 von 10 vorsichtiger
+zu formulieren (Vorschlag an Hendrik).
+
+
 ## 28.09.2026, 23:05 – Projektseite: Lumi, Kobe und die Ziegenböcke
 
 Wunsch Hendrik. `projekt.html`: Lumi (Hündin, 2010–2024) bei der ersten Umgehung 2017 mit Namen

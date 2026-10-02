@@ -1,13 +1,13 @@
 # Die Grenzsteine der Gemarkung Tauberbischofsheim
 
-## Website mit Rekonstruktion verschwundener Grenzsteine aus historischen Grenzgangprotokollen
+## Website mit Rekonstruktion der ehemaligen Standorte verschwundener Grenzsteine aus historischen Grenzgangprotokollen
 
 **Dokumentation zur Bewerbung um den Landespreis für Heimatforschung Baden-Württemberg 2027,
 Kategorie „Heimatforschung digital“**
 
-Hendrik Beierstettel, Tauberbischofsheim · ✏️ Datum
+Hendrik Beierstettel, Mörikeweg 6, 97941 Tauberbischofsheim · 5. Oktober 2026
 
-Website: ✏️ Link zur Stichtagsfassung · laufende Fassung: https://beierstettel.de/Grenze/
+Website: https://beierstettel.de/Grenze/version-20261005/ · laufende Fassung: https://beierstettel.de/Grenze/
 
 ---
 
@@ -31,7 +31,7 @@ Einführung in ein kaum bekanntes Kapitel Heimatgeschichte ist.
 | Steinpositionen im Datensatz | 394 |
 | Im Gelände wiedergefunden (2017–2021) | 142, davon 125 am ursprünglichen Platz |
 | Berechnete Standorte verschwundener Steine | 249 Positionen |
-| Mit der berechneten Karte wiedergefunden (2026) | 2 Steine |
+| Mit der berechneten Karte wiedergefunden (2026) | 2 Steine von 10 gesuchten (erste Stichprobe zur Validierung der Methodik) |
 | Ältester noch stehender datierter Stein | 1474 |
 
 ✏️ [Abb. 1: Startseite der Website]
@@ -154,9 +154,18 @@ bekannt ist. Die Website benennt diese Grenzen der Methode offen.
 geltende Steine wiedergefunden – am steilen Hang des Fahrentalgrabens und im Wald bei den
 ehemaligen Dienstadter Weinbergen. Die Karte hatte ihre Lage auf etwa zweieinhalb Meter genau
 vorhergesagt. Beide lagen umgestürzt knapp unter der Erdoberfläche; ich habe sie wieder
-aufgerichtet.
-
-✏️ [Abb. 4: Karte „Verschwundene Steine“ mit Sicherheitsklassen]
+aufgerichtet. Insgesamt hatte ich im Frühjahr 2026 zur Validierung meiner Rekonstruktions-Methode
+zehn verschollene Grenzsteine gesucht, von denen ich mit meiner Methode die Standorte berechnet
+hatte. Zwei habe ich gefunden, acht (noch) nicht. Die Erfolgsquote lag bei diesem ersten Test also
+bei 20 %. Dies ist aus meiner Sicht ein besserer Wert, als er auf den ersten Blick klingt: Wenn
+man diesen Erfolgswert auf alle 249 verschollenen Steine hochrechnet, kann man auf bis zu 50
+Wiederentdeckungen hoffen. 50 historische Grenzsteine, regionalgeschichtlich bedeutende
+Kleindenkmäler, die womöglich wieder aus der Versenkung auftauchen. Diese Suche werde ich im
+Winter 2026/27 durchführen, wenn der Rückgang der Vegetation den Blick besser freigegeben haben
+wird. Es bleibt ehrlich zu konstatieren: Der Großteil der verschollenen Steine wird verschwunden
+bleiben. Steine, die an Ackerrändern oder bei modernen Wegen und Straßen standen, dürften
+großteils abgeräumt oder zerstört sein. Auf Grenzabschnitten im Wald oder in unzugänglichen
+Gebieten (z. B. Gräben oder Gebüsch) hingegen besteht Hoffnung.
 
 ## 7 Die Website
 
@@ -165,8 +174,7 @@ wenigen Sätzen, was sie zeigt und wie man anfängt.
 
 | Seite | Inhalt |
 |---|---|
-| Karte der Grenzsteine | alle Steine mit den Beschreibungen aus allen Protokollen, Fotos, historischen Karten (Gemarkungskarte 1932, Deutsche Grundkarte), Flurnamen; Standortanzeige und Offline-Nutzung für die Suche im Gelände |
-| Verschwundene Steine | berechnete Standorte mit Sicherheitsklassen |
+| Karte der Grenzsteine | alle Steine mit den Beschreibungen aus allen Protokollen, Fotos, historischen Karten (Gemarkungskarte 1932, Deutsche Grundkarte), Flurnamen; die berechneten Standorte verschwundener Steine mit Sicherheitsklasse A bis D; Standortanzeige und Offline-Nutzung für die Suche im Gelände |
 | So wird gerechnet | das Verfahren Schritt für Schritt, Rechenbeispiel, Genauigkeitsprüfung |
 | Steine suchen | Suche nach Nummer, Nachbarort, Grenzgang, Zeichen und Zustand, mit Beispielen und Tabellen-Export |
 | Steckbrief (394×) | alle Angaben zu einem Stein, Quelle für Quelle, mit Befund und berechnetem Standort |
@@ -177,7 +185,7 @@ wenigen Sätzen, was sie zeigt und wie man anfängt.
 | Artikel | meine siebenteilige Serie in den Fränkischen Nachrichten (2024) |
 | Daten | der vollständige Datensatz als Tabelle und JSON, Lizenz CC BY 4.0 |
 
-✏️ [Abb. 5: Karte der Grenzsteine mit historischen Beschreibungen · Abb. 6: Steckbrief eines Steins · Abb. 7: Suche]
+✏️ [Abb. 4: Karte der Grenzsteine mit historischen Beschreibungen · Abb. 5: Steckbrief eines Steins · Abb. 6: Suche]
 
 **Technik.** Die Website besteht aus statischen HTML-Seiten ohne Datenbank und ohne Anmeldung.
 Die Karten nutzen die freie Bibliothek Leaflet und Kartendaten von OpenStreetMap, dazu
@@ -246,7 +254,7 @@ Steine wieder an ihren Platz zu bringen.
 - Simmerding, Franz X.: Grenzzeichen, Grenzsteinsetzer und Grenzfrevler. München 1997, Nachdruck 1999.
 - Pahl, Hugo: Bischemer Bösi Buwe. Tauberbischofsheim: Selbstverlag (FN-Druck) 1955.
 - Beierstettel, Hendrik: Artikelserie über historische Grenzsteine, Fränkische Nachrichten, 27. August bis 4. November 2024, sieben Folgen.
-- Wikipedia: Rute (Einheit); Grünsfeld. Abgerufen im September 2026.
+- Wikipedia: Rute (Einheit), URL: https://de.wikipedia.org/wiki/Rute_(Einheit) (letztmalig abgerufen im September 2026).
 
 ---
 

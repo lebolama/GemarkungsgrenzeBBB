@@ -1,7 +1,7 @@
 # Kriterienkatalog
 
 **Arbeit:** Die Grenzsteine der Gemarkung Tauberbischofsheim
-**Form:** Website, https://beierstettel.de/Grenze/ (Stichtagsfassung: ✏️ Link)
+**Form:** Website, https://beierstettel.de/Grenze/ (Stichtagsfassung: https://beierstettel.de/Grenze/version-20261005/)
 **Verfasser:** Hendrik Beierstettel, Tauberbischofsheim
 **Kategorie:** Heimatforschung digital
 
@@ -47,7 +47,7 @@ Zusammenhang mit meiner Ausbildung oder meinem Beruf.
 | Einmessung | GPS-Einmessung aller gefundenen Steine, Abgleich mit Deutscher Grundkarte 1:5 000 | vollständig | Garmin GPSMAP 65s, Smartphone, Kamera-GPS |
 | Grenzlinie | Nachzeichnen der Gemarkungsgrenze aus der Deutschen Grundkarte | vollständig | QGIS |
 | Methode der Standortberechnung | Konzept: Abstandsketten von heute stehenden Steinen aus | vollständig | – |
-| Programmierung der Website, Karten, Suche und Berechnung | 16 Seiten, 394 Steckbriefe, 3 interaktive Karten | Konzept, Vorgaben, Prüfung | KI-Werkzeuge (OpenAI Codex, Anthropic Claude Code) |
+| Programmierung der Website, Karten, Suche und Berechnung | 23 Seiten, 394 Steckbriefe, 2 interaktive Karten | Konzept, Vorgaben, Prüfung | KI-Werkzeuge (OpenAI Codex, Anthropic Claude Code) |
 | Suche im Gelände mit der berechneten Karte | seit 2026; zwei verschollene Steine wiedergefunden und wieder aufgerichtet | vollständig | – |
 
 Alle Inhalte der Website stammen von mir; ich habe sie geprüft und verantworte sie. Die Arbeit
@@ -77,5 +77,5 @@ auf Wunsch ohne Netz.
 
 ---
 
-Tauberbischofsheim, ✏️ Datum
+Tauberbischofsheim, 5. Oktober 2026
 Hendrik Beierstettel

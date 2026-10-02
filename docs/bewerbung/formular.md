@@ -15,7 +15,7 @@ Markierung: ✏️ = Hendrik muss ergänzen oder prüfen.
 ## Angaben zur Arbeit
 
 **Titel der Arbeit \***
-> Die Grenzsteine der Gemarkung Tauberbischofsheim – Website mit Rekonstruktion verschwundener Grenzsteine aus historischen Grenzgangprotokollen
+> Die Grenzsteine der Gemarkung Tauberbischofsheim – Website mit Rekonstruktion der ehemaligen Standorte verschwundener Grenzsteine aus historischen Grenzgangprotokollen
 
 (Entscheidung Hendrik: lange Fassung)
 
@@ -23,8 +23,9 @@ Markierung: ✏️ = Hendrik muss ergänzen oder prüfen.
 > Tauberbischofsheim, Main-Tauber-Kreis (Tauberfranken)
 
 **Seitenanzahl \*** (nur Zahl)
-> ✏️ Seitenzahl der schriftlichen Dokumentation (PDF), Zahl wird nach Fertigstellung eingetragen.
-> Die Website selbst hat 16 Inhaltsseiten und 394 Steckbriefe; das steht in der Dokumentation.
+> 12
+> (Dokumentation einschließlich Titelblatt, Stand 02.10.2026; dazu 3 Seiten Kriterienkatalog.
+> Die Website selbst hat 23 Seiten und 394 Steckbriefe; das steht im Kriterienkatalog.)
 
 **Bewerbung oder Vorschlag? \***
 > „Ich habe die Arbeit selbst verfasst und bewerbe mich“
@@ -59,7 +60,7 @@ Leer lassen (nur bei Vorschlägen durch Dritte).
 Auswahl: **„Als Link (Cloudlink, Webseite, Downloadlink etc.)“**
 
 **Link**
-> ✏️ Link auf die eingefrorene Stichtagsfassung, z. B. https://beierstettel.de/Grenze-2026/
+> https://beierstettel.de/Grenze/version-20261005/
 > (Abschnitt 3 der Bewerbungsvorbereitung; die laufende Website https://beierstettel.de/Grenze/ darf nach der Einreichung weiter wachsen.)
 
 **Weitere Dokumente hochladen?** → „Ja“, dann hochladen:
