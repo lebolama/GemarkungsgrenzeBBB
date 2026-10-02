@@ -1,5 +1,17 @@
 # Arbeitsprotokoll
 
+## 02.10.2026, 13:10 – Kriterienkatalog überarbeitet
+
+Wünsche Hendrik umgesetzt: Kopfblock jetzt linksbündig (der Blocksatz zog die Zeile „Form“
+auseinander), „(Stichtagsfassung: …)“ in eigener Zeile; Verfasser mit vollständiger Adresse und
+eigene Zeile E-Mail; Kategorie „Heimatforschung digital (Einreichung 2026)“; Hilfsmittel für
+Ersterfassung, systematische Begehungen und Einmessung als eine verbundene Zelle (Geräte, Apps,
+Karten, Werkzeuge); Hilfsmittel „Suche im Gelände“ neu; vier Zeilen Platz für die handschriftliche
+Unterschrift. Zusätzlich angeglichen: „zehn verschollene Steine gesucht, zwei wiedergefunden“.
+`werkzeuge/dokumentation_pdf.py` kann jetzt harte Zeilenumbrüche (zwei Leerzeichen am Zeilenende),
+verbundene Tabellenzellen (`{rs=N}`, `~`) und `[Unterschrift]`. PDF: 3 Seiten.
+
+
 ## 02.10.2026, 12:30 – Abgabeversion `version-20261005` online, Dokumentation überarbeitet
 
 **Abgabeversion (Stichtagsfassung):** https://beierstettel.de/Grenze/version-20261005/ – Kopie der

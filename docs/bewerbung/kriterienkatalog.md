@@ -1,9 +1,11 @@
 # Kriterienkatalog
 
-**Arbeit:** Die Grenzsteine der Gemarkung Tauberbischofsheim
-**Form:** Website, https://beierstettel.de/Grenze/ (Stichtagsfassung: https://beierstettel.de/Grenze/version-20261005/)
-**Verfasser:** Hendrik Beierstettel, Tauberbischofsheim
-**Kategorie:** Heimatforschung digital
+**Arbeit:** Die Grenzsteine der Gemarkung Tauberbischofsheim  
+**Form:** Website, https://beierstettel.de/Grenze/  
+(Stichtagsfassung: https://beierstettel.de/Grenze/version-20261005/)  
+**Verfasser:** Hendrik Beierstettel, Mörikeweg 6, 97941 Tauberbischofsheim  
+**E-Mail:** mail@beierstettel.de  
+**Kategorie:** Heimatforschung digital (Einreichung 2026)
 
 ---
 
@@ -42,13 +44,13 @@ Zusammenhang mit meiner Ausbildung oder meinem Beruf.
 | Fotografieren der Quellen | 497 Protokollseiten, 400 Seiten Landschiederbücher | vollständig | Kamera |
 | Transkription | alle Protokolle, von Hand; Kurrentschrift selbst erlernt | vollständig | Handschriftenerkennung Transkribus nur in einzelnen Zweifelsfällen, kaum hilfreich |
 | Zuordnung der Steine über die Jahrhunderte | 394 Steinpositionen aus neun Grenzbeschreibungen | vollständig | – |
-| Ersterfassung 2018/19 | Grenze in Etappen abgegangen, Steine gesucht, fotografiert und auf Erfassungsbögen beschrieben; blieb lückenhaft | gemeinsam mit drei Kindern (damals 7, 10 und 11 Jahre); Erfassungsbogen und Anleitung von mir | – |
-| Systematische Geländebegehungen 2017–2021 | 3 vollständige Umgehungen der rund 30 km langen Grenze an einem Stück (27.12.2017, 5.4.2019, 14.5.2021), zahlreiche Teilbegehungen und Nachkontrollen, gezielte Suche nach bis dahin nicht gefundenen Steinen; 142 Steine wiedergefunden, gereinigt, fotografiert, beschrieben | vollständig | – |
-| Einmessung | GPS-Einmessung aller gefundenen Steine, Abgleich mit Deutscher Grundkarte 1:5 000 | vollständig | Garmin GPSMAP 65s, Smartphone, Kamera-GPS |
+| Ersterfassung 2018/19 | Grenze in Etappen abgegangen, Steine gesucht, fotografiert und auf Erfassungsbögen beschrieben; blieb lückenhaft | gemeinsam mit drei Kindern (damals 7, 10 und 11 Jahre); Erfassungsbogen und Anleitung von mir | {rs=3} Garmin GPSMAP 65s, Smartphone (Apps: Scout (Magic Maps), BW Map mobile (LGL), Garmin Explore, Google Maps, div. GPS-Tools), Kamera mit GPS (Sony), Topographische Karten 1:25 000, Erfassungsbögen, Maßband, Wurzelbürste, Heckenschere, Klappspaten, Kreide |
+| Systematische Geländebegehungen 2017–2021 | 3 vollständige Umgehungen der rund 30 km langen Grenze an einem Stück (27.12.2017, 5.4.2019, 14.5.2021), zahlreiche Teilbegehungen und Nachkontrollen, gezielte Suche nach bis dahin nicht gefundenen Steinen; 142 Steine wiedergefunden, gereinigt, fotografiert, beschrieben | vollständig | ~ |
+| Einmessung | GPS-Einmessung aller gefundenen Steine, Abgleich mit Deutscher Grundkarte 1:5 000 | vollständig | ~ |
 | Grenzlinie | Nachzeichnen der Gemarkungsgrenze aus der Deutschen Grundkarte | vollständig | QGIS |
 | Methode der Standortberechnung | Konzept: Abstandsketten von heute stehenden Steinen aus | vollständig | – |
 | Programmierung der Website, Karten, Suche und Berechnung | 23 Seiten, 394 Steckbriefe, 2 interaktive Karten | Konzept, Vorgaben, Prüfung | KI-Werkzeuge (OpenAI Codex, Anthropic Claude Code) |
-| Suche im Gelände mit der berechneten Karte | seit 2026; zwei verschollene Steine wiedergefunden und wieder aufgerichtet | vollständig | – |
+| Suche im Gelände mit der berechneten Karte | seit 2026; zehn verschollene Steine gesucht, zwei wiedergefunden und wieder aufgerichtet | vollständig | Garmin GPSMAP 65s, Kamera mit GPS, Smartphone mit meiner Website im Browser, Klappspaten, dünne Eisenstange, Wurzelbürste |
 
 Alle Inhalte der Website stammen von mir; ich habe sie geprüft und verantworte sie. Die Arbeit
 hat keine Mitautoren: Die drei Kinder waren an der Ersterfassung im Gelände beteiligt, nicht an
@@ -78,4 +80,7 @@ auf Wunsch ohne Netz.
 ---
 
 Tauberbischofsheim, 5. Oktober 2026
+
+[Unterschrift]
+
 Hendrik Beierstettel

@@ -33,6 +33,7 @@ h1 { font-size: 22pt; color: #6b0000; margin: 0 0 4mm; line-height: 1.15; }
 h2 { font-size: 14pt; color: #6b0000; margin: 7mm 0 2mm; break-after: avoid; }
 h3 { font-size: 11.5pt; margin: 5mm 0 1.5mm; break-after: avoid; }
 p { margin: 0 0 2.5mm; text-align: justify; hyphens: auto; }
+p.kopf { text-align: left; }
 ul, ol { margin: 0 0 3mm 5mm; padding-left: 4mm; }
 li { margin-bottom: 1mm; }
 table { border-collapse: collapse; width: 100%; margin: 2mm 0 4mm; font-size: 9.5pt; }
@@ -106,8 +107,13 @@ def umwandeln(md: str, titelblatt: bool) -> str:
                 tab.append([c.strip() for c in zeilen[i].strip().strip("|").split("|")]); i += 1
             kopf, koerper = tab[0], [r for r in tab[1:] if not re.match(r"^:?-+:?$", r[0])]
             out.append("<table><thead><tr>" + "".join(f"<th>{inline(c)}</th>" for c in kopf) + "</tr></thead><tbody>")
-            out += ["<tr>" + "".join(f"<td>{inline(c)}</td>" for c in r) + "</tr>" for r in koerper]
+            def zelle(c):
+                m = re.match(r"^\{rs=(\d+)\}\s*(.*)$", c)
+                return f'<td rowspan="{m.group(1)}">{inline(m.group(2))}</td>' if m else f"<td>{inline(c)}</td>"
+            out += ["<tr>" + "".join(zelle(c) for c in r if c != "~") + "</tr>" for r in koerper]
             out.append("</tbody></table>"); continue
+        if s == "[Unterschrift]":
+            out.append('<div style="height:22mm"></div>'); i += 1; continue
         if s == "---":
             out.append("<hr>"); i += 1; continue
         h = re.match(r"^(#{1,3}) (.*)", s)
@@ -124,9 +130,14 @@ def umwandeln(md: str, titelblatt: bool) -> str:
                 text += " " + zeilen[i].strip(); i += 1
             out.append(f"<li>{inline(text)}</li>"); continue
         if liste: out.append(f"</{liste}>"); liste = None
-        absatz = [s]; i += 1
-        while i < len(zeilen) and zeilen[i].strip() and not re.match(r"^(#|\||-|\d+\.|✏️ \[|---)", zeilen[i].strip()):
-            absatz.append(zeilen[i].strip()); i += 1
+        absatz = [s]; hart = [zeilen[i].endswith("  ")]; i += 1
+        while i < len(zeilen) and zeilen[i].strip() and not re.match(r"^(#|\||-|\d+\.|✏️ \[|---|\[Unterschrift)", zeilen[i].strip()):
+            absatz.append(zeilen[i].strip()); hart.append(zeilen[i].endswith("  ")); i += 1
+        if any(hart):
+            teile = ""
+            for a, h in zip(absatz, hart):
+                teile += inline(a) + ("<br>" if h else " ")
+            out.append('<p class="kopf">' + teile.rstrip("<br> ") + "</p>"); continue
         if len(absatz) > 1 and (all(a.startswith("**") for a in absatz) or all(len(a) < 60 for a in absatz)):
             out.append("<p>" + "<br>".join(inline(a) for a in absatz) + "</p>")
         else:
