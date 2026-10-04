@@ -1,5 +1,37 @@
 # Arbeitsprotokoll
 
+## 04.10.2026, 14:05 – Prüfliste: Stein 195 angepasst; Befunde zu 387–389, 65/66, 72/73
+
+**Umgesetzt (Freigabe Hendrik):** Stein 195: „(evtl.)“ bei der Begehungsnummer 63 gestrichen
+(`data.json`: `2021 — Nr.`, `number_raw`, `number_certainty` = sicher; CSV) und Anmerkung im
+Steckbrief (`stein.html`, Weg 194→195 über die Steine 64–66 ≈ 120 m, Luftlinie 84 m, Protokolle
+124–131 m). Lokal getestet (375 px), hochgeladen: data.json, grenzsteine-tauberbischofsheim.csv,
+stein.html – 3/3 identisch; lokaler Ordner und `site/` angeglichen. **Die Abgabeversion
+`version-20261005` ist damit nicht mehr auf dem Stand von `entwurf/`** – vor der Abgabe neu bauen
+und hochladen (`stichtag.py`, `ftp.py stichtag`), sobald alle Datenentscheidungen gefallen sind.
+
+**Zwischenfall Sicherung:** `ftp.py sichern` brach nach ~175 Dateien mit Verbindungsabbruch ab
+(Server beendet lange Sitzungen, seit die Abgabeversion mitgesichert wird). Weil der Befehl mit
+`| tail` verkettet war, lief der Upload trotzdem; die drei Dateien waren vorher gesichert
+(`backups/2026-10-04_1356_server_ftp`, unvollständig). `ftp.py` verbindet jetzt bei Abbruch neu und
+wiederholt; vollständige Sicherung danach: `backups/2026-10-04_1359_server_ftp` (190 Dateien).
+**Künftig `sichern` nie mit Pipe verketten.**
+
+**Befunde (nichts geändert):**
+- **387→388→389:** Hendrik: alle drei Originalsteine, 388 vermutlich nach 1872 versetzt (geringfügig
+  durch Wegasphaltierung?). Summe 387→389 stimmt (404 vs. 401 m); 388 steht ~63 m zu weit.
+  Vorschlag: 388 als „versetzt“ führen (nur 388 selbst wird dann berechnet, 387/389 bleiben Anker).
+- **65→66:** Entlang der Feldsteine ab 127: 126 bei 67,6 m, **125 bei 173,1 m** (Protokoll Nr. 14:
+  168 m), 124 bei 219 m, Lücke bis 123 bei 421,7 m (Nr. 15 bei 338,7 m: **verschwunden**), 122 bei
+  509,5 m (Nr. 16: 518,7 m), 119 bei 686,4 m (Nr. 17: 708,7 m). Damit ist Nr. 14 = Feldnr. **125**
+  (hochformatiger, hellgrauer Stein mit Rad/B, „DW“ – passt zu „weißer Stein, viereckig, DW“ 1887),
+  Feldnr. 126 (niedriger, rotbrauner Stein mit Rad, „69“, „DW“) ist ein Zusatzstein. Umbuchung
+  ID 66 → Feldnr. 125 würde Anker und berechnete Positionen (66, 67) ändern – nur mit Freigabe.
+- **72→73:** Hendrik: Feldnr. 117 viereckig, rot, Zahl „56 1/2“ (Erfassung sagt „GK 36 1/2“) –
+  passt zu Nr. 3 („rother viereckiger Stein“); der Abstand 8 Ruten = 24 m (Nr. 3→4) bleibt gegen
+  GPS 70,4 m unerklärt. Original (Seite 89 der Abschrift 1872) gegenlesen.
+
+
 ## 04.10.2026 – Prüfliste: auffällige Steinpaare ausgewertet (Entscheidungen Hendriks stehen aus)
 
 Grundlage: `data.json`, Transkription 1872 und Hendriks Erfassung 2017–21

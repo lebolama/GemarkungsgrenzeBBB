@@ -38303,7 +38303,7 @@
   {
     "ID": 195,
     "Grenze": "Hochhausen",
-    "2021 — Nr.": "63 (evtl.)",
+    "2021 — Nr.": 63,
     "2021 — Fotos": "https://photos.app.goo.gl/GknwUK1LFR5GNyJv6",
     "2021 — GPS": "N 49.64748528 E 9.61933764",
     "1569 (1580) — Nr.": 43,
@@ -38399,8 +38399,8 @@
     },
     "_derived": {
       "survey2021": {
-        "number_raw": "63 (evtl.)",
-        "number_certainty": "evtl",
+        "number_raw": 63,
+        "number_certainty": "sicher",
         "photos_url": "https://photos.app.goo.gl/GknwUK1LFR5GNyJv6",
         "gps_raw": "N 49.64748528 E 9.61933764",
         "gps_normalized": "49.64748528, 9.61933764",
