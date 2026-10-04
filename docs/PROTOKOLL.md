@@ -1,5 +1,27 @@
 # Arbeitsprotokoll
 
+## 04.10.2026, 15:00 – Meterwerte korrigiert, Abgabeversion neu hochgeladen
+
+**Korrekturen (Freigabe Hendrik; Seite 34 im Original: „51 Ruten 4 Fuß“):** Meterwerte 1872
+Stein 69: 190,0 → 190,8; Stein 316: 152,2 → 154,2; Stein 365: 65,0 → 65,1 (`data.json`, CSV).
+69 und 316 sind GPS-Anker, ihre Werte ändern keine berechneten Standorte; bei 365 wurde die Kette
+364–367 neu gerechnet (Verschiebung 0,09 m; auch die aus 1872 übernommenen Einträge in 1569–1749).
+Skript `werkzeuge/datenkorrektur_20261004b.py` (Probe: reproduziert die gespeicherten Werte auf
+≤ 0,05 m). Steckbrief 74: Anmerkung „Im Original widersprechen sich Ruten und Meter …“ (nicht bei
+73, auf Wunsch Hendriks). Sicherung `backups/2026-10-04_1449_server_ftp`; hochgeladen und geprüft
+(4/4 identisch): data.json, standorte-positionen.json, CSV, stein.html; lokaler Ordner und `site/`
+angeglichen.
+
+**Abgabeversion `version-20261005` neu gebaut und hochgeladen** (Stand: alle Datenkorrekturen
+dieses Tages; 78 Dateien, alle per SHA-256 gegen den Server geprüft, 0 Abweichungen; kein Verweis
+auf `reconstruction*`, keine toten Links; `reconstruction_xl.html` dort 404). Abbildungen 1 (Startseite,
+jetzt „124“) und 4 (Karte) neu aufgenommen; beide PDFs neu (Dokumentation 12 Seiten,
+Kriterienkatalog 3 Seiten).
+
+**Prüfliste vor der Abgabe damit erledigt**, bis auf: Formular gegen die endgültigen PDFs lesen;
+nach dem letzten Upload nichts mehr hochladen und mit leerem Cache prüfen.
+
+
 ## 04.10.2026, 15:30 – Prüfliste: Meterwerte 1872 und Browser-Cache ausgewertet
 
 **72/73 und 74 (Königheim):** Hendrik hat im Original bestätigt: Nr. 4 „Distat 8 Ruthen oder 24 Meter“
