@@ -144,8 +144,8 @@ gemessen 234,2 Meter – ein Unterschied von 7,5 Metern oder 3 Prozent.
 ✏️ [Abb. 3: Seite „So wird gerechnet“ mit der Skizze des Beispiels]
 
 **Die Prüfung.** Wo zwei direkt benachbarte Steine heute noch unversetzt stehen, lässt sich der
-Protokollabstand mit dem GPS-Abstand vergleichen. Bei 118 solchen Paaren liegt die Abweichung in
-35 Fällen unter 5 Metern, in elf Fällen unter einem Meter; im Median beträgt sie rund 12 Meter.
+Protokollabstand mit dem GPS-Abstand vergleichen. Bei 109 solchen Paaren liegt die Abweichung in
+36 Fällen unter 5 Metern, in elf Fällen unter einem Meter; im Median beträgt sie rund 9 Meter.
 Größere Abweichungen haben erkennbare Gründe – steile Hänge, Umwege entlang von Gräben,
 ausgelassene oder ersetzte Steine – oder deuten auf Grenzänderungen hin, zu denen keine Akte
 bekannt ist. Die Website benennt diese Grenzen der Methode offen.

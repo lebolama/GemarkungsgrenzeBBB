@@ -24,7 +24,7 @@ Markierung: ✏️ = Hendrik muss ergänzen oder prüfen.
 
 **Seitenanzahl \*** (nur Zahl)
 > 12
-> (Dokumentation einschließlich Titelblatt, Stand 02.10.2026; dazu 3 Seiten Kriterienkatalog.
+> (Dokumentation einschließlich Titelblatt, Stand 04.10.2026; dazu 3 Seiten Kriterienkatalog.
 > Die Website selbst hat 23 Seiten und 394 Steckbriefe; das steht im Kriterienkatalog.)
 
 **Bewerbung oder Vorschlag? \***
@@ -53,7 +53,7 @@ Leer lassen (nur bei Vorschlägen durch Dritte).
 (Wichtig für die Jury: Beruf ohne Bezug zu Geschichte, Archivwesen oder Vermessung → kein Ausschlussgrund.)
 
 **Ggf. Name(n) weiterer Verfasser und deren Anteil der Arbeit**
-> Leer lassen. (Einsatz von KI-Werkzeugen bei der Programmierung ist im Kriterienkatalog offengelegt.)
+> Leer lassen: Die Arbeit hat keine Mitautoren. (Im Kriterienkatalog offengelegt sind die gemeinsame Ersterfassung der Steine 2018/19 mit meinen Söhnen und ihrem Freund, der Sonderpreis Kleindenkmale des Kulturlandschaftspreises 2019 für diese Ersterfassung und der Einsatz von KI-Werkzeugen bei der Programmierung.)
 
 ## Einreichungsform der Arbeit
 
@@ -65,7 +65,7 @@ Auswahl: **„Als Link (Cloudlink, Webseite, Downloadlink etc.)“**
 
 **Weitere Dokumente hochladen?** → „Ja“, dann hochladen:
 1. `Dokumentation_Grenzsteine_Tauberbischofsheim.pdf` (≤ 8 MB)
-2. `Kriterienkatalog_Grenzsteine_Tauberbischofsheim.pdf`
+2. `Kriterienkatalog_Grenzsteine_Tauberbischofsheim.pdf` – **vorher ausdrucken, auf der Unterschriftszeile über dem Namen unterschreiben und einscannen; hochgeladen wird der unterschriebene Scan** (Datum im Dokument: 5. Oktober 2026; wird später eingereicht, Datum von Hand ändern oder Datei neu erzeugen lassen)
 
 ## Erklärungen zur Bewerbung (alle vier ankreuzen)
 

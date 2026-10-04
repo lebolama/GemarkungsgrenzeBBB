@@ -68,7 +68,7 @@ diesen Bestand erstmals vollständig und macht ihn öffentlich zugänglich.
 
 **Wissenschaftliche Qualität.** Alle Angaben sind auf die Quellen zurückgeführt (Archiv und
 Signatur je Protokoll), historische Schreibweisen bleiben unverändert, Unsicherheiten sind
-gekennzeichnet. Die Methode der Standortberechnung ist offengelegt und an 118 Steinpaaren
+gekennzeichnet. Die Methode der Standortberechnung ist offengelegt und an 109 Steinpaaren
 überprüft; ihre Grenzen werden benannt. Der vollständige Datensatz steht unter einer offenen
 Lizenz (CC BY 4.0) zur Nachnutzung bereit.
 

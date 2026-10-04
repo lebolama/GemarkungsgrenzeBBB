@@ -1,5 +1,28 @@
 # Arbeitsprotokoll
 
+## 04.10.2026, 15:20 – Formular gegengelesen; Genauigkeitsstatistik neu gerechnet
+
+**Beim Gegenlesen aufgefallen:** Die Statistik „118 Paare, 35 unter 5 m, 11 unter 1 m, Median 12 m,
+Ausreißer über 100 m“ (berechnung.html, quellen.html, Dokumentation, Kriterienkatalog) beruhte auf
+den Daten vor den Korrekturen von heute. Methode nachgebaut (aufeinanderfolgende IDs, beide
+unversetzt mit GPS, beide im Grenzgang des Jahres vorhanden, Meterangabe vorhanden; Paar × Jahr;
+Haversine) und auf dem Stand vom 02.10. exakt reproduziert (118 / 35 / 11 / Median 12,1 m / 13,7 %).
+**Neu: 109 Paare, 36 unter 5 m, 11 unter 1 m, Median 8,7 m (12,3 %), größte Abweichung 98,5 m.**
+(Minus 9 Paare: 388 ist nicht mehr „unversetzt“; 65→66 weicht jetzt nur noch 4,9 m ab.)
+Texte angepasst („109“, „36“, „rund 9 Meter“, „fast 100 Meter“); Beispielzeile 65→66 in der Tabelle
+durch 376→377 (1872: 72 R 7 F = 218,1 m, GPS 119,6 m, 98,5 m) ersetzt.
+Neuer größter Ausreißer 376→377 (Dittigheim): 378 liegt 177 m hinter 377 (Protokoll 157 m), das
+Protokoll 1749 nennt 376→378 direkt mit 335,8 m (GPS-Weg ≈ 297 m) – nicht weiter untersucht.
+
+**Formular (`formular.md`):** Stand 04.10.; Feld „weitere Verfasser“ leer, mit Hinweis auf die im
+Kriterienkatalog offengelegte Ersterfassung 2018/19 und KI-Nutzung; Hinweis: Kriterienkatalog vor dem
+Hochladen ausdrucken, unterschreiben, einscannen (Datum im Dokument: 5. Oktober 2026).
+
+Sicherung `backups/2026-10-04_1506_server_ftp`; hochgeladen und geprüft: berechnung.html,
+quellen.html (live, identisch); Abgabeversion `version-20261005` neu gebaut und hochgeladen, alle
+78 Dateien identisch; beide PDFs neu (12 und 3 Seiten); lokaler Ordner und `site/` angeglichen.
+
+
 ## 04.10.2026, 15:00 – Meterwerte korrigiert, Abgabeversion neu hochgeladen
 
 **Korrekturen (Freigabe Hendrik; Seite 34 im Original: „51 Ruten 4 Fuß“):** Meterwerte 1872
