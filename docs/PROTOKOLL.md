@@ -1,5 +1,26 @@
 # Arbeitsprotokoll
 
+## 04.10.2026 – Prüfliste: auffällige Steinpaare ausgewertet (Entscheidungen Hendriks stehen aus)
+
+Grundlage: `data.json`, Transkription 1872 und Hendriks Erfassung 2017–21
+(`…\_gisTBB\Grenzsteine\Erfassung aller Grenzsteine …pdf`, 238 Blätter, „Interne Nummer“ = Feldnummer).
+
+- **194→195 (Hochhausen):** Zwischen Feldnr. 67 (ID 194) und 63 (ID 195) stehen drei weitere Steine
+  (Feldnr. 66, 65, 64; Inschrift „GHH 7/6/5“, ohne Jahr), die nicht in `data.json` sind. Weg über
+  sie: 25,0 + 51,4 + 29,7 + 14,3 = 120,4 m (Protokolle 124–131 m; Luftlinie 84,0 m). Kein
+  Datenfehler, die Grenze knickt. Vorschlag: Anmerkung im Steckbrief 195.
+- **387→388→389 (Dittigheim):** Protokoll 166,5 / 237,9 m (1872), GPS 229,7 / 171,7 m; Summe
+  stimmt (404 vs. 401 m). 387 und 389 passen, Feldnr. 156 (ID 388) liegt ~63 m zu weit.
+- **65→66 (Dittwar):** Protokoll 56 Ruten = 168 m, GPS 67,6 m. Feldnr. 125 liegt 173,1 m von 127
+  (ID 65) entfernt und passt zum Protokoll; Feldnr. 126 (ID 66, „unsicher“) ist vermutlich ein
+  anderer (Zwischen-)Stein. Betrifft Anker der Berechnung, daher nur mit Freigabe ändern.
+- **72→73 (Königheim):** Protokoll Nr. 3→4 = 8 Ruten = 24 m, GPS 70,4 m. Feldnr. 117 trägt
+  „GK 36½“ (nachträglich eingeschoben), 116 „G37K“; 116→115 passt (34,5 vs. 28,6 m), 117 sitzt
+  ca. dort, wo Nr. 2 stehen müsste. Dreimärker 118 wurde 1887 versetzt.
+- **Nebenbefund:** 108 der 238 Erfassungsblätter (96 ohne Jahreszahl, 12 mit) sind nicht im
+  Datensatz (vermutlich jüngere Steine, nicht in den Protokollen).
+
+
 ## 02.10.2026, 13:50 – Entscheidungen Hendrik: laufende Seite, Kapitel 8, Abbildung 4
 
 1. **Laufende Website:** `reconstruction_xl.html` bleibt dort unverändert (kein Entfernen). Die
