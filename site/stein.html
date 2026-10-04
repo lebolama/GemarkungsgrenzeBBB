@@ -99,7 +99,16 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
         "84 Meter. Der Unterschied erklärt sich durch drei weitere Steine, die im Gelände dazwischen stehen und in " +
         "keinem Protokoll vorkommen (Inschrift „GHH“ mit Nummer, ohne Jahreszahl; Nr. 64 bis 66 der Begehung). " +
         "Die Grenze verläuft hier nicht geradlinig: Folgt man den Steinen, ist der Weg zwischen 194 und 195 rund " +
-        "120 Meter lang."
+        "120 Meter lang.",
+    66: "Die Zuordnung ist wahrscheinlich, aber nicht sicher. Das Protokoll nennt 56 Ruten (168 m) bis zum vorigen " +
+        "Stein; dazu passt der Stein Nr. 125 der Begehung (173 m hinter Stein 65). Der Stein Nr. 126 der Begehung " +
+        'steht schon 68 m hinter Stein 65 und lässt sich keinem Protokolleintrag zuordnen (<a ' +
+        'href="https://photos.app.goo.gl/2XCryTFpyxifpaas5" rel="noopener">Fotos</a>). ' +
+        "Der Stein dahinter (Stein 67) ist verschwunden.",
+    388: "Dieser Stein steht nicht mehr dort, wo ihn die Protokolle von 1608 bis 1872 verorten: Sie nennen 161 bis " +
+        "168 m ab Stein 387, heute sind es 230 m, und zum nächsten Stein 389 entsprechend weniger. Weil die Summe " +
+        "beider Abstände stimmt und die Nachbarsteine original stehen, wurde dieser Stein offenbar nach 1872 um " +
+        "rund 65 m versetzt. Wann und warum, ist nicht bekannt."
   };
   var id = new URLSearchParams(location.search).get("id");
   var inhalt = document.getElementById("inhalt");
@@ -203,7 +212,13 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
       (sv.number_certainty && sv.number_certainty !== "sicher" ? " (Zuordnung " + esc(sv.number_certainty) + ")" : "") + "</dd>";
     if (sv.gps && isFinite(sv.gps.lat)) befund += "<dt>Position</dt><dd>" + osm(sv.gps.lat, sv.gps.lon, "auf OpenStreetMap zeigen") +
       '<br><span class="klein">' + sv.gps.lat.toFixed(6) + ", " + sv.gps.lon.toFixed(6) + "</span></dd>";
-    else {
+    if (s.moved_or_unknown_location && sv.gps && isFinite(sv.gps.lat)) {
+      var rek0 = besteRekonstruktion(pos, r.ID);
+      if (rek0) befund += "<dt>Standort laut Protokoll</dt><dd>" + osm(rek0.p.lat.toFixed(6), rek0.p.lon.toFixed(6), "auf OpenStreetMap zeigen") +
+        '<br><span class="klein">berechnet, Klasse ' + esc(rek0.p.certainty) + ", aus dem Grenzgang " + esc(rek0.jahr) +
+        ' – <a href="quellen.html#rekonstruktion">wie berechnet?</a></span></dd>';
+    }
+    if (!(sv.gps && isFinite(sv.gps.lat))) {
       var rek = besteRekonstruktion(pos, r.ID);
       if (rek) befund += "<dt>Berechneter Standort</dt><dd>" + osm(rek.p.lat.toFixed(6), rek.p.lon.toFixed(6), "auf OpenStreetMap zeigen") +
         '<br><span class="klein">Klasse ' + esc(rek.p.certainty) + ", aus dem Grenzgang " + esc(rek.jahr) +

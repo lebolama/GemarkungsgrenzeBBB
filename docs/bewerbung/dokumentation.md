@@ -29,7 +29,7 @@ Einführung in ein kaum bekanntes Kapitel Heimatgeschichte ist.
 | Ausgewertete Grenzbeschreibungen | 9 (1569 bis 1893), dazu 13 weitere Akten |
 | Fotografierte Protokollseiten | 497, dazu 400 Seiten Landschiederbücher |
 | Steinpositionen im Datensatz | 394 |
-| Im Gelände wiedergefunden (2017–2021) | 142, davon 125 am ursprünglichen Platz |
+| Im Gelände wiedergefunden (2017–2021) | 142, davon 124 am ursprünglichen Platz |
 | Berechnete Standorte verschwundener Steine | 249 Positionen |
 | Mit der berechneten Karte wiedergefunden (2026) | 2 Steine von 10 gesuchten (erste Stichprobe zur Validierung der Methodik) |
 | Ältester noch stehender datierter Stein | 1474 |
@@ -197,7 +197,7 @@ KI-Werkzeuge (OpenAI Codex, Anthropic Claude Code) nach meinen genauen Vorgaben 
 
 ## 8 Ergebnisse und Erkenntnisse
 
-- **Bestand:** 142 der 394 Positionen sind im Gelände belegt, 125 Steine stehen am
+- **Bestand:** 142 der 394 Positionen sind im Gelände belegt, 124 Steine stehen am
   ursprünglichen Platz. Der älteste noch stehende datierte Stein ist der Eckstein von 1474 an der
   Grenze zu Königheim.
 - **Überlieferung:** Die Protokolle zeigen, wie die Grenze über die Jahrhunderte immer dichter

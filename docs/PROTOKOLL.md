@@ -1,5 +1,40 @@
 # Arbeitsprotokoll
 
+## 04.10.2026, 14:40 – Datenkorrektur: Stein 388 versetzt, Stein 66 = Begehung 125
+
+Entscheidungen Hendrik: 388 nach 1872 versetzt; Zuordnung ID 66 → Begehungsnummer 125 (vermutlich);
+Nebenbefund (nicht im Datensatz stehende Erfassungsblätter) bleibt unkommentiert, weil die Website nur
+Gemarkungsgrenzsteine zeigt (die übrigen sind Waldgrenzsteine u. a.).
+
+**Umgesetzt mit `werkzeuge/datenkorrektur_20261004.py` (+ `geo_linie.py`):**
+- Verfahren „anchor-interval-v1“ nachgebaut und an vier vorhandenen B-Einträgen auf 0,0 m genau
+  bestätigt (Anker auf Grenzlinie projizieren; vom vorherigen Anker − Protokollstrecke, vom folgenden
+  Anker + Protokollstrecke). Klasse B bei Schlussfehler ≤ 20 m oder < 5 % (Schwelle aus den
+  Bestandsdaten abgeleitet, 109 C / 97 B).
+- **Stein 388:** Zustand „versetzt“ (`standing_original` false); Standort je Grenzgang berechnet
+  (1608/1683/1749/1872: B, Schlussfehler +0,2 / −7,1 / +14,8 / −2,7 m; 1569 und 1700 aus 1608
+  übernommen). Steckbrief: Anmerkung, neue Zeile „Standort laut Protokoll“ (nur bei versetzten Steinen).
+- **Stein 66:** neue Begehungsnummer 125 (vermutlich), GPS N 49.60130474 E 9.62515680 (0,9 m neben
+  der Grenzlinie), Fotolink; **Stein 67** für 1872 neu aus Anker 66 berechnet (B, 343 m ab Stein 65,
+  bisher 329 m aus 1700). Anmerkung im Steckbrief 66 (126er = Zusatzstein ohne Protokollbezug).
+- Zahlen: **124** statt 125 Steine am ursprünglichen Platz, 20 statt 19 versetzt (index, grenzgaenge,
+  quellen, chronik, Dokumentation + PDF neu, 12 Seiten).
+- Lokal getestet: Steckbriefe 66/67/387/388/195, geschützte `standorte.html` lädt ohne Fehler, weiter
+  329 Marker (Ebene 1872); geschützte Seiten selbst unverändert, nur die gemeinsam genutzten
+  Datendateien geändert (ausdrückliche Anweisung).
+- Sicherung `backups/2026-10-04_1424_server_ftp` (190 Dateien) vor dem Upload; hochgeladen und
+  geprüft (8/8 identisch): data.json, standorte-positionen.json, CSV, stein.html, grenzgaenge.html,
+  quellen.html, index.html, chronik.html; lokaler Ordner und `site/` angeglichen.
+
+**Zu Stein 72/73:** Hendrik fand die Stelle im Original nicht. Antwort: Die Seitenmarke „Seite 89“
+stammt aus seiner eigenen Transkription (Marke „-Seite 89-“, Sprungmarke #seite-89 auf
+transkription-1872.html); Eintrag „4.)“ im Abschnitt Königheim („1.) Dreimärker Dittwar, Königheim und
+Bischofsheim im Wiesenbach“ beginnt auf Seite 88). Gegenlesen steht aus.
+
+**Noch offen:** Abgabeversion `version-20261005` neu bauen/hochladen (Stand vor dieser Korrektur),
+15 Meterwerte 1872, Browser-Cache, Formular gegen endgültige PDFs lesen.
+
+
 ## 04.10.2026, 14:05 – Prüfliste: Stein 195 angepasst; Befunde zu 387–389, 65/66, 72/73
 
 **Umgesetzt (Freigabe Hendrik):** Stein 195: „(evtl.)“ bei der Begehungsnummer 63 gestrichen

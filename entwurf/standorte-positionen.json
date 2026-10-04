@@ -1250,12 +1250,19 @@
       },
       "388": {
         "id": 388,
-        "lat": 49.6165719,
-        "lon": 9.68135364,
-        "certainty": "A",
-        "method": "GPS 2021 am ursprünglichen Standort",
-        "anchorDistance": 0,
-        "snapDistance": 2.5039022799509048
+        "lat": 49.61660640413791,
+        "lon": 9.682214956498706,
+        "certainty": "B",
+        "method": "Standort desselben Steins aus Grenzgang 1608",
+        "leftAnchor": 387,
+        "rightAnchor": 389,
+        "anchorDistance": 167.9,
+        "counterpartDifference": 0.17644742259653867,
+        "closureResidual": 0.17644742259653867,
+        "closureQuality": "good",
+        "direction": -1,
+        "sourceYear": "1608",
+        "transferred": true
       },
       "389": {
         "id": 389,
@@ -2705,12 +2712,19 @@
       },
       "388": {
         "id": 388,
-        "lat": 49.6165719,
-        "lon": 9.68135364,
-        "certainty": "A",
-        "method": "GPS 2021 am ursprünglichen Standort",
-        "anchorDistance": 0,
-        "snapDistance": 2.5039022799509048
+        "lat": 49.61660640413791,
+        "lon": 9.682214956498706,
+        "certainty": "B",
+        "method": "Distanzkette vom vorherigen GPS-Anker; auf den zugehörigen historischen Grenzast ausgerichtet",
+        "leftAnchor": 387,
+        "rightAnchor": 389,
+        "anchorDistance": 167.9,
+        "counterpartDifference": 0.17644742259653867,
+        "closureResidual": 0.17644742259653867,
+        "closureQuality": "good",
+        "direction": -1,
+        "sourceYear": "1608",
+        "transferred": false
       },
       "389": {
         "id": 389,
@@ -4078,12 +4092,19 @@
       },
       "388": {
         "id": 388,
-        "lat": 49.6165719,
-        "lon": 9.68135364,
-        "certainty": "A",
-        "method": "GPS 2021 am ursprünglichen Standort",
-        "anchorDistance": 0,
-        "snapDistance": 2.5039022799509048
+        "lat": 49.61660640413791,
+        "lon": 9.682214956498706,
+        "certainty": "B",
+        "method": "Distanzkette vom vorherigen GPS-Anker; auf den zugehörigen historischen Grenzast ausgerichtet",
+        "leftAnchor": 387,
+        "rightAnchor": 389,
+        "anchorDistance": 167.9,
+        "counterpartDifference": 7.123552577403473,
+        "closureResidual": -7.123552577403473,
+        "closureQuality": "good",
+        "direction": -1,
+        "sourceYear": "1683",
+        "transferred": false
       },
       "389": {
         "id": 389,
@@ -5461,12 +5482,19 @@
       },
       "388": {
         "id": 388,
-        "lat": 49.6165719,
-        "lon": 9.68135364,
-        "certainty": "A",
-        "method": "GPS 2021 am ursprünglichen Standort",
-        "anchorDistance": 0,
-        "snapDistance": 2.5039022799509048
+        "lat": 49.61660640413791,
+        "lon": 9.682214956498706,
+        "certainty": "B",
+        "method": "Standort desselben Steins aus Grenzgang 1608",
+        "leftAnchor": 387,
+        "rightAnchor": 389,
+        "anchorDistance": 167.9,
+        "counterpartDifference": 0.17644742259653867,
+        "closureResidual": 0.17644742259653867,
+        "closureQuality": "good",
+        "direction": -1,
+        "sourceYear": "1608",
+        "transferred": true
       },
       "389": {
         "id": 389,
@@ -6905,12 +6933,19 @@
       },
       "388": {
         "id": 388,
-        "lat": 49.6165719,
-        "lon": 9.68135364,
-        "certainty": "A",
-        "method": "GPS 2021 am ursprünglichen Standort",
-        "anchorDistance": 0,
-        "snapDistance": 2.5039022799509048
+        "lat": 49.616616470568445,
+        "lon": 9.682315093304377,
+        "certainty": "B",
+        "method": "Distanzkette vom vorherigen GPS-Anker; auf den zugehörigen historischen Grenzast ausgerichtet",
+        "leftAnchor": 387,
+        "rightAnchor": 389,
+        "anchorDistance": 160.6,
+        "counterpartDifference": 14.776447422596561,
+        "closureResidual": 14.776447422596561,
+        "closureQuality": "good",
+        "direction": -1,
+        "sourceYear": "1749",
+        "transferred": false
       },
       "389": {
         "id": 389,
@@ -7480,28 +7515,28 @@
       },
       "66": {
         "id": 66,
-        "lat": 49.60106,
-        "lon": 9.62657,
+        "lat": 49.60130474,
+        "lon": 9.6251568,
         "certainty": "A",
         "method": "GPS 2021 am ursprünglichen Standort",
         "anchorDistance": 0,
-        "snapDistance": 1.568265516755913
+        "snapDistance": 0.8613494002883895
       },
       "67": {
         "id": 67,
-        "lat": 49.60173018213686,
-        "lon": 9.623106565069854,
+        "lat": 49.601821977548106,
+        "lon": 9.622955989132402,
         "certainty": "B",
-        "method": "Standort desselben Steins aus Grenzgang 1700",
-        "leftAnchor": 65,
-        "rightAnchor": 70,
-        "anchorDistance": 328.5,
-        "counterpartDifference": 5.115257873396331,
-        "closureResidual": 5.115257873396331,
+        "method": "Distanzkette vom vorherigen GPS-Anker; auf den zugehörigen historischen Grenzast ausgerichtet",
+        "leftAnchor": 66,
+        "rightAnchor": 68,
+        "anchorDistance": 170.7,
+        "counterpartDifference": 11.329326748969095,
+        "closureResidual": -11.329326748969095,
         "closureQuality": "good",
         "direction": -1,
-        "sourceYear": "1700",
-        "transferred": true
+        "sourceYear": "1872",
+        "transferred": false
       },
       "68": {
         "id": 68,
@@ -9384,12 +9419,19 @@
       },
       "388": {
         "id": 388,
-        "lat": 49.6165719,
-        "lon": 9.68135364,
-        "certainty": "A",
-        "method": "GPS 2021 am ursprünglichen Standort",
-        "anchorDistance": 0,
-        "snapDistance": 2.5039022799509048
+        "lat": 49.616608334686234,
+        "lon": 9.6822341608176,
+        "certainty": "B",
+        "method": "Distanzkette vom vorherigen GPS-Anker; auf den zugehörigen historischen Grenzast ausgerichtet",
+        "leftAnchor": 387,
+        "rightAnchor": 389,
+        "anchorDistance": 166.5,
+        "counterpartDifference": 2.7235525774034386,
+        "closureResidual": -2.7235525774034386,
+        "closureQuality": "good",
+        "direction": -1,
+        "sourceYear": "1872",
+        "transferred": false
       },
       "389": {
         "id": 389,
@@ -10299,12 +10341,12 @@
       },
       "66": {
         "id": 66,
-        "lat": 49.60106,
-        "lon": 9.62657,
+        "lat": 49.60130474,
+        "lon": 9.6251568,
         "certainty": "A",
         "method": "GPS 2021 am ursprünglichen Standort",
         "anchorDistance": 0,
-        "snapDistance": 1.568265516755913
+        "snapDistance": 0.8613494002883895
       },
       "67": {
         "id": 67,

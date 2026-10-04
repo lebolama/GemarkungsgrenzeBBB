@@ -13402,9 +13402,9 @@
   {
     "ID": 66,
     "Grenze": "Dittwar",
-    "2021 — Nr.": "126 (unsicher)",
-    "2021 — Fotos": "https://photos.app.goo.gl/2XCryTFpyxifpaas5",
-    "2021 — GPS": "N 49.60106000 E 9.62657000",
+    "2021 — Nr.": "125 (vermutlich)",
+    "2021 — Fotos": "https://photos.app.goo.gl/EowEgbEoeHsVKfQ27",
+    "2021 — GPS": "N 49.60130474 E 9.62515680",
     "1569 (1580) — Nr.": "",
     "1569 (1580) — Jahr": "",
     "1569 (1580) — groß/ klein": "",
@@ -13493,20 +13493,20 @@
     "Großrinderfelder Grenzbegehung 1784 — Meter": "",
     "Großrinderfelder Grenzbegehung 1784 — Beschreibung": "",
     "_gps_parsed": {
-      "lat": 49.60106,
-      "lon": 9.62657
+      "lat": 49.60130474,
+      "lon": 9.6251568
     },
     "_derived": {
       "survey2021": {
-        "number_raw": "126 (unsicher)",
-        "number_certainty": "unsicher",
-        "photos_url": "https://photos.app.goo.gl/2XCryTFpyxifpaas5",
-        "gps_raw": "N 49.60106000 E 9.62657000",
-        "gps_normalized": "49.60106, 9.62657",
+        "number_raw": "125 (vermutlich)",
+        "number_certainty": "vermutlich",
+        "photos_url": "https://photos.app.goo.gl/EowEgbEoeHsVKfQ27",
+        "gps_raw": "N 49.60130474 E 9.62515680",
+        "gps_normalized": "49.60130474, 9.6251568",
         "gps_status": "original_or_measured",
         "gps": {
-          "lat": 49.60106,
-          "lon": 9.62657
+          "lat": 49.60130474,
+          "lon": 9.6251568
         },
         "has_photos": true
       },
@@ -77636,7 +77636,7 @@
         "photos_url": "https://photos.app.goo.gl/wTADxGwM5uiz4UpPA",
         "gps_raw": "N 49.61657190 E 9.68135364",
         "gps_normalized": "49.6165719, 9.68135364",
-        "gps_status": "original_or_measured",
+        "gps_status": "unknown_or_moved",
         "gps": {
           "lat": 49.6165719,
           "lon": 9.68135364
@@ -77817,8 +77817,8 @@
       },
       "status": {
         "found_2021": true,
-        "standing_original": true,
-        "moved_or_unknown_location": false,
+        "standing_original": false,
+        "moved_or_unknown_location": true,
         "missing_2021": false
       }
     }
