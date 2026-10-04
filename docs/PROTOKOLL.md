@@ -1,5 +1,32 @@
 # Arbeitsprotokoll
 
+## 04.10.2026, 15:30 – Prüfliste: Meterwerte 1872 und Browser-Cache ausgewertet
+
+**72/73 und 74 (Königheim):** Hendrik hat im Original bestätigt: Nr. 4 „Distat 8 Ruthen oder 24 Meter“
+und Nr. 5 „16 Ruthen 2 Fuß oder 28 Meter 60 Centimeter“ stehen so da. Die Tabelle gibt das Original
+wieder, keine Änderung. Das Original widerspricht sich bei Nr. 5 selbst (16 Ruten 2 Fuß = 48,6 m); der
+GPS-Abstand 116→115 (34,5 m) spricht für die Meterangabe.
+
+**Meterwerte 1872 (Abschrift S. 2–112 gegen `data.json`):** Alle Meterwerte der Tabelle außer sechs
+kommen so in der Abschrift vor. Die früher gemeldeten „15 Abweichungen“ entstanden, weil die
+Spalte „Ruthen“ der Tabelle nur ganze Ruten enthält (Fuß/Zoll fehlen) – die Meterangabe ist die des
+Originals. Die sechs Ausnahmen:
+- ID 57/196 (88,5) und ID 2 (100,65): stimmen mit der Abschrift überein (Suchmuster zu streng).
+- ID 380 (176,1): stimmt (Original schreibt „oben“ statt „oder“).
+- **ID 69 (Dittwar Nr. 17): Tabelle 190,0, Abschrift S. 85 „63 Ruthen 6 Fuß oder 190 Meter 80 Centimeter“
+  → 190,8.**
+- **ID 316 (Großrinderfeld Nr. 7): Tabelle 152,2, Abschrift S. 34 „51 Ruthen 4 Fuß oder 154 Meter 20
+  Centimeter“ → vermutlich Zahlendreher, 154,2.**
+- ID 365 (Grünsfeld Nr. 5): Tabelle 65,0; Original „21 Ruthen 7 Fuß oder (44 [durchgestrichen])“,
+  also 65,1 m aus Ruten/Fuß.
+Korrekturen noch nicht ausgeführt (Freigabe Hendrik).
+
+**Browser-Cache:** Server sendet `Last-Modified` und `ETag`, aber kein `Cache-Control`/`Expires`;
+Browser cachen heuristisch. Für die eingefrorene Abgabeversion unkritisch (Dateien ändern sich nach
+dem Upload nicht); nach dem letzten Upload nicht mehr hochladen und mit leerem Cache prüfen.
+`.htaccess` nicht angefasst.
+
+
 ## 04.10.2026, 14:40 – Datenkorrektur: Stein 388 versetzt, Stein 66 = Begehung 125
 
 Entscheidungen Hendrik: 388 nach 1872 versetzt; Zuordnung ID 66 → Begehungsnummer 125 (vermutlich);
