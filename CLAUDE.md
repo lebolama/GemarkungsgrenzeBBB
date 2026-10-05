@@ -18,6 +18,13 @@ angelegt** ist. Vor jeder Änderung an gemeinsam genutzten Dateien (CSS, JS,
 `data.json`, GeoJSON) prüfen, ob eine der drei Seiten sie einbindet. Wenn ja:
 nicht ändern, sondern eine neue Datei für die übrigen Seiten anlegen.
 
+## 1a. Eingereichte Abgabeversion – NICHT verändern
+
+`https://beierstettel.de/Grenze/version-20261005/` (lokal `stichtag/version-20261005/`) wurde am
+05.10.2026 für den Landespreis für Heimatforschung Baden-Württemberg 2027 eingereicht. Dort wird
+**nichts** mehr geändert, hochgeladen oder gelöscht (auch nicht „Kleinigkeiten“). `werkzeuge/ftp.py`
+verweigert den Upload. Die laufende Website unter `/Grenze/` darf weiterentwickelt werden.
+
 ## 2. Sprache
 
 Siehe `docs/STILREGELN.md`. Kurz: wissenschaftlich-seriös, klar, strukturiert,

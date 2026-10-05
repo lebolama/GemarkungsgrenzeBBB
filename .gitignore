@@ -20,3 +20,8 @@ Gmail - *.pdf
 docs/bewerbung/.edge-profil/
 
 stichtag/
+
+# Eingereichte Bewerbung: persönliche Daten (Telefon, Geburtsjahrgang, Unterschrift) – nie ins Repo
+docs/bewerbung/Bewerbungsformular*.pdf
+docs/bewerbung/Scanned-image*.pdf
+docs/bewerbung/*unterschrieben*.pdf

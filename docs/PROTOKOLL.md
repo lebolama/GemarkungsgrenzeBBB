@@ -1,5 +1,31 @@
 # Arbeitsprotokoll
 
+## 05.10.2026 – Bewerbung eingereicht
+
+Hendrik hat die Bewerbung um den Landespreis für Heimatforschung Baden-Württemberg 2027
+(Kategorie „Heimatforschung digital“) online abgeschickt; die Bestätigungsseite („Sie haben den
+Prozess erfolgreich abgeschlossen“) kam, die PDF-Bestätigung hat er gespeichert. Eingereicht:
+Link https://beierstettel.de/Grenze/version-20261005/, `Dokumentation_Grenzsteine_Tauberbischofsheim.pdf`
+(12 Seiten) und der unterschriebene Scan des Kriterienkatalogs (3 Seiten).
+
+Vorher am Morgen geprüft: alle 78 Dateien der Abgabeversion auf dem Server identisch mit
+`stichtag/version-20261005/` (0 Abweichungen).
+
+**Schutz:** `version-20261005` ist eingefroren – Eintrag in `CLAUDE.md` (§ 1a) und Sperre in
+`werkzeuge/ftp.py` (Upload dorthin bricht ab). Die laufende Website darf weiter wachsen.
+
+**Lokal (nicht im Repo, in `.gitignore`):** In `docs/bewerbung/` liegen die PDF-Bestätigung
+(`Bewerbungsformular - Landespreis für Heimatforschung 2027.pdf`, enthält Telefon und Geburtsjahrgang),
+der Scan des unterschriebenen Kriterienkatalogs und die unterschriebene Fassung
+(`Kriterienkatalog_unterschrieben_eingereicht_2026-10-05.pdf`). Ein erster Commit hatte sie
+versehentlich mitgenommen und wurde samt Force-Push ohne sie neu geschrieben (Freigabe Hendrik).
+Im Repo steht wieder die unsignierte Kriterienkatalog-PDF.
+
+**Offen:** Rückmeldung des Ministeriums laut Ausschreibung spätestens im Mai 2027; optional Paar 376→377
+(98,5 m Abweichung) untersuchen; Suche nach verschwundenen Steinen im Winter 2026/27 (u. a. Stein 67
+in der Lücke zwischen Begehung 124 und 123).
+
+
 ## 04.10.2026, 15:20 – Formular gegengelesen; Genauigkeitsstatistik neu gerechnet
 
 **Beim Gegenlesen aufgefallen:** Die Statistik „118 Paare, 35 unter 5 m, 11 unter 1 m, Median 12 m,

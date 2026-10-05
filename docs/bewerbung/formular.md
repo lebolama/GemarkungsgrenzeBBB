@@ -80,3 +80,5 @@ Auswahl: **„Als Link (Cloudlink, Webseite, Downloadlink etc.)“**
 
 - PDF-Bestätigung speichern (kommt auch per E-Mail) und im Repo unter `docs/bewerbung/` ablegen.
 - Stichtagsfassung ab dann nicht mehr verändern.
+
+**Status: am 05.10.2026 eingereicht** (Bestätigungsseite „Sie haben den Prozess erfolgreich abgeschlossen“; PDF-Bestätigung von Hendrik gespeichert).
